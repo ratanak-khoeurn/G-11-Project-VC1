@@ -15,8 +15,8 @@
                   <i class="feather-map-pin mr-2 primary-dark rounded-pill p-2 icofont-size"></i>
                 </div>
                 <div>
-                  <p class="text-white mb-0 small">Select Location</p>
-                  Jawaddi Ludhiana...
+                  <p class="text-white mb-0 small">Select Province</p>
+                  Battambang....
                 </div>
               </a>
               <div class="dropdown-menu p-0 drop-loc" aria-labelledby="navbarDropdown">
@@ -28,7 +28,7 @@
                           <i class="feather-search"></i>
                         </button>
                       </div>
-                      <input type="text" class="shadow-none border-0 form-control" placeholder="Enter Your Location" />
+                      <input type="text" class="shadow-none border-0 form-control" placeholder="Enter Your Province" />
                     </div>
                   </div>
                   <div class="p-3 border-bottom">
@@ -40,31 +40,71 @@
                   </div>
                   <div class="filter">
                     <h6 class="px-3 py-3 bg-light pb-1 m-0 border-bottom">
-                      Choose your country
+                      Choose your Province
                     </h6>
                     <div class="custom-control border-bottom px-0 custom-radio">
                       <input type="radio" id="customRadio1" name="location" class="custom-control-input" />
-                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio1">Afghanistan</label>
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio1">Phnom Penh</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
                       <input type="radio" id="customRadio2" name="location" class="custom-control-input" checked />
-                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio2">India</label>
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio2">Battambang</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
                       <input type="radio" id="customRadio3" name="location" class="custom-control-input" />
-                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio3">USA</label>
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio3">Banteay Meanchey</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
                       <input type="radio" id="customRadio4" name="location" class="custom-control-input" />
-                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio4">Australia</label>
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio4">SiemReap</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
                       <input type="radio" id="customRadio5" name="location" class="custom-control-input" />
-                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio5">Japan</label>
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio5">Kompot</label>
                     </div>
-                    <div class="custom-control px-0 custom-radio">
+                    <div class="custom-control border-bottom px-0 custom-radio">
                       <input type="radio" id="customRadio6" name="location" class="custom-control-input" />
-                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio6">China</label>
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio6">Kandal</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio7" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio7">Ratanakiri</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio8" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio8">Kompong Chnang</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio9" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio9">Kompong Thom</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio10" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio10">Kompong Cham</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio11" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio11">Kompong Speu</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio12" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio12">Prey Veng</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio13" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio13">Takeo</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio13" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio13">Takeo</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio14" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio14">Pursat</label>
+                    </div>
+                    <div class="custom-control border-bottom px-0 custom-radio">
+                      <input type="radio" id="customRadio15" name="location" class="custom-control-input" />
+                      <label class="custom-control-label py-3 w-100 px-3" for="customRadio15">Koh Kong</label>
                     </div>
                   </div>
                 </div>
