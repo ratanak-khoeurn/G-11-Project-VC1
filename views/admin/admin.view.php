@@ -20,8 +20,8 @@
         </button>
         <ul class="lang-menu dropdown">
           <li><a href="##">English</a></li>
-          <li><a href="##">French</a></li>
-          <li><a href="##">Uzbek</a></li>
+          <li><a href="##">Khmer</a></li> 
+    
         </ul>
       </div>
       <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
@@ -91,7 +91,7 @@
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="##">
+          <li><a class="danger" href="../../admin_login.php">
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>
