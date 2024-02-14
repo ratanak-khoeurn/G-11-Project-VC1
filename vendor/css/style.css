@@ -102,7 +102,8 @@ div,a {
 }
 
 .brand-wrap img {
-    height: 40px
+    height: 60px;
+    border-radius: 50%;
 }
 
 .toggle-2 {
@@ -443,7 +444,8 @@ p {
 }
 
 .landing-page-skip .img-fluid {
-    max-height: 290px
+    max-height: 290px;
+    width: 234px;
 }
 
 .landing-page-skip p {
@@ -890,6 +892,7 @@ p {
 .location-page .img-fluid {
     max-width: 360px
 }
+
 
 .restaurant-detailed-ratings-and-reviews hr {
     margin: 0 -16px
