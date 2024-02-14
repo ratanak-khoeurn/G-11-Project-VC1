@@ -54,8 +54,8 @@
                         <p class="text-center">Forgot your password?</p>
                     </a>
                     <div class="d-flex align-items-center justify-content-center">
-                        <a href="signup.html">
-                            <p class="text-center m-0">Don't have an account? Sign up</p>
+                        <a href="##">
+                            <p class="text-center m-0">Don't have an account? <a href="/signin">Sign in</a></p>
                         </a>
                     </div>
                 </div>
