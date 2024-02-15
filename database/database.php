@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $hostname = "localhost";
 $database = "foodpanda_db";
