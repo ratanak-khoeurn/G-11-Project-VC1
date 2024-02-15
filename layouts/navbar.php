@@ -110,7 +110,6 @@
             </div>
           </div>
         </div>
-
         <div class="col-8">
           <div class="d-flex align-items-center justify-content-end pr-5">
             <a href="/search" class="widget-header mr-4 text-white">
