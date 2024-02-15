@@ -134,13 +134,6 @@
                   <span>Sign in</span>
                 </div>
               </a>
-              <a href="/signup" class="widget-header mr-4 text-white m-none">
-              <div class="icon d-flex align-items-center">
-                  <i class="feather-user h6 mr-2 mb-0"></i>
-                  <span>Sign up</span>
-                </div>
-              </a>
-
               <div class="dropdown mr-4 m-none">
                 <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
