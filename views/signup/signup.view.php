@@ -33,14 +33,14 @@
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Welcome Back</h2>
                     <p class="text-50">Sign up to continue</p>
-                    <form class="mt-5 mb-4" action="verification.html">
+                    <form class="mt-5 mb-4" action="controllers/signup/create_user.controller.php" method="post">
                         <div class="form-group">
-                            <input type="name" placeholder ="First Name" class="form-control mb-2" id="exampleInputName" aria-describedby="nameHelp" >
-                            <input type="name" placeholder ="Last Name" class="form-control mb-2" id="exampleInputName" aria-describedby="nameHelp" >
-                            <input type="email" placeholder="Enter Email" class="form-control mb-2" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" />
-                            <input type="password" placeholder="Enter Password" class="form-control"
-                                id="exampleInputPassword1" />
+                            <input type="name" placeholder ="First Name" class="form-control mb-4" id="exampleInputName" aria-describedby="nameHelp" name="first_name">
+                            <input type="name" placeholder ="Last Name" class="form-control mb-4" id="exampleInputName" aria-describedby="nameHelp" name="last_name">
+                            <input type="email" placeholder="Enter Email" class="form-control mb-4" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" name="email"/>
+                            <input type="password" placeholder="Enter Password" class="form-control mt-4"
+                                id="exampleInputPassword1" name="password"/>
                         </div>
                         
                         <button class="btn btn-primary btn-lg btn-block">SIGN UP</button>
