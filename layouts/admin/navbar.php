@@ -34,10 +34,10 @@
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
-                                <a href="/signin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
+                                <a href="/admin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
                             </li>
                             <li>
-                                <a href="/signin"><span class="icon edit" aria-hidden="true"></span>Products</a>
+                                <a href="/product"><span class="icon edit" aria-hidden="true"></span>Products</a>
                             </li>
                         </ul>
                     </li>
