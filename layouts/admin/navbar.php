@@ -37,8 +37,9 @@
                                 <a href="posts.html">All Posts</a>
                             </li>
                             <li>
-                                <a href="##">Add new post</a>
-                                <a class="show-cat-btn" href="##">
+                                <a href="##">Restauarnat</a>
+                                <a href="##">Product</a>
+                                <!-- <a class="show-cat-btn" href="##">
                                     <span class="icon document" aria-hidden="true"></span>Restaurant
 
                                     </span>
@@ -47,7 +48,7 @@
                                 <span class="icon document" aria-hidden="true"></span>Product
 
                                     </span>
-                                </a>
+                                </a> -->
                             </li>
                         </ul>
                     </li>
