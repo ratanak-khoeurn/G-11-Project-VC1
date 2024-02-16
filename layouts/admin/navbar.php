@@ -83,7 +83,7 @@
                 </ul>
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Admin</a>
+                        <a href="views/admin/admin_detail.view.php"><span class="icon edit" aria-hidden="true"></span>Admin</a>
                     </li>
                     <li>
                         <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
