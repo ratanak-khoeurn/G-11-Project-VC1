@@ -99,16 +99,12 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="comments.html">
-                            <span class="icon message" aria-hidden="true"></span>
-                            Comments
-                        </a>
-                        <span class="msg-counter">7</span>
-                    </li>
+                   
                 </ul>
-                <span class="system-menu__title">system</span>
                 <ul class="sidebar-body-menu">
+                    <li>
+                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Admin</a>
+                    </li>
                     <li>
                         <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
                     </li>
@@ -144,7 +140,15 @@
                             <li>
                                 <a href="users-02.html">Users-02</a>
                             </li>
+
                         </ul>
+                    </li>
+                    <li>
+                        <a href="comments.html">
+                            <span class="icon message" aria-hidden="true"></span>
+                            Comments
+                        </a>
+                        <span class="msg-counter">7</span>
                     </li>
                     <li>
                         <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
