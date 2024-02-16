@@ -34,37 +34,16 @@
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
-                                <a href="posts.html">All Posts</a>
+                                <a href="/signin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
                             </li>
                             <li>
-                                <a href="##">Restauarnat</a>
-                                <a href="##">Product</a>
-                                <!-- <a class="show-cat-btn" href="##">
-                                    <span class="icon document" aria-hidden="true"></span>Restaurant
-
-                                    </span>
-                                </a>
-                                <a class="show-cat-btn" href="##">
-                                <span class="icon document" aria-hidden="true"></span>Product
-
-                                    </span>
-                                </a> -->
+                                <a href="/signin"><span class="icon edit" aria-hidden="true"></span>Products</a>
                             </li>
                         </ul>
                     </li>
+
                     <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon folder" aria-hidden="true"></span>Categories
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="categories.html">All categories</a>
-                            </li>
-                        </ul>
+                        <a href="/signin"><span class="icon edit" aria-hidden="true"></span>Category</a>
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
@@ -100,7 +79,7 @@
                             </li>
                         </ul>
                     </li>
-                   
+
                 </ul>
                 <ul class="sidebar-body-menu">
                     <li>
