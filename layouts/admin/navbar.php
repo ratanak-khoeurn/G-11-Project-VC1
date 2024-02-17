@@ -34,7 +34,7 @@
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
-                                <a href="/admin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
+                                <a href="views/restaurant/form_add_restaurant.php"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
                             </li>
                             <li>
                                 <a href="/product"><span class="icon edit" aria-hidden="true"></span>Products</a>
