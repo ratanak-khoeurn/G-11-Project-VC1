@@ -7,9 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $last_name = htmlspecialchars($_POST['last_name']);
     $email = htmlspecialchars($_POST['email']);
     $password = htmlspecialchars($_POST['password']);
-    $passowrdENgript =  password_hash($password,PASSWORD_BCRYPT);
 
-    $iscreated = signUp($first_name,$last_name, $email, $passowrdENgript);
+    $iscreated = signUp($first_name,$last_name, $email, $password);
     if ($iscreated){
         header('location:/signin');
     }else{
