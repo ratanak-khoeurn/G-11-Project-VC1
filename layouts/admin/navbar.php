@@ -43,7 +43,7 @@
                     </li>
 
                     <li>
-                        <a href="/signin"><span class="icon edit" aria-hidden="true"></span>Category</a>
+                        <a href="/category"><span class="icon edit" aria-hidden="true"></span>Category</a>
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
