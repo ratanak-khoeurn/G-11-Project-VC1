@@ -20,3 +20,4 @@ require "layouts/admin/header.php";
 require "layouts/admin/navbar.php";
 require $page;
 require "layouts/admin/footer.php";
+
