@@ -4,7 +4,7 @@
     <main   class="main users chart-page" id="skip-target">
       <div class="container">
         <h2 class="main-title">Admin</h2>
-        <button class="add-admin"><a href="form_add_admin.view.php">Add admin</a>  </button>
+        <button class="add-admin">Add admin</button>
       </div>
     </main>
 </div>

@@ -9,7 +9,7 @@
                     <span class="sr-only">Home</span>
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
-                        <img src="../../assets/images/logo_web.png" alt="" style="width: 100px; height: 100px; border-radius: 50%;">
+                        <img src="../../assets/images/logo_web.png" alt="" style="width: 80px; height: 80px; border-radius: 50%;margin-right:10px">
                     </div>
                 </a>
                 <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
@@ -65,46 +65,18 @@
                 </ul>
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a href="/add_admin"><span class="icon edit" aria-hidden="true"></span>Admin</a>
+                        <a href="/add_admin"><span class="icon edit" aria-hidden="true"></span>Admins</a>
                     </li>
                     <li>
                         <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
                     </li>
                     <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon category" aria-hidden="true"></span>Deliverer
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="extention-01.html">Extentions-01</a>
-                            </li>
-                            <li>
-                                <a href="extention-02.html">Extentions-02</a>
-                            </li>
-                        </ul>
+                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Deliverers</a>
                     </li>
                     <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon user-3" aria-hidden="true"></span>Users
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="users-01.html">Users-01</a>
-                            </li>
-                            <li>
-                                <a href="users-02.html">Users-02</a>
-                            </li>
-
-                        </ul>
+                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Users</a>
                     </li>
+        
                     <li>
                         <a href="comments.html">
                             <span class="icon message" aria-hidden="true"></span>
