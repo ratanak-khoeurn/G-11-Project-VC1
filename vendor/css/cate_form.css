@@ -9,7 +9,7 @@ form{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 1200px;
+    width: 100%;
     background: rgb(80, 80, 245);
     height: 80px;
     border: 2px solid #fff;

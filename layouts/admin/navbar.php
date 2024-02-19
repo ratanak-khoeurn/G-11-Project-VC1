@@ -68,7 +68,7 @@
                         <a href="/add_admin"><span class="icon edit" aria-hidden="true"></span>Admins</a>
                     </li>
                     <li>
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
+                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Managers</a>
                     </li>
                     <li>
                         <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Deliverers</a>
