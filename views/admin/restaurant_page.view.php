@@ -7,7 +7,7 @@
     <div id="restar" class="restar">
         <div class="restar-content">
             <span class="close">&times;</span>
-            <form method="post" action="">
+            <form method="post" action="models/admin/restaurant.model.php">
                 <div class="group">
                     <label for="restaurant_name">Restaurant Name:</label>
                     <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
