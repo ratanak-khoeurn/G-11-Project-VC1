@@ -39,4 +39,47 @@
       </form>
     </div>
   </div>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Product Name</th>
+      <th>Restaurant Name</th>
+      <th>Image URl</th>
+      <th>Price</th>
+      <th>Discount</th>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Milk</td>
+      <td>Drink-Master</td>
+      <td>Food lolo</td>
+      <td>1234$</td>
+      <td>- - - -</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Pork</td>
+      <td>CC-Omakasek</td>
+      <td>Food lolo</td>
+      <td>10000$</td>
+      <td>- - - -</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Stage</td>
+      <td>HLN-MoMO</td>
+      <td>Food lolo</td>
+      <td>200340$</td>
+      <td>- - - -</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Wine</td>
+      <td>Drink II-Master</td>
+      <td>Food lolo</td>
+      <td>200000$</td>
+      <td>- - - -</td>
+    </tr>
+  </table>
 </div>
