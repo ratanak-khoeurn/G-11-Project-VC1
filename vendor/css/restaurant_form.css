@@ -56,7 +56,7 @@ form{
     align-items: center;
     justify-content: space-between;
     width: 523px;
-    height: 500px;
+    height: 570px;
     background: transparent;
     border: 2px solid #fff;
     color: white;
@@ -87,4 +87,9 @@ label{
 }
 .submit{
     width: 500px;
+}
+#region{
+    width: 500px;
+    height: 40px;
+    margin: 10px 0;
 }
