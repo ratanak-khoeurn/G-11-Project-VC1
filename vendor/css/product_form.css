@@ -88,3 +88,24 @@ label{
 #restaurant_name{
     height: 40px;
 }
+
+
+/* -------------------------------- */
+
+
+table {
+    margin-top: 4%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 95%;
+  }
+
+  td, th {
+    border: 2px solid #0c0c0c6b;
+    text-align: center;
+    padding: 11px;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(105, 164, 16, 0.671);
+  }
