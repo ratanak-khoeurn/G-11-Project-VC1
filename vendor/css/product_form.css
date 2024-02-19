@@ -101,11 +101,11 @@ table {
   }
 
   td, th {
-    border: 2px solid #0c0c0c31;
+    border: 2px solid #0c0c0c6b;
     text-align: center;
-    padding: 8px;
+    padding: 11px;
   }
 
   tr:nth-child(even) {
-    background-color: rgb(105, 164, 16);
+    background-color: rgba(105, 164, 16, 0.671);
   }

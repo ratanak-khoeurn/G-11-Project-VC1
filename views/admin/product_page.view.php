@@ -59,7 +59,7 @@
     </tr>
     <tr>
       <td>02</td>
-      <td>Pork</td>
+      <td>Salmon & Tona fish</td>
       <td>CC-Omakasek</td>
       <td>Food lolo</td>
       <td>10000$</td>
