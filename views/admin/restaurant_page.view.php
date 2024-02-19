@@ -20,7 +20,7 @@
                 </div>
                 <div class="group">
                     <label for="restaurant_image_url">Restaurant Image:</label>
-                    <input type="text" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
 
                 </div>
                 <div class="group">
