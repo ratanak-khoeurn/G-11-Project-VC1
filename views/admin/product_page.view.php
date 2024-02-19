@@ -6,11 +6,11 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <form action="process.php" method="post">
+      <form action="models/admin/products/product_process.model.php" method="post">
         <div class="mb-3">
           <div class="form-group">
             <label for="product_image_url">Image URL</label>
-            <input type="text" class="border form-control" id="product_image_url" name="product_image_url" placeholder="enter image URL" required>
+            <input type="text" class="border form-control" id="product_img" name="product_img" placeholder="enter image URL" required>
           </div>
           <div class="form-group">
             <label for="product_name">Product Name</label>
