@@ -5,11 +5,12 @@ $routes = [
     '/signin' => 'controllers/signin/signin.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/product' => 'controllers/product/product.controller.php',
+    '/manager' => 'controllers/manager/manager.controller.php',
 
     // '/trainer-review' => 'controllers/reviews/review.controller.php',
     // '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
    
-    
+
 
 ];
 
