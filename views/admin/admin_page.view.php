@@ -1,3 +1,4 @@
+
 <link rel="stylesheet" href="../../vendor/css/admin_page.css">
 <script src="../../vendor/js/admin_page.js" defer></script>
 <div class="container">
@@ -25,6 +26,10 @@
           <div class="form-group">
           <label for="lname">Pass word</label>
           <input type="password" id="lname" name="lastname" placeholder="Your Password..">
+          </div>
+          <div class="form-group">
+          <label for="lname">Upload Profile</label>
+          <input type="file" id="lname" name="profile">
           </div>
           
           <button class="submit" type="submit">Submit</button>
