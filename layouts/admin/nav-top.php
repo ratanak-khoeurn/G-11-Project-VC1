@@ -23,6 +23,11 @@
 
         </ul>
       </div>
+      <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
+        <span class="sr-only">Switch theme</span>
+        <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
+        <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
+      </button>
       <div class="notification-wrapper">
         <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
           <span class="sr-only">To messages</span>
@@ -69,10 +74,6 @@
           </li>
         </ul>
       </div>
-      <div class="name">
-        <h4 class="first">Siem</h4>
-        <span class="role" style="font-size:12px;">admin</span>
-      </div>
       <div class="nav-user-wrapper">
         <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
           <span class="sr-only">My profile</span>
@@ -91,8 +92,8 @@
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="../../models/logout.model.php">
-              <i data-feather="log-out" aria-hidden="true" ></i>
+          <li><a class="danger" href="/signin">
+              <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>
         </ul>
