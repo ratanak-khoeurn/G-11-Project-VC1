@@ -1,6 +1,6 @@
 <div class="d-none">
         <div class="bg-primary border-bottom p-3 d-flex align-items-center">
-            <a class="toggle togglew toggle-2" href="#"><span></span></a>
+            <a class="toggle togglew toggle-2" href="#"><span></span></a>col-mb-3 pb-3
             <h4 class="font-weight-bold m-0 text-white">My Order</h4>
         </div>
     </div>
