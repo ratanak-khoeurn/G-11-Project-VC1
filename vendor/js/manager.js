@@ -6,7 +6,6 @@
     function hide_from(){
         modal.style.display = 'none';
 
-
     }
     
 
