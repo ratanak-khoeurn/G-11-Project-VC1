@@ -87,7 +87,6 @@
                         <td>200340$</td>
                         <td>HLN-MoMO</td>
                         <td>----</td>
-                        
                         <td>- - - -</td>
                         <td>
                             <i class="material-icons" style="font-size:30px;color:black">upgrade</i>
@@ -97,11 +96,6 @@
                 </table>
             </div>
             </div>
-            
-            
         </main>
     </div>
-
-    
-    
 </body>
