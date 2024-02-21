@@ -1,39 +1,5 @@
-
-#skip-target{
-    width: 100%;
-    height:auto;
-   
-}
-form{
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    background: rgb(80, 80, 245);
-    height: 80px;
-    border: 2px solid #fff;
-    border-radius: 10px;
-    color: white;
-    padding: 5px 10px;
-}
-button{
-    height: 50px;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: rgb(105, 164, 16);
-    color: white;
-    padding: 2px 5px;
-
-}
-input{
-    border: 2px solid green;
-}
-hr{
-   margin: 5px 10px;
-    margin: auto;
-    border: 5px solid blue;
-
+h2{
+    margin-top: 20px;
 }
 .table {
     width: 100%;

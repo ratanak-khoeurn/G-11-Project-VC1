@@ -8,9 +8,12 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
+  }
+  .title{
+    margin:20px 0;
+  }
+  
+  form {
     background-color: #fefefe;
     margin:auto;
     margin-top: 10%;
@@ -21,91 +24,68 @@
     animation-name: modalopen;
     animation-duration: 0.4s;
     border-radius: 10px;
-}
-
-/* Animation */
-@keyframes modalopen {
+  }
+  
+  /* Animation */
+   @keyframes modalopen {
     from {
         opacity: 0;
     }
-
+  
     to {
         opacity: 1;
     }
-}
-
-/* Close button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-form{
-
+  }
+  
+  form{
+  
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     width: 523px;
-    height: 500px;
+    height: 520px;
     background: transparent;
     border: 2px solid #fff;
     color: white;
     padding: 15px 10px;
-}
-.form-group{
+  }
+  .form-group{
     display: flex;
     flex-direction: column;
-}
-button{
+  }
+  button{
     height: 50px;
     border-radius: 5px;
     font-size: 16px;
-    background-color: rgb(105, 164, 16);
+    background-color: #69a410;
     color: white;
     padding: 2px 5px;
-
-}
-#restaurant_name,input{
+    
+  
+  }
+  #rstaurant_name,input{
     width: 500px;
     margin: 8px 0;
-}
-.btn{
+  }
+  .btn{
     width: 500px;
-}
-label{
+  }
+  label{
     color: black;
-}
-#restaurant_name{
+  }
+  .submit,.close{
+    width: 500px;
+  } 
+  .close{
+    margin-top: 20px;
+  }
+  .submit{
+    margin-top: 10px;
+  }
+  #restaurant_name{
     height: 40px;
 }
-
-
-/* -------------------------------- */
-
-
-table {
-    margin-top: 4%;
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 95%;
-  }
-
-  td, th {
-    border: 2px solid #0c0c0c6b;
-    text-align: center;
-    padding: 11px;
-  }
-
-  tr:nth-child(even) {
-    background-color: rgba(105, 164, 16, 0.671);
-  }
+  
+  
+  

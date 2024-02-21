@@ -68,13 +68,13 @@
                         <a href="/add_admin"><span class="icon edit" aria-hidden="true"></span>Admins</a>
                     </li>
                     <li>
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
+                        <a href="/manager_admin"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
                     </li>
                     <li>
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Deliverers</a>
+                        <a href="/deliverer_admin"><span class="icon edit" aria-hidden="true"></span>Deliverers</a>
                     </li>
                     <li>
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Users</a>
+                        <a href="/customer_admin"><span class="icon edit" aria-hidden="true"></span>Customers</a>
                     </li>
         
                     <li>

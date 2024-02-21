@@ -198,7 +198,12 @@ html {
     box-sizing: inherit
 }
 
-.container,
+.container {
+    width: 100%;
+    padding-left: 60px;
+
+    
+}
 .container-fluid {
     width: 98%;
     /* padding-right: 15px; */
