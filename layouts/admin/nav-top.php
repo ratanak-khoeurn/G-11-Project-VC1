@@ -1,4 +1,7 @@
 <!-- ! Main nav -->
+<?php
+session_start();
+?>
 <nav class="main-nav--bg">
   <div class="container main-nav">
     <div class="main-nav-start">
@@ -74,12 +77,17 @@
           </li>
         </ul>
       </div>
+      <div class="name">
+        <h4 class="first"><?= $_SESSION["first_name"] ?></h4>
+        <span class="role" style="font-size:12px;"><?= $_SESSION["role"] ?></span>
+      </div>
+
       <div class="nav-user-wrapper">
         <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
             <picture>
-              <source srcset="assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp"><img src="assets/images/avatar/avatar-illustrated-02.png" alt="User name">
+              <source srcset="assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp"><img src="<?=$_SESSION['img']?>" alt="User name">
             </picture>
           </span>
         </button>

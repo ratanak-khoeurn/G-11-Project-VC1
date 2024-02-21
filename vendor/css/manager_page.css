@@ -1,0 +1,92 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: auto;
+    
+   
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    background: rgb(248, 153, 153);
+}
+.left{
+    display: flex;
+    width: 17%;
+    justify-content: space-evenly;
+}
+.left img{
+    border: 2px solid red;
+    border-radius: 50%;
+}
+.right{
+
+}
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.main_left{
+    display: flex;
+    width: 30%;
+    background-image:url("https://www.moma.org/d/p/sa/8-14-23_Restaurant-Header_Final.jpg") ;
+
+    height: 90%;
+    background-size: cover; /* This will make the background image cover the entire element */
+    background-position: center;
+    border-right: 5px solid black;
+    justify-content: center;
+
+
+}
+form{
+    
+    background: #edcbcb;
+    width: 95%;
+    height: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    border: 2px solid transparent;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); 
+    border-radius: 5px;
+    
+}
+.group_label{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+
+}
+input{
+    width: 400px;
+    height: 40px;
+    margin:10px 0;
+    border-radius: 5px;
+    border: none;
+    border-bottom: 3px solid red;
+    outline: none;
+    background: transparent;
+}
+label{
+    color: black;
+    font-weight: bold;
+}
+.main_right{
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    height: 90%;
+}
+.top{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
