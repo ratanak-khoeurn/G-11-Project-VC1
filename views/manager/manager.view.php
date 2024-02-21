@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../../../vendor/css/manager_page.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <body>
     
     <div class="container">
@@ -8,7 +9,7 @@
                 <h2>Restaurant</h2>
             </div>
             <div class="right">
-         
+
             </div>
         </nav>
         <main>
@@ -43,8 +44,64 @@
                     <input type="text"  id="search" placeholder="Search..."/>
                 </div>
                 <hr>
-                
+                <div class = MG-4>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Category</th>
+                        <th>Discount</th>
+                        <th>Picture</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>Milk</td>
+                        <td>1234$</td>
+                        <td>Drink-Master</td>
+                        <td>----</td>
+                        
+                        <td>- - - -</td>
+                        <td>
+                            <i class="material-icons" style="font-size:30px;color:black">upgrade</i>
+                            <i class="material-icons" style="font-size:30px;color:red">delete</i>
+                        </td>
+                    </tr>
+                        <tr>
+                        <td>02</td>
+                        <td>Salmon & Tona fish</td>
+                        <td>10000</td>
+                        <td>CC-Omakasek</td>
+                        <td>----</td>
+                        
+                        <td>- - - -</td>
+                        <td>
+                            <i class="material-icons" style="font-size:30px;color:black">upgrade</i>
+                            <i class="material-icons" style="font-size:30px;color:red">delete</i>
+                        </td>
+                    </tr>
+                        <tr>
+                        <td>03</td>
+                        <td>Stage</td>
+                        <td>200340$</td>
+                        <td>HLN-MoMO</td>
+                        <td>----</td>
+                        
+                        <td>- - - -</td>
+                        <td>
+                            <i class="material-icons" style="font-size:30px;color:black">upgrade</i>
+                            <i class="material-icons" style="font-size:30px;color:red">delete</i>
+                        </td>
+                    </tr>
+                </table>
             </div>
+            </div>
+            
+            
         </main>
     </div>
+
+    
+    
 </body>

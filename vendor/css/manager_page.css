@@ -12,7 +12,7 @@ body{
 nav{
     display: flex;
     justify-content: space-between;
-    background: rgb(248, 153, 153);
+    background: rgba(164, 16, 16, 0.951);
 }
 .left{
     display: flex;
@@ -45,9 +45,8 @@ main{
 
 }
 form{
-    
-    background: #edcbcb;
-    width: 95%;
+    background: #e81818e9;
+    width: 100%;
     height: 90%;
     margin: auto;
     display: flex;
@@ -65,13 +64,13 @@ form{
     margin-top: 20px;
 
 }
-input{
+ input{
     width: 400px;
     height: 40px;
     margin:10px 0;
     border-radius: 5px;
     border: none;
-    border-bottom: 3px solid red;
+    border-bottom: 3px solid rgb(19, 209, 6);
     outline: none;
     background: transparent;
 }
@@ -80,13 +79,41 @@ label{
     font-weight: bold;
 }
 .main_right{
-    display: flex;
-    flex-direction: column;
-    width: 65%;
-    height: 90%;
+    /* display: flex; */
+    /* flex-direction: column; */
+    width: 58%;
+    height: 20%;
 }
 .top{
     display: flex;
     width: 100%;
     justify-content: space-around;
+    /* margin-left: 10%; */
+}
+hr{
+    border: 5px solid rgba(164, 16, 16, 0.951);
+}
+
+
+/* ------------------------------- */
+
+.MG-4{
+    table {
+    margin-top: 5%;
+    margin-left: 10%;
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    height: 20%;
+  }
+
+  td, th {
+    border: 2px solid #0c0c0cf8;
+    text-align: center;
+    padding: 9px;
+  }
+
+  tr:nth-child(even) {
+    background-color: rgba(150, 134, 134, 0.671);
+  }
 }
