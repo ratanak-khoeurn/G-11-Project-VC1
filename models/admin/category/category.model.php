@@ -14,17 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($picture['size'] < 5000000 && in_array($picture["type"], array("png", "jpeg", "jpg"))) {
     }else {
         move_uploaded_file($picture["tmp_name"], $uploadFile);
-        echo 'something went wrong';
-        echo $picture["size"];
-        echo $picture["type"];
+        if (!empty($name)) {
+            // Check if $picture is set before passing it to create_category
+            $is_get_answer = create_category($name, isset($picture) ? $uploadFile : null);
+            if ($is_get_answer) {
+                header('location:/category');
+            } else {
+                echo 'Not found';
+            }
+        }
     }
 }
-// if (!empty($name)) {
-//     // Check if $picture is set before passing it to create_category
-//     $is_get_answer = create_category($name, isset($picture) ? $uploadFile : null);
-//     if ($is_get_answer) {
-//         // header('location:/category');
-//     } else {
-//         echo 'Not found';
-//     }
-// }
+
