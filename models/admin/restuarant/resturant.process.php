@@ -14,4 +14,12 @@ function create_restaurant(string $res_name, string $res_address ,string $res_im
     ]);
     return $statement->rowCount() > 0;
 }
-  
+
+function get_restaurant(): array
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM restaurants"); // Fixed typo in table name
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
