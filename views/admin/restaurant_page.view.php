@@ -26,6 +26,7 @@
                         <th>ID</th>
                         <th>Resturant Name</th>
                         <th>Resturant Address</th>
+                        <th>Restaurant's image</th>
                         <th>Region</th>
                         <th>Name Owner</th>
                     </tr>
@@ -43,7 +44,8 @@
                           <td><?=$rest['res_id']?></td>
                           <td><?=$rest['res_name']?></td>
                           <td><?=$rest['res_address']?></td>
-                          <td><img src="<?=$rest['restaurant_image_url']?>" alt=""></td>
+                          <td><img src="../../../assets/images/restaurant/<?=$rest['restaurant_image_url']?>" class="img" style="width: 70px;height:65px;border-radius:50%; margin-left:55px; padding:3px" alt=""></td>
+                          <td><?=$rest['region']?></td>
                           <td><?=$rest['restaurant_owner_name']?></td>
                       </tr>
                         
@@ -56,7 +58,7 @@
         <div class="restar-content">
             <span class="close">&times;</span>
             
-            <form method="post" action="models/admin/restuarant/restaurant.model.php">
+            <form method="post" action="../models/admin/restuarant/restaurant.model.php" enctype="multipart/form-data">
                 <div class="group">
                     <label for="restaurant_name">Restaurant Name:</label>
                     <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
@@ -69,7 +71,7 @@
                 </div>
                 <div class="group">
                     <label for="restaurant_image_url">Restaurant Image:</label>
-                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image " required><br>
 
                 </div>
                 <div class="group">
@@ -84,7 +86,7 @@
                     </div>
                 <div class="group">
                     <label for="restaurant_owner_name">Restaurant Owner Name:</label>
-                    <input type="text" id="restaurant_owner_name" name="restaurant_owner_name" placeholder="Enter your name" required><br><br>
+                    <input type="text" id="restaurant_owner_name" name="restaurant_owner_name" placeholder="Enter your name" required><br>
 
                 </div>
                 <button type="submit" class="submit">Submit</button>
