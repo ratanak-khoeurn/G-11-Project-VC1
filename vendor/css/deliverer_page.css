@@ -1,0 +1,57 @@
+.container {
+    width: 100%;
+    /* background: #000; */
+    height: 100%;
+
+}
+
+nav {
+    display: flex;
+    width: 100%;
+    background: pink;
+    justify-content: space-between;
+
+    /* background: pink; */
+}
+
+.left {
+
+    width: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    /* background: #000; */
+}
+
+.right {
+    text-decoration: none;
+    margin-right: 50px;
+    gap: 20px;
+    display: flex;
+}
+
+table,
+td,
+th {
+    border: 1px solid;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+img{
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid greenyellow;
+}
+button{
+    background: greenyellow;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    
+}
+button:hover{
+    background-color: red;
+}
