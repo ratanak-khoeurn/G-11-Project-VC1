@@ -7,7 +7,11 @@
     <div id="restar" class="restar">
         <div class="restar-content">
             <span class="close">&times;</span>
+<<<<<<< HEAD
             <form method="post" action="../../models/admin/restuarant/restaurant.model.php">
+=======
+            <form method="post" action="models/admin/restuarant/restaurant.model.php">
+>>>>>>> origin/get_data_restaurant
                 <div class="group">
                     <label for="restaurant_name">Restaurant Name:</label>
                     <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
@@ -20,12 +24,16 @@
                 </div>
                 <div class="group">
                     <label for="restaurant_image_url">Restaurant Image:</label>
+<<<<<<< HEAD
                     <input type="file" id="restaurant_image_url" name="restaurant_image_url" enctypart = "multipart/form-data"><br>
+=======
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
+>>>>>>> origin/get_data_restaurant
 
                 </div>
                 <div class="group">
-                        <label for="province">Restaurant Name</label>
-                        <select class="form-control" id="region" name="restaurant_name" required>
+                        <label for="province">Choose Region</label>
+                        <select class="form-control" id="region" name="region" required>
                             <option value="">Select a regoin</option>
                             <option value="restaurant1">Kandal</option>
                             <option value="restaurant2">Bonteaymeanchey</option>
