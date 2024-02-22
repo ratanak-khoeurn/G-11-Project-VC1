@@ -39,7 +39,7 @@
                     <tr>
                         <td><?= $category['category_id'] ?></td>
                         <td><?= $category['category_name'] ?></td>
-                        <td><img src="<?=$category['picture'] ?>" class="img" alt=""></td>
+                        <td><img src="<?=$category['picture'] ?>" class="img"  alt=""></td>
                         <td>
                         <a href="" class="btn btn-primary active ">Edit</a>
                         <a href="" class="btn btn-primary active ">Delete</a>

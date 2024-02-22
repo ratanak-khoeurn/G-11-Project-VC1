@@ -1,9 +1,9 @@
 <link rel="stylesheet" href="../../vendor/css/manager.css">
-<script src="../../vendor/js/deliver.js" defer></script>
+<script src="../../vendor/js/manager.js" defer></script>
 <div class="container">
     <h2 class="title">Restaurant's Manager</h2>
     <button class="add" onclick="show_form()">Add Restaurant's Manager</button>
-    <div id="my_modal" class="modal">
+    <div id="form_modale" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <form action="#" method="post">
@@ -27,8 +27,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="lname">Email</label>
-                        <input type="email" id="lname" name="lastname" placeholder="Your Email..">
+                        <label for="lname" style="margin-top: 20px;">Email</label>
+                        <input type="email" id="lname" name="lastname" placeholder="Your Email.." >
                     </div>
                     <div class="form-group">
                         <label for="lname">Pass word</label>
@@ -36,7 +36,6 @@
                     </div>
 
                     <button class="submit" type="submit">Submit</button>
-                    <button class="close" onclick="hide_form()">Cancel</button>
             </form>
         </div>
     </div>
