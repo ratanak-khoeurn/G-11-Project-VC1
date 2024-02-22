@@ -1,8 +1,8 @@
 <link rel="stylesheet" href="../../vendor/css/deliverer.css">
-<script src="../../vendor/js/manager.js" defer></script>
+<script src="../../vendor/js/deliver.js" defer></script>
 <div class="container">
     <h2 class="title">Deliverers</h2>
-    <button class="add">Add Deliverer</button>
+    <button class="add" onclick="show_from()">Add Deliverer</button>
     <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
         <thead>
             <tr>
@@ -14,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr>ww
+            <tr>
                 <td>1</td>
                 <td>Drink</td>
                 <td>Drink</td>
@@ -23,7 +23,6 @@
                     <a href="" class="edit">Edit</a>
                     <a href="" class="delete">Delete</a>
                     <a href="" class="history">history</a>
-
                 </td>
             </tr>
     </table>
@@ -52,7 +51,7 @@
                     </div>
 
                     <button class="submit" type="submit">Submit</button>
-                    <button class="close">Cancel</button>
+                    <button class="close" onclick="hide_from()">Cancel</button>
             </form>
         </div>
     </div>
