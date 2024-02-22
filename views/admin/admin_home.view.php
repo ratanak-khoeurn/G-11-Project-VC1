@@ -65,7 +65,7 @@
         }
 
         span {
-            color: pink;
+            color:pink;
         }
 
         /* Modal styles */
@@ -98,6 +98,7 @@
             padding: 10px;
             width: 50%;
             border-radius: 5px;
+            height: 60%;
         }
 
         .close {
@@ -119,6 +120,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            height: 80%;
         }
 
         .form-group {
@@ -204,6 +206,9 @@
         .custom-file-input:active::before {
             background-color: #45a049;
         }
+        .head{
+            color: black;
+        }
     </style>
 </head>
 
@@ -218,28 +223,16 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="close_form()">&times;</span>
-                <form action="#" method="post">
+                <form action="controllers/signin/check_signin_admin.controller.php" method="post">
+                    <h1 class="head">SIGN IN YOUR ACCOUNT</h1>
                     <div class="form-group">
-                        <label for="product_name">Your Name</label>
-                        <input type="text" class="border form-control" id="product_name" name="product_name" placeholder="Enter your name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="product_name">Email</label>
-                        <input type="text" class="border form-control" id="product_name" name="product_name" placeholder="Enter email" required>
+                        <label for="email">Email</label>
+                        <input type="email" class="border form-control" id="email" name="email" placeholder="Enter email" required>
                         
                     </div>
                     <div class="form-group">
-                        <label for="price">Password</label>
-                        <input type="text" class="border form-control" id="price" name="price" placeholder="Enter password" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="discount">Phone Number</label>
-                        <input type="number" class="border form-control" id="discount" name="discount" placeholder="Enter Phone Number" required>
-                    </div>
-                    <div class="form-group i">
-                        <label for="product_image_url">Your Profile</label>
-                        <input type="file" class="border custom-file-input" id="product_img" name="product_img" accept="image/*" required>
+                        <label for="password">Password</label>
+                        <input type="text" class="border form-control" id="password" name="password" placeholder="Enter password" required>
                     </div>
                     <button type="submit" class="border btn ">SIGN IN</button>
                 </form>

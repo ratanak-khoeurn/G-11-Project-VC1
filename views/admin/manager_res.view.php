@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../../vendor/css/manager.css">
-<script src="../../vendor/js/manager.js" defer></script>
+<script src="../../vendor/js/deliver.js" defer></script>
 <div class="container">
     <h2 class="title">Restaurant's Manager</h2>
     <button class="add" onclick="show_form()">Add Restaurant's Manager</button>
@@ -11,7 +11,6 @@
                     <div class="form-group">
                         <label for="lname">First Name</label>
                         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
