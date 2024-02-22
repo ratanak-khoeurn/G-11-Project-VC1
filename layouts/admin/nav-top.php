@@ -26,11 +26,6 @@ session_start();
 
         </ul>
       </div>
-      <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
-        <span class="sr-only">Switch theme</span>
-        <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
-        <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
-      </button>
       <div class="notification-wrapper">
         <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
           <span class="sr-only">To messages</span>
@@ -79,7 +74,6 @@ session_start();
       </div>
       <div class="name">
         <h4 class="first"><?= $_SESSION["first_name"] ?></h4>
-        <span class="role" style="font-size:12px;"><?= $_SESSION["role"] ?></span>
       </div>
 
       <div class="nav-user-wrapper">
