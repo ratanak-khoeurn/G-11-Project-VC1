@@ -7,7 +7,11 @@
     <div id="restar" class="restar">
         <div class="restar-content">
             <span class="close">&times;</span>
+<<<<<<< HEAD
             <form method="post" action="models/admin/restuarant/restaurant.model.php">
+=======
+            <form method="post" action="../../models/admin/restuarant/restaurant.model.php">
+>>>>>>> fbf2f4885c4912c5a58b0b6f2c45266a2c6c1d6e
                 <div class="group">
                     <label for="restaurant_name">Restaurant Name:</label>
                     <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
@@ -20,7 +24,11 @@
                 </div>
                 <div class="group">
                     <label for="restaurant_image_url">Restaurant Image:</label>
+<<<<<<< HEAD
                     <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
+=======
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" enctypart = "multipart/form-data"><br>
+>>>>>>> fbf2f4885c4912c5a58b0b6f2c45266a2c6c1d6e
 
                 </div>
                 <div class="group">

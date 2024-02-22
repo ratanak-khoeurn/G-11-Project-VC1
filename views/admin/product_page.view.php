@@ -6,11 +6,11 @@
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <form action="process.php" method="post">
+      <form action="models/admin/products/product_process.model.php" method="post">
         <div class="mb-3">
           <div class="form-group">
             <label for="product_image_url">Image URL</label>
-            <input type="text" class="border form-control" id="product_image_url" name="product_image_url" placeholder="enter image URL" required>
+            <input type="text" class="border form-control" id="product_img" name="product_img" placeholder="enter image URL" required>
           </div>
           <div class="form-group">
             <label for="product_name">Product Name</label>
@@ -39,4 +39,47 @@
       </form>
     </div>
   </div>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Product Name</th>
+      <th>Restaurant Name</th>
+      <th>Image URl</th>
+      <th>Price</th>
+      <th>Discount</th>
+    </tr>
+    <tr>
+      <td>01</td>
+      <td>Milk</td>
+      <td>Drink-Master</td>
+      <td>Food lolo</td>
+      <td>1234$</td>
+      <td>- - - -</td>
+    </tr>
+    <tr>
+      <td>02</td>
+      <td>Salmon & Tona fish</td>
+      <td>CC-Omakasek</td>
+      <td>Food lolo</td>
+      <td>10000$</td>
+      <td>- - - -</td>
+    </tr>
+    <tr>
+      <td>03</td>
+      <td>Stage</td>
+      <td>HLN-MoMO</td>
+      <td>Food lolo</td>
+      <td>200340$</td>
+      <td>- - - -</td>
+    </tr>
+    <tr>
+      <td>04</td>
+      <td>Wine</td>
+      <td>Drink II-Master</td>
+      <td>Food lolo</td>
+      <td>200000$</td>
+      <td>- - - -</td>
+    </tr>
+  </table>
 </div>
+
