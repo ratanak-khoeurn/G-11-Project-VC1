@@ -4,6 +4,21 @@
     height:auto;
    
 }
+.form-control {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #f8f8f8;
+    font-size: 16px;
+    color: #777;
+    width: 200px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #6c757d;
+    box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
 form{
 
     display: flex;
