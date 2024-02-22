@@ -59,6 +59,7 @@
             <span class="close">&times;</span>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             
             <form method="post" action="../models/admin/restuarant/restaurant.model.php" enctype="multipart/form-data">
 =======
@@ -70,6 +71,16 @@
             <form method="post" action="models/admin/restuarant/restaurant.model.php">
 >>>>>>> origin/get_data_restaurant
 >>>>>>> 8d7a046fed55ba093c33d56cd5ce89d0de2e738d
+=======
+            <form method="post" action="models/admin/restuarant/restaurant.model.php">
+=======
+            <form method="post" action="../../models/admin/restuarant/restaurant.model.php">
+>>>>>>> fbf2f4885c4912c5a58b0b6f2c45266a2c6c1d6e
+=======
+            
+            <form method="post" action="../models/admin/restuarant/restaurant.model.php" enctype="multipart/form-data">
+>>>>>>> origin/get_data_restaurant
+>>>>>>> 96ddc4b3b53b14a367e81f2d4612cbbd45c40260
                 <div class="group">
                     <label for="restaurant_name">Restaurant Name:</label>
                     <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
@@ -84,6 +95,7 @@
                     <label for="restaurant_image_url">Restaurant Image:</label>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image " required><br>
 =======
                     <input type="file" id="restaurant_image_url" name="restaurant_image_url" enctypart = "multipart/form-data"><br>
@@ -94,6 +106,15 @@
                     <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
 >>>>>>> origin/get_data_restaurant
 >>>>>>> 8d7a046fed55ba093c33d56cd5ce89d0de2e738d
+=======
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
+=======
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" enctypart = "multipart/form-data"><br>
+>>>>>>> fbf2f4885c4912c5a58b0b6f2c45266a2c6c1d6e
+=======
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image " required><br>
+>>>>>>> origin/get_data_restaurant
+>>>>>>> 96ddc4b3b53b14a367e81f2d4612cbbd45c40260
 
                 </div>
                 <div class="group">

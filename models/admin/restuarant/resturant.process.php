@@ -14,7 +14,6 @@ function create_restaurant(string $res_name, string $res_address ,string $res_im
     ]);
     return $statement->rowCount() > 0;
 }
-
 function get_restaurant(): array
 {
     global $connection;
@@ -22,3 +21,4 @@ function get_restaurant(): array
     $statement->execute();
     return $statement->fetchAll();
 }
+
