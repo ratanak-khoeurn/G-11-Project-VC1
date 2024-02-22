@@ -58,11 +58,18 @@
         <div class="restar-content">
             <span class="close">&times;</span>
 <<<<<<< HEAD
+<<<<<<< HEAD
             
             <form method="post" action="../models/admin/restuarant/restaurant.model.php" enctype="multipart/form-data">
 =======
             <form method="post" action="../../models/admin/restuarant/restaurant.model.php">
 >>>>>>> 3ee686cd6166d2e0299b0505be3332294b4c7147
+=======
+            <form method="post" action="../../models/admin/restuarant/restaurant.model.php">
+=======
+            <form method="post" action="models/admin/restuarant/restaurant.model.php">
+>>>>>>> origin/get_data_restaurant
+>>>>>>> 8d7a046fed55ba093c33d56cd5ce89d0de2e738d
                 <div class="group">
                     <label for="restaurant_name">Restaurant Name:</label>
                     <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
@@ -76,10 +83,17 @@
                 <div class="group">
                     <label for="restaurant_image_url">Restaurant Image:</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image " required><br>
 =======
                     <input type="file" id="restaurant_image_url" name="restaurant_image_url" enctypart = "multipart/form-data"><br>
 >>>>>>> 3ee686cd6166d2e0299b0505be3332294b4c7147
+=======
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" enctypart = "multipart/form-data"><br>
+=======
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" placeholder="Enter your restaurant image" required><br>
+>>>>>>> origin/get_data_restaurant
+>>>>>>> 8d7a046fed55ba093c33d56cd5ce89d0de2e738d
 
                 </div>
                 <div class="group">

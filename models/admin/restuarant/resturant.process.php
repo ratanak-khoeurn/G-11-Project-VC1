@@ -22,4 +22,3 @@ function get_restaurant(): array
     $statement->execute();
     return $statement->fetchAll();
 }
-
