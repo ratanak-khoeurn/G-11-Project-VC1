@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $res_address = $_POST['restaurant_address'];
         $res_image = $_FILES['restaurant_image_url'];
         $region = $_POST['region'];
-        $res_owner = $_POST['restaurant_owner_name'];
+        $res_owner = $_POST['manager'];
 
         $uploadDir = '../../../assets/images/restaurant/';
         $uploadFile = $uploadDir . basename($res_image['name']);
