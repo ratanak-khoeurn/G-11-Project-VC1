@@ -86,7 +86,7 @@
                     </div>  
                     <div class="group">
                         <label for="province">Restaurant's Manager</label>
-                        <select class="form-control" id="region" name="region" required>
+                        <select class="form-control" id="manager" name="manager" required>
                             <option value="">Select a Manager</option>
                             <option value="restaurant1">Siem</option>
                             <option value="restaurant2">Nak</option>
