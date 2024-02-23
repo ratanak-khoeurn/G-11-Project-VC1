@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         isset($_POST['restaurant_address']) &&
         isset($_FILES['restaurant_image_url']) &&
         isset($_POST['region']) &&
-        isset($_POST['restaurant_owner_name'])
+        isset($_POST['manager'])
     ) {
 
         $res_name = $_POST['restaurant_name'];
@@ -35,6 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
             }
         
+        }
+        else{
+            echo "moooooo";
         }
     }
 
