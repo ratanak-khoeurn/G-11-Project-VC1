@@ -10,14 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         isset($_POST['restaurant_address']) &&
         isset($_FILES['restaurant_image_url']) &&
         isset($_POST['region']) &&
-        isset($_POST['restaurant_owner_name'])
+        isset($_POST['manager'])
     ) {
 
         $res_name = $_POST['restaurant_name'];
         $res_address = $_POST['restaurant_address'];
         $res_image = $_FILES['restaurant_image_url'];
         $region = $_POST['region'];
-        $res_owner = $_POST['restaurant_owner_name'];
+        $res_owner = $_POST['manager'];
 
         $uploadDir = '../../../assets/images/restaurant/';
         $uploadFile = $uploadDir . basename($res_image['name']);
