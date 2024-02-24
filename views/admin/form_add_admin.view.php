@@ -1,11 +1,10 @@
 
-<link rel="stylesheet" href="../../vendor/css/form.css">
-
 <!DOCTYPE html>
 <html>
+  <link rel="stylesheet" href="../../vendor/css/form.css">
 
 <body>
-
+<div class="container">
 <div class='form_signup'>
   <form action="admin_detail.view.php">
     
@@ -23,6 +22,6 @@
     <input type="submit" value="Submit">
   </form>
 </div>
-
+</div>
 </body>
 </html>

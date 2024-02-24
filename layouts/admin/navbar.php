@@ -22,7 +22,7 @@
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                        <a class="active" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
@@ -83,7 +83,7 @@
                 </ul>
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a href="views/admin/admin_detail.view.php"><span class="icon edit" aria-hidden="true"></span>Admin</a>
+                        <a href="/add_admin"><span class="icon edit" aria-hidden="true"></span>Admin</a>
                     </li>
                     <li>
                         <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
