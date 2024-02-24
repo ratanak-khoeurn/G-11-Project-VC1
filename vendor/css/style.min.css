@@ -1956,7 +1956,8 @@ label {
     -ms-flex-pack: justify;
     justify-content: space-between;
     -ms-flex-wrap: wrap;
-    flex-wrap: wrap
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .main-nav a:focus {
@@ -1967,7 +1968,11 @@ label {
     -webkit-transition: .3s all;
     -o-transition: .3s all;
     transition: .3s all;
-    background-color: #fff
+    background-color: transparent;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .main-nav-end {
@@ -1976,11 +1981,10 @@ label {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center
-}
-
-.main-nav-end>* {
-    margin-right: 15px
+    align-items: center;
+    width: 25%;
+    justify-content: space-between;
+    margin-left: 20px;
 }
 
 .footer-end li:last-child,
@@ -3720,7 +3724,8 @@ label {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
-        flex-direction: row-reverse
+        flex-direction: row-reverse;
+        
     }
 
     .sort-bar {
@@ -3787,7 +3792,8 @@ label {
         -webkit-box-pack: justify;
         -ms-flex-pack: justify;
         justify-content: space-between;
-        width: 100%
+        width: 100%;
+       
     }
 
     .sort-bar {

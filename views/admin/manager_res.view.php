@@ -2,8 +2,8 @@
 <script src="../../vendor/js/manager.js" defer></script>
 <div class="container">
     <h2 class="title">Restaurant's Manager</h2>
-    <button class="add">Add Restaurant's Manager</button>
-    <div id="my_modal" class="modal">
+    <button class="add" onclick="show_form()">Add Restaurant's Manager</button>
+    <div id="form_modale" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
             <form action="#" method="post">
@@ -11,7 +11,6 @@
                     <div class="form-group">
                         <label for="lname">First Name</label>
                         <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-
                     </div>
                     <div class="form-group">
                         <label for="lname">Last Name</label>
@@ -28,8 +27,8 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="lname">Email</label>
-                        <input type="email" id="lname" name="lastname" placeholder="Your Email..">
+                        <label for="lname" style="margin-top: 20px;">Email</label>
+                        <input type="email" id="lname" name="lastname" placeholder="Your Email.." >
                     </div>
                     <div class="form-group">
                         <label for="lname">Pass word</label>
@@ -37,7 +36,6 @@
                     </div>
 
                     <button class="submit" type="submit">Submit</button>
-                    <button class="close">Cancel</button>
             </form>
         </div>
     </div>

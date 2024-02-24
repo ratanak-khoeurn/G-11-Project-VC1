@@ -10,4 +10,4 @@
 <script src="vendor/js/script.js"></script>
 </body>
 
-</html>
+    </html>

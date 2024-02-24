@@ -7,7 +7,7 @@ session_start();
     <div class="main-nav-start">
       <div class="search-wrapper">
         <i data-feather="search" aria-hidden="true"></i>
-        <input type="text" placeholder="Enter keywords ..." required>
+        <input type="text" class="search_box" placeholder="Enter keywords ..." required>
       </div>
     </div>
     <div class="main-nav-end">
@@ -26,11 +26,6 @@ session_start();
 
         </ul>
       </div>
-      <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
-        <span class="sr-only">Switch theme</span>
-        <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
-        <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
-      </button>
       <div class="notification-wrapper">
         <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
           <span class="sr-only">To messages</span>
@@ -79,7 +74,6 @@ session_start();
       </div>
       <div class="name">
         <h4 class="first"><?= $_SESSION["first_name"] ?></h4>
-        <span class="role" style="font-size:12px;"><?= $_SESSION["role"] ?></span>
       </div>
 
       <div class="nav-user-wrapper">
@@ -100,7 +94,7 @@ session_start();
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="/signin">
+          <li><a class="danger" href="/admin">
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>

@@ -23,7 +23,9 @@
     border-radius: 10px;
 }
 
+
 /* Animation */
+
 @keyframes modalopen {
     from {
         opacity: 0;
@@ -55,7 +57,7 @@ form{
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 523px;
+    width: 90%;
     height: 570px;
     background: transparent;
     border: 2px solid #fff;
@@ -88,7 +90,7 @@ label{
 .submit{
     width: 500px;
 }
-#region{
+#region,#manager{
     width: 500px;
     height: 40px;
     margin: 10px 0;

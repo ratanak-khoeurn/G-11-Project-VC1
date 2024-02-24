@@ -20,46 +20,16 @@
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a class="active" href="/admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                        <a class="active" href="/admin_home"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon document" aria-hidden="true"></span>Posts
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="/restaurant_admin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
-                            </li>
-                            <li>
-                                <a href="/product_admin"><span class="icon edit" aria-hidden="true"></span>Products</a>
-                            </li>
-                        </ul>
+                        <a href="/restaurant_admin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
                     </li>
-
+                    <li>
+                        <a href="/product_admin"><span class="icon edit" aria-hidden="true"></span>Products</a>
+                    </li>
                     <li>
                         <a href="/category"><span class="icon edit" aria-hidden="true"></span>Category</a>
-                    </li>
-
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon paper" aria-hidden="true"></span>Pages
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="pages.html">All pages</a>
-                            </li>
-                            <li>
-                                <a href="new-page.html">Add new page</a>
-                            </li>
-                        </ul>
                     </li>
 
                 </ul>
@@ -76,7 +46,7 @@
                     <li>
                         <a href="/customer_admin"><span class="icon edit" aria-hidden="true"></span>Customers</a>
                     </li>
-        
+
                     <li>
                         <a href="comments.html">
                             <span class="icon message" aria-hidden="true"></span>
