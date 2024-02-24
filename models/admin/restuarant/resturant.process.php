@@ -9,7 +9,7 @@ function create_restaurant(string $res_name, string $res_address ,string $res_im
         ':restaurant_address' => $res_address,
         ':restaurant_image_url' => $res_image,
         ':region' => $region,
-        ':restaurant_owner_name' => $owner_name
+        ':restaurant_owner_name' => $owner_name,
         
     ]);
     return $statement->rowCount() > 0;

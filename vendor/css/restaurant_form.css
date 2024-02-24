@@ -89,7 +89,7 @@ label{
 .submit{
     width: 500px;
 }
-#region{
+#region,#manager{
     width: 500px;
     height: 40px;
     margin: 10px 0;
