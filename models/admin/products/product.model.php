@@ -22,3 +22,13 @@ function get_product(): array
 
 
 
+function delete_product($product_id): bool
+{
+    global $connection;
+    $query = "DELETE FROM products WHERE id = :id";
+    $statement = $connection->prepare($query);
+    $statement->execute([
+        ':id' => $product_id
+    ]);
+    return $statement->rowCount() > 0;
+}
