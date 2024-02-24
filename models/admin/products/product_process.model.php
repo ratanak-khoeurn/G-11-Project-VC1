@@ -5,18 +5,18 @@ global $connection;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Retrieve form data
-    $product_image = $_FILES['product_img'];
+    $product_img = $_FILES['product_img'];
     $product_name = $_POST['product_name'];
     $restaurant_name = $_POST['restaurant_name'];
     $price = $_POST['price'];
     $discount = $_POST['discount'];
     $uploadDir = '../../../assets/images/products/';
-    $uploadFile = $uploadDir . basename($product_image['name']);
+    $uploadFile = $uploadDir . basename($product_img['name']);
     
-    if ($product_image['size'] > 0 && in_array(pathinfo($uploadFile, PATHINFO_EXTENSION), array("png", "jpeg", "jpg"))) {
-        if (move_uploaded_file($product_image['tmp_name'], $uploadFile)) {
-            $product_img_url = '/assets/images/products/' . basename($product_image['name']);
-            $is_created = get_product_data($product_img_url, $product_name, $restaurant_name, $price, $discount);
+    if ($product_img['size'] > 0 && in_array(pathinfo($uploadFile, PATHINFO_EXTENSION), array("png", "jpeg", "jpg"))) {
+        if (move_uploaded_file($product_img['tmp_name'], $uploadFile)) {
+            $product_img = '/assets/images/products/' . basename($product_img['name']);
+            $is_created = get_product_data($product_img, $product_name, $restaurant_name, $price, $discount);
             
             if ($is_created) {
                 header('location:/product_admin');
