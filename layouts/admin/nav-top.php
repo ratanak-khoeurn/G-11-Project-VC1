@@ -1,11 +1,13 @@
-
-    <!-- ! Main nav -->
-    <nav class="main-nav--bg">
+<!-- ! Main nav -->
+<?php
+session_start();
+?>
+<nav class="main-nav--bg">
   <div class="container main-nav">
     <div class="main-nav-start">
       <div class="search-wrapper">
         <i data-feather="search" aria-hidden="true"></i>
-        <input type="text" placeholder="Enter keywords ..." required>
+        <input type="text" class="search_box" placeholder="Enter keywords ..." required>
       </div>
     </div>
     <div class="main-nav-end">
@@ -20,15 +22,10 @@
         </button>
         <ul class="lang-menu dropdown">
           <li><a href="##">English</a></li>
-          <li><a href="##">Khmer</a></li> 
-    
+          <li><a href="##">Khmer</a></li>
+
         </ul>
       </div>
-      <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
-        <span class="sr-only">Switch theme</span>
-        <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
-        <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
-      </button>
       <div class="notification-wrapper">
         <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
           <span class="sr-only">To messages</span>
@@ -75,11 +72,17 @@
           </li>
         </ul>
       </div>
+      <div class="name">
+        <h4 class="first"><?= $_SESSION["first_name"] ?></h4>
+      </div>
+
       <div class="nav-user-wrapper">
         <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
-            <picture><source srcset="assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp"><img src="assets/images/avatar/avatar-illustrated-02.png" alt="User name"></picture>
+            <picture>
+              <source srcset="assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp"><img src="<?=$_SESSION['img']?>" alt="User name">
+            </picture>
           </span>
         </button>
         <ul class="users-item-dropdown nav-user-dropdown dropdown">
@@ -91,7 +94,7 @@
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="/signin">
+          <li><a class="danger" href="/admin">
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>

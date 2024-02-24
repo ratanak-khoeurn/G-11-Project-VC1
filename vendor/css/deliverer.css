@@ -1,0 +1,118 @@
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .title{
+    margin:20px 0;
+  }
+  
+  form {
+    background-color: #fefefe;
+    margin:auto;
+    margin-top: 10%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
+    border-radius: 10px;
+  }
+  
+  /* Animation */
+   @keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+  
+    to {
+        opacity: 1;
+    }
+  }
+  
+  .form-group{
+    display: flex;
+    flex-direction: column;
+  }
+  .add,.submit,.close{
+    height: 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #69a410;
+    color: white;
+    padding: 2px 5px;
+    
+  
+  }
+  #rstaurant_name,input{
+    width: 500px;
+    margin: 8px 0;
+  }
+  .btn{
+    width: 500px;
+  }
+  label{
+    color: black;
+  }
+  .submit,.close{
+    width: 500px;
+  } 
+  .close{
+    margin-top: 20px;
+  }
+  .submit{
+    margin-top: 10px;
+  }
+  #restaurant_name{
+    height: 40px;
+}
+
+  
+  
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.table th, .table td {
+    border: 1px solid hsl(0, 0%, 87%);
+    padding: 8px;
+    text-align: left;
+    background-color: #f2f2f2;
+}
+.table th {
+    background-color: #f2f2f2;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    padding: 8px 12px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn:hover {
+    background-color: #0056b3;
+}
+.btn-primary {
+    background-color: #007bff;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}

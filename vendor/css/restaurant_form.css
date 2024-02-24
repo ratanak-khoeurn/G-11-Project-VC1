@@ -1,0 +1,97 @@
+.restar {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.restar-content {
+    background-color: #fefefe;
+    margin:auto;
+    margin-top: 10%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    animation-name: modalopen;
+    animation-duration: 0.4s;
+    border-radius: 10px;
+}
+
+
+/* Animation */
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+form{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 570px;
+    background: transparent;
+    border: 2px solid #fff;
+    color: white;
+    padding: 15px 10px;
+}
+.group{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    height: 50px;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: rgb(105, 164, 16);
+    color: white;
+    padding: 2px 5px;
+
+}
+input{
+    width: 500px;
+    margin: 8px 0;
+}
+.btn{
+    width: 500px;
+}
+label{
+    color: black;
+}
+.submit{
+    width: 500px;
+}
+#region,#manager{
+    width: 500px;
+    height: 40px;
+    margin: 10px 0;
+}

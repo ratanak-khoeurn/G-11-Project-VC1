@@ -2,10 +2,17 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/admin' => 'controllers/admin/admin.controller.php',
+    // '/admin' => 'controllers/admin/admin.controller.php',
+    // '/admin' => 'controllers/admin/admin_home.controller.php',
+    '/category' => 'controllers/admin/category.controller.php',
     '/add_admin' => 'views/admin/admin_page.view.php',
-    '/trainer-review' => 'controllers/admin/add.admin.controller.php',  
-    '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
+    '/restaurant_admin' => 'controllers/admin/restaurant_page.controller.php',
+    '/product_admin' => 'controllers/admin/product_page.controller.php',
+    '/manager_admin' => 'controllers/admin/manager.controller.php',
+    '/customer_admin' => 'controllers/admin/customer.controller.php',
+    '/deliverer_admin' => 'controllers/admin/deliverer.controller.php',
+    '/admin_home' => 'controllers/admin/admin.controller.php'
+
 ];
 
 if (array_key_exists($uri, $routes)) {
