@@ -146,12 +146,12 @@ require "models/admin/restuarant/resturant.process.php";
                     <td><?= $index + 1 ?></td>
                     <td><?= $rest['res_name'] ?></td>
                     <td><?= $rest['res_address'] ?></td>
-                    <td><img src="../../../assets/images/restaurant/<?= $rest['restaurant_image_url'] ?>" class="img" style="width: 70px;height:65px;border-radius:50%; margin-left:55px; padding:3px" alt=""></td>
+                    <td><img src="../../../<?= $rest['restaurant_image_url'] ?>" class="img" style="width: 70px;height:65px;border-radius:50%; margin-left:55px; padding:3px" alt=""></td>
                     <td><?= $rest['region'] ?></td>
                     <td><?= $rest['restaurant_owner_name'] ?></td>
                     <td class="td-icon">
-                        <a href=" ?"><i class="fas fa-pen"> </i></a>
-                        <a href="#"><i class="fas fa-trash"> </i></a>
+                        <a href="edit.restaurant.view.php?id=<?=$rest['res_id']?>"><i class="fas fa-pen"> </i></a>
+                        <a href="models/admin/restuarant/delete.restaurant.model.php?id=<?=$rest['res_id']?>"><i class="fas fa-trash"> </i></a>
                     </td> <!-- Corrected position of this line -->
                 </tr>
             <?php

@@ -12,10 +12,7 @@
                         <img src="../../assets/images/logo_web.png" alt="" style="width: 80px; height: 80px; border-radius: 50%;margin-right:10px">
                     </div>
                 </a>
-                <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
-                    <span class="sr-only">Toggle menu</span>
-                    <span class="icon menu-toggle" aria-hidden="true"></span>
-                </button>
+
             </div>
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">

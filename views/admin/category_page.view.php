@@ -1,6 +1,8 @@
+
 <?php
 require "database/database.php";
 require "models/admin/category/category.process.php";
+
 ?>
 <link rel="stylesheet" href="../../vendor/css/cate_form.css">
 <link rel="stylesheet" href="../../vendor/css/update_cate.css">
@@ -24,30 +26,6 @@ require "models/admin/category/category.process.php";
                 <button type="submit" class="btn btn-primary">Add Category</button>
             </form>
             <hr>
-            <?php
-            $categos = [];
-            $id = isset($_GET['id']) ? (int)$_GET['id'] : null;
-            if ($id) {
-                $categos = get_cate($id);
-            }
-            ?>
-            <div id="restar" class="restar" style="display: none;">
-                <div class="restar-content">
-                    <span class="close">&times;</span>
-                    <form action="./customer_page.view.php" method="post">
-                        <input type="hidden" name="category_id" value="<?= isset($categos['category_id']) ? $categos['category_id'] : '' ?>">
-                        <div class="form_group">
-                            <input style="border:1px solid black;" type="text" class="form-control" placeholder="Name"
-                                id="names" name="category" value="<?= isset($categos['category_name']) ? $categos['category_name'] : '' ?>">
-                        </div>
-                        <div class="form_group">
-                            <input type="file" class="border form-control" id="product_image_url"
-                                name="product_image_url" value="<?= isset($categos['picture']) ? $categos['picture'] : '' ?>">
-                        </div>
-                        <button type="submit">Update Category</button>
-                    </form>
-                </div>
-            </div>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
@@ -65,10 +43,10 @@ require "models/admin/category/category.process.php";
                         <tr>
                             <td><?= $category['category_id'] ?></td>
                             <td><?= $category['category_name'] ?></td>
-                            <td><img src="<?= $category['picture'] ?>" class="img" alt=""></td>
+                            <td><img src="../../../<?= $category['picture'] ?>" class="img" alt=""></td>
                             <td class="button">
-                                <a href="#?id=<?= $category['category_id'] ?>" class="btn btn-primary">Edit</a>
-                                <a href="?id=<?= $category['category_id'] ?>" class="btn btn-danger">Delete</a>
+                                <a href="controllers/admin/category/edit_category.controller.php?id=<?= $category['category_id'] ?>" class="btn btn-primary">Edit</a>
+                                <a href="controllers/admin/category/delete_category.controller.php?id=<?= $category['category_id'] ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>

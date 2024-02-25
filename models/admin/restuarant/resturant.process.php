@@ -21,4 +21,13 @@ function get_restaurant(): array
     $statement->execute();
     return $statement->fetchAll();
 }
+function delete_restaurant(int $id): bool
+    {
+        global $connection;
+        $statement = $connection->prepare(" delete from restaurants WHERE res_id = :id");
+        $statement->execute([
+            ':id' => $id
+        ]);
 
+        return $statement->rowCount() > 0;
+    }
