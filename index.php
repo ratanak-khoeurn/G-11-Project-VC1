@@ -5,7 +5,6 @@ if ( urlIs('/category') || urlIs('/add_admin') || urlIs('/restaurant_admin') || 
     require "admin_router.php";
 
 } else if (urlIs('/signin') || urlIs('/signup')|| urlIs("/manager")|| urlIs('/deliverer')) {
-} else if (urlIs('/signin') || urlIs('/signup')|| urlIs("/manager")|| urlIs("/admin")) {
     require "authentication_router.php";
 }
 else{
