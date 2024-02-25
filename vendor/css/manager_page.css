@@ -70,7 +70,7 @@ form{
     margin:10px 0;
     border-radius: 5px;
     border: none;
-    border-bottom: 3px solid rgb(19, 209, 6);
+    border-bottom: 3px solid rgba(145, 29, 3, 0.94);
     outline: none;
     background: transparent;
 }
