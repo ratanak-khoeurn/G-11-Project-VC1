@@ -1,10 +1,5 @@
 <!-- ! Main nav -->
 
-<?php
-session_start();
-$userImg = isset($_SESSION['img']) ? $_SESSION['img'] : '';
-?>
-
 <nav class="main-nav--bg">
   <div class="container main-nav">
     <div class="main-nav-start">
@@ -76,7 +71,7 @@ $userImg = isset($_SESSION['img']) ? $_SESSION['img'] : '';
         </ul>
       </div>
       <div class="name">
-        <h4 class="first"><?= $_SESSION["first_name"] ?></h4>
+        <h4 class="first">Siem</h4>
       </div>
 
       <div class="nav-user-wrapper">
@@ -84,7 +79,7 @@ $userImg = isset($_SESSION['img']) ? $_SESSION['img'] : '';
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
             <picture>
-              <source srcset="assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp"><img src="<?=$userImg?>" alt="User name">
+              <source srcset="assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp"><img src="" alt="User name">
             </picture>
           </span>
         </button>

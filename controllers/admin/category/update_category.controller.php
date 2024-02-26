@@ -1,6 +1,5 @@
 
 <?php
-
 require_once("database/database.php");
 require_once("models/admin/category/category.process.php");
 
@@ -31,8 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             // Update category in the database
             $is_updated = update_category($name, $uploadFile, $category_id);
-            header('Location: /category'); // Redirect to category page after successful update
-            // exit();
+            header('location:/category');
+        
         }
     }
 }

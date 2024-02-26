@@ -79,8 +79,8 @@
       </div>
     </div>
 
-    <div class="bg-theme-black py-3">
-      <div class="container">
+    <div class="bg-theme-black py-3" style="height: 75vh;">
+      <!-- <div class="container">
         <div class="offer-slider">
           <div class="cat-item px-1 py-3">
             <a class="d-block text-center shadow-sm" href="trending.html">
@@ -108,7 +108,7 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div class="container">
       <div class="pt-4 pb-2 title d-flex align-items-center">
