@@ -12,7 +12,8 @@ $routes = [
     '/customer_admin' => 'controllers/admin/customer.controller.php',
     '/deliverer_admin' => 'controllers/admin/deliverer.controller.php',
     '/admin_home' => 'controllers/admin/admin.controller.php',
-    // '/update_category' => 'controllers/admin/category/update_category.controller.php'
+    '/update_category' => 'controllers/admin/category/update_category.controller.php',
+    '/add_user'=> 'controllers/admin/add.user.controller.php'
 
 ];
 

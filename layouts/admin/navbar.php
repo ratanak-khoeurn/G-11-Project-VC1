@@ -20,6 +20,9 @@
                         <a class="active" href="/admin_home"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
+                        <a href="/add_user"><span class="icon edit" aria-hidden="true"></span>Add User</a>
+                    </li>
+                    <li>
                         <a href="/restaurant_admin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
                     </li>
                     <li>
