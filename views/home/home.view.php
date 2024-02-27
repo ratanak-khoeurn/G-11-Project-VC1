@@ -1,6 +1,6 @@
 <?php
 require "database/database.php";
-require "models/admin/category/category.process.php";
+require "models/admin/category/category.process.php"; 
 ?>
 
 <div class="osahan-home-page">

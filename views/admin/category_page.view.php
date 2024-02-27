@@ -38,10 +38,10 @@ require "models/admin/category/category.process.php";
                 <tbody>
                     <?php
                     $categories = get_category();
-                    foreach ($categories as $category):
+                    foreach ($categories as $Index =>$category):
                     ?>
                         <tr>
-                            <td><?= $category['category_id'] ?></td>
+                            <td><?= $Index+1 ?></td>
                             <td><?= $category['category_name'] ?></td>
                             <td><img src="../../../<?= $category['picture'] ?>" class="img" alt=""></td>
                             <td class="button">

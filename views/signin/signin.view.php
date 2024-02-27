@@ -1,9 +1,4 @@
-<?php 
-if (!isset($_SESSION['user'])) {
-    header('Location: /admin');
-    die();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,7 +34,7 @@ if (!isset($_SESSION['user'])) {
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Welcome Back</h2>
                     <p class="text-50">Sign in to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/signin/check_signin.controller.php" method="post">
+                    <form class="mt-5 mb-4" action="controllers/signin/check_singin_user.controller.php" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
                             <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"

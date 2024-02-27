@@ -2,7 +2,7 @@
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
     <!-- ! Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" style="background: #E21B70;">
         <div class="sidebar-start">
             <div class="sidebar-head">
                 <a href="/" class="logo-wrapper" title="Home">

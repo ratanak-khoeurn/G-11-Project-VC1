@@ -6,7 +6,7 @@
           <aside class="col-md-4 footer-about">
             <article class="d-flex pb-3">
               <div>
-                <img alt="#" src="assets/images/logo_web_red.png" class="logo-footer mr-3" />
+                <img alt="#" src="assets/images/logo_web.png" class="logo-footer mr-3" />
               </div>
               <div>
                 <h6 class="title text-white">About Us</h6>
@@ -15,8 +15,6 @@
                   Dell computer commercials in which a youth reports.
                 </p>
                 <div class="d-flex align-items-center">
-                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Facebook" target="_blank" href="#"><i
-                      class="feather-facebook"></i></a>
                   <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Instagram" target="_blank" href="#"><i
                       class="feather-instagram"></i></a>
                   <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Youtube" target="_blank" href="#"><i
@@ -104,59 +102,51 @@
       </section>
 
       <section class="footer-center border-top padding-y py-5">
-        <h6 class="title text-white">Countries</h6>
+        <h6 class="title text-white">Provinces</h6>
         <div class="row">
           <aside class="col-sm-2 col-md-2 text-white">
             <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">India</a></li>
-              <li><a href="#" class="text-muted">Indonesia</a></li>
-              <li><a href="#" class="text-muted">Ireland</a></li>
-              <li><a href="#" class="text-muted">Italy</a></li>
-              <li><a href="#" class="text-muted">Lebanon</a></li>
+              <li><a href="#" class="text-muted">Phnom Penh</a></li>
+              <li><a href="#" class="text-muted">Prey Veng</a></li>
+              <li><a href="#" class="text-muted">Preh Sihaknok</a></li>
+              <li><a href="#" class="text-muted">Pailin</a></li>
+              <li><a href="#" class="text-muted">Pursat</a></li>
             </ul>
           </aside>
           <aside class="col-sm-2 col-md-2 text-white">
             <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Malaysia</a></li>
-              <li><a href="#" class="text-muted">New Zealand</a></li>
-              <li><a href="#" class="text-muted">Philippines</a></li>
-              <li><a href="#" class="text-muted">Poland</a></li>
-              <li><a href="#" class="text-muted">Portugal</a></li>
+              <li><a href="#" class="text-muted">Koh Kong</a></li>
+              <li><a href="#" class="text-muted">Kompong Thom</a></li>
+              <li><a href="#" class="text-muted">Kompong Speu</a></li>
+              <li><a href="#" class="text-muted">Kompong Cham</a></li>
+              <li><a href="#" class="text-muted">Kompong Chnang</a></li>
             </ul>
           </aside>
           <aside class="col-sm-2 col-md-2 text-white">
             <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Australia</a></li>
-              <li><a href="#" class="text-muted">Brasil</a></li>
-              <li><a href="#" class="text-muted">Canada</a></li>
-              <li><a href="#" class="text-muted">Chile</a></li>
-              <li><a href="#" class="text-muted">Czech Republic</a></li>
+              <li><a href="#" class="text-muted">Siem Reap</a></li>
+              <li><a href="#" class="text-muted">Battambang</a></li>
+              <li><a href="#" class="text-muted">Odor Meanchey</a></li>
+              <li><a href="#" class="text-muted">Banteay Meanchey</a></li>
+              <li><a href="#" class="text-muted">Kraceh</a></li>
             </ul>
           </aside>
           <aside class="col-sm-2 col-md-2 text-white">
             <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Turkey</a></li>
-              <li><a href="#" class="text-muted">UAE</a></li>
-              <li><a href="#" class="text-muted">United Kingdom</a></li>
-              <li><a href="#" class="text-muted">United States</a></li>
-              <li><a href="#" class="text-muted">Sri Lanka</a></li>
+              <li><a href="#" class="text-muted">Tbong Khmom</a></li>
+              <li><a href="#" class="text-muted">Takeo</a></li>
+              <li><a href="#" class="text-muted">Kep</a></li>
+              <li><a href="#" class="text-muted">Kompot</a></li>
+              <li><a href="#" class="text-muted">Mondol Kiri</a></li>
             </ul>
           </aside>
           <aside class="col-sm-2 col-md-2 text-white">
             <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Qatar</a></li>
-              <li><a href="#" class="text-muted">Singapore</a></li>
-              <li><a href="#" class="text-muted">Slovakia</a></li>
-              <li><a href="#" class="text-muted">South Africa</a></li>
-              <li><a href="#" class="text-muted">Green Land</a></li>
-            </ul>
-          </aside>
-          <aside class="col-sm-2 col-md-2 text-white">
-            <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Pakistan</a></li>
-              <li><a href="#" class="text-muted">Bangladesh</a></li>
-              <li><a href="#" class="text-muted">Bhutaan</a></li>
-              <li><a href="#" class="text-muted">Nepal</a></li>
+              <li><a href="#" class="text-muted">Preh Vihea</a></li>
+              <li><a href="#" class="text-muted">Ratanakiri</a></li>
+              <li><a href="#" class="text-muted">Svay Reang</a></li>
+              <li><a href="#" class="text-muted">Steng Traeng</a></li>
+              <li><a href="#" class="text-muted">Kandal</a></li>
             </ul>
           </aside>
         </div>
