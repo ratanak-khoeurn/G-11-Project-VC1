@@ -106,6 +106,26 @@
                     <input type="radio" id="customRadio16" name="location" class="custom-control-input" />
                     <label class="custom-control-label py-3 w-100 px-3" for="customRadio16">Koh Kong</label>
                   </div>
+                  <div class="custom-control border-bottom px-0 custom-radio">
+                    <input type="radio" id="customRadio17" name="location" class="custom-control-input" />
+                    <label class="custom-control-label py-3 w-100 px-3" for="customRadio17">Kep</label>
+                  </div>
+                  <div class="custom-control border-bottom px-0 custom-radio">
+                    <input type="radio" id="customRadio18" name="location" class="custom-control-input" />
+                    <label class="custom-control-label py-3 w-100 px-3" for="customRadio18">Mondol Kiri</label>
+                  </div>
+                  <div class="custom-control border-bottom px-0 custom-radio">
+                    <input type="radio" id="customRadio19" name="location" class="custom-control-input" />
+                    <label class="custom-control-label py-3 w-100 px-3" for="customRadio19">Svay Reang</label>
+                  </div>
+                  <div class="custom-control border-bottom px-0 custom-radio">
+                    <input type="radio" id="customRadio20" name="location" class="custom-control-input" />
+                    <label class="custom-control-label py-3 w-100 px-3" for="customRadio20">Steng Traeng</label>
+                  </div>
+                  <div class="custom-control border-bottom px-0 custom-radio">
+                    <input type="radio" id="customRadio21" name="location" class="custom-control-input" />
+                    <label class="custom-control-label py-3 w-100 px-3" for="customRadio21">Preh Sihaknok</label>
+                  </div>
                 </div>
               </div>
             </div>
