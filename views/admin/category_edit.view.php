@@ -118,11 +118,11 @@ require "../../../models/admin/category/category.process.php";
                 </div>
                 <div class="form-group">
                     <label for="product_image_url">Choose Image:</label>
-                    <input type="text" class="border form-control" name="image" id="file-name" value="<?=($category['picture']) ?>" readonly>
+                    <input type="text" class="border form-control" name="image" id="file-name" value="<?=$category['picture'] ?>" readonly>
                     <input type="file" class="border form-control" id="product_image_url" name="product_image_url">
                 </div>
                 <div class="form-group">
-                    <img id="old-image" src="../../../<?= $category['picture'] ?>" alt="Old Image">
+                    <img id="old-image" src="../../../assets/images/categories/<?= $category['picture'] ?>" alt="Old Image">
                 </div>
                 <button type="submit">Update Category</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>

@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Get the data from the form
         $name = $_POST['category'];
         $category_id = $_POST['category_id'];
+        $image = $_POST['image'];
 
         $uploadDir = 'assets/images/categories/';
         $uploadFile = $uploadDir . basename($_FILES['product_image_url']['name']);
@@ -29,7 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "Failed to move uploaded file.";
         } else {
             // Update category in the database
-            $is_updated = update_category($name, $uploadFile, $category_id);
+            $is_updated = update_category($name, $_FILES['product_image_url']["name"], $category_id);
+            delete_image_folder($image);
             header('location:/category');
         
         }

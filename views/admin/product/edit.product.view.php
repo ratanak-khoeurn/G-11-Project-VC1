@@ -124,7 +124,7 @@ require "../../../models/admin/category/category.process.php";
                 <div class="form-group">
                     <img id="old-image" src="../../../<?= $category['picture'] ?>" alt="Old Image">
                 </div>
-                <button type="submit">Update Category</button>
+                <button type="submit">Update Product</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>
             </form>
         </div>

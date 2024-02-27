@@ -32,3 +32,23 @@ function delete_product($product_id): bool
     ]);
     return $statement->rowCount() > 0;
 }
+function get_product_one(int $id): array
+    {
+        global $connection;
+        $statement = $connection->prepare("select * from products where id = :id");
+        $statement->execute([':id' => $id]);
+        return $statement->fetch();
+    }
+
+    function update_product(string $name, string $picture, int $id): bool
+    {
+        global $connection;
+        $statement = $connection->prepare("UPDATE categories SET category_name = :name, picture = :image WHERE category_id = :id");
+        $statement->execute([
+            ':name' => $name,
+            ':image' => $picture,
+            ':id' => $id
+        ]);
+
+        return $statement->rowCount() > 0;
+    }

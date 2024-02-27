@@ -62,5 +62,14 @@ if (!function_exists('delete_category')) {
         return $statement->rowCount() > 0;
     }
 }
+if (!function_exists('delete_image_folder')) {
+    function delete_image_folder($img)
+    {
+        $path_file = "../../../assets/images/categories/".$img;
+        if (file_exists($path_file)) {
+            unlink($path_file);
+        }
+    }
+}
 
 ?>
