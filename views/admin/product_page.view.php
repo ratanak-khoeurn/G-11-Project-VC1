@@ -50,19 +50,7 @@ require "models/admin/products/product.model.php";
       </form>
     </div>
   </div>
-  <table>
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Product Name</th>
-        <th>Restaurant Name</th>
-        <th>Image URl</th>
-        <th>Price</th>
-        <th>Discount</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
+  
       <?php
       $products = get_product();
       foreach ($products as $index=>$product) {
