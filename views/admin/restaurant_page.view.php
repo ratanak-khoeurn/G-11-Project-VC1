@@ -10,7 +10,10 @@ require "models/admin/restuarant/resturant.process.php";
 
 <div class="container">
     <h2 class="main-title">Restaurants</h2>
-    <button class="btn-add">Add Restaurant</button>
+    <div class="option">
+        <button class="btn-add">Add Restaurant</button>
+        <input type="text">
+    </div>
     <style>
         .popup {
             display: none;
@@ -23,17 +26,6 @@ require "models/admin/restuarant/resturant.process.php";
             z-index: 9999;
         }
 
-        table,
-        td,
-        th {
-            border: 1px solid;
-        }
-
-        table {
-            margin-top: 10px;
-            width: 100%;
-            border-collapse: collapse;
-        }
 
         i {
             display: flex;
@@ -113,7 +105,7 @@ require "models/admin/restuarant/resturant.process.php";
             flex-direction: column;
         }
 
-        .update{
+        .update {
             width: 93%;
             margin-right: 30px;
         }
@@ -122,43 +114,101 @@ require "models/admin/restuarant/resturant.process.php";
             width: 500px;
             margin: 8px 0;
         }
+
+        .manin-card {
+            margin-top: 30px;
+            width: 100%;
+            height: auto;
+            display: flex;
+            justify-content: start;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            width: 30%;
+            background: white;
+            height: 50vh;
+            margin-top: 20px;
+            margin-right: 30px;
+            box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+
+
+        }
+
+        .card-header {
+            width: 100%;
+            height: 15%;
+            background: blue;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-header h2{
+            color: white;
+        }
+
+        .card-content {
+            height: 100%;
+
+        }
+
+        .text {
+            text-align: start;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .card-body {
+            width: 100%;
+            height: 70%;
+        }
+
+        .card-footer {
+            width: 100%;
+            height: 15%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: transparent;
+
+
+
+        }
     </style>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Image</th>
-                <th>Region</th>
-                <th>Manager</th>
-                <th>Action</th>
-            </tr>
-        </thead>
+    <div class="manin-card" style="overflow: auto; max-height: 700px;">
+        <?php
+                $restaurants = get_restaurant();
+                foreach ($restaurants as $restaurant):
+        ?>
+        <div class="card">
+            <div class="card-header">
+                <h2><?=$restaurant['res_name'] ?></h2>
+            </div>
+            <div class="card-content">
+                <div class="card-body" style="position: relative;">
+                    <img src="<?=$restaurant['restaurant_image_url'] ?>" alt="" style="width: 100%; height: 100%;">
+                    <div class="text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 38px; z-index: 1;padding-left:10px">
+                        <h4><?=$restaurant['region'] ?></h4>
+                        <p><?=$restaurant['res_address'] ?></p>
+                        <p>open</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="models/admin/restuarant/delete.restaurant.model.php?id=<?=$restaurant['res_id']?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+                    <a href="#"><img src="../../assets/images/icons/edit.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+                    <a href="#"><img src="../../assets/images/FOOD.jpg" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
 
-        <tbody>
-            <?php
-            $rests = get_restaurant();
 
-            foreach ($rests as $index => $rest) {
-            ?>
-                <tr>
-                    <td><?= $index + 1 ?></td>
-                    <td><?= $rest['res_name'] ?></td>
-                    <td><?= $rest['res_address'] ?></td>
-                    <td><img src="../../../<?= $rest['restaurant_image_url'] ?>" class="img" style="width: 70px;height:65px;border-radius:50%; margin-left:55px; padding:3px" alt=""></td>
-                    <td><?= $rest['region'] ?></td>
-                    <td><?= $rest['restaurant_owner_name'] ?></td>
-                    <td class="td-icon">
-                        <a href="edit.restaurant.view.php?id=<?=$rest['res_id']?>"><i class="fas fa-pen"> </i></a>
-                        <a href="models/admin/restuarant/delete.restaurant.model.php?id=<?=$rest['res_id']?>"><i class="fas fa-trash"> </i></a>
-                    </td> <!-- Corrected position of this line -->
-                </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+                </div>
+            </div>
+          
+        </div>
+        <?php
+            endforeach; ?>
+    </div>
     <div id="restar" class="restar">
         <div class="restar-content">
             <span class="close" style="cursor: pointer;">&times;</span>
@@ -206,15 +256,15 @@ require "models/admin/restuarant/resturant.process.php";
             <form method="post" action="../models/admin/restuarant/update.restaurant.php" enctype="multipart/form-data">
                 <div class="group_form">
                     <label for="restaurant_name">Name:</label>
-                    <input type="text" id="restaurant_name"  name="restaurant_name" placeholder="Enter your restaurant name" required><br>
+                    <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
                 </div>
                 <div class="group_form">
                     <label for="restaurant_address">Address:</label>
-                    <input type="text" id="restaurant_address"  name="restaurant_address" placeholder="Enter your restaurant address" required><br>
+                    <input type="text" id="restaurant_address" name="restaurant_address" placeholder="Enter your restaurant address" required><br>
                 </div>
                 <div class="group_form">
                     <label for="restaurant_image_url">Image:</label>
-                    <input type="file" id="restaurant_image_url"  name="restaurant_image_url" enctypart="multipart/form-data"><br>
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" enctypart="multipart/form-data"><br>
                 </div>
                 <div class="group_form">
                     <label for="province">Choose Region</label>

@@ -7,12 +7,12 @@ $routes = [
     '/category' => 'controllers/admin/category/category.controller.php',
     '/add_admin' => 'views/admin/admin_page.view.php',
     '/restaurant_admin' => 'controllers/admin/restaurant_page.controller.php',
-    '/product_admin' => 'controllers/admin/product_page.controller.php',
+    '/product_admin' => 'controllers/admin/products/product_page.controller.php',
     '/manager_admin' => 'controllers/admin/manager.controller.php',
     '/customer_admin' => 'controllers/admin/customer.controller.php',
     '/deliverer_admin' => 'controllers/admin/deliverer.controller.php',
     '/admin_home' => 'controllers/admin/admin.controller.php',
-    // '/update_category' => 'controllers/admin/category/update_category.controller.php'
+    '/add_user'=> 'controllers/admin/add.user.controller.php'
 
 ];
 

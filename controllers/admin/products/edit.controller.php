@@ -1,10 +1,9 @@
-
 <?php
 require '../../../database/database.php';
 
 $id = $_GET["id"] ? $_GET["id"] : null;
 if (isset($id)) {
-    require "../../../models/admin/product/product.process.php";
+    require "../../../models/admin/category/category.model.php";
     $category = get_cate($id);
-    require "../../../views/admin/edit.product.view.php";
+    require "../../../views/admin/category_edit.view.php";
 }

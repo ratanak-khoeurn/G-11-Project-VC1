@@ -15,9 +15,9 @@ require "models/admin/products/product.model.php";
   <div class="manin-card" style="overflow: auto; max-height: 700px;">
     <?php
     $products = get_product();
-    foreach ($products as $product) {
+    foreach ($products as $product){
 
-    ?>
+      ?>
       <div class="card">
         <div class="card-header">
           <h2>
@@ -27,21 +27,25 @@ require "models/admin/products/product.model.php";
         <div class="card-content">
           <div class="card-body" style="position: relative;">
             <img src=" <?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
-            <div class="text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 28px; z-index: 1;padding-left:10px">
+            <div class="text"
+              style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 28px; z-index: 1;padding-left:10px">
               <h4> <?= $product['restaurant_name'] ?></h4>
               <p> Price : <?= $product['price'] ?> $</p>
               <p> Discount: <?= $product['discount'] ?>%</p>
             </div>
           </div>
           <div class="card-footer">
-            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-            <a href="product/edit.product.view.php"><img src="../../assets/images/icons/edit.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-            <a href="#"><img src="../../assets/images/FOOD.jpg" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><img
+                src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+            <a href="views/admin/product/edit.product.view.php"><img src="../../assets/images/icons/edit.png" alt=""
+                style="border-radius: 50%; width:40px;height:40px"></a>
+            <a href="#"><img src="../../assets/images/FOOD.jpg" alt=""
+                style="border-radius: 50%; width:40px;height:40px"></a>
           </div>
         </div>
       </div>
-    <?php } ?>
-  </div>
+      <?php }?>
+    </div>
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -49,11 +53,13 @@ require "models/admin/products/product.model.php";
         <div class="mb-3">
           <div class="form-group">
             <label for="product_image_url">Image URL</label>
-            <input type="file" class="border form-control" id="product_img" name="product_img" placeholder="enter image URL" required>
+            <input type="file" class="border form-control" id="product_img" name="product_img"
+              placeholder="enter image URL" required>
           </div>
           <div class="form-group">
             <label for="product_name">Product Name</label>
-            <input type="text" class="border form-control" id="product_name" name="product_name" placeholder="enter product name" required>
+            <input type="text" class="border form-control" id="product_name" name="product_name"
+              placeholder="enter product name" required>
           </div>
         </div>
         <div class="form-group">
@@ -72,15 +78,20 @@ require "models/admin/products/product.model.php";
         </div>
         <div class="form-group">
           <label for="discount">Discount</label>
-          <input type="number" class="border form-control" id="discount" name="discount" placeholder="enter discount" required>
+          <input type="number" class="border form-control" id="discount" name="discount" placeholder="enter discount"
+            required>
         </div>
         <button type="submit" class="border btn ">Submit</button>
       </form>
     </div>
   </div>
+
+
+ 
+  
 </div>
 
-<style>
+ <style>
   .edit {
     color: blue;
     margin-right: 15px;
@@ -90,8 +101,7 @@ require "models/admin/products/product.model.php";
     color: red;
     margin-left: 5px;
   }
-
-  hr {
+  hr{
     border: 4px solid black;
   }
 
@@ -269,4 +279,4 @@ require "models/admin/products/product.model.php";
     background: transparent;
 
   }
-</style>
+  </style>
