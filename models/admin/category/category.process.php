@@ -68,6 +68,7 @@ if (!function_exists('delete_image_folder')) {
         $path_file = "../../../assets/images/categories/".$img;
         if (file_exists($path_file)) {
             unlink($path_file);
+            echo $path_file;
         }
     }
 }

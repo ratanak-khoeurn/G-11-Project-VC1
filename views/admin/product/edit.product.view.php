@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 require "../../../database/database.php";
 require "../../../models/admin/category/category.process.php";
 ?>
@@ -33,12 +32,15 @@ require "../../../models/admin/category/category.process.php";
         border-radius: 8px;
         background-color: rgba(255, 255, 255, 0.8);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        text-align: center; /* Center align the content */
+        text-align: center;
+        /* Center align the content */
     }
 
     .form-container {
-        display: inline-block; /* Allow the container to take the width of its content */
-        text-align: left; /* Reset text alignment */
+        display: inline-block;
+        /* Allow the container to take the width of its content */
+        text-align: left;
+        /* Reset text alignment */
     }
 
     .form-group {
@@ -53,7 +55,8 @@ require "../../../models/admin/category/category.process.php";
 
     input[type="text"],
     input[type="file"] {
-        width: calc(100% - 24px); /* Take 100% width minus padding */
+        width: calc(100% - 24px);
+        /* Take 100% width minus padding */
         padding: 12px;
         border: 1px solid #ccc;
         border-radius: 6px;
@@ -65,8 +68,10 @@ require "../../../models/admin/category/category.process.php";
         margin-top: 5px;
     }
 
-    button[type="submit"], button[type="button"] {
-        width: calc(50% - 12px); /* Take 50% width minus padding */
+    button[type="submit"],
+    button[type="button"] {
+        width: calc(50% - 12px);
+        /* Take 50% width minus padding */
         padding: 12px;
         border: none;
         border-radius: 6px;
@@ -108,17 +113,35 @@ require "../../../models/admin/category/category.process.php";
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-        <form action="../controllers/admin/product/edit_product.controller.php" method="post" enctype="multipart/form-data">
+            <form action="../controllers/admin/product/edit_product.controller.php" method="post" enctype="multipart/form-data">
 
-                <input type="hidden" name="category_id" value="<?= $category['category_id'] ?>"> 
+                <input type="hidden" name="category_id" value="<?= $category['category_id'] ?>">
 
                 <div class="form-group">
                     <label for="names">Name:</label>
                     <input type="text" class="form-control" id="names" name="category" value="<?= $category['category_name'] ?>" placeholder="Enter category name">
                 </div>
                 <div class="form-group">
+                    <label for="restaurant_name">Restaurant Name</label>
+                    <select class="form-control" id="restaurant_name" name="restaurant_name" required>
+                        <option value="">Select a restaurant</option>
+                        <option value="restaurant1">Restaurant 1</option>
+                        <option value="restaurant2">Restaurant 2</option>
+                        <option value="restaurant3">Restaurant 3</option>
+                        <!-- Add more options as needed -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" class="border form-control" id="price" name="price" placeholder="enter price" required>
+                </div>
+                <div class="form-group">
+                    <label for="discount">Discount</label>
+                    <input type="number" class="border form-control" id="discount" name="discount" placeholder="enter discount" required>
+                </div>
+                <div class="form-group">
                     <label for="product_image_url">Choose Image:</label>
-                    <input type="text" class="border form-control" name="image" id="file-name" value="<?=($category['picture']) ?>" readonly>
+                    <input type="text" class="border form-control" name="image" id="file-name" value="<?= ($category['picture']) ?>" readonly>
                     <input type="file" class="border form-control" id="product_image_url" name="product_image_url">
                 </div>
                 <div class="form-group">

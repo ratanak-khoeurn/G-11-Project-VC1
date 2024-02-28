@@ -11,6 +11,41 @@ require "models/admin/products/product.model.php";
   <h2 class="main-title">Products</h2>
   <button class="btn-add">Add Product +</button>
   <input type="text" class="search_btn" name="search_box" placeholder="Search products here.............">
+  <hr>
+  <div class="manin-card" style="overflow: auto; max-height: 700px;">
+    <?php
+    $products = get_product();
+    foreach ($products as $product){
+
+      ?>
+      <div class="card">
+        <div class="card-header">
+          <h2>
+            <?= $product['product_name'] ?>
+          </h2>
+        </div>
+        <div class="card-content">
+          <div class="card-body" style="position: relative;">
+            <img src=" <?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
+            <div class="text"
+              style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 28px; z-index: 1;padding-left:10px">
+              <h4> <?= $product['restaurant_name'] ?></h4>
+              <p> Price : <?= $product['price'] ?> $</p>
+              <p> Discount: <?= $product['discount'] ?>%</p>
+            </div>
+          </div>
+          <div class="card-footer">
+            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><img
+                src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+            <a href="views/admin/product/edit.product.view.php"><img src="../../assets/images/icons/edit.png" alt=""
+                style="border-radius: 50%; width:40px;height:40px"></a>
+            <a href="#"><img src="../../assets/images/FOOD.jpg" alt=""
+                style="border-radius: 50%; width:40px;height:40px"></a>
+          </div>
+        </div>
+      </div>
+      <?php }?>
+    </div>
   <div id="myModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -52,41 +87,8 @@ require "models/admin/products/product.model.php";
   </div>
 
 
-  <hr>
-  <div class="manin-card" style="overflow: auto; max-height: 700px;">
-    <?php
-    $products = get_product();
-    foreach ($products as $product){
-
-      ?>
-      <div class="card">
-        <div class="card-header">
-          <h2>
-            <?= $product['product_name'] ?>
-          </h2>
-        </div>
-        <div class="card-content">
-          <div class="card-body" style="position: relative;">
-            <img src=" <?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
-            <div class="text"
-              style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 38px; z-index: 1;padding-left:10px">
-              <h4> <?= $product['restaurant_name'] ?></h4>
-              <p> Price : <?= $product['price'] ?> $</p>
-              <p> Discount: <?= $product['discount'] ?>%</p>
-            </div>
-          </div>
-          <div class="card-footer">
-            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><img
-                src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-            <a href="views/admin/product/edit.product.view.php"><img src="../../assets/images/icons/edit.png" alt=""
-                style="border-radius: 50%; width:40px;height:40px"></a>
-            <a href="#"><img src="../../assets/images/FOOD.jpg" alt=""
-                style="border-radius: 50%; width:40px;height:40px"></a>
-          </div>
-        </div>
-      </div>
-      <?php }?>
-    </div>
+ 
+  
 </div>
 
  <style>
@@ -119,7 +121,7 @@ require "models/admin/products/product.model.php";
 
   .popup {
 
-    position: fixed;
+    /* position: fixed; */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
