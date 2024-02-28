@@ -87,7 +87,7 @@ require "models/admin/products/product.model.php";
             <?= $product['discount'] ?>
           </td>
           <td style="width:15%; justify-content: space-between;">
-            <a href="../../models/admin/products/product_edit.model.php?id=<?= $product['id'] ?>"><i class="material-icons edit">edit</i></a>
+            <a href="../../models/admin/products/product_update.model.php?id=<?= $product['id'] ?>"><i class="material-icons edit">edit</i></a>
             <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><i
                 class="material-icons delete">delete</i></a>
           </td>
