@@ -1,3 +1,4 @@
+
 <div class="osahan-home-page">
     <div class="bg-primary p-3 d-none">
       <div class="text-white">
@@ -79,36 +80,70 @@
       </div>
     </div>
 
-    <div class="bg-theme-black py-3">
+
+
+    <div class="bg-theme-black py-3" style="height:70vh; background-image: url('assets/images/pg.jpg'); background-size: cover; background-position: center;">
       <div class="container">
-        <div class="offer-slider">
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro1.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro3.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro4.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-        </div>
-      </div>
+        <h1>Delicious, hygienic food, fast delivery <b>GO-FOOD</b></h1>
+        <br>
+        <form class="example" action="">
+          <input type="text" placeholder="Search.." name="search">
+          <button type="submit"> inter</button>
+        </form>
+
+
+
+        <style>
+          .bg-theme-black{
+            margin-left: 17%;
+            width: 66%;
+          }
+          .contaoner, h1{
+            font: oblique;
+            margin-left: 60%;
+            margin-top: 10%;
+            b{
+              color: #B82222;
+            }
+            
+          }
+          /* form.example{
+            margin-left: 60%;
+          } */
+
+          form.example input[type=text] {
+            margin-left: 60%;
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 40%;
+            background: #f1f1f1;
+          }
+
+          form.example button {
+            margin-left: 60%;
+            margin-top: 3%;
+            float: left;
+            width: 15%;
+            padding: 10px;
+            background: #B82222;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            cursor: pointer;
+          }
+
+          form.example button:hover {
+            background: #EE1A37;
+          }
+
+        </style>
+    </div>
+
+
+
+
     </div>
     <div class="container">
       <div class="pt-4 pb-2 title d-flex align-items-center">
