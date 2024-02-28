@@ -1,5 +1,7 @@
-<!-- ! Main nav -->
+<?php 
+  ob_start()
 
+?>
 <nav class="main-nav--bg">
   <div class="container main-nav">
     <div class="main-nav-start">

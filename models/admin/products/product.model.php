@@ -32,18 +32,23 @@ function delete_product($product_id): bool
     ]);
     return $statement->rowCount() > 0;
 }
+function get_product_one(int $id): array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from products where id = :id");
+    $statement->execute([':id' => $id]);
+    return $statement->fetch();
+}
 
-function update_product($product_id, $product_name, $restaurant_name, $price, $discount, $product_img) {
-    global $pdo;
-    $query = "UPDATE products SET product_name = :product_name, restaurant_name = :restaurant_name, price = :price, discount = :discount, product_img = :product_img WHERE id = :id";
-    $statement = $pdo->prepare($query);
-    $params = array(
-        ':product_name' => $product_name,
-        ':restaurant_name' => $restaurant_name,
-        ':price' => $price,
-        ':discount' => $discount,
-        ':product_img' => $product_img,
-        ':id' => $product_id
-    );
-    return $statement->execute($params);
+function update_product(string $name, string $picture, int $id): bool
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE categories SET category_name = :name, picture = :image WHERE category_id = :id");
+    $statement->execute([
+        ':name' => $name,
+        ':image' => $picture,
+        ':id' => $id
+    ]);
+
+    return $statement->rowCount() > 0;
 }

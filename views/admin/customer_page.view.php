@@ -20,7 +20,6 @@
                     <td>Drink</td>
                     <td><img src="../../assets//images//logo_web.png" class="img" alt=""></td>
                     <td>
-                        <a href="" class="btn btn-primary active ">Edit</a>
                         <a href="" class="btn btn-primary active ">Delete</a>
                         <a href="" class="btn btn-primary active ">history</a>
 

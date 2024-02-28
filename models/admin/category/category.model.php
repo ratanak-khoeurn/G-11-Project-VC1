@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         move_uploaded_file($picture["tmp_name"], $uploadFile);
         if (!empty($name)) {
             // Check if $picture is set before passing it to create_category
-            $is_get_answer = create_category($name, isset($picture) ? $uploadFile : null);
+            $is_get_answer = create_category($name,  $picture['name'] );
             if ($is_get_answer) {
                 header('location:/category');
             } else {
