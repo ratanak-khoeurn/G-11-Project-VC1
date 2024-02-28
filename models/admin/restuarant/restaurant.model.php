@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 var_dump ($res_image['name']);
                 var_dump($res_image);
                     move_uploaded_file($res_image['tmp_name'], $uploadFile);
-                    $created = create_restaurant( $res_name, $res_address , $uploadFile, $region,$res_owner);
+                    $created = create_restaurant( $res_name, $res_address , $res_image['name'], $region,$res_owner);
                     if($created){
                         header('location:/restaurant_admin');
                     }
