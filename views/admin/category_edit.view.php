@@ -64,6 +64,23 @@ require "../../../models/admin/category/category.process.php";
     input[type="file"] {
         margin-top: 5px;
     }
+    input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: #000;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 5px 5px;
+    margin-right: 20px;
+    transition: .5s;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+    color: black;
+  }
 
     button[type="submit"], button[type="button"] {
         width: calc(50% - 12px); /* Take 50% width minus padding */
@@ -75,7 +92,7 @@ require "../../../models/admin/category/category.process.php";
     }
 
     button[type="submit"] {
-        background-color: #007bff;
+        background-color: #E21B70;
         color: #fff;
     }
 

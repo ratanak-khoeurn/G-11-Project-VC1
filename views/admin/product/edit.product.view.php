@@ -1,6 +1,6 @@
 <?php
 require "../../../database/database.php";
-require "../../../models/admin/category/category.process.php";
+require "../../../models/admin/products/product.model.php";
 ?>
 
 <style>
@@ -16,7 +16,7 @@ require "../../../models/admin/category/category.process.php";
 
     #restar {
         position: relative;
-        margin: auto;
+        /* margin: auto; */
         display: flex;
         align-items: center;
         height: 100%;
@@ -53,7 +53,9 @@ require "../../../models/admin/category/category.process.php";
         margin-bottom: 5px;
     }
 
+    select,
     input[type="text"],
+    input[type="number"],
     input[type="file"] {
         width: calc(100% - 24px);
         /* Take 100% width minus padding */
@@ -63,15 +65,31 @@ require "../../../models/admin/category/category.process.php";
         box-sizing: border-box;
         font-size: 16px;
     }
+    input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: #000;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 10px 5px;
+    margin-right: 20px;
+    transition: .5s;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+    color: black;
+  }
 
     input[type="file"] {
-        margin-top: 5px;
+        margin-top: 3px;
     }
 
     button[type="submit"],
     button[type="button"] {
         width: calc(50% - 12px);
-        /* Take 50% width minus padding */
         padding: 12px;
         border: none;
         border-radius: 6px;
@@ -100,8 +118,8 @@ require "../../../models/admin/category/category.process.php";
     #old-image {
         display: block;
         margin: 0 auto;
-        max-width: 100%;
-        max-height: 200px;
+        max-width: 60%;
+        max-height: 100px;
         margin-bottom: 20px;
     }
 </style>
@@ -113,39 +131,43 @@ require "../../../models/admin/category/category.process.php";
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-            <form action="../controllers/admin/product/edit_product.controller.php" method="post" enctype="multipart/form-data">
+            <?php
+            $id = $_GET['id'];
+            $products = get_product_one($id);
+            ?>
+            <form action="../../../controllers/admin/products/product.upate.controller.php?image=<?= $products['product_img'] ?>" method="post" enctype="multipart/form-data">
 
-                <input type="hidden" name="category_id" value="<?= $category['category_id'] ?>">
+                <input type="hidden" name="product_id" value="<?= $products['id'] ?>">
 
                 <div class="form-group">
                     <label for="names">Name:</label>
-                    <input type="text" class="form-control" id="names" name="category" value="<?= $category['category_name'] ?>" placeholder="Enter category name">
+                    <input type="text" class="form-control" id="names" name="product_name" value="<?= $products['product_name'] ?>" placeholder="Enter category name">
                 </div>
                 <div class="form-group">
-                    <label for="restaurant_name">Restaurant Name</label>
-                    <select class="form-control" id="restaurant_name" name="restaurant_name" required>
+                    <label for="product_name">Restaurant Name</label>
+                    <select class="form-control" id="product_name" name="restaurant_name" required>
                         <option value="">Select a restaurant</option>
-                        <option value="restaurant1">Restaurant 1</option>
-                        <option value="restaurant2">Restaurant 2</option>
-                        <option value="restaurant3">Restaurant 3</option>
-                        <!-- Add more options as needed -->
+                        <option value="restaurant1" <?php echo ($products['restaurant_name'] == 'restaurant1') ? 'selected' : ''; ?>>Restaurant 1</option>
+                        <option value="restaurant2" <?php echo ($products['restaurant_name'] == 'restaurant2') ? 'selected' : ''; ?>>Restaurant 2</option>
+                        <option value="restaurant3" <?php echo ($products['restaurant_name'] == 'restaurant3') ? 'selected' : ''; ?>>Restaurant 3</option>
                     </select>
+
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>
-                    <input type="number" class="border form-control" id="price" name="price" placeholder="enter price" required>
+                    <input type="number" class="border form-control" id="price" name="price" placeholder="enter price" value="<?= $products['price'] ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="discount">Discount</label>
-                    <input type="number" class="border form-control" id="discount" name="discount" placeholder="enter discount" required>
+                    <input type="number" class="border form-control" id="discount" name="discount" placeholder="enter discount" value="<?= $products['discount'] ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="product_image_url">Choose Image:</label>
-                    <input type="text" class="border form-control" name="image" id="file-name" value="<?= ($category['picture']) ?>" readonly>
+                    <input type="text" class="border form-control" name="image" id="file-name" value="<?= $products['product_img'] ?>" readonly>
                     <input type="file" class="border form-control" id="product_image_url" name="product_image_url">
                 </div>
                 <div class="form-group">
-                    <img id="old-image" src="../../../<?= $category['picture'] ?>" alt="Old Image">
+                    <img id="old-image" src="../../../assets/images/products/<?= $products['product_img'] ?>" alt="Old Image">
                 </div>
                 <button type="submit">Update Product</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>

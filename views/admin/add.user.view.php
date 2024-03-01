@@ -1,55 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delivery Management</title>
-    <link rel="stylesheet" href="../../vendor/css/add_user.css">
-</head>
-
-<body>
-    <div class="container">
-        <h2 style="margin-top: 20px;">Delivery Management System</h2>
-        <div id="my_modal" class="modal">
-            <div class="modal-content">
-                <form action="#" method="post">
-                    <div class="names">
-                        <div class="form-group-name">
-                            <label for="firstname">First Name</label>
-                            <input type="text" id="firstname" name="firstname" placeholder="Enter your first name">
-                        </div>
-                        <div class="form-group-name">
-                            <label for="lastname">Last Name</label>
-                            <input type="text" id="lastname" name="lastname" placeholder="Enter your last name">
-                        </div>
-                    </div>
-                    <div class="names">
-                        <div class="form-group-name">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="Enter your email">
-                        </div>
-                        <div class="form-group-name">
-                            <label for="password">Password</label>
-                            <input type="password" id="password" name="password" placeholder="Enter your password">
-                        </div>
-
-                    </div>
-                    <div class="form-group">
-                        <label for="restaurant_name">Restaurant Name</label>
-                        <select class="form-control" id="restaurant_name" name="restaurant_name" required>
-                            <option value="">Select a restaurant</option>
-                            <option value="restaurant1">Restaurant 1</option>
-                            <option value="restaurant2">Restaurant 2</option>
-                            <option value="restaurant3">Restaurant 3</option>
-                            <!-- Add more options as needed -->
-                        </select>
-                    </div>
-                    <button class="submit" type="submit">Submit</button>
-                </form>
+<link rel="stylesheet" href="../../vendor/css/add_user.css">
+<div class="main">
+    <h1>User Management System</h1>
+    <form action="../../controllers/admin/users/add.user.controller.php" method="POST" enctype="multipart/form-data">
+        <div class="group_input">
+            <label for="first_name">First Name</label>
+            <input type="text" placeholder="First Name" name="first_name" id="first_name" required>
+        </div>
+        <div class="group_input">
+            <label for="last_name">Last Name</label>
+            <input type="text" placeholder="Last Name" name="last_name" id="last_name" required>
+        </div>
+        <div class="group_input">
+            <label for="email">Email</label>
+            <input type="email" placeholder="Email" name="email" id="email" required>
+        </div>
+        <div class="group_input">
+            <label for="password">Password</label>
+            <input type="password" placeholder="Password" name="password" id="password" required>
+        </div>
+        <div class="group_input">
+            <label for="role">Role</label>
+            <select name="role" id="role" required>
+                <option value="admin">Admin</option>
+                <option value="delivery">Delivery</option>
+                <option value="restaurant_owner">Restaurant Owner</option>
+            </select>
+        </div>
+        <div class="group_input">
+            <label for="phone">Phone</label>
+            <input type="tel" placeholder="Phone" name="phone" id="phone">
+        </div>
+        <div class="group_input">
+            <label for="profile">Profile</label>
+            <input type="file" name="profile" id="profile" accept="image/*" required onchange="displayImage(event)">
+        </div>
+        <div class="img">
+            <label for="">Your Profile</label>
+            <div class="pic">
+                <img id="previewImage" src="" alt="">
             </div>
         </div>
-    </div>
-</body>
 
-</html>
+        <div class="group_input">
+
+            <button type="submit">Create User</button>
+        </div>
+    </form>
+</div>
+<script>
+    function displayImage(event) {
+        var selectedFile = event.target.files[0];
+        var previewImage = document.getElementById('previewImage');
+
+        var reader = new FileReader();
+        reader.onload = function(event) {
+            previewImage.src = event.target.result;
+        };
+
+        reader.readAsDataURL(selectedFile);
+    }
+</script>
