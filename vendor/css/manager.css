@@ -1,114 +1,15 @@
 
+.main{
+  width: 100%;
+  height: 700px;
+  background: #000;
+  padding-left: 50px;
+}
   .title{
-    margin:20px 0;
+    margin:20px;
   }
   
-  form {
-    background-color: #fefefe;
-    margin:auto;
-    margin-top: 10%;
-    padding: 20px;
-    width:100%;
-    animation-name: modalopen;
-    animation-duration: 0.4s;
-    border-radius: 10px;
-  }
   
-  /* Animation */
-   @keyframes modalopen {
-    from {
-        opacity: 0;
-    }
-  
-    to {
-        opacity: 1;
-    }
-  }
-  
-  form{
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 520px;
-    background: transparent;
-    color: white;
-    padding: 15px 10px;
-  }
-  .form-group{
-    display: flex;
-    flex-direction: column;
-  }
-  button{
-    height: 50px;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #69a410;
-    color: white;
-    padding: 2px 5px;
-    
-  
-  }
-  #rstaurant_name,input{
-    width: 500px;
-    margin: 8px 0;
-  }
-  .btn{
-    width: 500px;
-  }
-  label{
-    color: black;
-    margin-bottom: 10px;
-  }
-  .submit{
-    width: 500px;
-  } 
-
-  .submit{
-    margin-top: 10px;
-  }
-  #restaurant_name{
-    height: 40px;
-}
-
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4);
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
-  display: flex;
-  border-radius: 10px;
-  width: 50%; /* Could be more or less, depending on screen size */
-}
-
-/* Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 40px;
-  font-weight: bold;
-
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
 
   
   

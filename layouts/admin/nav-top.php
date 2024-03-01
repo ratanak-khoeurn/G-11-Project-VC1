@@ -2,7 +2,7 @@
   ob_start()
 
 ?>
-<nav class="main-nav--bg">
+<nav class="main-nav--bg" >
   <div class="container main-nav">
     <div class="main-nav-start">
       <div class="search-wrapper">

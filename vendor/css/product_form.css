@@ -70,7 +70,7 @@ button{
     height: 50px;
     border-radius: 5px;
     font-size: 16px;
-    background-color: rgb(105, 164, 16);
+    background-color: #E21B70;
     color: white;
     padding: 2px 5px;
 
@@ -91,21 +91,3 @@ label{
 
 
 /* -------------------------------- */
-
-
-table {
-    margin-top: 4%;
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 95%;
-  }
-
-  td, th {
-    border: 2px solid #0c0c0c6b;
-    text-align: center;
-    padding: 11px;
-  }
-
-  tr:nth-child(even) {
-    background-color: rgba(105, 164, 16, 0.671);
-  }
