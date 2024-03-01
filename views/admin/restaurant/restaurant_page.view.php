@@ -8,11 +8,14 @@ require "models/admin/restuarant/resturant.process.php";
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
 
-<div class="container">
-    <h2 class="main-title">Restaurants</h2>
+<div class="main">
+    <h1 class="main-title" style="margin-top: 20px;">Restaurants</h1>
     <div class="option">
         <button class="btn-add">Add Restaurant</button>
-        <input type="text">
+        <div class="search">
+            <input type="text" placeholder="         Search Reataurant Here ">
+
+        </div>
     </div>
     <style>
         .popup {
@@ -24,6 +27,22 @@ require "models/admin/restuarant/resturant.process.php";
             padding: 20px;
             border: 1px solid #ccc;
             z-index: 9999;
+        }
+        .option{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            height: 70px;            
+        }
+        .btn-add{
+            background: #E21B70;
+            margin-top: 10px;
+        }
+        .option input{
+            background: #E21B70;
+            height: 50px;
+            top: 0;
+            width: 400px;
         }
 
 
@@ -110,11 +129,6 @@ require "models/admin/restuarant/resturant.process.php";
             margin-right: 30px;
         }
 
-        input {
-            width: 500px;
-            margin: 8px 0;
-        }
-
         .manin-card {
             margin-top: 30px;
             width: 100%;
@@ -138,7 +152,7 @@ require "models/admin/restuarant/resturant.process.php";
         .card-header {
             width: 100%;
             height: 15%;
-            background: blue;
+            background:#E21B70;
             color: white;
             display: flex;
             align-items: center;
@@ -176,6 +190,9 @@ require "models/admin/restuarant/resturant.process.php";
 
 
 
+        }
+        button{
+            background: #E21B70;
         }
     </style>
     <div class="manin-card" style="overflow: auto; max-height: 700px;">

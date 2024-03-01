@@ -35,7 +35,7 @@ require "models/admin/products/product.model.php";
           </div>
           <div class="card-footer">
             <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-            <a href="product/edit.product.view.php"><img src="../../assets/images/icons/edit.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+            <a href="product/edit.product.view.php"><img src="../../assets/images/icons/del_admin.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
             <a href="#"><img src="../../assets/images/FOOD.jpg" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
           </div>
         </div>
