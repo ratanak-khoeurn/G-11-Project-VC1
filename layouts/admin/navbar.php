@@ -2,7 +2,7 @@
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
     <!-- ! Sidebar -->
-    <aside class="sidebar">
+    <aside class="sidebar" style="background: #E21B70;">
         <div class="sidebar-start">
             <div class="sidebar-head">
                 <a href="/" class="logo-wrapper" title="Home">
@@ -18,6 +18,9 @@
                 <ul class="sidebar-body-menu">
                     <li>
                         <a class="active" href="/admin_home"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/add_user"><span class="icon edit" aria-hidden="true"></span>Add User</a>
                     </li>
                     <li>
                         <a href="/restaurant_admin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>

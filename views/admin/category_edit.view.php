@@ -108,8 +108,7 @@ require "../../../models/admin/category/category.process.php";
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-        <form action="/update_category" method="post" enctype="multipart/form-data">
-
+        <form action="../../../controllers/admin/category/update_category.controller.php?image=<?= $category['picture'] ?>" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="category_id" value="<?= $category['category_id'] ?>"> 
 
                 <div class="form-group">
@@ -117,12 +116,12 @@ require "../../../models/admin/category/category.process.php";
                     <input type="text" class="form-control" id="names" name="category" value="<?= $category['category_name'] ?>" placeholder="Enter category name">
                 </div>
                 <div class="form-group">
-                    <label for="product_image_url">Choose Image:</label>
-                    <input type="text" class="border form-control" name="image" id="file-name" value="<?=($category['picture']) ?>" readonly>
+                    <label >Choose Image:</label>
+                    <input type="text" class="border form-control" name="image_input" id="file-name" value="<?=$category['picture'] ?>">
                     <input type="file" class="border form-control" id="product_image_url" name="product_image_url">
                 </div>
                 <div class="form-group">
-                    <img id="old-image" src="../../../<?= $category['picture'] ?>" alt="Old Image">
+                    <img id="old-image" src="../../../assets/images/categories/<?= $category['picture'] ?>" alt="Old Image">
                 </div>
                 <button type="submit">Update Category</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>

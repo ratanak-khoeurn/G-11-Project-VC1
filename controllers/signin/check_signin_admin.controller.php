@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once '../../database/database.php';
 require_once '../../models/signin.model.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -14,10 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (count($user) >= 0) {
         if($email==$user['email']){
             if (($password== $user['password']) && ($user['role']=='admin')) {
-                $_SESSION['user'] = $user;
-                $_SESSION['first_name'] = $user['first_name'];
-                $_SESSION['img'] = $user['last_name'];
-                $_SESSION['role'] = $user['role'];
                 header('Location: /admin_home');
             } else {
                 header("location: /admin");
