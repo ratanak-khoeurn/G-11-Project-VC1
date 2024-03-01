@@ -9,7 +9,7 @@ require "models/admin/products/product.model.php";
 
 <div class="container">
   <h2 class="main-title">Products</h2>
-  <button class="btn-add">Add Product +</button>
+  <button class="btn-add" style="background:#E21B70;">Add Product +</button>
   <input type="text" class="search_btn" name="search_box" placeholder="Search products here.............">
   <hr>
   <div class="manin-card" style="overflow: auto; max-height: 700px;">
@@ -26,7 +26,7 @@ require "models/admin/products/product.model.php";
         </div>
         <div class="card-content">
           <div class="card-body" style="position: relative;">
-            <img src=" <?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
+            <img src=" ../../../assets/images/products/<?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
             <div class="text"
               style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 28px; z-index: 1;padding-left:10px">
               <h4> <?= $product['restaurant_name'] ?></h4>
@@ -35,10 +35,10 @@ require "models/admin/products/product.model.php";
             </div>
           </div>
           <div class="card-footer">
-            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><img
+            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>&image=<?= urlencode($product['product_img']) ?>"><img
                 src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-            <a href="views/admin/product/edit.product.view.php"><img src="../../assets/images/icons/edit.png" alt=""
-                style="border-radius: 50%; width:40px;height:40px"></a>
+            <a href="../../controllers/admin/products/edit.controller.php?id=<?= $product['id'] ?>&image=<?= urlencode($product['product_img']) ?>"><img src="../../assets/images/icons/delete_admin.png" alt=""
+                style="border-radius: 5%; width:40px;height:40px"></a>
             <a href="#"><img src="../../assets/images/FOOD.jpg" alt=""
                 style="border-radius: 50%; width:40px;height:40px"></a>
           </div>
@@ -106,17 +106,17 @@ require "models/admin/products/product.model.php";
   }
 
   .search_btn {
-    background-color: blue;
+    background-color: #E21B70;
     color: white;
     margin-left: 49%;
     width: 30%;
     padding: 12px;
-    border-radius: 50px;
+    border-radius: 20px;
   }
 
   .btn-add {
-    background-color: blue;
-    border-radius: 50px;
+    background-color: #E21B70;
+
   }
 
   .popup {
@@ -151,7 +151,7 @@ require "models/admin/products/product.model.php";
   }
 
   .edit_form_content {
-    background-color: #fefefe;
+    background-color: #E21B70;
     margin: auto;
     margin-top: 10%;
     padding: 20px;
@@ -160,7 +160,7 @@ require "models/admin/products/product.model.php";
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
     animation-name: modalopen;
     animation-duration: 0.4s;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 
 
@@ -242,7 +242,7 @@ require "models/admin/products/product.model.php";
   .card-header {
     width: 100%;
     height: 15%;
-    background: blue;
+    background: #E21B70;
     color: white;
     display: flex;
     align-items: center;

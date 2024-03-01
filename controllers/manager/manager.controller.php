@@ -1,2 +1,2 @@
 <?php
-require "views/manager/manager.view.php";
+require "views/manager/manager_home.view.php";

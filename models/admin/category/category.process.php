@@ -31,7 +31,7 @@ if (!function_exists('get_cate')) {
         global $connection;
         $statement = $connection->prepare("select * from categories where category_id = :id");
         $statement->execute([':id' => $id]);
-        return $statement->fetch();
+        return $statement->fetch(); 
     }
 }
 

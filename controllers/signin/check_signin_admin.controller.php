@@ -5,24 +5,29 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Escape the query string to prevent SQL injection.
     $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);//123
- 
+    $password = htmlspecialchars($_POST['password']); //123
+
     // Get data from database
     $user = getUser($email);
     // Check if user exists
     if (count($user) >= 0) {
-        if($email==$user['email']){
-            if (($password== $user['password']) && ($user['role']=='admin')) {
+        if ($email == $user['email']) {
+            if (($password == $user['password']) && ($user['role'] == 'admin')) {
                 header('Location: /admin_home');
             } else {
-                header("location: /admin");
-                echo '<script>alert("You are not an admin");</script>';
+?>
+                <script>
+                    setInterval(function() {
+                        alert("Email or password invalid, please try again.");
+                    }, 1000);
+                </script>
+
+<?php
+                header('Location: /admin');
             }
-        }
-        else{
+        } else {
             header('Location: /admin');
             echo '<script>alert("Your email not admin");</script>';
         }
-        
     }
 }
