@@ -26,7 +26,7 @@ require "models/admin/products/product.model.php";
         </div>
         <div class="card-content">
           <div class="card-body" style="position: relative;">
-            <img src=" <?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
+            <img src=" ../../../assets/images/products/<?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
             <div class="text"
               style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 28px; z-index: 1;padding-left:10px">
               <h4> <?= $product['restaurant_name'] ?></h4>
@@ -35,9 +35,9 @@ require "models/admin/products/product.model.php";
             </div>
           </div>
           <div class="card-footer">
-            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>"><img
+            <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>&image=<?= urlencode($product['product_img']) ?>"><img
                 src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-            <a href="views/admin/product/edit.product.view.php"><img src="../../assets/images/icons/edit.png" alt=""
+            <a href="../../controllers/admin/products/edit.controller.php?id=<?= $product['id'] ?>&image=<?= urlencode($product['product_img']) ?>"><img src="../../assets/images/icons/edit.png" alt=""
                 style="border-radius: 50%; width:40px;height:40px"></a>
             <a href="#"><img src="../../assets/images/FOOD.jpg" alt=""
                 style="border-radius: 50%; width:40px;height:40px"></a>
