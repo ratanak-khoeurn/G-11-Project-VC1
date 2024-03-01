@@ -44,7 +44,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                                         <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a></div>
                                         <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                         <a href="/restaurant">
-                                            <img alt="#" src="<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
+                                            <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
                                         </a>
                                     </div>
                                     <div class="p-3 position-relative">
