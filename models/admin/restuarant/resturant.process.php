@@ -1,5 +1,5 @@
 <?php
-function create_restaurant(string $res_name, string $res_address ,string $res_image, string $region, string  $owner_name) : bool
+function create_restaurant(string $res_name, string $res_address, string $res_image, string $region, string  $owner_name): bool
 {
     global $connection;
     $statement = $connection->prepare("insert into restaurants (res_name,res_address,restaurant_image_url,region,restaurant_owner_name) 
@@ -10,7 +10,7 @@ function create_restaurant(string $res_name, string $res_address ,string $res_im
         ':restaurant_image_url' => $res_image,
         ':region' => $region,
         ':restaurant_owner_name' => $owner_name,
-        
+
     ]);
     return $statement->rowCount() > 0;
 }
@@ -22,12 +22,12 @@ function get_restaurant(): array
     return $statement->fetchAll();
 }
 function delete_restaurant(int $id): bool
-    {
-        global $connection;
-        $statement = $connection->prepare(" delete from restaurants WHERE res_id = :id");
-        $statement->execute([
-            ':id' => $id
-        ]);
+{
+    global $connection;
+    $statement = $connection->prepare(" delete from restaurants WHERE res_id = :id");
+    $statement->execute([
+        ':id' => $id
+    ]);
 
-        return $statement->rowCount() > 0;
-    }
+    return $statement->rowCount() > 0;
+}

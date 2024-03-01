@@ -136,7 +136,7 @@
             <a href="/search" class="widget-header mr-4 text-white">
               <div class="icon d-flex align-items-center">
                 <i class="feather-search h6 mr-2 mb-0"></i>
-                <span>Search</span>
+                <span>Restaurants</span>
               </div>
             </a>
 
