@@ -20,8 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         move_uploaded_file($profile['tmp_name'], $uploadFile);
         $created = add_user($first_name, $last_name, $email, $password, $role, $phone, $profile['name']);
         if ($created) {
-            echo "<script>alert('This is an alert message');</script>";
-            header('location:/add_user');
+            folder_after($role);
 
         }
     }

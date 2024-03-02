@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
   })();
 
   (function () {
-    Chart.defaults.backgroundColor = '#000';
+    Chart.defaults.backgroundColor = 'gray';
     var darkMode = localStorage.getItem('darkMode');
     var darkModeToggle = document.querySelector('.theme-switcher');
 
@@ -187,9 +187,9 @@ document.addEventListener('DOMContentLoaded', function () {
       localStorage.setItem('darkMode', null);
     };
 
-    if (darkMode === 'enabled') {
-      enableDarkMode();
-    }
+      // if (darkMode === 'enabled') {
+      //   enableDarkMode();
+      // }
 
     if (darkModeToggle) {
       darkModeToggle.addEventListener('click', function () {

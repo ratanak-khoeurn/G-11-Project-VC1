@@ -14,6 +14,7 @@ if (!empty($restaurant)) {
     <div id="edit_form" class="edit-form-container">
         <div class="edit_form_content">
             <form method="post" action="../../../controllers/admin/restaurant/update.restaurant.controller.php?image=<?= $restaurant['restaurant_image_url'] ?>" enctype="multipart/form-data" class="restaurant-form">
+                <h1>UPDATE RESTAURANT</h1>
                 <div class="group_form">
                     <input type="hidden" name="restaurant_id" value="<?= $restaurant['res_id'] ?>">
                 </div>
@@ -64,9 +65,11 @@ if (!empty($restaurant)) {
 ?>
 <style>
     .edit-form-container {
+        position: relative;
         max-width: 700px;
-        margin: 0 auto;
-        background-color: transparent;
+        /* margin: 0 auto; */
+        left: 800;
+        background-color: white;
         /* Light gray background color */
         padding: 20px;
         border-radius: 8px;
@@ -85,6 +88,10 @@ if (!empty($restaurant)) {
         z-index: -1;
         object-fit: cover;
     }
+    h1{
+        color: #E21B70;
+        text-align: center;
+    }
 
     #restar {
         position: relative;
@@ -92,6 +99,7 @@ if (!empty($restaurant)) {
         display: flex;
         align-items: center;
         height: 100%;
+        flex-wrap: wrap;
     }
 
 
@@ -107,14 +115,16 @@ if (!empty($restaurant)) {
         color: #999;
     }
 
-    .group_form {
-        margin-bottom: 15px;
-    }
-
     label {
         display: block;
         font-weight: bold;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
+        color: black;
+    }
+    .group_form{
+        display: flex;
+        flex-wrap: wrap ;
+        width: 40%;
     }
 
     input[type="text"],
@@ -155,6 +165,7 @@ if (!empty($restaurant)) {
         font-size: 16px;
         transition: background-color 0.3s ease;
         margin-right: 10px;
+        margin-top: 10px;
         /* Add margin to separate from the update button */
     }
 
