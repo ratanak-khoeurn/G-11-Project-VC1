@@ -22,7 +22,7 @@
                 <th>Email</th>
                 <th>Region</th>
                 <th>Number Phone</th>
-            </tr>
+            </tr> 
            </thead>
             <tbody>
             <tr>

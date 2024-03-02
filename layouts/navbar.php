@@ -1,6 +1,6 @@
 
 <header class="section-header">
-  <section class="header-main shadow-sm bg-primary-style2">
+  <section class="header-main shadow-sm bg-primary-style2" style="background-color: #E21B70;">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-1">
