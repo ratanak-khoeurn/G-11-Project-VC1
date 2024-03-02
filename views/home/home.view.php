@@ -3,7 +3,7 @@ require "database/database.php";
 require "models/admin/category/category.process.php"; 
 ?>
 
-<div class="osahan-home-page">
+<div class="osahan-home-page" >
   <div class="bg-primary p-3 d-none">
     <div class="text-white">
       <div class="title d-flex align-items-center">

@@ -3,7 +3,7 @@ require "../../../database/database.php";
 require "../../../models/admin/restuarant/resturant.process.php";
 ?>
 <video id="video-background" autoplay loop muted>
-    <source src="../../../assets/images/255345_Table_Setting Restaurant Silverware Plates_By_LACOFILMS_Artlist_HD.mp4" type="video/mp4">
+    <source src="../../../assets/images/udate_restaurat.mp4" type="video/mp4">
 </video>
 <?php
 $id = $_GET['id'];
@@ -127,6 +127,23 @@ if (!empty($restaurant)) {
         font-size: 16px;
         box-sizing: border-box;
     }
+    input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: white;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 10px 5px;
+    margin-right: 20px;
+    transition: .5s;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+    color: black;
+  }
+
 
     .cancel-button {
         background-color: #ccc;

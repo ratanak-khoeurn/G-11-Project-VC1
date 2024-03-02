@@ -1,16 +1,41 @@
-
 .main{
+  display: flex;
   width: 100%;
-  height: 700px;
-  background: #000;
-  padding-left: 50px;
+  padding:25px 50px;
+  flex-direction: column;
+  height: 1500px;
 }
-  .title{
-    margin:20px;
-  }
-  
-  
+.top{
+  display: flex;
+  width: 100%;
+  height: 30px;
+  justify-content: space-between;
+}
+.top input{
+  background:#E21B70 ;
+}
+hr{
+  border: 4px solid #E21B70;
+  width: 100%;
+  margin-top: 30px;
+}
+table{
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+th, td {
+  border: 1px solid #E21B70;
+  padding: 8px;
+  text-align: left;
+}
 
-  
-  
-  
+th {
+  background-color: #E21B70;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}

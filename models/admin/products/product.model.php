@@ -23,6 +23,15 @@ if (!function_exists('get_product')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('get_restaurant')) {
+    function get_restaurant(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT res_name FROM restaurants");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
 
 if (!function_exists('delete_product')) {
     function delete_product($product_id): bool

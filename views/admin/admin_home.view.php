@@ -8,6 +8,8 @@
     <meta name="author" content="Gurdeep Osahan" />
     <link rel="shortcut icon" href="assets/images/logo_web_red.png" type="image/x-icon">
     <link rel="stylesheet" href="../../vendor/css/restaurant_form.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>Foodride - Online Food Ordering Website Template</title>
     <style>
         body,
@@ -65,7 +67,7 @@
         }
 
         span {
-            color:pink;
+            color: pink;
         }
 
         /* Modal styles */
@@ -86,7 +88,7 @@
             /* Enable scroll if needed */
             background-color: rgba(0, 0, 0, 0.4);
             transition: 0.5s;
-           
+
         }
 
         .modal-content {
@@ -153,7 +155,7 @@
         }
 
         input[type="text"],
-        input[type="number"]{
+        input[type="number"] {
             width: 100%;
             height: 40px;
             margin-bottom: 10px;
@@ -163,6 +165,7 @@
             box-sizing: border-box;
             font-size: 1rem;
         }
+
         /* .form-group .i {
             border: 1px solid #e5e5e5;
         } */
@@ -206,7 +209,8 @@
         .custom-file-input:active::before {
             background-color: #45a049;
         }
-        .head{
+
+        .head {
             color: black;
         }
     </style>
@@ -223,19 +227,22 @@
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="close_form()">&times;</span>
-                <form action="controllers/signin/check_signin_admin.controller.php" method="post">
+                <form action="controllers/signin/check_signin_admin.controller.php" method="post" class="needs-validation" novalidate>
                     <h1 class="head">SIGN IN YOUR ACCOUNT</h1>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" class="border form-control" id="email" name="email" placeholder="Enter email" required>
-                        
+                        <div class="invalid-feedback"> Please provide a valid email.</div>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="text" class="border form-control" id="password" name="password" placeholder="Enter password" required>
+                        <input type="password" class="border form-control" id="password" name="password" placeholder="Enter password" required>
+                        <div class="invalid-feedback"> Please provide a password.</div>
                     </div>
-                    <button type="submit" class="border btn ">SIGN IN</button>
+                    <button type="submit" class="border btn">SIGN IN</button>
                 </form>
+
+
             </div>
         </div>
         <div class="text">
