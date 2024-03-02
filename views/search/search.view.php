@@ -41,7 +41,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                     <div class="list-card-image">
                                         <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a></div>
+                                        <div class="favourite-heart text-danger position-absolute"><a href="/favorite"><i class="feather-heart"></i></a></div>
                                         <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                         <a href="/restaurant">
                                             <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
