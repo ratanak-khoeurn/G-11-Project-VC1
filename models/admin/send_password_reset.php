@@ -16,3 +16,6 @@ $statement->bindParam(3, $email, PDO::PARAM_STR);
 $statement->execute();
 // No need to fetch data since UPDATE queries don't return rows
 
+if ($statement->rowCount() > 0){
+    
+}
