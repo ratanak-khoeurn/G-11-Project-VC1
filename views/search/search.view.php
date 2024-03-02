@@ -5,7 +5,7 @@ require_once "models/admin/restuarant/resturant.process.php";
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
-        <h4 class="font-weight-bold m-0 text-white">Restaurants</h4>
+        <h4 class="font-weight-bold m-0 text-white">Search</h4>
     </div>
 </div>
 <div class="osahan-popular">

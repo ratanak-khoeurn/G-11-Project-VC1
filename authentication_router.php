@@ -8,7 +8,7 @@ $routes = [
     '/manager' => 'controllers/manager/manager.controller.php',
     '/deliverer'=> 'controllers/deliverer/deliverer.controller.php',
     '/admin' => 'controllers/admin/admin_home.controller.php',
-
+    '/manager_home'=> 'controllers/manager/manager_home.controller.php'
 
 
     // '/trainer-review' => 'controllers/reviews/review.controller.php',
