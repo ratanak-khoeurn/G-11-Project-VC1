@@ -1,3 +1,7 @@
+<?php
+require_once "database/database.php";
+require_once "models/admin/restuarant/resturant.process.php";
+?>
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -6,10 +10,16 @@
 </div>
 <div class="offer-section py-4">
     <div class="container position-relative">
-        <img alt="#" src="assets/images/trending1.png" class="restaurant-pic">
+        
+        <?php
+            $restuarant = get_restaurant();
+            foreach ($restuarant as $res){
+        ?>
+        <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="restaurant-pic">
+        <?php } ?>
         <div class="pt-3 text-white">
-            <h2 class="font-weight-bold">Conrad Chicago Restaurant</h2>
-            <p class="text-white m-0">963 Madyson Drive Suite 679</p>
+            <h2 class="font-weight-bold"><?= $res['res_name'] ?></h2>
+            <p class="text-white m-0"><?= $res['res_address'] ?></p>
             <div class="rating-wrap d-flex align-items-center mt-2">
                 <ul class="rating-stars list-unstyled">
                     <li>
@@ -37,129 +47,41 @@
         </div>
     </div>
 </div>
-
-
 <div class="container position-relative" style="display: flex; width: 100%;">
     <div class="row" style="width: 80%; display:flex; flex-direction:column">
         <div class="container" style="width: 100%; justify-content:space-between;">
             <div class="left_side" style="width: 100%; margin-top:20px">
-                <p class="font-weight-bold pt-2 m-0">FEATURED ITEMS</p>
-                <div class="card_product" style="overflow:scroll; height:500px">
+                <p class="font-weight-bold pt-2 m-0">FOOD ITEMS</p>
+                <div class="card_product" style="overflow:scroll; height:450px">
                     <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap; justify-content:space-between; margin-bottom:15px">
+                        <?php
+                            $restuarant = get_restaurant();
+                            foreach ($restuarant as $res){
+                        ?>
                         <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
                             <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
                                 <div class="list-card-image">
                                     <a href="#checkout">
-                                        <img alt="#" src="assets/images/trending1.png" class="img-fluid item-img w-100">
+                                        <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="background-color:teal; height:200px">
                                     </a>
                                 </div>
                                 <div class="p-3 position-relative">
                                     <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="/checkout" class="text-black">Famous Dave's Bar-B-Que</a>
-                                        </h6>
-                                        <p class="text-gray mb-3">Vegetarian • Indian • Pure veg</p>
+                                        <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $res['res_name'] ?></a></h6>
+                                        <p class="text-gray mb-3"><?= $res['res_address'] ?></p>
                                         <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center;"></i>
+                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center; .feather-shopping-cart:hover{background-color:wheat} "></i>
                                         </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                <div class="list-card-image">
-                                    <a href="#checkout">
-                                        <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                                    </a>
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="/checkout" class="text-black">Thai Famous Cuisine</a></h6>
-                                        <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                                        <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $250 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center;"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                <div class="list-card-image">
-                                    <a href="#checkout">
-                                        <img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100">
-                                    </a>
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="/checkout" class="text-black">The osahan Restaurant</a>
-                                        </h6>
-                                        <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                                        <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $500 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center;"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                <div class="list-card-image">
-                                    <a href="#checkout">
-                                        <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                                    </a>
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="#" class="text-black">Thai Famous Cuisine</a></h6>
-                                        <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                                        <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $250 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center;"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                <div class="list-card-image">
-                                    <a href="#checkout">
-                                        <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                                    </a>
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="#" class="text-black">Thai Famous Cuisine</a></h6>
-                                        <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                                        <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $250 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center;"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
-                            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                <div class="list-card-image">
-                                    <a href="#checkout">
-                                        <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                                    </a>
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="#" class="text-black">Thai Famous Cuisine</a></h6>
-                                        <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                                        <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $250 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center;"></i>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
-            <div class="rating_side" style="width:100%;">
+
+            <div class="rating_side" style="width:100%">
                 <div class="mb-3">
                     <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
                         <h6 class="mb-0">Rate this Place</h6>
@@ -405,22 +327,22 @@
                 <p class="mb-1">Item Total <span class="float-right text-dark">$3140</span>
                     <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                     <span>Cart</span>
-          </p>
+                </p>
                 <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$62.8</span>
                     <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                     <span>Cart</span>
-          </p>
+                </p>
                 <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i class="feather-info"></i></span><span class="float-right text-dark">$10</span>
                     <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                     <span>Cart</span>
-          </p>
+                </p>
                 <p class="mb-1 text-success">Total Discount<span class="float-right text-success">$1884</span>
                 </p>
                 <hr>
                 <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
             </div>
             <div class="p-3">
-                <a class="btn btn-success btn-block btn-lg" href="successful.html">PAY $1329<i class="feather-arrow-right"></i></a>
+                <a class="btn btn-success btn-block btn-lg" href="/checkout">PAY $1329<i class="feather-arrow-right"></i></a>
             </div>
         </div>
     </div>
@@ -447,7 +369,7 @@
                     <i class="feather-shopping-cart"></i>
                 </a>
             </div>
-        </di     <div class="col">
+            </div class="col">
             <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
                 <p class="h4 m-0"><i class="feather-heart"></i></p>
                 Favorites

@@ -51,7 +51,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                                         <div class="list-card-body">
                                             <h6 class="mb-1"><a href="/restaurant" class="text-black"><?= $res['res_name'] ?></a>
                                             </h6>
-                                            <p class="text-gray mb-1 small">• North • Hamburgers</p>
+                                            <p class="text-gray mb-1 small"><?= $res['res_address'] ?></p>
                                             <p class="text-gray mb-1 rating">
                                             <ul class="rating-stars list-unstyled">
                                                 <li>
