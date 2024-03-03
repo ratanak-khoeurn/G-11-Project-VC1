@@ -60,8 +60,9 @@ require 'models/admin/category/category.process.php';
 
         <style>
           .bg-theme-black{
-            margin-left: 17%;
-            width: 66%;
+            
+            margin-left: 13.5%;
+            width: 73%;
           }
           .contaoner, h1{
             font: oblique;

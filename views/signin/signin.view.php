@@ -36,7 +36,7 @@
                     <form class="mt-5 mb-4" action="controllers/signin/check_singin_user.controller.php" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
+                            <input type="email" placeholder="Enter Email" class="form-control"Name="email" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" name="email" />
                         </div>
                         <div class="form-group">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="product_name">Restaurant Name</label>
-                            <select class="form-control" id="product_name" name="restaurant_name" required>
+                            <select class="form-control" id="role" name="role" required>
                                 <option value="">Select Role</option>
                                 <option value="admin">Admin</option>
                                 <option value="manager">Restaurant's Manager</option>
