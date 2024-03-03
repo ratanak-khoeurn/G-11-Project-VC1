@@ -111,11 +111,11 @@ if (!function_exists("get_user_one")) {
     }
 }
 if (!function_exists('update_user')) {
-    function update_user(string $first_name, string $last_name, string $email, string $password, string $role,string $picture,string $phone, int $id): bool
+    function update_user(string $first_name, string $last_name, string $email, string $password, string $role, string $picture, string $phone, int $id): bool
     {
         global $connection;
-        $statement = $connection->prepare("UPDATE users SET first_name = :first_name, last_name = :last_name ,email = :email, password=:password,role=:role ,picture =:picture,phone=:phone  WHERE user_id = :id");
-        $statement->execute([
+        $statement = $connection->prepare("UPDATE users SET first_name = :first_name, last_name = :last_name, email = :email, password = :password, role = :role, picture = :picture, phone = :phone WHERE user_id = :id");
+        $result = $statement->execute([
             ':first_name' => $first_name,
             ':last_name' => $last_name,
             ':email' => $email,
@@ -126,6 +126,6 @@ if (!function_exists('update_user')) {
             ':id' => $id
         ]);
 
-        return $statement->rowCount() > 0;
+        return $result;
     }
 }
