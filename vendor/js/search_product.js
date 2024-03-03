@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
     const search_product = document.querySelector('.search_btn');
-    const products = document.querySelectorAll('tbody tr');
+    console.log(search_product);
+    const products = document.querySelectorAll('.card');
 
     search_product.addEventListener('input', function () {
         const search_item = search_product.value.trim().toLowerCase();
 
         products.forEach(function (product) {
-            const product_name = product.querySelector('td:nth-child(2)').textContent.toLowerCase();
-
+            const product_name = product.querySelector('h2').textContent.toLowerCase();
+            console.log(product);
             if (product_name.includes(search_item)) {
-                product.style.display = 'table-row';
+                product.style.display = 'block';
             } else {
                 product.style.display = 'none';
             }

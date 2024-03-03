@@ -25,6 +25,15 @@ if (!function_exists('get_restaurant')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('get_manager')) {
+    function get_manager(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT first_name , last_name FROM users WHERE role = 'restaurant_owner'"); // Fixed typo in table name
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
 if (!function_exists('delete_restaurant')) {
     function delete_restaurant(int $id): bool
     {
