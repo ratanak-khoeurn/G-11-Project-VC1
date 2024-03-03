@@ -133,7 +133,7 @@
         </div>
         <div class="col-8">
           <div class="d-flex align-items-center justify-content-end pr-5">
-            <a href="/search" class="widget-header mr-4 text-white">
+            <a href="/all_restaurants" class="widget-header mr-4 text-white">
               <div class="icon d-flex align-items-center">
                 <i class="feather-search h6 mr-2 mb-0"></i>
                 <span>Restaurants</span>
