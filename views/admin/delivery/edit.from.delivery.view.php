@@ -31,7 +31,7 @@
         </div>
         <div class="group_input">
             <label for="phone">Phone</label>
-            <input type="tel" placeholder="Phone" name="phone" id="phone" value="<?=$delivery['phone']?>">
+            <input type="text" placeholder="Phone" name="phone" id="phone" value="<?=$delivery['phone']?>">
         </div>
         <div class="group_input">
             <label for="profile">Profile</label>
@@ -41,7 +41,7 @@
         <div class="img">
             <label>Your Profile</label>
             <div class="pic">
-                <img id="previewImage" src="../../../assets/images/logo_web.png" alt="">
+                <img id="previewImage" src="../../../assets/images/user/<?=$delivery['picture']?>" alt="">
             </div>
         </div>
         <div class="group_input">

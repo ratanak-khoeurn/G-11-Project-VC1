@@ -1,28 +1,26 @@
 <?php
+session_start();
 require_once '../../database/database.php';
 require_once '../../models/signin.model.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // Escape the query string to prevent SQL injection.
     $email = htmlspecialchars($_POST['email']);
-    $password = htmlspecialchars($_POST['password']);//123
- 
-    // Get data from database
+    $password = htmlspecialchars($_POST['password']);
+    $role = htmlspecialchars($_POST['role']);
     $user = getUser($email);
-    // Check if user exists
+    $_SESSION['user'] = $user;
+    var_dump($_SESSION['user']);
     if (count($user) >= 0) {
-        if($email==$user['email']){
-            if (($password== $user['password']) && ($user['role']=='user')) {
-                header('Location: /');
+        if ($email == $_SESSION['user']['email']) {
+            if (($password == $user['password']) && ($_SESSION['user']['role'] == 'admin')) {
+                header('Location: /admin');
+                echo 'yes';
             } else {
-                header("location: /signin");
-                echo '<script>alert("You are not an admin");</script>';
+                echo 'no admin';
             }
+
+        } else {
+            echo 'haha';
         }
-        else{
-            header('Location: /signin');
-            echo '<script>alert("Your email not admin");</script>';
-        }
-        
     }
 }
