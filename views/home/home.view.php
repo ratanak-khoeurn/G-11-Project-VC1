@@ -4,7 +4,6 @@ require 'models/admin/category/category.process.php';
 
 
 ?>
-
 <div class="osahan-home-page">
     <div class="bg-primary p-3 d-none">
       <div class="text-white">
@@ -61,8 +60,9 @@ require 'models/admin/category/category.process.php';
 
         <style>
           .bg-theme-black{
-            margin-left: 17%;
-            width: 66%;
+            
+            margin-left: 13.5%;
+            width: 73%;
           }
           .contaoner, h1{
             font: oblique;
@@ -769,3 +769,4 @@ require 'models/admin/category/category.process.php';
       </div>
     </div>
   </div>
+

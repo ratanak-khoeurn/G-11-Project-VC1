@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,25 +31,30 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
-                    <h2 class="text-dark my-0">Welcome Back</h2>
+                    <h2 class=" my-0" style="color:#E21B70;">SIGN IN ACCOUNT</h2>
                     <p class="text-50">Sign in to continue</p>
                     <form class="mt-5 mb-4" action="controllers/signin/check_singin_user.controller.php" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" name="email"/>
+                            <input type="email" placeholder="Enter Email" class="form-control"Name="email" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" name="email" />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="text-dark">Password</label>
                             <input type="password" placeholder="Enter Password" class="form-control"
-                                id="exampleInputPassword1" name="password"/>
+                                id="exampleInputPassword1" name="password" />
                         </div>
-                        <button class="btn btn-primary btn-lg btn-block">SIGN IN</button>
-                        <div class="py-2">
-                            <button class="btn btn-lg btn-facebook btn-block">
-                                <i class="feather-facebook"></i> Connect with Facebook
-                            </button>
+                        <div class="form-group">
+                            <label for="product_name">Restaurant Name</label>
+                            <select class="form-control" id="role" name="role" required>
+                                <option value="">Select Role</option>
+                                <option value="admin">Admin</option>
+                                <option value="manager">Restaurant's Manager</option>
+                                <option value="delivery">Delivery</option>
+                                <option value="user">Customer</option>
+                            </select>
                         </div>
+                        <button class="btn btn-lg btn-block" style="background-color:#E21B70;color:white">SIGN IN</button>
                     </form>
                     <a href="forgot_password.html" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>
@@ -58,7 +62,7 @@
                     <div class="d-flex align-items-center justify-content-center">
                         <a href="##">
                             <p class="text-center m-0">Don't have an account? <a href="/signup">Sign up</a></p>
-                        </a>
+                        </a> 
                     </div>
                 </div>
             </div>
