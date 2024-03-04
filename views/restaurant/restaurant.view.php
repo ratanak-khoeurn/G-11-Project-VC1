@@ -174,43 +174,13 @@
             </div>
             <div class="accordion mb-3 rounded shadow-sm bg-white overflow-hidden" id="accordionExample">
                 <div class="osahan-card bg-white border-bottom overflow-hidden">
-            <!-- 
-                    <div class="osahan-card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="d-flex p-3 align-items-center btn btn-link w-100" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <i class="feather-credit-card mr-3"></i> Credit/Debit Card
-                                <i class="feather-chevron-down ml-auto"></i>
-                            </button>
-                        </h2>
-                    </div> -->
-                    <!-- <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+<
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="osahan-card-body border-top p-3">
-                            <h6 class="m-0">Add new card</h6>
-                            <p class="small">WE ACCEPT <span class="osahan-card ml-2 font-weight-bold">(
-                                    Master Card / Visa Card / Rupay )</span></p>
-                            <form>
-                                <div class="form-row">
-                                    <div class="col-md-12 form-group">
-                                        <label class="form-label font-weight-bold small">Card number</label>
-                                        <div class="input-group">
-                                            <input placeholder="Card number" type="number" class="form-control">
-                                            <div class="input-group-append"><button type="button" class="btn btn-outline-secondary"><i class="feather-credit-card"></i></button></div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8 form-group"><label class="form-label font-weight-bold small">Valid
-                                            through(MM/YY)</label><input placeholder="Enter Valid through(MM/YY)" type="number" class="form-control"></div>
-                                    <div class="col-md-4 form-group"><label class="form-label font-weight-bold small">CVV</label><input placeholder="Enter CVV Number" type="number" class="form-control"></div>
-                                    <div class="col-md-12 form-group"><label class="form-label font-weight-bold small">Name on
-                                            card</label><input placeholder="Enter Card number" type="text" class="form-control"></div>
-                                    <div class="col-md-12 form-group mb-0">
-                                        <div class="custom-control custom-checkbox"><input type="checkbox" id="custom-checkbox1" class="custom-control-input"><label title type="checkbox" for="custom-checkbox1" class="custom-control-label small pt-1">Securely save this
-                                                card for a faster checkout next time.</label></div>
-                                    </div>
-                                </div>
-                            </form>
+                            
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="osahan-card bg-white border-bottom overflow-hidden">
                     <div class="osahan-card-header" id="headingTwo">
                         <h2 class="mb-0">
