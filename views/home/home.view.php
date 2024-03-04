@@ -1,3 +1,7 @@
+<link href="vendor/css/cooker.css" rel="stylesheet" />
+
+
+
 
 <div class="osahan-home-page">
     <div class="bg-primary p-3 d-none">
@@ -81,66 +85,28 @@
     </div>
 
 
-
-    <div class="bg-theme-black py-3" style="height:70vh; background-image: url('assets/images/pg.jpg'); background-size: cover; background-position: center;">
-      <div class="container">
-        <h1>Delicious, hygienic food, fast delivery <b>GO-FOOD</b></h1>
-        <br>
-        <form class="example" action="">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"> inter</button>
-        </form>
-
-
-
-        <style>
-          .bg-theme-black{
-            margin-left: 17%;
-            width: 66%;
-          }
-          .contaoner, h1{
-            font: oblique;
-            margin-left: 60%;
-            margin-top: 10%;
-            b{
-              color: #B82222;
-            }
-            
-          }
-          /* form.example{
-            margin-left: 60%;
-          } */
-
-          form.example input[type=text] {
-            margin-left: 60%;
-            padding: 10px;
-            font-size: 17px;
-            border: 1px solid grey;
-            float: left;
-            width: 40%;
-            background: #f1f1f1;
-          }
-
-          form.example button {
-            margin-left: 60%;
-            margin-top: 3%;
-            float: left;
-            width: 15%;
-            padding: 10px;
-            background: #B82222;
-            color: white;
-            font-size: 17px;
-            border: 1px solid grey;
-            cursor: pointer;
-          }
-
-          form.example button:hover {
-            background: #EE1A37;
-          }
-
-        </style>
+    
+    <div class="bg-theme-blacks py-3" style="height:80vh; background-image: url('assets/images/pg.jpg'); background-size: cover; background-position: center;">
+     <h1>Well come to<b>.GO-FOOD</b><h1>
+      <p>Food is one of the basic necessities of life. Food contains nutrients substances essential
+         for the growth.</p>
+    <div id="cooking">
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div class="bubble"></div>
+      <div id="area">
+        <div id="sides">
+          <div id="pan"></div>
+          <div id="handle"></div>
+        </div>
+        <div id="pancake">
+          <div id="pastry"></div>
+        </div>
+      </div>
     </div>
-
+    
 
 
 
