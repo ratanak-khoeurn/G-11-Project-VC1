@@ -66,17 +66,16 @@ if (!empty($restaurant)) {
 <style>
     .edit-form-container {
         position: relative;
-        max-width: 700px;
-        /* margin: 0 auto; */
-        left: 800;
+        max-width: 50%;
+        height: 100%;
         background-color: white;
-        /* Light gray background color */
-        padding: 20px;
-        border-radius: 8px;
+        padding: 0px 15px 0px 15px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-        margin-top: 5%;
+        margin-top: 2%;
         height: 570px;
         color: white;
+        left:50%
+        
     }
 
     #video-background {
@@ -101,8 +100,6 @@ if (!empty($restaurant)) {
         height: 100%;
         flex-wrap: wrap;
     }
-
-
     .edit_form_content {
         position: relative;
     }

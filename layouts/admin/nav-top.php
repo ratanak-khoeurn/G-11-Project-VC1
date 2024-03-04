@@ -97,7 +97,6 @@ ob_start()
         <h4 class="first">
           <?= $_SESSION['user']['first_name'] ?>
         </h4>
-        <h1><?= $_SESSION['user']['picture'] ?></h1>
       </div>
 
       <div class="nav-user-wrapper">
@@ -120,7 +119,7 @@ ob_start()
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="/admin">
+          <li><a class="danger" href="/">
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>
