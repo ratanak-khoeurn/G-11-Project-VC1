@@ -75,7 +75,7 @@
         </div>
         <div class="row">
           <div class="col-lg-9">
-            <div class="chart">
+            <div class="barchart">
               <canvas id="myChart" aria-label="Site statistics" role="img"></canvas>
             </div>
             <div class="users-table table-wrapper">

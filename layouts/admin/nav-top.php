@@ -119,7 +119,7 @@ ob_start()
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="/">
+          <li><a class="danger" href="controllers/logout/logout.controller.php">
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>
