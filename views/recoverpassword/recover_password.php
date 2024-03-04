@@ -1,7 +1,5 @@
 
-<?php 
-require "../../database/database.php";
-?>
+
 
 <style>
     #video-background {
@@ -13,14 +11,14 @@ require "../../database/database.php";
         z-index: -1;
         object-fit: cover;
     }
-/* 
+
     #restar {
         position: relative;
         margin: auto;
         display: flex;
         align-items: center;
         height: 100%;
-    } */
+    }
 
     .restar-content {
         position: absolute;
@@ -37,12 +35,10 @@ require "../../database/database.php";
     .form-container {
         display: inline-block; /* Allow the container to take the width of its content */
         text-align: left; /* Reset text alignment */
-        padding: 50px;
+        padding: 35px;
     }
 
-    .form-group {
-        margin-bottom: 50px;
-    }
+
 
     label {
         display: block;
@@ -52,15 +48,14 @@ require "../../database/database.php";
     }
 
     input[type="email"] {
-        padding: 12px;
-        border: 1px solid #ccc;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid ;
         border-radius: 6px;
         font-size: 16px;
+        margin-bottom: 20px;
     }
-/* 
-    input[type="file"] {
-        margin-top: 5px;
-    } */
+
 
     button[type="submit"] {
         width: calc(50% - 12px); /* Take 50% width minus padding */
@@ -76,26 +71,7 @@ require "../../database/database.php";
         color: #fff;
     }
 
-    /* button[type="submit"]:hover {
-        background-color: #0056b3;
-    } */
-/* 
-    button[type="button"] {
-        background-color: #ccc;
-        color: #000;
-    } */
 
-    /* button[type="button"]:hover {
-        background-color: #999;
-    } */
-
-    /* #old-image {
-        display: block;
-        margin: 0 auto;
-        max-width: 100%;
-        max-height: 200px;
-        margin-bottom: 20px;
-    } */
 </style>
 
 <video id="video-background" autoplay loop muted>
@@ -105,13 +81,22 @@ require "../../database/database.php";
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-            <form action="../../../models/admin/send_password_reset.php" method ="post">
-                <h1>Forgot password</h1>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" class="border form-control " id="email" name="email" placeholder="Enter email" required>
-                </div>
-                <button type="submit">Send</button>
+            <form action="#" method ="post">
+            <h1 >
+               New Password
+            </h1>
+            <p class="text-center">Please create a new password for your account</p>
+            <label for="password">New Password</label>
+            <div>
+                <input type="password" name="new-password" id="new-password" value="<?= isset($_POST['new-password'])? $_POST['new-password'] : ""?>" placeholder="••••••••••••" >
+                <span ><?= isset($errors['new_password'])? $errors['new_password']: ""; ?></span>
+            </div>
+            <label for="password" >Confirm Password</label>
+            <div>
+                <input type="password" name="confirm-password" id="password" value="<?= isset($_POST['confirm-password'])? $_POST['confirm-password'] : ""?>" placeholder="••••••••••••"  >
+                <span ><?= isset($errors['confirm_password'])? $errors['confirm_password'] : ""; ?></span>   
+            </div>
+            <button type="submit" >Change</button>
             </form>
         </div>
     </div>

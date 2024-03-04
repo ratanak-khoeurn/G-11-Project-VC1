@@ -235,7 +235,7 @@
                         <input type="text" class="border form-control" id="password" name="password" placeholder="Enter password" required>
                     </div>
                     <div class="form-group">
-                        <a href="views/admin/forgot_password.php" style=" text-decoration: none;" >Forgot Password</a>
+                        <a href="" style=" text-decoration: none;" >Forgot Password</a>
                     </div>
                     <button type="submit" class="border btn ">SIGN IN</button>
                 </form>
