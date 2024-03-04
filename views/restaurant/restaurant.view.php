@@ -16,9 +16,9 @@ require_once "models/admin/restuarant/resturant.process.php";
             foreach ($restuarant as $res){
         ?>
         <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="restaurant-pic">
-        <?php } ?>
         <div class="pt-3 text-white">
             <h2 class="font-weight-bold"><?= $res['res_name'] ?></h2>
+            <?php } ?>
             <p class="text-white m-0"><?= $res['res_address'] ?></p>
             <div class="rating-wrap d-flex align-items-center mt-2">
                 <ul class="rating-stars list-unstyled">
