@@ -25,3 +25,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: controllers/signin/check_singin_user.controller.php");
     }
 }
+
+require "views/recoverpassword/recover_password.view.php";

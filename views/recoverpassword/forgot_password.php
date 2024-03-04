@@ -1,6 +1,3 @@
-<?php
-require "../../database/database.php";
-?>
 
 
 <style>
@@ -83,14 +80,14 @@ require "../../database/database.php";
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-            <form action="/code_security" method ="post">
+            <form action="/forgot_password" method ="post">
             <h1 >
                 Forgot Password
             </h1>
             <label for="email" >Please enter email address and we'll send you PIN CODE</label>
             <div>
                 <input type="email" name="email" value="<?= isset($_POST['email'])? $_POST['email'] : "";?>" id="email" placeholder="Enter your email address" >
-                <span class="text-red-600"><?= isset($errorEmail)? $errorEmail : "";?></span>
+                <span ><?= isset($errorEmail)? $errorEmail : "";?></span>
             </div>
             <button type="submit" >Continue</button>
             </form>

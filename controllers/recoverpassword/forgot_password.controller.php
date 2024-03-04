@@ -13,9 +13,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             setPinCodeByEmail($email, $pinCode);
             $_SESSION['email_reset'] = $email;
 
-            require "controllers/recoverpassword/sendmail.php";
+            require "controllers/recoverpassword/send_mail.php";
 
             header("location: /code_security");
         }
     }
 }
+
+require "views/recoverpassword/forgot_password.php";

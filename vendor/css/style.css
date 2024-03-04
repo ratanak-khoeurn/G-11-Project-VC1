@@ -28,7 +28,22 @@ div,a {
 .border-primary {
     border-color: #e23844!important
 }
-
+input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: #000;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 10px 5px;
+    transition: .5s;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+    color: black;
+  }
 .w-300 {
     max-width: 300px
 }
@@ -1061,6 +1076,7 @@ footer .text-muted {
 
     .header-main {
         height: 67px
+        
     }
 
     .header-main .col-1 {
@@ -1217,3 +1233,9 @@ footer .text-muted {
         max-width: 100%
     }
 }
+
+
+
+/* ----------------------------------------------------------- */
+
+

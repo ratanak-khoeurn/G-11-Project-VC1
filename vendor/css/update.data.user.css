@@ -1,0 +1,90 @@
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    height: 600px;
+}
+h1{
+    text-align: center;
+    padding: 10px 0;
+
+}
+form {
+    display: flex;
+    width:80%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
+    height: 100%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgb(0, 4, 255); /* Box shadow effect */
+
+}
+.group_input{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+
+.group_input input[type="text"],
+.group_input input[type="email"],
+.group_input input[type="password"],
+.group_input select,
+.group_input input[type="tel"],
+.group_input input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    background: gainsboro;
+}
+button {
+    background-color: #E21B70;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 16px;
+}
+button:hover{
+    padding: 15px 19px;
+    transition: 0.4s;
+}
+
+input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: #000;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 10px 5px;
+    margin-right: 20px;
+    transition: .5s;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+  }
+.img{
+    width: 20%;
+    height: 50px;
+    margin-right: 50px;
+    border-radius: 50%;
+    padding-right: 10px;
+    margin-left: 20px;
+}
+.img img{
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    margin-top: 20px;
+    background: #ccc;
+    
+}

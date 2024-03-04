@@ -1,9 +1,7 @@
 <?php 
 require "models/signin.model.php";
-
 if (! isset($_SESSION['email_reset'])) {
     require 'views/errors/404.php';
-    die();
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -14,7 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($code == $_POST['pin-code']) {
             $_SESSION['pin_code'] = $code;
-            header("location: /recoverpassword");
+            header("location: /recover_password");
         }
     }
 }
+
+require "views/recoverpassword/forgot_password.code.php";

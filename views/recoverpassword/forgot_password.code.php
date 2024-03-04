@@ -1,7 +1,4 @@
-<?php
-require "../../database/database.php";
 
-?>
 <style>
     #video-background {
         position: fixed;
@@ -46,7 +43,7 @@ require "../../database/database.php";
         font-size: 16px;
     }
 
-    input[type="email"] {
+    input[type="number"] {
         width: 100%;
         padding: 10px;
         border: 1px solid ;

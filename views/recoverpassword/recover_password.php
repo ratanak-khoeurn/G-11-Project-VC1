@@ -81,7 +81,7 @@
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-            <form action="#" method ="post">
+            <form action="/recover_passwrd" method ="post">
             <h1 >
                New Password
             </h1>

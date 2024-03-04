@@ -5,6 +5,6 @@ $MAIL_SECRET="tasjvhaqlrlugduo";
 $MAIL_SUBJECT="Food Panda | Reset Password";
 
 $DB_HOST="localhost";
-$DB_NAME="concert_db";
+$DB_NAME="foodpanda_db";
 $DB_USER="root";
 $DB_PASSWORD="";
