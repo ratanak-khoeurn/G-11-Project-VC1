@@ -1,10 +1,10 @@
 <?php
 require 'utils/url.php';
 require 'database/database.php';
-if ( urlIs('/category') || urlIs('/add_admin') || urlIs('/restaurant_admin') || urlIs('/product_admin')|| urlIs('/manager_admin') || urlIs('/customer_admin') || urlIs('/deliverer_admin')|| urlIs('/admin_home')|| urlIs('/add_user')){ 
+if ( urlIs('/category') || urlIs('/add_admin') || urlIs('/restaurant_admin') || urlIs('/product_admin')|| urlIs('/manager_admin') || urlIs('/customer_admin') || urlIs('/deliverer_admin')|| urlIs('/admin')|| urlIs('/add_user')){ 
     require "admin_router.php";
 
-} else if (urlIs('/signin') || urlIs('/signup')|| urlIs("/manager")|| urlIs('/deliverer')|| urlIs('/admin')) {
+} else if (urlIs('/signin') || urlIs('/signup')|| urlIs("/manager")|| urlIs('/deliverer')|| urlIs('/admin') || urlIs('/manager_home')) {
  
     require "authentication_router.php";
 }
