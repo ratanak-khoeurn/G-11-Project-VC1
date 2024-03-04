@@ -39,7 +39,7 @@ require 'models/add.user/add.user.model.php';
           <img src="../../assets/images/user/<?= $admin['picture']?>" alt="" style="width: 60px;height:60px;border-radius:5px;">
         </td>
         <td style="display:flex;justify-content:space-evenly;padding:30px 10px">
-          <a href="../../controllers/admin/delivery/edit.delivery.controller.php?id=<?=$admin['user_id']?>"><img src="../../assets/images/icons/delete_admin.png" style="width: 30px;height:30px" alt=""></a>
+          <a href="../../controllers/admin/delivery/edit.delivery.controller.php?id=<?=$admin['user_id']?>&p=admin"><img src="../../assets/images/icons/delete_admin.png" style="width: 30px;height:30px" alt=""></a>
           <a href="../../controllers/admin/users/delete.admin.user.controller.php?id=<?=$admin['user_id']?>&image=<?=$admin['picture']?>"><img src="../../assets/images/icons/del_admin.png" style="width: 30px;height:30px" alt=""></a>
         </td>
       </tr>
