@@ -174,6 +174,7 @@
             </div>
             <div class="accordion mb-3 rounded shadow-sm bg-white overflow-hidden" id="accordionExample">
                 <div class="osahan-card bg-white border-bottom overflow-hidden">
+            <!-- 
                     <div class="osahan-card-header" id="headingOne">
                         <h2 class="mb-0">
                             <button class="d-flex p-3 align-items-center btn btn-link w-100" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -181,8 +182,8 @@
                                 <i class="feather-chevron-down ml-auto"></i>
                             </button>
                         </h2>
-                    </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    </div> -->
+                    <!-- <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                         <div class="osahan-card-body border-top p-3">
                             <h6 class="m-0">Add new card</h6>
                             <p class="small">WE ACCEPT <span class="osahan-card ml-2 font-weight-bold">(
@@ -209,7 +210,7 @@
                             </form>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="osahan-card bg-white border-bottom overflow-hidden">
                     <div class="osahan-card-header" id="headingTwo">
                         <h2 class="mb-0">
@@ -224,17 +225,17 @@
                             <form>
                                 <div class="btn-group btn-group-toggle w-100" data-toggle="buttons">
                                     <label class="btn btn-outline-secondary active">
-                                        <input type="radio" name="options" id="option1" checked> HDFC
+                                        <input type="radio" name="options" id="option1" checked> ABA
                                     </label>
                                     <label class="btn btn-outline-secondary">
-                                        <input type="radio" name="options" id="option2"> ICICI
+                                        <input type="radio" name="options" id="option2"> AC
                                     </label>
                                     <label class="btn btn-outline-secondary">
-                                        <input type="radio" name="options" id="option3"> AXIS
+                                        <input type="radio" name="options" id="option3"> Wing
                                     </label>
                                 </div>
                                 <hr>
-                                <div class="form-row">
+                                <!-- <div class="form-row">
                                     <div class="col-md-12 form-group mb-0">
                                         <label class="form-label small font-weight-bold">Select
                                             Bank</label><br>
@@ -246,7 +247,7 @@
                                             <option>TRUE MONEY</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> -->
                             </form>
                         </div>
                     </div>
@@ -264,6 +265,11 @@
                         <div class="card-body border-top">
                             <h6 class="mb-3 mt-0 mb-3 font-weight-bold">Cash</h6>
                             <p class="m-0">Please keep exact change handy to help us serve you better</p>
+                            <div class="btn">
+                                <button type="button" class="btn btn-primary" style="background:#E21B70; display: flex; flex-direction:column;">Yes</button>
+                                <button type="button" class="btn btn-danger">No</button>
+
+                            </div>
                         </div>
                     </div>
                 </div>
