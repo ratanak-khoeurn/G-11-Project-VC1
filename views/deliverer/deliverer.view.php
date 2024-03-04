@@ -30,6 +30,31 @@
     </div>
     <main>
 
+<<<<<<< HEAD
+=======
+        <h2>Get request from customer</h2>
+
+        <table>
+           <thead>
+           <tr> <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Region</th>
+                <th>Number Phone</th>
+            </tr> 
+           </thead>
+            <tbody>
+            <tr>
+                <td><img src="assets/images/user/1.jpg" ></td>
+                <td>Sreyluch</td>
+                <td>sreyluch@gmail.com</td>
+                <td>Rokat communte kravanh distric </td>
+                <td><button>Accept</button></td>
+            </tr>
+            </tbody>
+        </table>
+
+>>>>>>> f568baf4e8a6ccfde8dc5a3c7900bdcc649d7046
     </main>
 </div>
 

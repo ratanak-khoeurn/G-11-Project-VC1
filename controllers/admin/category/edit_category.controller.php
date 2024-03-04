@@ -7,6 +7,6 @@ $image = $_GET["image"];
 if (isset($id) && isset($image)) {
     require "../../../models/admin/category/category.model.php";
     $category = get_cate($id);
-    require "../../../views/admin/category_edit.view.php";
+    require "../../../views/admin/category/category_edit.view.php";
     
 }
