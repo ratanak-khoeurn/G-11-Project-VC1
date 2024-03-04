@@ -7,4 +7,4 @@ session_destroy();
 // Redirect the user to the homepage
 header('Location: /');
 exit(); // Terminate script execution after redirect
-?>
+?>  

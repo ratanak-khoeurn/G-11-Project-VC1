@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 
 ?>
 <header class="section-header">
@@ -13,7 +13,8 @@ session_start();
         </div>
         <div class="col-3 d-flex align-items-center m-none">
           <div class="dropdown mr-3">
-            <a class="btn-border-1 text-white dropdown-toggle d-flex align-items-center py-3" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="btn-border-1 text-white dropdown-toggle d-flex align-items-center py-3" href="#"
+              id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div>
                 <i class="feather-map-pin mr-2 primary-dark rounded-pill p-2 icofont-size"></i>
               </div>
@@ -154,48 +155,54 @@ session_start();
               console.log(signin);
               let span = document.querySelector('.user-name');
               console.log(span);
-              if(span.textContent == ''){
+              if (span.textContent == '') {
                 signin.style.display = 'block';
-              }else{
+              } else {
                 signin.style.display = 'none';
 
               }
             </script>
 
-            <a href="/signin" class="widget-header mr-4 text-white m-none <?= isset($_SESSION['user']['first_name']) ? 'd-none' : '' ?>">
+            <a href="/signin"
+              class="widget-header mr-4 text-white m-none <?= isset($_SESSION['user']['first_name']) ? 'd-none' : '' ?>">
               <div class="icon d-flex align-items-center">
                 <i class="feather-user h6 mr-2 mb-0"></i>
                 <span>Sign in</span>
               </div>
+            </a>
+            <span class="user-name" style="color:white;text-align:center">
+              <?= isset($_SESSION['user']['first_name']) ? $_SESSION['user']['first_name'] : '' ?>
+            </span>
+
+           
+            <div class="dropdown mr-4 m-none">
+              <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <img alt="#"
+                  src="../../../assets/images/user/<?= isset($_SESSION['user']['picture']) ? $_SESSION['user']['picture'] : '../../../assets/images/avatar/no-profile-pic-icon-11.jpg' ?>"
+                  class="img-fluid rounded-circle header-user mr-2 header-user" />
+
               </a>
-              <span class="user-name"><?= isset($_SESSION['user']['first_name']) ? $_SESSION['user']['first_name'] : '' ?></span>
-
-              </span>
-              <div class="dropdown mr-4 m-none">
-                <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img alt="#" src="../../../assets/images/user/<?= isset($_SESSION['user']['picture']) ? $_SESSION['user']['picture'] : '../../../assets/images/avatar/no-profile-pic-icon-11.jpg' ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
-
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="/profile">My account</a>
-                  <a class="dropdown-item" href="faq.html">Delivery support</a>
-                  <a class="dropdown-item" href="contact-us.html">Contant us</a>
-                  <a class="dropdown-item" href="terms.html">Term of use</a>
-                  <a class="dropdown-item" href="privacy.html">Privacy policy</a>
-                  <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
-                </div>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="/profile">My account</a>
+                <a class="dropdown-item" href="faq.html">Delivery support</a>
+                <a class="dropdown-item" href="contact-us.html">Contant us</a>
+                <a class="dropdown-item" href="terms.html">Term of use</a>
+                <a class="dropdown-item" href="privacy.html">Privacy policy</a>
+                <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
               </div>
+            </div>
 
-              <a href="/checkout" class="widget-header mr-4 text-white">
-                <div class="icon d-flex align-items-center">
-                  <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-                  <span>Cart</span>
-                </div>
-              </a>
+            <a href="/checkout" class="widget-header mr-4 text-white">
+              <div class="icon d-flex align-items-center">
+                <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+                <span>Cart</span>
+              </div>
+            </a>
 
-              <a class="toggle" href="#">
-                <span></span>
-              </a>
+            <a class="toggle" href="#">
+              <span></span>
+            </a>
           </div>
         </div>
       </div>
