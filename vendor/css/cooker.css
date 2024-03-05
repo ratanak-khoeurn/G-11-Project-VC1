@@ -3,32 +3,48 @@
                 height: 100vh;
                 width: 100vw;
               }
-              .bg-theme-blacks{
+              /* .bg-theme-blacks{
                 width: 65.6%;
                 margin-left: 17.2%;
+              } */
+              #vido{
+                width:65.5%;
+                margin-left: 17.2%;
               }
+              /* #video-backgrounds {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+            } */
               h1 {
                 position: relative;
-                top: 17vh;
-                /* margin-right: 30%; */
-                padding-right: 9%  ;
-                width: 100%;
+                top: -60vh;
+                margin-right: 30%;
                 text-align: end;
                 font-family: "Serif";
-                font-size: 6vh;
+                font-size: 9vh;
                 color: #0c0c0c;
-                /* opacity: 0.75; */
+                opacity: 0.75;
                 animation: pulse 2.5s linear infinite;
+                /* background: #000; */
                 b{
                   color:#A51D08;
+                  /* margin-left: 60%; */
+
                 }
-                p{
+                
+                /* /* p{
                     font-size: 23px;
                     align-items:left ;
                     text-align: left;
-                    width: 50%;
-                    margin-left: 54%;
-                }
+                    width: 100%;
+                    margin-left: 63%;
+                    background: #000;
+                } */
               }
               #cooking {
                 position: relative;
