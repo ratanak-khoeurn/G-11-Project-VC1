@@ -1,4 +1,7 @@
+<?php
+// session_start();
 
+?>
 <header class="section-header">
   <section class="header-main shadow-sm bg-primary-style2" style="background-color: #E21B70;">
     <div class="container">
@@ -146,25 +149,44 @@
                 <span>Offers</span>
               </div>
             </a>
+            <script>
+              let signin = document.querySelector('.a');
+              console.log(signin);
+              let span = document.querySelector('.user-name');
+              console.log(span);
+              if (span.textContent == '') {
+                signin.style.display = 'block';
+              } else {
+                signin.style.display = 'none';
+              }
+            </script>
 
-            <a href="/signin" class="widget-header mr-4 text-white m-none">
+            <a href="/signin" class="widget-header mr-4 text-white m-none <?= isset($_SESSION['user']['first_name']) ? 'd-none' : '' ?>">
               <div class="icon d-flex align-items-center">
                 <i class="feather-user h6 mr-2 mb-0"></i>
                 <span>Sign in</span>
               </div>
             </a>
+            <span class="user-name" style="color:white;text-align:center;margin-right:10px">
+              <?= isset($_SESSION['user']['first_name']) ? $_SESSION['user']['first_name'] : '' ?>
+            </span>
+
+
             <div class="dropdown mr-4 m-none">
-              <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img alt="#" src="assets/images/user/1.jpg" class="img-fluid rounded-circle header-user mr-2 header-user" />
-                Hi Osahan
+              <a href="#" class="dropdown-toggle text-white py-3 d-block" style="width: 43px;height:75px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php
+                $picture_path = isset($_SESSION['user']['picture']) && $_SESSION['user']['picture'] != '' ? $_SESSION['user']['picture'] : '../../../assets/images/avatar/no-profile-pic-icon-11.jpg';
+                ?>
+                <img style="width: 100%;height:100%" alt="#" src="../../../assets/images/user/<?php echo $picture_path; ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
               </a>
+
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="/profile">My account</a>
                 <a class="dropdown-item" href="faq.html">Delivery support</a>
                 <a class="dropdown-item" href="contact-us.html">Contant us</a>
                 <a class="dropdown-item" href="terms.html">Term of use</a>
                 <a class="dropdown-item" href="privacy.html">Privacy policy</a>
-                <a class="dropdown-item" href="/signin">Logout</a>
+                <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
               </div>
             </div>
 
