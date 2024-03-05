@@ -1,7 +1,9 @@
 <?php 
+session_start();
 require "models/signin.model.php";
 if (! isset($_SESSION['email_reset'])) {
     require 'views/errors/404.php';
+    echo $_SESSION['email_reset'];
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

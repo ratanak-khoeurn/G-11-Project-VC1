@@ -1,3 +1,7 @@
+<?php
+    // session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,26 +37,18 @@
                 <div class="px-5 col-10 mx-auto">
                     <h2 class=" my-0" style="color:#E21B70;">SIGN IN ACCOUNT</h2>
                     <p class="text-50">Sign in to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/signin/check_singin_user.controller.php" method="post">
+                    <form class="mt-5 mb-4" action="controllers/signin/check_singin_user.controller.php?sigin=2" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control"Name="email" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" name="email" />
+                            <input type="email" placeholder="Enter Email" class="form-control" Name="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required />
+                            <span class="text-red-600" style="color: red;"><?=isset($_SESSION['worng_email'])? $_SESSION['worng_email'] : ""; ?></span>
+
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="text-dark">Password</label>
-                            <input type="password" placeholder="Enter Password" class="form-control"
-                                id="exampleInputPassword1" name="password" />
-                        </div>
-                        <div class="form-group">
-                            <label for="product_name">Restaurant Name</label>
-                            <select class="form-control" id="role" name="role" required>
-                                <option value="">Select Role</option>
-                                <option value="admin">Admin</option>
-                                <option value="manager">Restaurant's Manager</option>
-                                <option value="delivery">Delivery</option>
-                                <option value="user">Customer</option>
-                            </select>
+                            <input type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1" name="password" required />
+                            <span class="text-red-600" style="color: red;"><?=isset($_SESSION['wrong_password'])? $_SESSION['wrong_password'] : ""; ?></span>
+
                         </div>
                         <button class="btn btn-lg btn-block" style="background-color:#E21B70;color:white">SIGN IN</button>
                     </form>
@@ -62,7 +58,7 @@
                     <div class="d-flex align-items-center justify-content-center">
                         <a href="##">
                             <p class="text-center m-0">Don't have an account? <a href="/signup">Sign up</a></p>
-                        </a> 
+                        </a>
                     </div>
                 </div>
             </div>
@@ -195,11 +191,7 @@
 
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/js/osahan.js"></script>
     <script src="vendor/rocket/rocket-loader.min.js" data-cf-settings="c7cde99310a44e0c8a34cba7-|49" defer></script>
-    <script defer
-        src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
-        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
-        data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}'
-        crossorigin="anonymous"></script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}' crossorigin="anonymous"></script>
 </body>
 
 </html>
