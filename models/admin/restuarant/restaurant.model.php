@@ -25,8 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $res_image['size'] <50000 && in_array($res_image["type"], array("png", "jpeg", "jpg"))){
                 echo"no";
             }else{
-                var_dump ($res_image['name']);
-                var_dump($res_image);
                     move_uploaded_file($res_image['tmp_name'], $uploadFile);
                     $created = create_restaurant( $res_name, $res_address , $res_image['name'], $region,$res_owner);
                     if($created){

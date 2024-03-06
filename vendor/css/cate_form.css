@@ -25,29 +25,46 @@ form{
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background: rgb(80, 80, 245);
+    /* background: rgb(80, 80, 245); */
     height: 80px;
     border: 2px solid #fff;
-    border-radius: 10px;
-    color: white;
+    /* border-radius: 10px; */
+    color: #E21B70;
     padding: 5px 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
+input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: #000;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 10px 5px;
+    margin-right: 20px;
+    transition: .5s;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+    color: black;
+  }
 button{
     height: 50px;
     border-radius: 5px;
     font-size: 16px;
-    background-color: rgb(105, 164, 16);
+    background-color: #E21B70;
     color: white;
     padding: 2px 5px;
 
 }
-input{
-    border: 2px solid green;
-}
+
 hr{
    margin: 5px 10px;
     margin: auto;
-    border: 5px solid blue;
+    border: 5px solid #E21B70;
 
 }
 .table {
@@ -70,23 +87,23 @@ hr{
     display: inline-block;
     padding: 8px 12px;
     text-decoration: none;
-    background-color: #007bff;
+    background-color: #E21B70;
     color: #fff;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #E21B70;
 }
 .btn-primary {
-    background-color: #007bff;
+    background-color: #E21B70;
 }
 .btn-primary:hover {
-    background-color: #0056b3;
+    background-color: #E21B70;
 }
 .img{
     width: 70px;
     height: 70px;
-    border-radius: 50%;
+    border-radius:5%;
 }

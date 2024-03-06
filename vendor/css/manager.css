@@ -1,115 +1,41 @@
-
-  .title{
-    margin:20px 0;
-  }
-  
-  form {
-    background-color: #fefefe;
-    margin:auto;
-    margin-top: 10%;
-    padding: 20px;
-    width:100%;
-    animation-name: modalopen;
-    animation-duration: 0.4s;
-    border-radius: 10px;
-  }
-  
-  /* Animation */
-   @keyframes modalopen {
-    from {
-        opacity: 0;
-    }
-  
-    to {
-        opacity: 1;
-    }
-  }
-  
-  form{
-  
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    height: 520px;
-    background: transparent;
-    color: white;
-    padding: 15px 10px;
-  }
-  .form-group{
-    display: flex;
-    flex-direction: column;
-  }
-  button{
-    height: 50px;
-    border-radius: 5px;
-    font-size: 16px;
-    background-color: #69a410;
-    color: white;
-    padding: 2px 5px;
-    
-  
-  }
-  #rstaurant_name,input{
-    width: 500px;
-    margin: 8px 0;
-  }
-  .btn{
-    width: 500px;
-  }
-  label{
-    color: black;
-    margin-bottom: 10px;
-  }
-  .submit{
-    width: 500px;
-  } 
-
-  .submit{
-    margin-top: 10px;
-  }
-  #restaurant_name{
-    height: 40px;
-}
-
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0,0,0,0.4);
-}
-
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+.main{
   display: flex;
-  border-radius: 10px;
-  width: 50%; /* Could be more or less, depending on screen size */
+  width: 100%;
+  padding:25px 50px;
+  flex-direction: column;
+  height: 1500px;
+}
+.top{
+  display: flex;
+  width: 100%;
+  height: 30px;
+  justify-content: space-between;
+}
+.top input{
+  background:#E21B70 ;
+}
+hr{
+  border: 4px solid #E21B70;
+  width: 100%;
+  margin-top: 30px;
+}
+table{
+  margin-top: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  font-family: Arial, sans-serif;
+}
+th, td {
+  border: 1px solid #E21B70;
+  padding: 8px;
+  text-align: left;
 }
 
-/* Close Button */
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 40px;
-  font-weight: bold;
-
+th {
+  background-color: #E21B70;
+  color: white;
 }
 
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
+tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
-
-  
-  
-  

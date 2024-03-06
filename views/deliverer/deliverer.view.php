@@ -1,18 +1,37 @@
 <link rel="stylesheet" href="../../../vendor/css/deliverer_page.css">
-<div class="container">
+<div class="navbar">
     <nav>
         <div class="left">
-            <a href=""><img src="../../assets/images/logo_web.png" alt=""
-                    style="width: 70px;height:70px;border-radius:50%"></a>
+            <a href=""><img src="../../assets/images/logo_web.png" alt="" style="width: 70px;height:70px;border-radius:50%">
+            </a>
             <h2>Deliverer</h2>
         </div>
         <div class="right">
-            <h3>Name</h3>
-            <h3>Profile</h3>
+            <span>Name</span>
+            <span><a href=""><img src="assets/images/avatar/no-profile-pic-icon-11.jpg" alt="" class="profile"></a></span>
         </div>
     </nav>
+
+</div>
+<div class="container">
+    <div class="sidebar">
+        <div class="list">
+            <ul>
+                 <li>
+                    <a href="views/deliverer/list_customer.php">Customer</a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="views/deliverer/list_customer.php">Deliverer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
     <main>
 
+<<<<<<< HEAD
+=======
         <h2>Get request from customer</h2>
 
         <table>
@@ -22,7 +41,7 @@
                 <th>Email</th>
                 <th>Region</th>
                 <th>Number Phone</th>
-            </tr>
+            </tr> 
            </thead>
             <tbody>
             <tr>
@@ -35,5 +54,9 @@
             </tbody>
         </table>
 
+>>>>>>> f568baf4e8a6ccfde8dc5a3c7900bdcc649d7046
     </main>
+</div>
+
+</div>
 </div>

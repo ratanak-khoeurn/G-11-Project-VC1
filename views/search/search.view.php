@@ -5,7 +5,7 @@ require_once "models/admin/restuarant/resturant.process.php";
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
-        <h4 class="font-weight-bold m-0 text-white">Restaurants</h4>
+        <h4 class="font-weight-bold m-0 text-white">Search</h4>
     </div>
 </div>
 <div class="osahan-popular">
@@ -41,17 +41,17 @@ require_once "models/admin/restuarant/resturant.process.php";
                                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                     <div class="list-card-image">
                                         <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a></div>
+                                        <div class="favourite-heart text-danger position-absolute"><a href="/favorite"><i class="feather-heart"></i></a></div>
                                         <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
                                         <a href="/restaurant">
-                                            <img alt="#" src="<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
+                                            <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
                                         </a>
                                     </div>
                                     <div class="p-3 position-relative">
                                         <div class="list-card-body">
                                             <h6 class="mb-1"><a href="/restaurant" class="text-black"><?= $res['res_name'] ?></a>
                                             </h6>
-                                            <p class="text-gray mb-1 small">• North • Hamburgers</p>
+                                            <p class="text-gray mb-1 small"><?= $res['res_address'] ?></p>
                                             <p class="text-gray mb-1 rating">
                                             <ul class="rating-stars list-unstyled">
                                                 <li>

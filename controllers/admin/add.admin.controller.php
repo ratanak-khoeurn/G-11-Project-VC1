@@ -1,2 +1,2 @@
 <?php
-require  "views/views/admin_page.view.php";
+require  "views/admin/admin_page.view.php";

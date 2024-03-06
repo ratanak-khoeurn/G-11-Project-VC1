@@ -1,2 +1,2 @@
 <?php
-require "views/admin/category_page.view.php";
+require "views/admin/category/category_page.view.php";

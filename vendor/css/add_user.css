@@ -1,70 +1,86 @@
-#my_modal{
-    width: 100%;
-    height: 80%;
-}
-
-.modal-content {
-    background-color: #fefefe;
-    padding: 20px;
-    width: 100%; 
-    height: 100%;
-    border-radius: 8px;
-    margin-top: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8); /* Box shadow */
-
-
-}
-
-/* Close Button */
-.close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    color: #aaa;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Form Styles */
-.form-group {
-    margin-bottom: 20px;
-}
-
-label {
-    font-weight: bold;
-}
-.names{
+.main{
     display: flex;
-    width: 100%;
-    justify-content: space-between;
-}
-.form-group-name{
-    width: 100%;
-    display:flex;
     flex-direction: column;
-}   
-.names input{
-    width: 90%;
+    width: 80%;
+    margin-left: 30px;
+}
+h1{
+    text-align: center;
+    padding: 10px 0;
+
+}
+form {
+    display: flex;
+    width:80%;
+    margin: 10px auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    flex-wrap: wrap;
+    height: 80%;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgb(0, 4, 255); /* Box shadow effect */
+
+}
+.group_input{
+    display: flex;
+    flex-direction: column;
+    width: 48%;
 }
 
-.submit {
-    background-color: #4CAF50;
+
+.group_input input[type="text"],
+.group_input input[type="email"],
+.group_input input[type="password"],
+.group_input select,
+.group_input input[type="tel"],
+.group_input input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+    background: gainsboro;
+}
+button[type="submit"] {
+    background-color: #E21B70;
     color: white;
-    padding: 12px 20px;
+    padding: 15px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 3px;
     cursor: pointer;
     font-size: 16px;
 }
 
-.submit:hover {
-    background-color: #45a049;
+input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: #000;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 10px 5px;
+    margin-right: 20px;
+    transition: .5s;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+  }
+.img{
+    width: 20%;
+    height: 50px;
+    margin-right: 50px;
+    border-radius: 50%;
+    padding-right: 10px;
+    margin-left: 20px;
+    
+}
+.img img{
+    border-radius: 50%;
+    width: 160px;
+    height: 170px;
+    border: 1px solid #2e2a2a;
+    margin-top: 20px;
+    
 }

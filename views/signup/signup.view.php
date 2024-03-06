@@ -31,31 +31,28 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
-                    <h2 class="text-dark my-0">Welcome Back</h2>
-                    <p class="text-50">Sign up to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/signup/create_user.controller.php" method="post">
+                <h1 class=" my-0" style="color: #E21B70;">CREATE ACCOUNT</h1>
+                    <p class="text-50">Sign up to continue for customer</p>
+                    <form class="mt-5 mb-4" action="controllers/signin/check_singin_user.controller.php?signup=1" method="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <input type="name" placeholder ="First Name" class="form-control mb-4" id="exampleInputName" aria-describedby="nameHelp" name="first_name">
-                            <input type="name" placeholder ="Last Name" class="form-control mb-4" id="exampleInputName" aria-describedby="nameHelp" name="last_name">
+                            <input type="name" placeholder ="First Name" class="form-control mb-4" id="exampleInputName" aria-describedby="nameHelp" name="first_name" required>
+                            <input type="name" placeholder ="Last Name" class="form-control mb-4" id="exampleInputName" aria-describedby="nameHelp" name="last_name" required>
                             <input type="email" placeholder="Enter Email" class="form-control mb-4" id="exampleInputEmail1"
-                                aria-describedby="emailHelp" name="email"/>
+                                aria-describedby="emailHelp" name="email" required/>
                             <input type="password" placeholder="Enter Password" class="form-control mt-4"
-                                id="exampleInputPassword1" name="password"/>
+                                id="exampleInputPassword1" name="password" required/>
+                            <input type="number" placeholder="Enter Phone Number" class="form-control mt-4"
+                                id="phone" name="phone" required/>
+                            <input type="file" placeholder="Enter file" class="form-control mt-4"
+                                id="profile" name="profile" required/>
                         </div>
                         
-                        <button class="btn btn-primary btn-lg btn-block">SIGN UP</button>
-                        <div class="py-2">
-                            <button class="btn btn-lg btn-facebook btn-block">
-                                <i class="feather-facebook"></i> Connect with Facebook
-                            </button>
-                        </div>
+                        <button class="btn btn-lg btn-block" style="background-color:#E21B70;color:white">SIGN UP</button>
+                        
                     </form>
-                    <a href="forgot_password.html" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
-                    </a>
                     <div class="d-flex align-items-center justify-content-center">
-                        <a href="##">
-                            <p class="text-center m-0">Don't have an account? <a href="/signin">Sign in</a></p>
+                        <a href="/signin">
+                            <p class="text-center m-0">Don't have an account? Sign in</p>
                         </a>
                     </div>
                 </div>

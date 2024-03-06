@@ -16,7 +16,7 @@ require "../../../models/admin/products/product.model.php";
 
     #restar {
         position: relative;
-        margin: auto;
+        /* margin: auto; */
         display: flex;
         align-items: center;
         height: 100%;
@@ -65,6 +65,23 @@ require "../../../models/admin/products/product.model.php";
         box-sizing: border-box;
         font-size: 16px;
     }
+    input[type=file]::file-selector-button {
+    background-color: #E21B70;
+    color: #000;
+    border: 0px;
+    border-right: 1px solid #050505;
+    padding: 10px 5px;
+    margin-right: 20px;
+    transition: .5s;
+    color: white;
+  }
+  
+  input[type=file]::file-selector-button:hover {
+    background-color: #eee;
+    border: 0px;
+    border-right: 1px solid #2e2a2a;
+    color: black;
+  }
 
     input[type="file"] {
         margin-top: 3px;

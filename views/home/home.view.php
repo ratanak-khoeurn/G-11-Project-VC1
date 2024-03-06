@@ -2,7 +2,12 @@
 
 
 
+<?php
+require 'database/database.php';
+require 'models/admin/category/category.process.php';
 
+
+?>
 <div class="osahan-home-page">
     <div class="bg-primary p-3 d-none">
       <div class="text-white">
@@ -27,60 +32,20 @@
 
     <div class="container">
       <div class="cat-slider">
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Fries.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Fries</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Pizza.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Pizza</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Burger.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Burger</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Sandwich.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Sandwich</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Coffee.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Coffee</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Steak.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Steak</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/ColaCan.png" class="img-fluid mb-2" />
-            <p class="m-0 small">ColaCan</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Breakfast.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Breakfast</p>
-          </a>
-        </div>
-        <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="assets/images/icons/Salad.png" class="img-fluid mb-2" />
-            <p class="m-0 small">Salad</p>
-          </a>
-        </div>
+      <?php
+        $categories = get_category();
+            foreach ($categories as $category):
+              ?>
+              <div class="cat-item px-1 py-3">
+                <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
+                  <img alt="#" src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img-fluid mb-2"
+                    style="height: 100px; width: 250px;" />
+                  <p class="m-0 small">
+                    <?= $category['category_name'] ?>
+                  </p>
+                </a>
+              </div>
+            <?php endforeach; ?>
       </div>
     </div>
 
@@ -771,3 +736,4 @@
       </div>
     </div>
   </div>
+
