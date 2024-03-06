@@ -233,7 +233,7 @@ require_once "models/admin/restuarant/resturant.process.php";
             </div>
         </div>
     </div>
-    <div class="col-md-4 pt-3" style="margin-top:30px; width: 20%;height:auto">
+    <!-- <div class="col-md-4 pt-3" style="margin-top:30px; width: 20%;height:auto">
         <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
             <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
                 <img alt="osahan" src="assets/images/starter1.jpg" class="mr-3 rounded-circle img-fluid">
@@ -345,7 +345,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                 <a class="btn btn-success btn-block btn-lg" href="/checkout">PAY $1329<i class="feather-arrow-right"></i></a>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>
 
