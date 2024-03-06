@@ -9,6 +9,9 @@
         z-index: -1;
         object-fit: cover;
     }
+    h1{
+        color:#E21B70 ;
+    }
 
     #restar {
         position: relative;
@@ -63,7 +66,7 @@
     }
 
     button[type="submit"] {
-        background-color: #007bff;
+        background-color: #E21B70;
         color: #fff;
     }
 
@@ -82,7 +85,7 @@
                 Enter your code 
             </h1>
             <label for="email" >
-                Please check your email address to get 6-digits PIN CODE
+                Please check your email address to get 6-digits PIN code
             </label>
             <div>
                 <input type="number" id="number" name="pin-code" placeholder="Enter code" >

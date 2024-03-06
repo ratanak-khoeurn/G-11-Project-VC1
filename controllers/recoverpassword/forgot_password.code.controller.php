@@ -1,5 +1,5 @@
 <?php 
-session_start();
+// session_start();
 require "models/signin.model.php";
 if (! isset($_SESSION['email_reset'])) {
     require 'views/errors/404.php';
@@ -14,7 +14,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($code == $_POST['pin-code']) {
             $_SESSION['pin_code'] = $code;
-            header("location: /recover_password");
+            echo $_SESSION['pin_code'];
+            echo'no';
+            header("location:controllers/recoverpassword/recover_password.controller.php");
         }
     }
 }

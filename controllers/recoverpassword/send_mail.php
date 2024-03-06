@@ -1,11 +1,12 @@
 <?php
+require_once '../../config/config.php';
 // Import PHPMailer classes into the global namespace 
 use PHPMailer\PHPMailer\PHPMailer; 
 use PHPMailer\PHPMailer\Exception; 
 // Include PHPMailer library files 
-require 'PHPMailer/Exception.php'; 
-require 'PHPMailer/PHPMailer.php'; 
-require 'PHPMailer/SMTP.php'; 
+require '../../PHPMailer/Exception.php'; 
+require '../../PHPMailer/PHPMailer.php'; 
+require '../../PHPMailer/SMTP.php'; 
 
 // Create an instance of PHPMailer class 
 $mail = new PHPMailer;
@@ -45,7 +46,7 @@ $mail->isHTML(true);
  */
 $mailContent = "
     <p>Hello,</p>
-    <p>Your verification code: <span style='font-width: bold;'>$pinCode</span>.</p>
+    <p>Here is your verification code: <span style='font-width: bold;'>$pinCode</span>.</p>
     <p>Do not share it with anyone.</p>
     <br>
     <p>Thank you!</p>

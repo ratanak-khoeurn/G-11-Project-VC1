@@ -10,7 +10,7 @@ $routes = [
     '/admin' => 'controllers/admin/admin_home.controller.php',
     '/forgot_password'=> 'controllers/recoverpassword/forgot_password.controller.php',
     '/code_security'=> 'controllers/recoverpassword/forgot_password.code.controller.php',
-    '/recover_passwrd'=> 'controllers/recoverpassword/recover_password.controller.php',
+    // '/recover_passwrd'=> 'controllers/recoverpassword/recover_password.controller.php',
 
 
     // '/trainer-review' => 'controllers/reviews/review.controller.php',

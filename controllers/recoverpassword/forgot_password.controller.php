@@ -1,5 +1,8 @@
 <?php 
-require "models/signin.model.php";
+session_start();
+require "../../database/database.php";
+require "../../models/signin.model.php";
+// session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     empty($_POST['email'])? $errorEmail = "Please enter your email address." : "";
@@ -13,11 +16,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             setPinCodeByEmail($email, $pinCode);
             $_SESSION['email_reset'] = $email;
 
-            require "controllers/recoverpassword/send_mail.php";
+            require "../../controllers/recoverpassword/send_mail.php";
 
             header("location: /code_security");
         }
     }
 }
 
-require "views/recoverpassword/forgot_password.php";
+require "../../views/recoverpassword/forgot_password.php";

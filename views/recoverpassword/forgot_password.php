@@ -10,7 +10,9 @@
         z-index: -1;
         object-fit: cover;
     }
-
+    h1{
+        color:#E21B70 ;
+    }
     #restar {
         position: relative;
         margin: auto;
@@ -66,7 +68,7 @@
     }
 
     button[type="submit"] {
-        background-color: #007bff;
+        background-color: #E21B70;
         color: #fff;
     }
 
@@ -80,11 +82,11 @@
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-            <form action="/forgot_password" method ="post">
+            <form action="../../controllers/recoverpassword/forgot_password.controller.php" method ="post">
             <h1 >
                 Forgot Password
             </h1>
-            <label for="email" >Please enter email address and we'll send you PIN CODE</label>
+            <label for="email" >Please enter email address and we'll send you PIN code</label>
             <div>
                 <input type="email" name="email" value="<?= isset($_POST['email'])? $_POST['email'] : "";?>" id="email" placeholder="Enter your email address" >
                 <span ><?= isset($errorEmail)? $errorEmail : "";?></span>

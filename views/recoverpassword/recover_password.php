@@ -11,7 +11,9 @@
         z-index: -1;
         object-fit: cover;
     }
-
+     h1{
+        color:#E21B70 ;
+    }
     #restar {
         position: relative;
         margin: auto;
@@ -47,7 +49,7 @@
         font-size: 16px;
     }
 
-    input[type="email"] {
+    input[type="password"] {
         width: 100%;
         padding: 10px;
         border: 1px solid ;
@@ -67,7 +69,7 @@
     }
 
     button[type="submit"] {
-        background-color: #007bff;
+        background-color: #E21B70;
         color: #fff;
     }
 
@@ -81,19 +83,19 @@
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-            <form action="/recover_passwrd" method ="post">
+            <form action="../../controllers/recoverpassword/test.php" method ="post">
             <h1 >
                New Password
             </h1>
             <p class="text-center">Please create a new password for your account</p>
             <label for="password">New Password</label>
             <div>
-                <input type="password" name="new-password" id="new-password" value="<?= isset($_POST['new-password'])? $_POST['new-password'] : ""?>" placeholder="••••••••••••" >
+                <input type="password" name="new_password" id="new_password" value="<?= isset($_POST['new_password'])? $_POST['new_password'] : ""?>" placeholder="••••••••••••" >
                 <span ><?= isset($errors['new_password'])? $errors['new_password']: ""; ?></span>
             </div>
             <label for="password" >Confirm Password</label>
             <div>
-                <input type="password" name="confirm-password" id="password" value="<?= isset($_POST['confirm-password'])? $_POST['confirm-password'] : ""?>" placeholder="••••••••••••"  >
+                <input type="password" name="confirm_password" id="password" value="<?= isset($_POST['confirm_password'])? $_POST['confirm_password'] : ""?>" placeholder="••••••••••••"  >
                 <span ><?= isset($errors['confirm_password'])? $errors['confirm_password'] : ""; ?></span>   
             </div>
             <button type="submit" >Change</button>

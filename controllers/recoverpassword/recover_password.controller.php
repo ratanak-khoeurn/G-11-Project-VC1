@@ -1,29 +1,33 @@
 <?php
-require "models/signin.model.php";
+session_start();
+require_once("../../database/database.php");
+require "../../models/signin.model.php";
 $errors = [];
 
-if (! isset($_SESSION['pin_code'])) {
-    require 'views/errors/404.php';
+// Assuming $connection is defined in signin.model.php
+if (!isset($connection)) {
+    require '../../views/errors/404.php';
     die();
 }
-
-$email = getEmailByPinCode($_SESSION['pin_code'])['email'];
+echo $_SESSION['pin_code'];
+$email = getEmailByPinCode($_SESSION['pin_code']);
+var_dump($email);
 if (!$email) {
     session_destroy();
     header("Location: controllers/signin/check_singin_user.controller.php");
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    strlen($_POST['new-password']) >= 8 ? "" : $errors['new_password'] = "Please enter password at least 8 characters.";
-    $_POST['new-password'] == $_POST['confirm-password'] ? "" : $errors['confirm_password'] = "Incorrect password.";
+    strlen($_POST['new-password']) > 0 ? "" : $errors['new_password'] = "Please enter a password with at least 8 characters.";
+    $_POST['new-password'] == $_POST['confirm-password'] ? "" : $errors['confirm_password'] = "Passwords do not match.";
 
     if (empty($errors)) {
-        $encryptNewPass = password_hash($_POST['new-password'], PASSWORD_BCRYPT);
-        updateNewPassword($email, $encryptNewPass);
-        setPinCodeByEmail($email, null);
+        // No encryption needed, save password directly
+        updateNewPassword($email['email'], $_POST['new-password']);
+        setPinCodeByEmail($email['email'], null);
         session_destroy();
         header("Location: controllers/signin/check_singin_user.controller.php");
     }
 }
 
-require "views/recoverpassword/recover_password.view.php";
+require "../../views/recoverpassword/recover_password.php";

@@ -1,12 +1,7 @@
 {
-<<<<<<< HEAD
     "workbench.colorCustomizations": {
         "activityBar.background": "#21330A",
         "titleBar.activeBackground": "#2E470E",
         "titleBar.activeForeground": "#F7FCF1"
-=======
-    "[php]": {
-        "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
->>>>>>> b94e1bddc64de52c69a793c3ba268ab0fce4fc17
     }
 }
