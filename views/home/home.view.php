@@ -48,7 +48,7 @@ require 'models/admin/category/category.process.php';
 
   <div class="py-3" style="height: 80vh; position: relative; overflow: hidden; display: flex; justify-content: center;width:100%">
     <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-        <source src="assets/images/Delivery03.mp4" type="video/mp4">
+        <source src="assets/images/202403071223.mp4" type="video/mp4">
     </video>
     <div class="container" style="display:flex;flex-direction:column; left: 54%;top:10%; width: 500px; z-index: 1; color: white; position: absolute; background: wheate; backdrop-filter: blur(10px); height: 75%; ">
         <span style="color:black;font-size:40px;padding-top:10%">WELCOME EVERYONE</span>
@@ -123,7 +123,6 @@ require 'models/admin/category/category.process.php';
     <h5 class="m-0">Trending this week</h5>
     <a class="font-weight-bold ml-auto" href="trending.html">View all <i class="feather-chevrons-right"></i></a>
   </div>
-
   <div class="trending-slider">
     <div class="osahan-slider-item">
       <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -217,7 +216,7 @@ require 'models/admin/category/category.process.php';
             <h6 class="mb-1">
               <a href="/restaurant" class="text-black">The osahan Restaurant
               </a>
-            </h6>
+              </h6>
             <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
             <p class="text-gray mb-3 time">
               <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–25
@@ -273,7 +272,6 @@ require 'models/admin/category/category.process.php';
     <h5 class="m-0">Most popular</h5>
     <a class="font-weight-bold ml-auto" href="most_popular.html">26 places <i class="feather-chevrons-right"></i></a>
   </div>
-
   <div class="most_popular">
     <div class="row">
       <div class="col-md-3 pb-3">
@@ -366,7 +364,7 @@ require 'models/admin/category/category.process.php';
               <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
             </div>
             <div class="favourite-heart text-danger position-absolute">
-              <a href="#"><i class="feather-heart"></i></a>
+            <a href="#"><i class="feather-heart"></i></a>
             </div>
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
@@ -462,7 +460,7 @@ require 'models/admin/category/category.process.php';
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
-              <h6 class="mb-1">
+            <h6 class="mb-1">
                 <a href="/restaurant" class="text-black">The osahan Restaurant
                 </a>
               </h6>
@@ -617,7 +615,6 @@ require 'models/admin/category/category.process.php';
     <h5 class="m-0">Most sales</h5>
     <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a>
   </div>
-
   <div class="most_sale">
     <div class="row mb-3">
       <div class="col-md-4 mb-3">
@@ -711,7 +708,7 @@ require 'models/admin/category/category.process.php';
               <span class="badge badge-dark">Promoted</span>
             </div>
             <a href="/restaurant">
-              <img alt="#" src="assets/images/sales3.png" class="img-fluid item-img w-100" />
+            <img alt="#" src="assets/images/sales3.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
