@@ -48,31 +48,11 @@ require 'models/admin/category/category.process.php';
             <?php endforeach; ?>
       </div>
     </div>
-
-
-    
-    <!-- <div class="bg-theme-blacks py-3" style="height:80vh; background-image: url('assets/images/Delivery03.mp4'); background-size: cover; background-position: center;"> -->
-
     <video loop autoplay muted id="vido">
     <source src="assets/images/Delivery03.mp4" type="video/mp4" />
     <source src="assets/images/Delivery03.mp4" type="video/ogg" />
     Your browser does not support the video tag.
 </video>
-
-<!-- <h1 style="display: none;">Well come to</h1><br>
-<h1 style="display: none;">GO-FOOD</h1>
-<p style="display: none;">Food is one of the basic necessities of life. Food contains nutrients substances essential for the growth.</p>
-
-
-
-<script>
-    // Function to show h1 and p after 5 seconds
-    setTimeout(function() {
-        document.querySelector('h1').style.display = 'block';
-        document.querySelector('p').style.display = 'block';
-    }, 2000); // 5000 milliseconds = 5 seconds
-</script> -->
-
 <h1>Well come to</h1><br>
 <h1><b>GO-FOOD</b></h1>
 <p style="display: none;">Food is one of the basic necessities of life. Food contains nutrients substances essential for growth.</p>
