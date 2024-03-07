@@ -3,6 +3,7 @@ require "../../../database/database.php";
 require "../../../models/add.user/add.user.model.php";
 $id = $_GET['id'];
 $pcture = $_GET['image'];
+$role = $_GET['role'];
 ?>
 <script>
     alert('Are you sure to delete?');
@@ -10,6 +11,12 @@ $pcture = $_GET['image'];
 <?php
 delete_admin($id);
 delete_image_admin($pcture);
-header('location:/manager_admin');
+if($role == 2){
+    header('location:/manager_admin');
+    
+}else{
+    header('location:/customer_admin');
+
+}
 exit;
 ?>

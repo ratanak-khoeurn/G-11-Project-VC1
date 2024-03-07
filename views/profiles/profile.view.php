@@ -1,3 +1,4 @@
+
 <div class="osahan-profile">
         <div class="d-none">
             <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -10,10 +11,10 @@
             <div class="py-5 osahan-profile row">
                 <div class="col-md-4 mb-3">
                     <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                        <a href="profile.html" class>
+                        <a href="#" class>
                             <div class="d-flex align-items-center p-3">
                                 <div class="left mr-3">
-                                    <img alt="#" src="assets/images/user1.jpg" class="rounded-circle">
+                                <img style="width: 80px; height: 80px; border-radius: 20px;border:2px solid #E21B70" alt="#" src="../../assets/images/user/<?=$_SESSION['user']['picture']?>" class="rounded-circle">
                                 </div>
                                 <div class="right">
                                     <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i
@@ -110,20 +111,20 @@
                             <div>
                                 <form action="my_account.html">
                                     <div class="form-group">
-                                        <label for="exampleInputName1">First Name</label>
+                                        <label for="exampleInputName1"><?=$_SESSION['user']['first_name']?></label>
                                         <input type="text" class="form-control" id="exampleInputName1d" value="Gurdeep">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1">Last Name</label>
+                                        <label for="exampleInputName1"><?=$_SESSION['user']['last_name']?></label>
                                         <input type="text" class="form-control" id="exampleInputName1" value="Singh">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputNumber1">Mobile Number</label>
+                                        <label for="exampleInputNumber1"><?=$_SESSION['user']['phone']?></label>
                                         <input type="number" class="form-control" id="exampleInputNumber1"
                                             value="1234567890">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Email</label>
+                                        <label for="exampleInputEmail1"><?=$_SESSION['user']['email']?></label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
                                             value="iamosahan@gmail.com">
                                     </div>

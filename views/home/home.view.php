@@ -1,3 +1,7 @@
+<link href="vendor/css/cooker.css" rel="stylesheet" />
+
+
+
 <?php
 require 'database/database.php';
 require 'models/admin/category/category.process.php';
@@ -35,7 +39,7 @@ require 'models/admin/category/category.process.php';
               <div class="cat-item px-1 py-3">
                 <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
                   <img alt="#" src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img-fluid mb-2"
-                    style="height: 100px; width: 250px;" />
+                    style="height: 70px; width: 130px;" />
                   <p class="m-0 small">
                     <?= $category['category_name'] ?>
                   </p>
@@ -44,70 +48,14 @@ require 'models/admin/category/category.process.php';
             <?php endforeach; ?>
       </div>
     </div>
-
-
-
-    <div class="bg-theme-black py-3" style="height:70vh; background-image: url('assets/images/pg.jpg'); background-size: cover; background-position: center;">
-      <div class="container">
-        <h1>Delicious, hygienic food, fast delivery <b>GO-FOOD</b></h1>
-        <br>
-        <form class="example" action="">
-          <input type="text" placeholder="Search.." name="search">
-          <button type="submit"> inter</button>
-        </form>
-
-
-
-        <style>
-          .bg-theme-black{
-            margin-left: 17%;
-            width: 66%;
-          }
-          .contaoner, h1{
-            font: oblique;
-            margin-left: 60%;
-            margin-top: 10%;
-            b{
-              color: #B82222;
-            }
-            
-          }
-          /* form.example{
-            margin-left: 60%;
-          } */
-
-          form.example input[type=text] {
-            margin-left: 60%;
-            padding: 10px;
-            font-size: 17px;
-            border: 1px solid grey;
-            float: left;
-            width: 40%;
-            background: #f1f1f1;
-          }
-
-          form.example button {
-            margin-left: 60%;
-            margin-top: 3%;
-            float: left;
-            width: 15%;
-            padding: 10px;
-            background: #B82222;
-            color: white;
-            font-size: 17px;
-            border: 1px solid grey;
-            cursor: pointer;
-          }
-
-          form.example button:hover {
-            background: #EE1A37;
-          }
-
-        </style>
-    </div>
-
-
-
+    <video loop autoplay muted id="vido">
+    <source src="assets/images/Delivery03.mp4" type="video/mp4" />
+    <source src="assets/images/Delivery03.mp4" type="video/ogg" />
+    Your browser does not support the video tag.
+</video>
+<h1>Well come to</h1><br>
+<h1><b>GO-FOOD</b></h1>
+<p style="display: none;">Food is one of the basic necessities of life. Food contains nutrients substances essential for growth.</p>
 
     </div>
     <div class="container">

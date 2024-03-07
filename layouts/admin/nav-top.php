@@ -1,8 +1,10 @@
-<?php 
-  ob_start()
+<?php
+// session_start();
+ob_start()
 
-?>
-<nav class="main-nav--bg" >
+
+  ?>
+<nav class="main-nav--bg">
   <div class="container main-nav">
     <div class="main-nav-start">
       <div class="search-wrapper">
@@ -23,7 +25,26 @@
         <ul class="lang-menu dropdown">
           <li><a href="##">English</a></li>
           <li><a href="##">Khmer</a></li>
+          <style>
+            .icon.notification.active {
+              background: url('assets/images/icons/notification.png');
+              background-size: contain;
+              background-repeat: no-repeat;
+              width: 24px;
+              height: 24px;
+            }
 
+            .sr-only {
+              position: absolute;
+              width: 1px;
+              height: 1px;
+              margin: -1px;
+              padding: 0;
+              overflow: hidden;
+              clip: rect(0, 0, 0, 0);
+              border: 0;
+            }
+          </style>
         </ul>
       </div>
       <div class="notification-wrapper">
@@ -35,7 +56,7 @@
           <li>
             <a href="##">
               <div class="notification-dropdown-icon info">
-                <i data-feather="check"></i>
+                <i data-feather="check" style="color: black;"></i>
               </div>
               <div class="notification-dropdown-text">
                 <span class="notification-dropdown__title">System just updated</span>
@@ -73,7 +94,9 @@
         </ul>
       </div>
       <div class="name">
-        <h4 class="first">Siem</h4>
+        <h4 class="first">
+          <?= $_SESSION['user']['first_name'] ?>
+        </h4>
       </div>
 
       <div class="nav-user-wrapper">
@@ -81,7 +104,9 @@
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
             <picture>
-              <source srcset="assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp"><img src="" alt="User name">
+
+              <source srcset="../../../assets/images/user/<?= $_SESSION['user']['picture'] ?>" type="image/webp">
+              <img src="../../../assets/images/user/<?= $_SESSION['user']['picture'] ?>" alt="User Picture">
             </picture>
           </span>
         </button>
@@ -94,7 +119,7 @@
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
-          <li><a class="danger" href="/admin">
+          <li><a class="danger" href="controllers/logout/logout.controller.php">
               <i data-feather="log-out" aria-hidden="true"></i>
               <span>Log out</span>
             </a></li>
