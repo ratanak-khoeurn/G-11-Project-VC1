@@ -48,13 +48,12 @@ require 'models/admin/category/category.process.php';
 
   <div class="py-3" style="height: 80vh; position: relative; overflow: hidden; display: flex; justify-content: center;width:100%">
     <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-        <source src="assets/images/202403071223.mp4" type="video/mp4">
+        <source src="assets/images/Delivery03.mp4" type="video/mp4">
     </video>
     <div class="container" style="display:flex;flex-direction:column; left: 54%;top:10%; width: 500px; z-index: 1; color: white; position: absolute; background: wheate; backdrop-filter: blur(10px); height: 75%; ">
         <span style="color:black;font-size:40px;padding-top:10%">WELCOME EVERYONE</span>
         <p>You can order a lot of foods at this website with <span style="color:#E21B70">TRUST SAFE AND FASTLY with QUALITY 100%</span></p>
-        <p>Enjoy our fast delivery service with guaranteed freshness and quality.
-        We ensure your order reaches you in the shortest time possible, maintaining the highest standards of safety and hygiene.</p>
+        <p>Enjoy our fast delivery service with guaranteed freshness and quality.</p>
         <h3 style="color:black">The best delivery for you is <br><span style="color:#E21B70;font-weight:bold;font-size:50px">GO-FOOD</span>.</h3>
     </div>
 </div>
