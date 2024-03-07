@@ -54,10 +54,13 @@ require 'models/admin/category/category.process.php';
     }
 
     .video-container {
+      display: flex;  
+      top: 0;
         position: relative;
         width: 100%;
-        height: 100vh; /* Set the height of the container to the full viewport height */
+        height: 100vh;
         overflow: hidden; /* Ensure video does not overflow */
+        /* padding-top: 50px; Add space at the top */
     }
 
     #video {
@@ -65,7 +68,8 @@ require 'models/admin/category/category.process.php';
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: auto;
+        min-height: calc(100% - 50px); /* Adjust height to account for padding */
         object-fit: cover; /* Ensure the video covers the entire container */
     }
 
@@ -92,10 +96,13 @@ require 'models/admin/category/category.process.php';
     }
 </style>
 
+
+
+
 <div class="video-container">
     <video loop autoplay muted id="video">
-        <source src="assets/images/Delivery03.mp4" type="video/mp4" />
-        <source src="assets/images/Delivery03.mp4" type="video/ogg" />
+        <source src="assets/images/202403071223.mp4" type="video/mp4" />
+        <source src="assets/images/202403071223.mp4" type="video/ogg" />
     </video>
     <div class="text-overlay">
         <h1>Welcome to</h1>
