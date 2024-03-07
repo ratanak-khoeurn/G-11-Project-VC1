@@ -1,21 +1,21 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
-    $restaurantId = $_POST["restaurant_id"];
-    $restaurantName = $_POST["restaurant_name"];
-    $restaurantAddress = $_POST["restaurant_address"];
-    $restaurantImageUrl = $_POST["restaurant_image_url"];
-    $restaurantOwnerName = $_POST["restaurant_owner_name"];
+    $restaurant_id = $_POST["restaurant_id"];
+    $restaurant_name = $_POST["restaurant_name"];
+    $restaurant_address = $_POST["restaurant_address"];
+    $restaurant_image_url = $_POST["restaurant_image_url"];
+    $restaurant_owner_name = $_POST["restaurant_owner_name"];
 
     // Output the submitted data in a card layout
     echo ' 
     <div class="card" style="width:200px; border:1px solid black; padding:10px; border-radius:20px; background-color:rgba(0, 183, 255, 0.356)">
-        <img src="' . $restaurantImageUrl . '" alt="Restaurant Image" style="width:200px; border-radius:10px;">
+        <img src="' . $restaurant_image_url . '" alt="Restaurant Image" style="width:200px; border-radius:10px;">
         <div class="container">
-            <h4 style="backgroundColor:pink"><b>' . $restaurantName . '</b></h4>
-            <p>Restaurant ID: ' . $restaurantId . '</p>
-            <p>Address: ' . $restaurantAddress . '</p>
-            <p>Owner Name: ' . $restaurantOwnerName . '</p>
+            <h4 style="backgroundColor:pink"><b>' . $restaurant_name . '</b></h4>
+            <p>Restaurant ID: ' . $restaurant_id . '</p>
+            <p>Address: ' . $restaurant_address . '</p>
+            <p>Owner Name: ' . $restaurant_owner_name . '</p>
         </div>
     </div>';
 } else {
