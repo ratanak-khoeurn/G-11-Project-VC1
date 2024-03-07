@@ -48,25 +48,14 @@ require 'models/admin/category/category.process.php';
             <?php endforeach; ?>
       </div>
     </div>
-
-
-    
-    <div class="bg-ERROR">
     <video loop autoplay muted id="vido">
-        <source src="assets/images/DLV.mp4" type="video/mp4" />
-        <source src="assets/images/DLV.mp4" type="video/ogg" />
-        Your browser does not support the video tag.
-    </video>
-    <div class="text-overlay">
-        <h1>Welcome to</h1>
-        <h1><b>GO-FOOD</b></h1>
-    </div>
-</div>
-
-
-
-
-
+    <source src="../../assets/images/Delivery03.mp4" type="video/mp4" />
+    <source src="../../assets/images/Delivery03.mp4" type="video/ogg" />
+    Your browser does not support the video tag.
+</video>
+<h1>Well come to</h1><br>
+<h1><b>GO-FOOD</b></h1>
+<p style="display: none;">Food is one of the basic necessities of life. Food contains nutrients substances essential for growth.</p>
 
     </div>
     <div class="container">
