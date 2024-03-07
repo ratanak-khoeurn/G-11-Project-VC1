@@ -46,15 +46,64 @@ require 'models/admin/category/category.process.php';
       <?php endforeach; ?>
     </div>
   </div>
-  <video loop autoplay muted id="video">
-    <source src="assets/images/DLV.mp4" type="video/mp4" />
-    <source src="assets/images/DLV.mp4" type="video/ogg" />
-  </video>
-  <h1>Well come to</h1><br>
-  <h1><b>GO-FOOD</b></h1>
-  <p style="display: none;">Food is one of the basic necessities of life. Food contains nutrients substances essential for growth.</p>
+  <style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
 
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 100vh; /* Set the height of the container to the full viewport height */
+        overflow: hidden; /* Ensure video does not overflow */
+    }
+
+    #video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the video covers the entire container */
+    }
+
+    .text-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        z-index: 1;
+        background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background for better text readability */
+        padding: 20px;
+        text-align: center;
+    }
+
+    .text-overlay h1 {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .text-overlay p {
+        font-size: 18px;
+        margin: 0;
+    }
+</style>
+
+<div class="video-container">
+    <video loop autoplay muted id="video">
+        <source src="assets/images/Delivery03.mp4" type="video/mp4" />
+        <source src="assets/images/Delivery03.mp4" type="video/ogg" />
+    </video>
+    <div class="text-overlay">
+        <h1>Welcome to</h1>
+        <h1><b>GO-FOOD</b></h1>
+        <p>Food is one of the basic necessities of life. Food contains nutrients substances essential for growth.</p>
+    </div>
 </div>
+
 <div class="container">
   <div class="pt-4 pb-2 title d-flex align-items-center">
     <h5 class="m-0">Trending this week</h5>
