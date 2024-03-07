@@ -1,7 +1,4 @@
-<?php
-    // session_start();
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +49,7 @@
                         </div>
                         <button class="btn btn-lg btn-block" style="background-color:#E21B70;color:white">SIGN IN</button>
                     </form>
-                    <a href="forgot_password.html" class="text-decoration-none">
+                    <a href="views/recoverpassword/forgot_password.php" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>
                     </a>
                     <div class="d-flex align-items-center justify-content-center">

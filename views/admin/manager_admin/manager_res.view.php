@@ -40,7 +40,7 @@ require 'models/add.user/add.user.model.php';
                     </td>
                     <td style="display:flex;justify-content:space-evenly;padding:30px 10px">
                         <a href="../../controllers/admin/delivery/edit.delivery.controller.php?id=<?=$manager['user_id']?>&p=manager"><img src="../../assets/images/icons/delete_admin.png" style="width: 30px;height:30px" alt=""></a>
-                        <a href="../../controllers/admin/manager/delete.manager.controller.php?id=<?=$manager['user_id']?>&image=<?=$manager['picture']?>"><img src="../../assets/images/icons/del_admin.png" style="width: 30px;height:30px" alt=""></a>
+                        <a href="../../controllers/admin/manager/delete.manager.controller.php?id=<?=$manager['user_id']?>&image=<?=$manager['picture']?>&role=2"><img src="../../assets/images/icons/del_admin.png" style="width: 30px;height:30px" alt=""></a>
                     </td>
                 </tr>
             <?php endforeach ?>

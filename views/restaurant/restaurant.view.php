@@ -242,11 +242,16 @@ require_once "models/admin/products/product.model.php";
                                 </div>
                             </div>
                         </div>
-                        <form>
-                            <div class="form-group"><label class="form-label small">Your Comment</label><textarea class="form-control"></textarea></div>
-                            <div class="form-group mb-0"><button type="button" class="btn btn-primary btn-block"> Submit
-                                    Comment </button></div>
+                        <form action="controllers/comments/comment.user.controller.php" method="POST">
+                            <div class="form-group">
+                                <label class="form-label small">Your Comment</label>
+                                <textarea class="form-control" name="comment"></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <button type="submit" class="btn btn-primary btn-block">Submit Comment</button>
+                            </div>
                         </form>
+
                     </div>
                 </div>
             </div>
