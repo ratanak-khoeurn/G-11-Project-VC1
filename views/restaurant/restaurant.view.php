@@ -1,6 +1,8 @@
 <?php
 require_once "database/database.php";
 require_once "models/admin/restuarant/resturant.process.php";
+$restuarant = get_restaurant();
+
 ?>
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
@@ -10,12 +12,12 @@ require_once "models/admin/restuarant/resturant.process.php";
 </div>
 <div class="offer-section py-4">
     <div class="container position-relative">
-        
+
         <?php
-            $restuarant = get_restaurant();
-            foreach ($restuarant as $res){
+        
+        foreach ($restuarant as $res) {
         ?>
-        <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="restaurant-pic">
+            <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="restaurant-pic">
         <?php } ?>
         <div class="pt-3 text-white">
             <h2 class="font-weight-bold"><?= $res['res_name'] ?></h2>
@@ -55,27 +57,27 @@ require_once "models/admin/restuarant/resturant.process.php";
                 <div class="card_product" style="overflow:scroll; height:450px">
                     <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap; justify-content:space-between; margin-bottom:15px">
                         <?php
-                            $restuarant = get_restaurant();
-                            foreach ($restuarant as $res){
+                        $restuarant = get_restaurant();
+                        foreach ($restuarant as $res) {
                         ?>
-                        <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
-                            <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-                                <div class="list-card-image">
-                                    <a href="#checkout">
-                                        <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="background-color:teal; height:200px">
-                                    </a>
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $res['res_name'] ?></a></h6>
-                                        <p class="text-gray mb-3"><?= $res['res_address'] ?></p>
-                                        <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center; .feather-shopping-cart:hover{background-color:wheat} "></i>
-                                        </p>
+                            <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
+                                <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
+                                    <div class="list-card-image">
+                                        <a href="#checkout">
+                                            <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="img-fluid item-img w-100" style="background-color:teal; height:200px">
+                                        </a>
+                                    </div>
+                                    <div class="p-3 position-relative">
+                                        <div class="list-card-body">
+                                            <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $res['res_name'] ?></a></h6>
+                                            <p class="text-gray mb-3"><?= $res['res_address'] ?></p>
+                                            <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
+                                                <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center; .feather-shopping-cart:hover{background-color:wheat} "></i>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -148,65 +150,32 @@ require_once "models/admin/restuarant/resturant.process.php";
                         <div class="graph-star-rating-footer text-center mt-3"><button type="button" class="btn btn-primary btn-block btn-sm">Rate and Review</button></div>
                     </div>
                     <div class="bg-white p-3 mb-3 restaurant-detailed-ratings-and-reviews shadow-sm rounded">
-                        <a class="text-primary float-right" href="#">Top Rated</a>
-                        <h6 class="mb-1">All Ratings and Reviews</h6>
+    
+                        <h6 class="mb-1">Comments</h6>
+                        <?php
+                            require "models/comments/comments.model.php";
+                            $comments = get_comment();
+                            foreach($comments as $comment):
+                        ?>
                         <div class="reviews-members py-3">
+                       
                             <div class="media">
-                                <a href="#"><img alt="#" src="assets/images/reviewer1.png" class="mr-3 rounded-pill"></a>
+                                <a href="#"><img  style="width: 50px;height:50px" alt="#" src="../../assets/images/user/<?= $comment['profile']?>" class="mr-3 rounded-pill"></a>
                                 <div class="media-body">
                                     <div class="reviews-members-header">
-                                        <div class="star-rating float-right">
-                                            <div class="d-inline-block" style="font-size: 14px;"><i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star"></i>
-                                            </div>
-                                        </div>
-                                        <h6 class="mb-0"><a class="text-dark" href="#">Trump</a></h6>
-                                        <p class="text-muted small">Tue, 20 Mar 2020</p>
+                            
+                                        <h6 class="mb-0"><a class="text-dark" href="#"><?= $comment['user'] ?></a></h6>
+                                        <p class="text-muted small"><?=$comment['date'] ?></p>
                                     </div>
                                     <div class="reviews-members-body">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classNameical Latin literature from 45 BC, making it
-                                            over 2000 years old.</p>
-                                    </div>
-                                    <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 856M</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 158K</a>
-                                        <span class="total-like-user-main ml-2" dir="rtl">
-                                            <a href="#" aria-describedby="tooltip-top0"><img alt="#" src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a>
-                                            <a href="#" aria-describedby="tooltip-top1"><img alt="#" src="assets/images/reviewer4.png" class="total-like-user rounded-pill"></a>
-                                            <a href="#"><img alt="#" src="assets/images/reviewer5.png" class="total-like-user rounded-pill"></a>
-                                            <a href="#" aria-describedby="tooltip-top3"><img alt="#" src="assets/images/reviewer6.png" class="total-like-user rounded-pill"></a>
-                                        </span>
+                                        <p><?= $comment['content'] ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="reviews-members py-3">
-                            <div class="media">
-                                <a href="#"><img alt="#" src="assets/images/reviewer2.png" class="mr-3 rounded-pill"></a>
-                                <div class="media-body">
-                                    <div class="reviews-members-header">
-                                        <div class="star-rating float-right">
-                                            <div class="d-inline-block" style="font-size: 14px;"><i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star"></i>
-                                            </div>
-                                        </div>
-                                        <h6 class="mb-0"><a class="text-dark" href="#">Jhon Smith</a></h6>
-                                        <p class="text-muted small">Tue, 20 Mar 2020</p>
-                                    </div>
-                                    <div class="reviews-members-body">
-                                        <p>It is a long established fact that a reader will be distracted by the
-                                            readable content of a page when looking at its layout.</p>
-                                    </div>
-                                    <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 88K</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 1K</a><span class="total-like-user-main ml-2" dir="rtl"><a href="#"><img alt="#" src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#" src="assets/images/reviewer4.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#" src="assets/images/reviewer5.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#" src="assets/images/reviewer6.png" class="total-like-user rounded-pill"></a></span></div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php endforeach?>
+
+                       
                         <hr>
                         <a class="text-center w-100 d-block mt-3 font-weight-bold" href="#">See All Reviews</a>
                     </div>
@@ -223,17 +192,22 @@ require_once "models/admin/restuarant/resturant.process.php";
                                 </div>
                             </div>
                         </div>
-                        <form>
-                            <div class="form-group"><label class="form-label small">Your Comment</label><textarea class="form-control"></textarea></div>
-                            <div class="form-group mb-0"><button type="button" class="btn btn-primary btn-block"> Submit
-                                    Comment </button></div>
+                        <form action="controllers/comments/comment.user.controller.php" method="POST">
+                            <div class="form-group">
+                                <label class="form-label small">Your Comment</label>
+                                <textarea class="form-control" name="comment" required></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <button type="submit" class="btn btn-primary btn-block">Submit Comment</button>
+                            </div>
                         </form>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- <div class="col-md-4 pt-3" style="margin-top:30px; width: 20%;height:auto">
+    <div class="col-md-4 pt-3" style="margin-top:30px; width: 20%;height:auto">
         <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
             <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
                 <img alt="osahan" src="assets/images/starter1.jpg" class="mr-3 rounded-circle img-fluid">
@@ -345,8 +319,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                 <a class="btn btn-success btn-block btn-lg" href="/checkout">PAY $1329<i class="feather-arrow-right"></i></a>
             </div>
         </div>
-    </div> -->
-
+    </div>
 </div>
 
 <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
@@ -369,18 +342,18 @@ require_once "models/admin/restuarant/resturant.process.php";
                     <i class="feather-shopping-cart"></i>
                 </a>
             </div>
-            </div class="col">
-            <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
-                <p class="h4 m-0"><i class="feather-heart"></i></p>
-                Favorites
-            </a>
-        </div>
-        <div class="col">
-            <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
-                <p class="h4 m-0"><i class="feather-user"></i></p>
-                Profile
-            </a>
-        </div>
+        </div class="col">
+        <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
+            <p class="h4 m-0"><i class="feather-heart"></i></p>
+            Favorites
+        </a>
     </div>
+    <div class="col">
+        <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
+            <p class="h4 m-0"><i class="feather-user"></i></p>
+            Profile
+        </a>
+    </div>
+</div>
 </div>
 </div>

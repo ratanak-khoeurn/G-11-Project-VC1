@@ -1,5 +1,7 @@
 {
-    "[php]": {
-        "editor.defaultFormatter": "Jota0222.multi-formatter"
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#21330A",
+        "titleBar.activeBackground": "#2E470E",
+        "titleBar.activeForeground": "#F7FCF1"
     }
 }

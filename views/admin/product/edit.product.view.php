@@ -65,23 +65,24 @@ require "../../../models/admin/products/product.model.php";
         box-sizing: border-box;
         font-size: 16px;
     }
+
     input[type=file]::file-selector-button {
-    background-color: #E21B70;
-    color: #000;
-    border: 0px;
-    border-right: 1px solid #050505;
-    padding: 10px 5px;
-    margin-right: 20px;
-    transition: .5s;
-    color: white;
-  }
-  
-  input[type=file]::file-selector-button:hover {
-    background-color: #eee;
-    border: 0px;
-    border-right: 1px solid #2e2a2a;
-    color: black;
-  }
+        background-color: #E21B70;
+        color: #000;
+        border: 0px;
+        border-right: 1px solid #050505;
+        padding: 10px 5px;
+        margin-right: 20px;
+        transition: .5s;
+        color: white;
+    }
+
+    input[type=file]::file-selector-button:hover {
+        background-color: #eee;
+        border: 0px;
+        border-right: 1px solid #2e2a2a;
+        color: black;
+    }
 
     input[type="file"] {
         margin-top: 3px;
@@ -147,11 +148,14 @@ require "../../../models/admin/products/product.model.php";
                     <label for="product_name">Restaurant Name</label>
                     <select class="form-control" id="product_name" name="restaurant_name" required>
                         <option value="">Select a restaurant</option>
-                        <option value="restaurant1" <?php echo ($products['restaurant_name'] == 'restaurant1') ? 'selected' : ''; ?>>Restaurant 1</option>
-                        <option value="restaurant2" <?php echo ($products['restaurant_name'] == 'restaurant2') ? 'selected' : ''; ?>>Restaurant 2</option>
-                        <option value="restaurant3" <?php echo ($products['restaurant_name'] == 'restaurant3') ? 'selected' : ''; ?>>Restaurant 3</option>
-                    </select>
+                        <?php
+                        $restuarant = get_restaurant();
+                        foreach ($restuarant as $res) {
 
+                        ?>
+                        <option value="<?= $res['res_name'] ?>" <?php echo ($products['restaurant_name'] == $res['res_name']) ? 'selected' : ''; ?>><?= $res['res_name'] ?>
+                        </option> <?php } ?>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label for="price">Price</label>

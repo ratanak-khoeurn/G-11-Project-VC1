@@ -3,18 +3,22 @@
 <body>
     
     <div class="container">
-        <nav>
-            <div class="left">
-                <a href=""><img src="../../assets/images/logo_web.png" alt="" style="width: 70px;height:70px;"></a>
-                <h2>Restaurant</h2>
-            </div>
-            <div class="right">
-
-            </div>
-        </nav>
+    <nav>
+        <div class="left">
+            <a href=""><img src="../../assets/images/logo_web.png" alt="" style="width: 70px;height:70px;"></a>
+            <h2>Restaurant</h2>
+        </div>
+        <div class="right">
+        
+        <div class="profile-container">
+            <span class="user-name" style="color:white;text-align:center;margin-right:10px">Your Name</span>
+            <img alt="#" src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" class="profile-image">
+        </div>
+</div>
+    </nav>
         <main>
             <div class="main_left">
-                <form action="#">
+                <form action="#" style="height:100%">
                     <h1>Add New Product</h1>
                     <div class="group_label">
                         <label for="">Name:</label>
@@ -43,57 +47,9 @@
                     <h1 style="text-decoration: underline;">List of the Product</h1 style="text-decoration: underline;">
                     <input type="text"  id="search" placeholder="Search..."/>
                 </div>
-                <hr>
+                <hr style="width: 100%;">
                 <div class = MG-4>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Category</th>
-                        <th>Discount</th>
-                        <th>Picture</th>
-                        <th>Action</th>
-                    </tr>
-                    <tr>
-                        <td>01</td>
-                        <td>Milk</td>
-                        <td>1234$</td>
-                        <td>Drink-Master</td>
-                        <td>----</td>
-                        
-                        <td>- - - -</td>
-                        <td>
-                            <i class="material-icons" style="font-size:30px;color:black">upgrade</i>
-                            <i class="material-icons" style="font-size:30px;color:red">delete</i>
-                        </td>
-                    </tr>
-                        <tr>
-                        <td>02</td>
-                        <td>Salmon & Tona fish</td>
-                        <td>10000</td>
-                        <td>CC-Omakasek</td>
-                        <td>----</td>
-                        
-                        <td>- - - -</td>
-                        <td>
-                            <i class="material-icons" style="font-size:30px;color:black">upgrade</i>
-                            <i class="material-icons" style="font-size:30px;color:red">delete</i>
-                        </td>
-                    </tr>
-                        <tr>
-                        <td>03</td>
-                        <td>Stage</td>
-                        <td>200340$</td>
-                        <td>HLN-MoMO</td>
-                        <td>----</td>
-                        <td>- - - -</td>
-                        <td>
-                            <i class="material-icons" style="font-size:30px;color:black">upgrade</i>
-                            <i class="material-icons" style="font-size:30px;color:red">delete</i>
-                        </td>
-                    </tr>
-                </table>
+                <div></div>
             </div>
             </div>
         </main>
