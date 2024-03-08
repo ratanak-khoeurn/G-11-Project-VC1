@@ -50,7 +50,7 @@ require 'models/admin/category/category.process.php';
     <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
         <source src="assets/images/Delivery03.mp4" type="video/mp4">
     </video>
-    <div class="container" style="display:flex;flex-direction:column; left: 54%;top:10%; width: 500px; z-index: 1; color: white; position: absolute; background: wheate; backdrop-filter: blur(10px); height: 75%; ">
+    <div class="container" style="display:flex;flex-direction:column; left: 54%;top:10%; width: 500px; z-index: 1; color: white; position: absolute; background: wheate; backdrop-filter: blur(10px); height: 75%;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); ">
         <span style="color:black;font-size:40px;padding-top:10%">WELCOME EVERYONE</span>
         <p>You can order a lot of foods at this website with <span style="color:#E21B70">TRUST SAFE AND FASTLY with QUALITY 100%</span></p>
         <p>Enjoy our fast delivery service with guaranteed freshness and quality.</p>
