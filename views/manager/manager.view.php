@@ -3,15 +3,19 @@
 <body>
     
     <div class="container">
-        <nav>
-            <div class="left">
-                <a href=""><img src="../../assets/images/logo_web.png" alt="" style="width: 70px;height:70px;"></a>
-                <h2>Restaurant</h2>
-            </div>
-            <div class="right">
-
-            </div>
-        </nav>
+    <nav>
+        <div class="left">
+            <a href=""><img src="../../assets/images/logo_web.png" alt="" style="width: 70px;height:70px;"></a>
+            <h2>Restaurant</h2>
+        </div>
+        <div class="right">
+        
+        <div class="profile-container">
+            <span class="user-name" style="color:white;text-align:center;margin-right:10px">Your Name</span>
+            <img alt="#" src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" class="profile-image">
+        </div>
+</div>
+    </nav>
         <main>
             <div class="main_left">
                 <form action="#" style="height:100%">
