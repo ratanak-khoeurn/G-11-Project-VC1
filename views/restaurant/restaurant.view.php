@@ -1,7 +1,9 @@
 <?php
 require_once "database/database.php";
 require_once "models/admin/restuarant/resturant.process.php";
+require_once "models/admin/products/product.model.php";
 ?>
+
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -10,19 +12,33 @@ require_once "models/admin/restuarant/resturant.process.php";
 </div>
 <div class="offer-section py-4">
     <div class="container position-relative">
-        
+
+
         <?php
-            $restuarant = get_restaurant();
-            foreach ($restuarant as $res){
+        $res_id = isset($_GET['id']) ? $_GET['id'] : null;
+        function get_restaurant_by_id($id)
+        {
+            $restaurants = get_restaurant();
+            foreach ($restaurants as $res) {
+                if ($res['res_id'] == $id) {
+                    return $res;
+                }
+            }
+            return null;
+        }
+        $restaurant = get_restaurant_by_id($res_id);
+        if ($restaurant) {
+
         ?>
-        <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="restaurant-pic">
+            <img alt="<?= $restaurant['res_name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic" style="margin-right:30px">
+            <h2 class="res_name" style="color:white; padding-top:0px; margin-left:10px"><?= $restaurant['res_name'] ?></h2>
+            <p class="res_address" style="color:white; margin-left:10px"><?= $restaurant['res_address'] ?></p>
+        <?php } ?>
+
         <div class="pt-3 text-white">
-            <h2 class="font-weight-bold"><?= $res['res_name'] ?></h2>
-            <?php } ?>
-            <p class="text-white m-0"><?= $res['res_address'] ?></p>
-            <div class="rating-wrap d-flex align-items-center mt-2">
+            <div class="rating-wrap d-flex align-items-center" style="margin-top: -10px;">
                 <ul class="rating-stars list-unstyled">
-                    <li>
+                    <li style="margin-left:10px">
                         <i class="feather-star text-warning"></i>
                         <i class="feather-star text-warning"></i>
                         <i class="feather-star text-warning"></i>
@@ -34,12 +50,12 @@ require_once "models/admin/restuarant/resturant.process.php";
             </div>
         </div>
         <div class="pb-4">
-            <div class="row">
+            <div class="row" style="margin-left:5px">
                 <div class="col-6 col-md-2">
                     <p class="text-white-50 font-weight-bold m-0 small">Delivery</p>
-                    <p class="text-white m-0">Free</p>
+                    <p class="text-white m-0"><i class="feather-truck"></i> Free</p>
                 </div>
-                <div class="col-6 col-md-2">
+                <div class="col-6 col-md-2" style="margin-left: -75px;">
                     <p class="text-white-50 font-weight-bold m-0 small">Open time</p>
                     <p class="text-white m-0">8:00 AM</p>
                 </div>
@@ -47,36 +63,39 @@ require_once "models/admin/restuarant/resturant.process.php";
         </div>
     </div>
 </div>
-<div class="container position-relative" style="display: flex; width: 100%;">
-    <div class="row" style="width: 80%; display:flex; flex-direction:column">
+<div class="container position-relative" style="display: flex;flex-direction:column; width: 100%;">
+    <div class="row" style="width: 100%; display:flex; flex-direction:column">
         <div class="container" style="width: 100%; justify-content:space-between;">
             <div class="left_side" style="width: 100%; margin-top:20px">
                 <p class="font-weight-bold pt-2 m-0">FOOD ITEMS</p>
-                <div class="card_product" style="overflow:scroll; height:450px">
+                <div class="card_product" style="overflow:scroll; height:450px; margin-top:10px">
                     <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap; justify-content:space-between; margin-bottom:15px">
                         <?php
-                            $restuarant = get_restaurant();
-                            foreach ($restuarant as $res){
+                        $products = get_product();
+                        foreach ($products as $product) {
+                        $desired_restaurant_name = $restaurant['res_name'];
+                        $product_restaurant_name = $product['restaurant_name'];
+                        if ($desired_restaurant_name === $product_restaurant_name) {
                         ?>
-                        <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
-                            <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-                                <div class="list-card-image">
-                                    <a href="#checkout">
-                                        <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="background-color:teal; height:200px">
-                                    </a>
-                                </div>
-                                <div class="p-3 position-relative">
-                                    <div class="list-card-body">
-                                        <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $res['res_name'] ?></a></h6>
-                                        <p class="text-gray mb-3"><?= $res['res_address'] ?></p>
-                                        <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
-                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center; .feather-shopping-cart:hover{background-color:wheat} "></i>
-                                        </p>
+                            <div class="osahan-slider-item" style="width: 250px; margin-top: 0px; margin-bottom:10px">
+                                <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
+                                    <div class="list-card-image">
+                                        <a href="/checkout">
+                                            <img alt="#" src="../../../assets/images/products/<?= $product['product_img'] ?>" class="img-fluid item-img" style="background-color:teal; height:200px; width: 100%;">
+                                        </a>
+                                    </div>
+                                    <div class="p-3 position-relative">
+                                        <div class="list-card-body">
+                                            <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $product['product_name'] ?></a></h6>
+                                            <p class="text-gray mb-3"><?= $product['restaurant_name'] ?></p>
+                                            <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
+                                                <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center; .feather-shopping-cart:hover{background-color:wheat} "></i>
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <?php } ?>
+                        <?php } }?>
                     </div>
                 </div>
             </div>
@@ -84,7 +103,7 @@ require_once "models/admin/restuarant/resturant.process.php";
             <div class="rating_side" style="width:100%">
                 <div class="mb-3">
                     <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
-                        <h6 class="mb-0">Rate this Place</h6>
+                        <h6 class="mt-0">Rate this Place</h6>
                         <div class="star-rating ml-auto">
                             <div class="d-inline-block h6 m-0"><i class="feather-star text-warning"></i>
                                 <i class="feather-star text-warning"></i>
@@ -223,130 +242,21 @@ require_once "models/admin/restuarant/resturant.process.php";
                                 </div>
                             </div>
                         </div>
-                        <form>
-                            <div class="form-group"><label class="form-label small">Your Comment</label><textarea class="form-control"></textarea></div>
-                            <div class="form-group mb-0"><button type="button" class="btn btn-primary btn-block"> Submit
-                                    Comment </button></div>
+                        <form action="controllers/comments/comment.user.controller.php" method="POST">
+                            <div class="form-group">
+                                <label class="form-label small">Your Comment</label>
+                                <textarea class="form-control" name="comment"></textarea>
+                            </div>
+                            <div class="form-group mb-0">
+                                <button type="submit" class="btn btn-primary btn-block">Submit Comment</button>
+                            </div>
                         </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4 pt-3" style="margin-top:30px; width: 20%;height:auto">
-        <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
-            <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
-                <img alt="osahan" src="assets/images/starter1.jpg" class="mr-3 rounded-circle img-fluid">
-                <div class="d-flex flex-column">
-                    <h6 class="mb-1 font-weight-bold">Spice Hut Indian Restaurant</h6>
-                    <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> 2036 2ND AVE, NEW YORK, NY
-                        10029</p>
-                </div>
-            </div>
-            <div class="bg-white border-bottom py-2">
-                <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                    <div class="media align-items-center">
-                        <div class="mr-2 text-danger">&middot;</div>
-                        <div class="media-body">
-                            <p class="m-0">Chicken Tikka Sub</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                            </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
-                        <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                    </div>
-                </div>
-                <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                    <div class="media align-items-center">
-                        <div class="mr-2 text-danger">&middot;</div>
-                        <div class="media-body">
-                            <p class="m-0">Methi Chicken Dry
-                            </p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                            </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
-                        <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                    </div>
-                </div>
-                <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                    <div class="media align-items-center">
-                        <div class="mr-2 text-danger">&middot;</div>
-                        <div class="media-body">
-                            <p class="m-0">Reshmi Kebab
-                            </p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                            </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
-                        <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                    </div>
-                </div>
-                <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                    <div class="media align-items-center">
-                        <div class="mr-2 text-success">&middot;</div>
-                        <div class="media-body">
-                            <p class="m-0">Lemon Cheese Dry
-                            </p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                            </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
-                        <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                    </div>
-                </div>
-                <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2">
-                    <div class="media align-items-center">
-                        <div class="mr-2 text-success">&middot;</div>
-                        <div class="media-body">
-                            <p class="m-0">Rara Paneer</p>
-                        </div>
-                    </div>
-                    <div class="d-flex align-items-center">
-                        <span class="count-number float-right"><button type="button" class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                            </button><input class="count-number-input" type="text" readonly value="2"><button type="button" class="btn-sm right inc btn btn-outline-secondary"> <i class="feather-plus"></i> </button></span>
-                        <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                    </div>
-                </div>
-            </div>
-            <div class="bg-white p-3 py-3 border-bottom clearfix">
-                <div class="input-group-sm mb-2 input-group">
-                    <input placeholder="Enter promo code" type="text" class="form-control">
-                    <div class="input-group-append"><button type="button" class="btn btn-primary"><i class="feather-percent"></i> APPLY</button></div>
-                </div>
-                <div class="mb-0 input-group">
-                    <div class="input-group-prepend"><span class="input-group-text"><i class="feather-message-square"></i></span></div>
-                    <textarea placeholder="Any suggestions? We will pass it on..." aria-label="With textarea" class="form-control"></textarea>
-                </div>
-            </div>
-            <div class="bg-white p-3 clearfix border-bottom">
-                <p class="mb-1">Item Total <span class="float-right text-dark">$3140</span>
-                    <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-                    <span>Cart</span>
-                </p>
-                <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$62.8</span>
-                    <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-                    <span>Cart</span>
-                </p>
-                <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i class="feather-info"></i></span><span class="float-right text-dark">$10</span>
-                    <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-                    <span>Cart</span>
-                </p>
-                <p class="mb-1 text-success">Total Discount<span class="float-right text-success">$1884</span>
-                </p>
-                <hr>
-                <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
-            </div>
-            <div class="p-3">
-                <a class="btn btn-success btn-block btn-lg" href="/checkout">PAY $1329<i class="feather-arrow-right"></i></a>
-            </div>
-        </div>
-    </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
@@ -369,18 +279,18 @@ require_once "models/admin/restuarant/resturant.process.php";
                     <i class="feather-shopping-cart"></i>
                 </a>
             </div>
-            </div class="col">
-            <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
-                <p class="h4 m-0"><i class="feather-heart"></i></p>
-                Favorites
-            </a>
-        </div>
-        <div class="col">
-            <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
-                <p class="h4 m-0"><i class="feather-user"></i></p>
-                Profile
-            </a>
-        </div>
+        </div class="col">
+        <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
+            <p class="h4 m-0"><i class="feather-heart"></i></p>
+            Favorites
+        </a>
     </div>
+    <div class="col">
+        <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
+            <p class="h4 m-0"><i class="feather-user"></i></p>
+            Profile
+        </a>
+    </div>
+</div>
 </div>
 </div>

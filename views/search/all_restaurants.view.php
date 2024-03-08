@@ -41,10 +41,10 @@ require_once "models/admin/restuarant/resturant.process.php";
                                 <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                     <div class="list-card-image">
                                         <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><a href="/favorite"><i class="feather-heart"></i></a></div>
+                                        <div class="favourite-heart text-danger position-absolute"><i class="feather-heart"></i></div>
                                         <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                        <a href="/restaurant">
-                                            <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
+                                        <a href="/restaurant?id=<?= $res['res_id']?>">
+                                            <img alt="<?= $res['res_name'] ?>" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
                                         </a>
                                     </div>
                                     <div class="p-3 position-relative">
@@ -129,3 +129,17 @@ require_once "models/admin/restuarant/resturant.process.php";
         </div>
     </div>
 </div>
+<script>
+let hearts = document.querySelectorAll('.feather-heart');
+
+for (let heart of hearts) {
+    heart.addEventListener('click', function() {
+        if (heart.style.backgroundColor === 'rgb(226, 27, 112)') {
+            heart.style.backgroundColor = '';
+        } else {
+            heart.style.backgroundColor = '#E21B70';
+        }
+        let restaurant_image_url = this.getAttribute('data-restaurant-image');
+    });
+}
+</script>
