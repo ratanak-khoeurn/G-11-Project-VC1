@@ -5,14 +5,13 @@ body{
 }
 .container{
     width: 100%;
-    height: auto;
-    
-   
+    height: auto; 
 }
 nav{
     display: flex;
     justify-content: space-between;
-    background: rgba(164, 16, 16, 0.951);
+    background: #E21B70;
+    padding: 5px 0px 5px 0px;
 }
 .left{
     display: flex;
@@ -23,11 +22,12 @@ nav{
     border: 2px solid red;
     border-radius: 50%;
 }
-main{
+.main{
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
 }
+
 .main_left{
     display: flex;
     width: 30%;
@@ -36,26 +36,20 @@ main{
     background-size: cover;
     background-position: center;
     border-right: 5px solid black;
-    justify-content: center;
-    
-    
+    justify-content: center; 
 }
 .main_right{
-    /* display: flex; */
-    /* flex-direction: column; */
     width: 70%;
     height: auto;
 }
-form{
-    background: #e81818e9;
+.form_add_product{
     width: 100%;
-    height: 90%;
+    height: 50%;
     margin: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     background: transparent;
-    border: 2px solid transparent;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9); 
     border-radius: 5px;
     
@@ -66,13 +60,13 @@ form{
     margin-top: 20px;
 
 }
- input{
-    width: 400px;
+input{
+    width: 300px;
     height: 40px;
     margin:10px 0;
     border-radius: 5px;
     border: none;
-    border-bottom: 3px solid rgba(145, 29, 3, 0.94);
+    border-bottom: 3px solid #e21b2f;
     outline: none;
     background: transparent;
 }
@@ -87,5 +81,70 @@ label{
     /* margin-left: 10%; */
 }
 hr{
-    border: 5px solid rgba(164, 16, 16, 0.951);
+    border: 3px solid #e21b2f;
+}
+.card_product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    height: 500px;
+    gap: 25px;
+    padding-top: 20px;
+    padding-right: 20px;
+    font-family: prompt, sans-serif;
+    font-size: 13px;
+    color: #000;
+    background: #dbd9d9;
+    overflow: scroll;
+    
+}
+.card{
+    width: 230px;
+    height: 300px;
+    margin-left: 20px;
+    border-radius: 10px;
+    background: white;
+}
+.pro_img{
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-top: 2%;
+    width: 90%;
+    height: 50%;
+}
+.button{
+    display: flex;
+    gap: 10px;
+}
+.update{
+    background-color: green;
+    color: white;
+}
+.delete{
+    background-color: red;
+    color: white;
+}
+.update,
+.delete{
+    padding: 5px;
+    border-radius: 5px;
+    margin-top: 5px;
+    border: none;
+    cursor: pointer;
+}
+.card_footer{
+    display: flex;
+    padding:0px 0px 0px 5px;
+    flex-direction: column;
+    margin-top: 2px;
+}
+.submit{
+    background-color: green;
+    color: white;
+    padding: 10px;
+    width: 50%;
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 5px;
 }
