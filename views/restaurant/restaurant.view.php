@@ -89,7 +89,7 @@ require_once "models/admin/products/product.model.php";
                                             <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $product['product_name'] ?></a></h6>
                                             <p class="text-gray mb-3"><?= $product['restaurant_name'] ?></p>
                                             <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
-                                                <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center; .feather-shopping-cart:hover{background-color:wheat} "></i>
+                                            <a href="#?id=<?=$res['res_id']?>"><i class="feather-shopping-cart h+6 mr-2 mb-0" style="background-color:#E21B70;padding:10px; width:50px; color:white;font-size:15px; border-radius:5px; justify-content:center; align-items: center; text-align:center;cursor:pointer; .feather-shopping-cart:hover{background-color:wheat} "></i></a>
                                             </p>
                                         </div>
                                     </div>
