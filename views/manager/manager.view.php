@@ -34,6 +34,10 @@ require_once "models/admin/restuarant/resturant.process.php";
                 </select>
             </div>
         </div>
+        <div class="profile-container">
+            <span class="user-name" style="color:white;text-align:center;margin-right:10px">Your Name</span>
+            <img alt="#" src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" class="profile-image">
+        </div>
     </nav>
     <div class="container">
         <div class="right">
