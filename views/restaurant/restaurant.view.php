@@ -17,7 +17,7 @@ $restuarant = get_restaurant();
         
         foreach ($restuarant as $res) {
         ?>
-            <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="restaurant-pic">
+            <img alt="/checkout" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="restaurant-pic">
         <?php } ?>
         <div class="pt-3 text-white">
             <h2 class="font-weight-bold"><?= $res['res_name'] ?></h2>
@@ -50,7 +50,7 @@ $restuarant = get_restaurant();
     </div>
 </div>
 <div class="container position-relative" style="display: flex; width: 100%;">
-    <div class="row" style="width: 80%; display:flex; flex-direction:column">
+    <div class="row" style="width: 100%; display:flex; flex-direction:column">
         <div class="container" style="width: 100%; justify-content:space-between;">
             <div class="left_side" style="width: 100%; margin-top:20px">
                 <p class="font-weight-bold pt-2 m-0">FOOD ITEMS</p>
@@ -63,7 +63,7 @@ $restuarant = get_restaurant();
                             <div class="osahan-slider-item" style="width: 235px; margin-top: 0px; margin-bottom:10px">
                                 <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
                                     <div class="list-card-image">
-                                        <a href="#checkout">
+                                        <a href="/checkout">
                                             <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="img-fluid item-img w-100" style="background-color:teal; height:200px">
                                         </a>
                                     </div>
@@ -72,7 +72,7 @@ $restuarant = get_restaurant();
                                             <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $res['res_name'] ?></a></h6>
                                             <p class="text-gray mb-3"><?= $res['res_address'] ?></p>
                                             <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
-                                                <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:5px; width:50px; color:white; border-radius:5px; justify-content:center; align-items: center; text-align:center; .feather-shopping-cart:hover{background-color:wheat} "></i>
+                                            <i class="feather-shopping-cart h6 mr-2 mb-0" style="background-color:#E21B70;padding:10px; width:50px; color:white;font-size:15px; border-radius:5px; justify-content:center; align-items: center; text-align:center;cursor:pointer; .feather-shopping-cart:hover{background-color:wheat} "></i>
                                             </p>
                                         </div>
                                     </div>
