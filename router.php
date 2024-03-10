@@ -9,6 +9,7 @@ $routes = [
     '/profile' => 'controllers/profiles/profile.controller.php',
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/all_restaurants' => 'controllers/search/search.controller.php',
+    '/place_order' => 'controllers/checkout/place_order.controller.php'
     
 ];
 

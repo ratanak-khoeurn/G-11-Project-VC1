@@ -11,8 +11,7 @@ require 'models/admin/category/category.process.php';
           <span></span>
         </a>
         <h4 class="font-weight-bold m-0 pl-5">Browse</h4>
-        <a class="text-white font-weight-bold ml-auto" data-toggle="modal" data-target="#exampleModal"
-          href="#">Filter</a>
+        <a class="text-white font-weight-bold ml-auto" data-toggle="modal" data-target="#exampleModal" href="#">Filter</a>
       </div>
     </div>
     <div class="input-group mt-3 rounded shadow-sm overflow-hidden">
@@ -29,12 +28,11 @@ require 'models/admin/category/category.process.php';
     <div class="cat-slider">
       <?php
       $categories = get_category();
-      foreach ($categories as $category):
-        ?>
+      foreach ($categories as $category) :
+      ?>
         <div class="cat-item px-1 py-3">
           <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img-fluid mb-2"
-              style="height: 60px; width: 100px;" />
+            <img alt="#" src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img-fluid mb-2" style="height: 60px; width: 100px;" />
             <p class="m-0 small">
               <?= $category['category_name'] ?>
             </p>
@@ -44,23 +42,18 @@ require 'models/admin/category/category.process.php';
     </div>
   </div>
 
-
-
   <div class="py-3" style="height: 80vh; position: relative; overflow: hidden; display: flex; justify-content: center;width:100%">
     <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
-        <source src="assets/images/Delivery03.mp4" type="video/mp4">
+      <source src="assets/images/Delivery03.mp4" type="video/mp4">
     </video>
     <div class="container" style="display:flex;flex-direction:column; left: 54%;top:10%; width: 500px; z-index: 1; color: white; position: absolute; background: wheate; backdrop-filter: blur(10px); height: 75%;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); ">
-        <span style="color:black;font-size:40px;padding-top:10%">WELCOME EVERYONE</span>
-        <p>You can order a lot of foods at this website with <span style="color:#E21B70">TRUST SAFE AND FASTLY with QUALITY 100%</span></p>
-        <p>Enjoy our fast delivery service with guaranteed freshness and quality.</p>
-        <h3 style="color:black">The best delivery for you is <br><span style="color:#E21B70;font-weight:bold;font-size:50px">GO-FOOD</span>.</h3>
+      <span style="color:black;font-size:40px;padding-top:10%">WELCOME EVERYONE</span>
+      <p>You can order a lot of foods at this website with <span style="color:#E21B70">TRUST SAFE AND FASTLY with
+          QUALITY 100%</span></p>
+      <p>Enjoy our fast delivery service with guaranteed freshness and quality.</p>
+      <h3 style="color:black">The best delivery for you is <br><span style="color:#E21B70;font-weight:bold;font-size:50px">GO-FOOD</span>.</h3>
     </div>
-</div>
-
-
-
-
+  </div>
   <style>
     .bg-theme-black {
 
@@ -111,11 +104,6 @@ require 'models/admin/category/category.process.php';
       background: #EE1A37;
     }
   </style>
-</div>
-
-
-
-
 </div>
 <div class="container">
   <div class="pt-4 pb-2 title d-flex align-items-center">
@@ -206,8 +194,7 @@ require 'models/admin/category/category.process.php';
           <div class="member-plan position-absolute">
             <span class="badge badge-dark">Promoted</span>
           </div>
-          <a href="/restaurant">
-            <img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100" />
+          <a href="/restaurant"><img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100" />
           </a>
         </div>
         <div class="p-3 position-relative">
@@ -215,7 +202,7 @@ require 'models/admin/category/category.process.php';
             <h6 class="mb-1">
               <a href="/restaurant" class="text-black">The osahan Restaurant
               </a>
-              </h6>
+            </h6>
             <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
             <p class="text-gray mb-3 time">
               <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–25
@@ -266,7 +253,6 @@ require 'models/admin/category/category.process.php';
       </div>
     </div>
   </div>
-
   <div class="py-3 title d-flex align-items-center">
     <h5 class="m-0">Most popular</h5>
     <a class="font-weight-bold ml-auto" href="most_popular.html">26 places <i class="feather-chevrons-right"></i></a>
@@ -359,11 +345,10 @@ require 'models/admin/category/category.process.php';
       <div class="col-md-3 pb-3">
         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
           <div class="list-card-image">
-            <div class="star position-absolute">
-              <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
+            <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
             </div>
             <div class="favourite-heart text-danger position-absolute">
-            <a href="#"><i class="feather-heart"></i></a>
+              <a href="#"><i class="feather-heart"></i></a>
             </div>
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
@@ -453,13 +438,12 @@ require 'models/admin/category/category.process.php';
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
-              <img alt="#" src="assets/images/popular5.png" class="img-fluid item-img w-100" />
+            <a href="/restaurant"><img alt="#" src="assets/images/popular5.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
-            <h6 class="mb-1">
+              <h6 class="mb-1">
                 <a href="/restaurant" class="text-black">The osahan Restaurant
                 </a>
               </h6>
@@ -609,7 +593,6 @@ require 'models/admin/category/category.process.php';
       </div>
     </div>
   </div>
-
   <div class="pt-2 pb-3 title d-flex align-items-center">
     <h5 class="m-0">Most sales</h5>
     <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a>
@@ -617,8 +600,7 @@ require 'models/admin/category/category.process.php';
   <div class="most_sale">
     <div class="row mb-3">
       <div class="col-md-4 mb-3">
-        <div
-          class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+        <div class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
           <div class="list-card-image">
             <div class="star position-absolute">
               <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
@@ -655,8 +637,7 @@ require 'models/admin/category/category.process.php';
         </div>
       </div>
       <div class="col-md-4 mb-3">
-        <div
-          class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+        <div class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
           <div class="list-card-image">
             <div class="star position-absolute">
               <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
@@ -694,20 +675,18 @@ require 'models/admin/category/category.process.php';
         </div>
       </div>
       <div class="col-md-4 mb-3">
-        <div
-          class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+        <div class="d-flex align-items-center list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
           <div class="list-card-image">
             <div class="star position-absolute">
               <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
             </div>
-            <div class="favourite-heart text-danger position-absolute">
-              <a href="#"><i class="feather-heart"></i></a>
+            <div class="favourite-heart text-danger position-absolute"><a href="#"><i class="feather-heart"></i></a>
             </div>
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
             <a href="/restaurant">
-            <img alt="#" src="assets/images/sales3.png" class="img-fluid item-img w-100" />
+              <img alt="#" src="assets/images/sales3.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
