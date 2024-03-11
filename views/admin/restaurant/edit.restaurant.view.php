@@ -42,6 +42,9 @@ if (!empty($restaurant)) {
                         <option value="Kandal" <?php echo ($restaurant['region'] == 'Kandal') ? 'selected' : ''; ?>>Kandal</option>
                         <option value="Svayreang" <?php echo ($restaurant['region'] == 'Svayreang') ? 'selected' : ''; ?>>Svay Reang</option>
                         <option value="Siem Reap" <?php echo ($restaurant['region'] == 'Siem Reap') ? 'selected' : ''; ?>> Siem Reap</option>
+                        <option value="Battambang" <?php echo ($restaurant['region'] == 'Battambang') ? 'selected' : ''; ?>> Battambang</option>
+                        <option value="Pursat" <?php echo ($restaurant['region'] == 'Pursat') ? 'selected' : ''; ?>> Pursat</option>
+                        <option value="Banteay Meanchey" <?php echo ($restaurant['region'] == 'Banteay Meanchey') ? 'selected' : ''; ?>> Banteay Meanchey</option>
                     </select>
                 </div>
                 <div class="group_form">
@@ -51,6 +54,8 @@ if (!empty($restaurant)) {
                         <option value="Siem" <?php echo ($restaurant['restaurant_owner_name'] = 'Siem') ? 'selected' : ''; ?>>Siem</option>
                         <option value="Nak" <?php echo ($restaurant['restaurant_owner_name'] = 'Nak') ? 'selected' : ''; ?>>Nak</option>
                         <option value="Luch" <?php echo ($restaurant['restaurant_owner_name'] = 'Luch') ? 'selected' : ''; ?>>Luch</option>
+                        <option value="Sok Heang" <?php echo ($restaurant['restaurant_owner_name'] = 'Sok Heang') ? 'selected' : ''; ?>>Sok Heang</option>
+                        <option value="Makara" <?php echo ($restaurant['restaurant_owner_name'] = 'Makara') ? 'selected' : ''; ?>>Makara</option>
                         <!-- Add more options as needed -->
                     </select>
                 </div>
@@ -64,17 +69,24 @@ if (!empty($restaurant)) {
 
 ?>
 <style>
+    body{
+        margin: 0px;
+    }
+    #edit_form{
+        
+        height: 100%;
+        width: 100%;
+        display: flex;
+    }
     .edit-form-container {
         position: relative;
-        max-width: 50%;
+        max-width: 45%;
         height: 100%;
         background-color: white;
         padding: 0px 15px 0px 15px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-        margin-top: 2%;
-        height: 570px;
+        box-shadow: 0 0 10px rgba(0, 3, 0, 1);
         color: white;
-        left:50%
+        left:53%
         
     }
 
@@ -102,6 +114,7 @@ if (!empty($restaurant)) {
     }
     .edit_form_content {
         position: relative;
+        width: 100%;
     }
 
     .closed {
@@ -121,7 +134,7 @@ if (!empty($restaurant)) {
     .group_form{
         display: flex;
         flex-wrap: wrap ;
-        width: 40%;
+        width: 80%;
     }
 
     input[type="text"],
@@ -186,5 +199,9 @@ if (!empty($restaurant)) {
     button.update-button:hover {
         background-color: pink;
         color: black;
+    }
+    .restaurant-form{
+        margin-left: 16%;
+        margin-top: 10%;
     }
 </style>
