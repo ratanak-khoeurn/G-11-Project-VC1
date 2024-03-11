@@ -80,7 +80,11 @@ require_once "models/admin/products/product.model.php";
                             <div class="osahan-slider-item" style="width: 250px; margin-top: 0px; margin-bottom:10px">
                                 <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
                                     <div class="list-card-image">
+<<<<<<< HEAD
+                                    <a href="/checkout">
+=======
                                         <a href="/checkout">
+>>>>>>> 4fc5d5f472615cc61bfce41dd100e6325bd96db8
                                             <img alt="#" src="../../../assets/images/products/<?= $product['product_img'] ?>" class="img-fluid item-img" style="background-color:teal; height:200px; width: 100%;">
                                         </a>
                                     </div>
@@ -186,8 +190,12 @@ require_once "models/admin/products/product.model.php";
                                         <p class="text-muted small">Tue, 20 Mar 2020</p>
                                     </div>
                                     <div class="reviews-members-body">
+<<<<<<< HEAD
+                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It hasroots in a piece of classNameical Latin literature from 45 BC, making it
+=======
                                         <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
                                             roots in a piece of classNameical Latin literature from 45 BC, making it
+>>>>>>> 4fc5d5f472615cc61bfce41dd100e6325bd96db8
                                             over 2000 years old.</p>
                                     </div>
                                     <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 856M</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 158K</a>
