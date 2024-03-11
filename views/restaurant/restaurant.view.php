@@ -3,7 +3,6 @@ require_once "database/database.php";
 require_once "models/admin/restuarant/resturant.process.php";
 require_once "models/admin/products/product.model.php";
 ?>
-
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -12,8 +11,6 @@ require_once "models/admin/products/product.model.php";
 </div>
 <div class="offer-section py-4">
     <div class="container position-relative">
-
-
         <?php
         $res_id = isset($_GET['id']) ? $_GET['id'] : null;
         function get_restaurant_by_id($id)
@@ -30,7 +27,7 @@ require_once "models/admin/products/product.model.php";
         if ($restaurant) {
 
         ?>
-            <img alt="<?= $restaurant['res_name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic" style="margin-right:30px">
+            <img alt="<?= $restaurant['res_name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic" style="margin-right:30px; width: 250px; border:1px solid white">
             <h2 class="res_name" style="color:white; padding-top:0px; margin-left:10px">
                 <?= $restaurant['res_name'] ?>
             </h2>
@@ -40,6 +37,7 @@ require_once "models/admin/products/product.model.php";
         <?php } ?>
 
         <div class="pt-3 text-white">
+  
             <div class="rating-wrap d-flex align-items-center" style="margin-top: -10px;">
                 <ul class="rating-stars list-unstyled">
                     <li style="margin-left:10px">
@@ -73,7 +71,7 @@ require_once "models/admin/products/product.model.php";
             <div class="left_side" style="width: 100%; margin-top:20px">
                 <p class="font-weight-bold pt-2 m-0">FOOD ITEMS</p>
                 <div class="card_product" style="overflow:scroll; height:450px; margin-top:10px">
-                    <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap; justify-content:space-between; margin-bottom:15px">
+                    <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap;gap:25px; margin-bottom:15px">
                         <?php
                         $products = get_product();
                         foreach ($products as $product) {
@@ -98,8 +96,8 @@ require_once "models/admin/products/product.model.php";
                                                 </p>
                                                 <p class="text-gray m-0" style="display:flex; justify-content:space-between">
                                                     <span class="text-black-50"> $350 FOR TWO</span>
-                                                    <a href="/checkout" class="shopping-cart-btn" data-product-id="<?= $product['id'] ?>" data-product-image="<?= $product['product_img'] ?>">
-                                                        <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+                                                    <a href="/checkout" class="shopping-cart-btn" data-product-id="<?= $product['id'] ?>" data-product-image="<?= $product['product_img'] ?>" style="width:40px; display:flex; justify-content:center; text-align:center">
+                                                        <i class="feather-shopping-cart" style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
                                                     </a>
                                                 </p>
                                             </div>
@@ -110,8 +108,6 @@ require_once "models/admin/products/product.model.php";
                         } ?>
                     </div>
                 </div>
-            </div>
-
             <div class="rating_side" style="width:100%">
                 <div class="mb-3">
                     <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
@@ -263,14 +259,12 @@ require_once "models/admin/products/product.model.php";
                                 <button type="submit" class="btn btn-primary btn-block">Submit Comment</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
     <div class="row">
         <div class="col">

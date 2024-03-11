@@ -143,7 +143,7 @@
               </div>
             </a>
 
-            <a href="offers.html" class="golden-btn widget-header mr-4 text-dark btn m-none">
+            <a href="/offers" class="golden-btn widget-header mr-4 text-dark btn m-none">
               <div class="icon d-flex align-items-center">
                 <i class="feather-disc h6 mr-2 mb-0"></i>
                 <span>Offers</span>

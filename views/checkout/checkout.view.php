@@ -79,7 +79,7 @@ require "models/admin/products/product.model.php";
             </div>
             <?php } ?>
         </div>
-    </div>
+    </div>​
 </div>
 ​
 </div>
