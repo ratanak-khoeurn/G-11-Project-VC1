@@ -13,22 +13,23 @@
                             <input type="number" style="width:15px;">
                             <p>100$</p>
                         </div>
-                        <p class="me-3">Size:Size</p>
                         <div class="d-flex" style="gap:10px;">
                             <button class="btn btn-sm btn-outline-dark">Remove</button>
                             <button class="btn btn-sm btn-outline-dark">Move to favorite</button>
                         </div>
-
-                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                 </div>
             </div>
             
         </div>
-        <div class="row">kjdjfd</div>​
-        <!-- </div> -->
-
+        
     </div>
+    <div class="row">kjdjfd</div>​
 </div>
 
 </div>
+<style>
+    .card img{
+        
+    }
+</style>
