@@ -12,10 +12,6 @@
         margin-left: 60%;
         margin-top: 10%;
 
-        b {
-            /* color: #B82222; */
-        }
-
     }
 
     /* form.example{
