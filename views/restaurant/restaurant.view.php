@@ -3,7 +3,6 @@ require_once "database/database.php";
 require_once "models/admin/restuarant/resturant.process.php";
 require_once "models/admin/products/product.model.php";
 ?>
-
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -12,8 +11,6 @@ require_once "models/admin/products/product.model.php";
 </div>
 <div class="offer-section py-4">
     <div class="container position-relative">
-
-
         <?php
         $res_id = isset($_GET['id']) ? $_GET['id'] : null;
         function get_restaurant_by_id($id)
@@ -30,12 +27,17 @@ require_once "models/admin/products/product.model.php";
         if ($restaurant) {
 
         ?>
-            <img alt="<?= $restaurant['res_name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic" style="margin-right:30px">
-            <h2 class="res_name" style="color:white; padding-top:0px; margin-left:10px"><?= $restaurant['res_name'] ?></h2>
-            <p class="res_address" style="color:white; margin-left:10px"><?= $restaurant['res_address'] ?></p>
+            <img alt="<?= $restaurant['res_name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic" style="margin-right:30px; width: 250px; border:1px solid white">
+            <h2 class="res_name" style="color:white; padding-top:0px; margin-left:10px">
+                <?= $restaurant['res_name'] ?>
+            </h2>
+            <p class="res_address" style="color:white; margin-left:10px">
+                <?= $restaurant['res_address'] ?>
+            </p>
         <?php } ?>
 
         <div class="pt-3 text-white">
+  
             <div class="rating-wrap d-flex align-items-center" style="margin-top: -10px;">
                 <ul class="rating-stars list-unstyled">
                     <li style="margin-left:10px">
@@ -69,41 +71,43 @@ require_once "models/admin/products/product.model.php";
             <div class="left_side" style="width: 100%; margin-top:20px">
                 <p class="font-weight-bold pt-2 m-0">FOOD ITEMS</p>
                 <div class="card_product" style="overflow:scroll; height:450px; margin-top:10px">
-                    <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap; justify-content:space-between; margin-bottom:15px">
+                    <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap;gap:25px; margin-bottom:15px">
                         <?php
                         $products = get_product();
                         foreach ($products as $product) {
-                        $desired_restaurant_name = $restaurant['res_name'];
-                        $product_restaurant_name = $product['restaurant_name'];
-                        if ($desired_restaurant_name === $product_restaurant_name) {
+                            $desired_restaurant_name = $restaurant['res_name'];
+                            $product_restaurant_name = $product['restaurant_name'];
+                            if ($desired_restaurant_name === $product_restaurant_name) {
                         ?>
-                            <div class="osahan-slider-item" style="width: 250px; margin-top: 0px; margin-bottom:10px">
-                                <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-<<<<<<< HEAD
-                                    <a href="/checkout">
-=======
-                                        <a href="/checkout">
->>>>>>> 4fc5d5f472615cc61bfce41dd100e6325bd96db8
-                                            <img alt="#" src="../../../assets/images/products/<?= $product['product_img'] ?>" class="img-fluid item-img" style="background-color:teal; height:200px; width: 100%;">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="/checkout" class="text-black"><?= $product['product_name'] ?></a></h6>
-                                            <p class="text-gray mb-3"><?= $product['restaurant_name'] ?></p>
-                                            <p class="text-gray m-0" style="display:flex; justify-content:space-between"> <span class="text-black-50"> $350 FOR TWO</span>
-                                            <a href="#?id=<?=$res['res_id']?>"><i class="feather-shopping-cart h+6 mr-2 mb-0" style="background-color:#E21B70;padding:10px; width:50px; color:white;font-size:15px; border-radius:5px; justify-content:center; align-items: center; text-align:center;cursor:pointer; .feather-shopping-cart:hover{background-color:wheat} "></i></a>
-                                            </p>
+                                <div class="osahan-slider-item" style="width: 250px; margin-top: 0px; margin-bottom:10px">
+                                    <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
+                                        <div class="list-card-image">
+                                            <a href="/checkout">
+                                                <img id="product_img<?= $product['id'] ?>" alt="#" src="../../../assets/images/products/<?= $product['product_img'] ?>" class="img-fluid item-img" style="background-color:teal; height:200px; width: 100%;">
+                                            </a>
+                                        </div>
+                                        <div class="p-3 position-relative">
+                                            <div class="list-card-body">
+                                                <h6 class="mb-1"><a href="/checkout" class="text-black">
+                                                        <?= $product['product_name'] ?>
+                                                    </a></h6>
+                                                <p class="text-gray mb-3">
+                                                    <?= $product['restaurant_name'] ?>
+                                                </p>
+                                                <p class="text-gray m-0" style="display:flex; justify-content:space-between">
+                                                    <span class="text-black-50"> $350 FOR TWO</span>
+                                                    <a href="/checkout" class="shopping-cart-btn" data-product-id="<?= $product['id'] ?>" data-product-image="<?= $product['product_img'] ?>" style="width:40px; display:flex; justify-content:center; text-align:center">
+                                                        <i class="feather-shopping-cart" style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
+                                                    </a>
+                                                </p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        <?php } }?>
+                        <?php }
+                        } ?>
                     </div>
                 </div>
-            </div>
-
             <div class="rating_side" style="width:100%">
                 <div class="mb-3">
                     <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
@@ -190,12 +194,8 @@ require_once "models/admin/products/product.model.php";
                                         <p class="text-muted small">Tue, 20 Mar 2020</p>
                                     </div>
                                     <div class="reviews-members-body">
-<<<<<<< HEAD
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It hasroots in a piece of classNameical Latin literature from 45 BC, making it
-=======
                                         <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
                                             roots in a piece of classNameical Latin literature from 45 BC, making it
->>>>>>> 4fc5d5f472615cc61bfce41dd100e6325bd96db8
                                             over 2000 years old.</p>
                                     </div>
                                     <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 856M</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 158K</a>
@@ -259,14 +259,12 @@ require_once "models/admin/products/product.model.php";
                                 <button type="submit" class="btn btn-primary btn-block">Submit Comment</button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
     <div class="row">
         <div class="col">
@@ -302,3 +300,35 @@ require_once "models/admin/products/product.model.php";
 </div>
 </div>
 </div>
+<script>
+    // Add event listener to shopping cart buttons
+    document.addEventListener('DOMContentLoaded', function() {
+        const shoppingCartBtns = document.querySelectorAll('.shopping-cart-btn');
+        shoppingCartBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(event) {
+                event.preventDefault();
+                const productId = btn.getAttribute('data-product-id');
+                const productImage = btn.getAttribute('data-product-image');
+                updateCheckoutPage(productId, productImage);
+            });
+        });
+
+        // Function to update checkout page with selected product image
+        function updateCheckoutPage(productId, productImage) {
+            // Find the checkout page image container
+            const checkoutImageContainer = document.querySelector('.checkout-image-container');
+            // Create image element and set its attributes
+            const img = document.createElement('img');
+            img.src = "../../../assets/images/products/" + productImage; // Update image source accordingly
+            img.alt = "Product Image";
+            img.classList.add('card-img');
+            img.style.width = "200px";
+            img.style.height = "103px";
+            img.style.marginLeft = "-30px";
+            // Remove any existing image from the container
+            checkoutImageContainer.innerHTML = '';
+            // Append the new image to the container
+            checkoutImageContainer.appendChild(img);
+        }
+    });
+</script>
