@@ -1,4 +1,3 @@
-
 <style>
     .bg-theme-black {
 
@@ -57,10 +56,10 @@
     require "models/offers/offer.model.php";
     require "database/database.php";
 
-$offers = get_product_offer();
-foreach ($offers as $offer):
+    $offers = get_product_offer();
+    foreach ($offers as $offer) :
 
-?>
+    ?>
         <div class="osahan-slider-item m-0 mb-5" style="width:30%;">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                 <div class="list-card-image">
@@ -73,8 +72,8 @@ foreach ($offers as $offer):
                     <div class="member-plan position-absolute">
                         <span class="badge badge-dark">Promoted</span>
                     </div>
-                    <a href="/restaurant">
-                        <img style="width: 100px;height:200px;" alt="#" src="assets/images/products/<?=$offer['product_img']?> " class="img-fluid item-img w-100" />
+                    <a href="/checkout">
+                        <img style="width: 100px;height:200px;" alt="#" src="assets/images/products/<?= $offer['product_img'] ?> " class="img-fluid item-img w-100" />
                     </a>
                 </div>
                 <div class="p-3 position-relative">
@@ -89,24 +88,31 @@ foreach ($offers as $offer):
                             <span class="float-right text-black-50"> $250 FOR TWO</span>
                         </p>
                     </div>
-                    <div class="list-card-badge">
-                        <span class="badge badge-success">OFFER</span>
-                        <small><?=$offer['discount'].' '?>% offer</small>
+                    <div class="list-card-badge" style="display:flex; justify-content:space-between">
+                        <div class="offer">
+                            <span class="badge badge-success">OFFER</span>
+                            <small><?= $offer['discount'] . ' ' ?>% offer</small>
+                        </div>
+                        <div class="chard">
+                            <a href="/checkout" class="shopping-cart-btn" data-product-id="<?= $product['id'] ?>" data-product-image="<?= $product['product_img'] ?>" style="width:40px; display:flex; justify-content:center; text-align:center">
+                                <i class="feather-shopping-cart" style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
+                            </a>
+                        </div>
+
                     </div>
+
                 </div>
             </div>
         </div>
-       <?php endforeach ?>;
-    </div>
+        <?php endforeach ?>
+</div>
 
-    <div class="most_popular">
-        <div class="row">
+<div class="most_popular">
+    <div class="row">
 
-           
-            
-        </div>
+
+
     </div>
 </div>
 </div>
-
-
+</div>
