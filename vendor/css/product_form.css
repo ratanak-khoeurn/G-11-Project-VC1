@@ -75,19 +75,28 @@ button{
     padding: 2px 5px;
 
 }
-#restaurant_name,input{
+#restaurant_name,input,
+#category_name,input{
     width: 500px;
     margin: 8px 0;
 }
+/* #category_name,input{
+    width: 500px;
+    margin: 8px 0;
+} */
 .btn{
     width: 500px;
 }
 label{
     color: black;
 }
-#restaurant_name{
+#restaurant_name,
+#category_name{
     height: 40px;
 }
+/* #category_name{
+    height: 40px;
+} */
 
 
 /* -------------------------------- */
