@@ -50,10 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
         $user = getUser($email);
-        var_dump($user);
+        // var_dump($user);
 
         if ($user) { 
-            $_SESSION['user'] = $user;
+            // $_SESSION['user'] = $user;
 
             if ($user['role'] == 'admin') {
                 $_SESSION['admin'] = $user;
@@ -63,6 +63,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             } elseif ($user['role'] == 'user') {
                 $_SESSION['user'] = $user;
                 header('Location: /');
+                exit();
+            }
+            elseif ($user['role'] == 'restaurant_owner') {
+                $_SESSION['manager'] = $user;
+                echo "fkgf";
+                header('Location: /manager');
                 exit();
             }
         } else {

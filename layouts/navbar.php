@@ -149,7 +149,7 @@
                 <span>Offers</span>
               </div>
             </a>
-            <script>
+            <!-- <script>
               let signin = document.querySelector('.a');
               console.log(signin);
               let span = document.querySelector('.user-name');
@@ -159,7 +159,7 @@
               } else {
                 signin.style.display = 'none';
               }
-            </script>
+            </script> -->
 
             <a href="/signin" class="widget-header mr-4 text-white m-none <?= isset($_SESSION['user']['first_name']) ? 'd-none' : '' ?>">
               <div class="icon d-flex align-items-center">
@@ -196,7 +196,6 @@
                 <span>Cart</span>
               </div>
             </a>
-
             <a class="toggle" href="#">
               <span></span>
             </a>
