@@ -14,4 +14,7 @@ elseif(isset($_SESSION['user']) && $_SESSION['user'] != ''|| !isset($_SESSION['a
 }elseif(isset($_SESSION['manager']) && $_SESSION['manager'] != ''){
     require 'first_router.php';
 }
+elseif(isset($_SESSION['manager'])){
+    require 'first_router.php';
+}
 
