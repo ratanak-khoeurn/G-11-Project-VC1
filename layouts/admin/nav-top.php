@@ -95,7 +95,7 @@ ob_start()
       </div>
       <div class="name">
         <h4 class="first">
-          <?= $_SESSION['user']['first_name'] ?>
+          <?= $_SESSION['admin']['first_name'] ?>
         </h4>
       </div>
 
@@ -105,8 +105,8 @@ ob_start()
           <span class="nav-user-img">
             <picture>
 
-              <source srcset="../../../assets/images/user/<?= $_SESSION['user']['picture'] ?>" type="image/webp">
-              <img src="../../../assets/images/user/<?= $_SESSION['user']['picture'] ?>" alt="User Picture">
+              <source srcset="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" type="image/webp">
+              <img src="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" alt="User Picture">
             </picture>
           </span>
         </button>
