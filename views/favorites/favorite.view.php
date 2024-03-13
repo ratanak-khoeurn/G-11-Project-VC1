@@ -1,7 +1,7 @@
 <?php
 require_once "database/database.php";
 require_once "models/admin/restuarant/resturant.process.php";
-
+require_once "models/favorites/favorite.model.php";
 ?>
 <div class="osahan-favorites">
     <div class="d-none">
@@ -15,8 +15,9 @@ require_once "models/admin/restuarant/resturant.process.php";
         <h2 class="font-weight-bold mb-3">Favorites</h2>
         <div class="row">
             <?php
-            $restuarant = get_restaurant();
-            foreach ($restuarant as $res) {
+            // Retrieve favorites for the user
+            $restaurants = get_restaurant();
+            foreach ($restaurants as $restaurant) {
 
                 ?>
                 <div class="col-md-4 mb-3">
@@ -24,22 +25,25 @@ require_once "models/admin/restuarant/resturant.process.php";
                         <div class="list-card-image">
                             <div class="star position-absolute"><span class="badge badge-success"><i
                                         class="feather-star"></i> 3.1 (300+)</span></div>
-                            <div class="favourite-heart text-danger position-absolute"><a href="#"><i
-                                        class="feather-heart"></i></a></div>
+                            <div class="favourite-heart text-danger position-absolute">
+                                <a href="/restaurant?id=<?= $restaurant['res_id'] ?>"><i class="feather-heart"
+                                        style="background-color:pink"></i></a>
+                            </div>
                             <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
                             </div>
                             <a href="/restaurant">
-                                <img alt="#" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>"
+                                <img alt="#"
+                                    src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>"
                                     class="img-fluid item-img w-100" style="height:250px">
                             </a>
                         </div>
                         <div class="p-3 position-relative">
                             <div class="list-card-body">
                                 <h6 class="mb-1"><a href="/restaurant" class="text-black">
-                                        <?= $res['res_name'] ?>
+                                        <?= $restaurant['res_name'] ?>
                                     </a></h6>
                                 <p class="text-gray mb-3">
-                                    <?= $res['res_address'] ?>
+                                    <?= $restaurant['res_address'] ?>
                                 </p>
                                 <p class="text-gray mb-3 time" style="display:flex; gap:55px">
                                     <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2">
@@ -56,7 +60,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                             </div>
                             <div class="list-card-badge">
                                 <span class="badge badge-danger">OFFER</span> <small>65%
-                                    <?= $res['res_name'] ?>
+                                    <?= $restaurant['res_name'] ?>
                                 </small>
                             </div>
                         </div>
