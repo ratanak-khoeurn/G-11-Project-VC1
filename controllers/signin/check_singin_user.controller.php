@@ -50,10 +50,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
         $user = getUser($email);
-        var_dump($user);
+        // var_dump($user);
 
         if ($user) { 
-            $_SESSION['user'] = $user;
+            // $_SESSION['user'] = $user;
 
             if ($user['role'] == 'admin') {
                 $_SESSION['admin'] = $user;
@@ -64,6 +64,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user'] = $user;
                 header('Location: /');
                 exit();
+            }elseif($user['role'] == 'restaurant_owner'){
+                $_SESSION['manager'] = $user;
+                echo $user['role'] ;
+                // var_dump($_SESSION['manager']);
+                header('location: /manager');                
             }
         } else {
             header('Location: /signin');

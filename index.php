@@ -12,4 +12,7 @@ elseif(isset($_SESSION['users']) && $_SESSION['users'] != '' || !isset($_SESSION
 {
     require 'router.php';
 }
+elseif(isset($_SESSION['manager'])){
+    require 'first_router.php';
+}
 

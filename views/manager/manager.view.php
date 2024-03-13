@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "database/database.php";
 require "models/manager/manager.model.php";
 require "models/admin/products/product.model.php";
@@ -11,7 +12,7 @@ require_once "models/admin/restuarant/resturant.process.php";
 
     <nav>
         <div class="left">
-            <a href="#"><img src="../../assets/images/logo_web.png" alt="" style="width: 70px;height:70px;margin-left:30px"></a>
+            <a href="#"><img src="../../assets/images/restaurant/<?= $_SESSION['manager']['picture']?>" alt="" style="width: 70px;height:70px;margin-left:30px"></a>
             <div name="restaurants" style="border:none; width:100px; margin-left:20px; justify-content:center; align-items:center;display:flex">
                 <?php
                 $products = get_product();
@@ -80,7 +81,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                             $products_manager = get_products();
                             foreach ($products_manager as $product) {
 
-                            ?>
+                            ?>​
                                 <div class="card">
                                     <img src="../../assets/images/products/<?= $product['product_img'] ?>" alt="#" class="pro_img">
                                     <div class="card_footer">
