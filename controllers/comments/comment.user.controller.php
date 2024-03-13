@@ -6,10 +6,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $comment = $_POST['comment'];
     if(isset($_SESSION['user']['first_name'])){
         store_comment($comment,$_SESSION['user']['first_name'],$_SESSION['user']['picture']);
-        echo $_SESSION['user']['first_name'];
+        header('Location: /restaurant?id=' . $_GET["id"]);
     }else{
-        echo '<script>alert("You do not have an account!")</script>';
-    header('location: /restaurant');
+        // echo '<script>alert("You do not have an account!")</script>';
     exit(); // Ensure script execution stops here
     }
 }

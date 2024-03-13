@@ -2,6 +2,8 @@
 require_once "database/database.php";
 require_once "models/admin/restuarant/resturant.process.php";
 require_once "models/admin/products/product.model.php";
+require_once "models/comments/comments.model.php";
+
 ?>
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
@@ -14,6 +16,7 @@ require_once "models/admin/products/product.model.php";
         <?php
 
         $res_id = isset($_GET['id']) ? $_GET['id'] : null;
+        $_SESSION['id'] = $_GET['id'];
         function get_restaurant_by_id($id)
         {
             $restaurants = get_restaurant();
@@ -178,10 +181,17 @@ require_once "models/admin/products/product.model.php";
                         </div>
                         <div class="bg-white p-3 mb-3 restaurant-detailed-ratings-and-reviews shadow-sm rounded">
                             <a class="text-primary float-right" href="#">Top Rated</a>
-                            <h6 class="mb-1">All Ratings and Reviews</h6>
+
+                            <h6 class="mb-1">Comment View</h6>
+                            <?php
+    $comments = get_comment();
+    foreach ($comments as $comment):
+
+?>
+
                             <div class="reviews-members py-3">
                                 <div class="media">
-                                    <a href="#"><img alt="#" src="assets/images/reviewer1.png" class="mr-3 rounded-pill"></a>
+                                    <a href="#"><img style="width:50px;height:50px" alt="#" src="assets/images/user/<?=$comment['profile']?>" class="mr-3 rounded-pill" ></a>
                                     <div class="media-body">
                                         <div class="reviews-members-header">
                                             <div class="star-rating float-right">
@@ -193,66 +203,21 @@ require_once "models/admin/products/product.model.php";
                                                 </div>
                                             </div>
                                             <h6 class="mb-0"><a class="text-dark" href="#">Trump</a></h6>
-                                            <p class="text-muted small">Tue, 20 Mar 2020</p>
+                                            <p class="text-muted small"><?=$comment['date']?></p>
                                         </div>
                                         <div class="reviews-members-body">
-                                            <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                                roots in a piece of classNameical Latin literature from 45 BC, making it
-                                                over 2000 years old.</p>
-                                        </div>
-                                        <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 856M</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 158K</a>
-                                            <span class="total-like-user-main ml-2" dir="rtl">
-                                                <a href="#" aria-describedby="tooltip-top0"><img alt="#" src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a>
-                                                <a href="#" aria-describedby="tooltip-top1"><img alt="#" src="assets/images/reviewer4.png" class="total-like-user rounded-pill"></a>
-                                                <a href="#"><img alt="#" src="assets/images/reviewer5.png" class="total-like-user rounded-pill"></a>
-                                                <a href="#" aria-describedby="tooltip-top3"><img alt="#" src="assets/images/reviewer6.png" class="total-like-user rounded-pill"></a>
-                                            </span>
+                                            <p><?=$comment['content']?></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <hr>
-                            <div class="reviews-members py-3">
-                                <div class="media">
-                                    <a href="#"><img alt="#" src="assets/images/reviewer2.png" class="mr-3 rounded-pill"></a>
-                                    <div class="media-body">
-                                        <div class="reviews-members-header">
-                                            <div class="star-rating float-right">
-                                                <div class="d-inline-block" style="font-size: 14px;"><i class="feather-star text-warning"></i>
-                                                    <i class="feather-star text-warning"></i>
-                                                    <i class="feather-star text-warning"></i>
-                                                    <i class="feather-star text-warning"></i>
-                                                    <i class="feather-star"></i>
-                                                </div>
-                                            </div>
-                                            <h6 class="mb-0"><a class="text-dark" href="#">Jhon Smith</a></h6>
-                                            <p class="text-muted small">Tue, 20 Mar 2020</p>
-                                        </div>
-                                        <div class="reviews-members-body">
-                                            <p>It is a long established fact that a reader will be distracted by the
-                                                readable content of a page when looking at its layout.</p>
-                                        </div>
-                                        <div class="reviews-members-footer"><a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-up"></i> 88K</a> <a class="total-like btn btn-sm btn-outline-primary" href="#"><i class="feather-thumbs-down"></i> 1K</a><span class="total-like-user-main ml-2" dir="rtl"><a href="#"><img alt="#" src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#" src="assets/images/reviewer4.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#" src="assets/images/reviewer5.png" class="total-like-user rounded-pill"></a><a href="#"><img alt="#" src="assets/images/reviewer6.png" class="total-like-user rounded-pill"></a></span></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                            <a class="text-center w-100 d-block mt-3 font-weight-bold" href="#">See All Reviews</a>
+                            <?php
+                            endforeach
+                            ?>
                         </div>
-                        <div class="bg-white p-3 rating-review-select-page rounded shadow-sm">
-                            <h6 class="mb-3">Leave Comment</h6>
-                            <div class="d-flex align-items-center mb-3">
-                                <p class="m-0 small">Rate the Place</p>
-                                <div class="star-rating ml-auto">
-                                    <div class="d-inline-block"><i class="feather-star text-warning"></i>
-                                        <i class="feather-star text-warning"></i>
-                                        <i class="feather-star text-warning"></i>
-                                        <i class="feather-star text-warning"></i>
-                                        <i class="feather-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <form action="controllers/comments/comment.user.controller.php" method="POST">
+       
+                            <form action="controllers/comments/comment.user.controller.php?id=<?= $_SESSION['id']?>" method="POST">
                                 <div class="form-group">
                                     <label class="form-label small">Your Comment</label>
                                     <textarea class="form-control" name="comment"></textarea>
