@@ -72,7 +72,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
             elseif ($user['role'] == 'restaurant_owner') {
                 $_SESSION['manager'] = $user;
-                echo "fkgf";
                 header('Location: /manager');
                 exit();
             }

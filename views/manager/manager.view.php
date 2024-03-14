@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require "database/database.php";
 require "models/manager/manager.model.php";
 require "models/admin/products/product.model.php";
@@ -26,7 +26,6 @@ require_once "models/admin/restuarant/resturant.process.php";
                     <option value="restaurants">Choose Manager</option>
                     <?php
                     foreach ($unique_names as $restaurant_name) {
-                        
                     ?>
                         <option value="<?= $restaurant_name ?>"><?= $restaurant_name ?></option>
                     <?php
