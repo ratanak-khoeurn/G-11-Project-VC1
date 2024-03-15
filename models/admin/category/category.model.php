@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $uploadDir = '../../../assets/images/categories/';
     $uploadFile = $uploadDir . basename($picture['name']);
     if ($picture['size'] < 5000000 && in_array($picture["type"], array("png", "jpeg", "jpg"))) {
-    }else {
+    }else { 
         move_uploaded_file($picture["tmp_name"], $uploadFile);
         if (!empty($name)) {
             // Check if $picture is set before passing it to create_category
