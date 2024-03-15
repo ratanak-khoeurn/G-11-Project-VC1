@@ -1,13 +1,14 @@
 <?php
 if (!function_exists('get_product_one')) {
-    function get_product_data(string $product_img, string $product_name, string $restaurant_name, int $price, int $discount): bool
+    function get_product_data(string $product_img, string $product_name, string $restaurant_name, string $category_name, int $price, int $discount): bool
     {
         global $connection;
-        $statement = $connection->prepare("INSERT INTO products(product_img, product_name, restaurant_name, price, discount) VALUES (:product_img, :product_name, :restaurant_name, :price, :discount)");
+        $statement = $connection->prepare("INSERT INTO products(product_img, product_name, restaurant_name, category_name, price, discount) VALUES (:product_img, :product_name, :restaurant_name, :category_name, :price, :discount)");
         $statement->execute([
             ":product_img" => $product_img,
             ":product_name" => $product_name,
             ":restaurant_name" => $restaurant_name,
+            ":category_name" => $category_name,
             ":price" => $price,
             ":discount" => $discount
         ]);
@@ -28,6 +29,15 @@ if (!function_exists('get_restaurant')) {
     {
         global $connection;
         $statement = $connection->prepare("SELECT res_name FROM restaurants");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
+if (!function_exists('get_category')) {
+    function get_category(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT category_name FROM categories");
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -56,14 +66,15 @@ if (!function_exists('get_product_one')) {
 }
 
 if (!function_exists('update_product')) {
-    function update_product(string $name, string $picture, string $restaurant_name, int $price, int $discount, int $id): bool
+    function update_product(string $name, string $picture, string $restaurant_name, string $category_name, int $price, int $discount, int $id): bool
     {
         global $connection;
-        $statement = $connection->prepare("UPDATE products SET product_name = :name, product_img = :image ,restaurant_name = :restaurant_name,price=:price,discount=:discount WHERE id = :id");
+        $statement = $connection->prepare("UPDATE products SET product_name = :name, product_img = :image ,restaurant_name = :restaurant_name, category_name=:category_name, price=:price, discount=:discount WHERE id = :id");
         $statement->execute([
             ':name' => $name,
             ':image' => $picture,
             ':restaurant_name' => $restaurant_name,
+            ':category_name' => $category_name,
             ':price' => $price,
             ':discount' => $discount,
             ':id' => $id

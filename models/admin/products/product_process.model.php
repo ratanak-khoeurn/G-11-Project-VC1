@@ -6,6 +6,7 @@ global $connection;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $product_image = $_FILES['product_img'];
     $product_name = $_POST['product_name'];
+    $category_name= $_POST['cagegory_name'];
     $restaurant_name = $_POST['restaurant_name'];
     $price = $_POST['price'];
     $discount = $_POST['discount'];
@@ -14,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     if ($product_image['size'] > 0 && in_array(pathinfo($uploadFile, PATHINFO_EXTENSION), array("png", "jpeg", "jpg"))) {
         if (move_uploaded_file($product_image['tmp_name'], $uploadFile)) {
-            $is_created = get_product_data($product_image['name'], $product_name, $restaurant_name, $price, $discount);
+            $is_created = get_product_data($product_image['name'], $product_name, $restaurant_name, $category_name, $price, $discount);
             
             if ($is_created) {
                 header('location:/product_admin');

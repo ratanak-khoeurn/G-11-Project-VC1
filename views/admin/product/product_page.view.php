@@ -49,6 +49,7 @@ require "models/admin/products/product.model.php";
       require "database/database.php";
       require "models/admin/products/product.model.php";
       $restaurants = get_restaurant();
+      $categories = get_category();
       ?>
       <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
@@ -68,6 +69,18 @@ require "models/admin/products/product.model.php";
             foreach ($restaurants as $restaurant) {
             ?>
               <option value="<?php echo $restaurant['res_name'] ?>"><?php echo $restaurant['res_name'] ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category_name">Category Type</label>
+          <select class="form-control" id="category_name" name="cagegory_name" required>
+            <?php
+            foreach ($categories as $category) {
+            ?>
+              <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?> </option>
             <?php
             }
             ?>
