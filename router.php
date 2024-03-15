@@ -10,7 +10,8 @@ $routes = [
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/all_restaurants' => 'controllers/search/search.controller.php',
     '/offers'=> 'views/offers/offer.view.php',
-    '/place_order' => 'controllers/checkout/place_order.controller.php'
+    '/place_order' => 'controllers/checkout/place_order.controller.php',
+    '/categories' => 'controllers/category/product_category.controller.php'
     
 ];
 
