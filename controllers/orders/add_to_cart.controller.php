@@ -1,7 +1,7 @@
 <?php
 session_start();
 require "../../models/order/add.cart.model.php";
-if (isset($_GET['id'])) {
+if (isset($_GET['id']) && isset($_SESSION['user'])) {
 
     if (!isset($_SESSION['order'])) {
         $_SESSION['order'] = [];
@@ -13,7 +13,6 @@ if (isset($_GET['id'])) {
         if ($order[0]['id'] == $_GET['id']) {
             $itemExists = true;
             echo '<script>alert("yes")</script>';
-            // break;
         }
     }
     if (!$itemExists) {
@@ -22,10 +21,21 @@ if (isset($_GET['id'])) {
         echo "<script>alert('Item already exists in the cart');</script>";
     }
     if (isset($_GET['num']) & $_GET['num'] == 1) {
-        header('location: /checkout');
+       
         exit;
     } else {
         header('Location: /restaurant?id=' . $_GET["res"]);
         exit;
     }
 }
+    else {
+        // Output JavaScript alert
+        echo "<script>alert('Item already exists in the cart');</script>";
+        // Redirect to the restaurant page
+        echo "<script>window.location.href='/restaurant?id=" . $_GET["res"] . "';</script>";
+        // Stop further execution
+        exit;
+    }
+    
+
+

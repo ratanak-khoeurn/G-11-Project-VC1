@@ -49,7 +49,7 @@ main{
 .main_left{
     display: flex;
     width: 30%;
-    background-image:url("https://www.moma.org/d/p/sa/8-14-23_Restaurant-Header_Final.jpg") ;
+    /* background-image:url("https://www.moma.org/d/p/sa/8-14-23_Restaurant-Header_Final.jpg") ; */
     height: 100%;
     background-size: cover;
     background-position: center;
