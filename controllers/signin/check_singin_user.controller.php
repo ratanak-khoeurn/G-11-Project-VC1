@@ -64,10 +64,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['user'] = $user;
                 header('Location: /');
                 exit();
+            }elseif($user['role'] == 'restaurant_owner'){
+                $_SESSION['manager'] = $user;
+                echo $user['role'] ;
+                // var_dump($_SESSION['manager']);
+                header('location: /manager');                
             }
             elseif ($user['role'] == 'restaurant_owner') {
                 $_SESSION['manager'] = $user;
-                echo "fkgf";
                 header('Location: /manager');
                 exit();
             }

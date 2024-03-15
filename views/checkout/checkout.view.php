@@ -4,7 +4,7 @@ require "models/admin/products/product.model.php";
 ?>
 <div class="checkout">
     <div class="head" style="display: flex;">
-        <button style="margin-left: 30px;margin-top:30px;padding:0 10px;height:40px;border:none;background:#E21B70;color:white">Back</button>
+        <a href="/restaurant?id=<?=$_SESSION['id']?>"><button style="margin-left: 30px;margin-top:30px;padding:0 10px;height:40px;border:none;background:#E21B70;color:white">Back</button></a>
         <h3>YOUR ORDER LIST</h3>
     </div>
     <div class="checkout-left" style="width: 90.5%; margin-left:52px">
