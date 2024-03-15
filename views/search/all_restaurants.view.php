@@ -6,21 +6,21 @@ require_once "models/favorites/favorite.model.php";
 function add_favorites($user_id, $res_id): bool
 {
     global $connection;
-    $statement = $connection->prepare("insert into favorites (user_id,res_id) values(:user_id, :res_id)");
+    $statement = $connection->prepare("INSERT INTO favorites (user_id, res_id) VALUES (:user_id, :res_id)");
     $statement->execute([
         ':user_id' => $user_id,
         ':res_id' => $res_id
-
     ]);
     return $statement->rowCount() > 0;
 }
-if (isset($_GET['id'])) {
-    $favorite_id = $_GET['id'];
-    $user_id = $_GET['id'];
-    $res_id = $_GET['id'];
-    add_favorites($user_id,$res_id);
+
+if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
+    $user_id = $_GET['user_id'];
+    $res_id = $_GET['res_id'];
+    add_favorites($user_id, $res_id);
 }
 ?>
+
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -69,7 +69,8 @@ if (isset($_GET['id'])) {
                                             <div class="star position-absolute"><span class="badge badge-success"><i
                                                         class="feather-star"></i> 3.1 (300+)</span></div>
                                             <div class="favourite-heart text-danger position-absolute">
-                                                <a href="controllers/favorites/add_favorite.controller.php?id= <?= $res['res_id'] ?>">
+                                                <a href="controllers/favorites/add_favorite.controller.php?id= <?= $res['res_id'] ?>"
+                                                    class="add_favorite">
                                                     <i class="feather-heart" style="cursor:pointer"></i>
                                                 </a>
                                             </div>
@@ -132,7 +133,31 @@ if (isset($_GET['id'])) {
 
         </div>
     </div>
-
+    <script>
+        function toggleFavorite(element) {
+            element.classList.toggle('favorite');
+        }
+        document.querySelectorAll('.add_favorite').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                toggleFavorite(item.querySelector('.feather-heart'));
+                fetch(item.getAttribute('href'), { method: 'POST' })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to add to favorites');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+    </script>
+    <style>
+        .favourite-heart .feather-heart.favorite {
+            background-color: pink;
+        }
+    </style>
     <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
         <div class="row">
             <div class="col">

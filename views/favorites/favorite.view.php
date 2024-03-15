@@ -16,7 +16,7 @@ require_once "models/favorites/favorite.model.php";
         <div class="row">
             <?php
             // Retrieve favorites for the user
-            $restaurants = get_restaurant();
+            $restaurants = get_favourites();
             foreach ($restaurants as $restaurant) {
 
                 ?>
