@@ -22,17 +22,23 @@ if (!function_exists('get_data_restaurants')) {
         return $statement->fetchAll();
     }
 }
-
-if (!function_exists('get_user_favorite')) {
-    function get_user_favorite(string $email): array
+if (!function_exists('get_favourites')) {
+    function get_favourites(): array
     {
         global $connection;
-        $statement = $connection->prepare("SELECT user_id FROM  users WHERE email = :email");
-        $statement->execute([
-            ':email'=>$email
-        ]);
-        return $statement->fetchAll();
+        try {
+            $statement = $connection->prepare("SELECT * FROM restaurants WHERE res_id IN (SELECT res_id FROM favorites)");
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            // Handle database error
+            // For example, you can log the error or return an empty array
+            error_log("Database error: " . $e->getMessage());
+            return [];
+        }
     }
 }
+
+
 ?>
 
