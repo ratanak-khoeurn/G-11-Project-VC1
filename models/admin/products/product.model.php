@@ -93,3 +93,12 @@ if (!function_exists('delete_image_product')) {
         }
     }
 }
+if (!function_exists('select_product')) {
+    function select_product(string $name): array
+    {
+        global $connection;
+        $statement = $connection->prepare("select * from products where category_name = :name");
+        $statement->execute([':name' => $name]);
+        return $statement->fetchAll();
+    }
+}
