@@ -201,9 +201,6 @@
             $orderCount = count($_SESSION['order']);
             // Display the count within the span
             echo '<span id="cart-count">(' . $orderCount . ')</span>';
-        } else {
-            // If $_SESSION['order'] is not set or empty, display 0
-            echo '<span id="cart-count">(0)</span>';
         }
         ?>
     </div>

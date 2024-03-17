@@ -4,39 +4,56 @@ require "models/admin/products/product.model.php";
 ?>
 <div class="checkout">
     <div class="head" style="display: flex; align-items: center;width:50%;justify-content:space-between">
-        <a href="/restaurant?id=<?= $_SESSION['id'] ?>"><button style="margin-left: 30px;margin-top:30px;padding:0 10px;height:40px;border:none;background:#E21B70;color:white">Back</button></a>
-        <h3 class="mt-4">YOUR ORDER LIST</h3>
+        <?php if (isset ($_SESSION['id'])): ?>
+            <a href="/restaurant?id=<?= $_SESSION['id'] ?>">
+            <?php else: ?>
+                <a href="#">
+                <?php endif; ?>
+                <button
+                    style="margin-left: 30px; margin-top:30px; padding:0 10px; height:40px; border:none; background:#E21B70; color:white">Back</button>
+            </a>
+            <h3 class="mt-4">YOUR ORDER LIST</h3>
     </div>
     <div class="checkout-left" style="width: 90.5%; margin-left:52px;gap:10px">
         <div class="checout-card">
             <?php
-            $orders = $_SESSION['order'];
-            if (!empty($orders)) {
-                foreach ($orders as $order) :
-            ?>
+            $orders = isset ($_SESSION['order']) ? $_SESSION['order'] : null;
+            if (!empty ($orders)) {
+                foreach ($orders as $order):
+                    ?>
                     <div class="card" style="display: flex; align-items: center;">
                         <div style="height: 100%;gap:20px" class="row product" data-price="<?= $order[0]['price'] ?>">
                             <div style="width: 20%;background:black;height:100%">
-                                <a href=""><img style="width: 100%;height:100%" src="assets/images/products/<?= $order[0]['product_img'] ?>" alt=""></a>
+                                <a href=""><img style="width: 100%;height:100%"
+                                        src="assets/images/products/<?= $order[0]['product_img'] ?>" alt=""></a>
                             </div>
                             <div class="brand" style="width: 30%;display: flex;flex-direction:column;">
-                                <h5>name</h5>
-                                <button style="width:60%" class="btn btn-sm btn-outline-dark">Remove</button>
-                                <p>discount:</p>
-
+                                <h5>
+                                    <?= $order[0]['product_name'] ?>
+                                </h5>
+                                <a href="controllers/orders/remove.cart.controller.php?action=remove&id=<?= $order[0]['id'] ?>">
+                                    <button class="btn btn-sm btn-outline-dark">Remove</button>
+                                </a>
+                                <p class="discount">Discount:
+                                    <?= $order[0]['discount'] ?>%
+                                </p> <!-- Added discount -->
                             </div>
                             <div class="quantity" style="width:20%;display:flex;align-items: center;gap:10px">
-                                <button class="quantity-btn minus">-</button>
-                                <button style="width:40px;height:30px" class="quantity-input" value="1"> </button>
-                                <button class="quantity-btn plus">+</button>
+                            <div class="quantity-controls">
+    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn minus">-</button>
+    <input style="width: 40px; height: 30px; text-align: center; font-size: 16px;" class="quantity-input" type="number" value="1">
+    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn plus">+</button>
+</div>
+
                             </div>
                             <div class="all" style="display:flex;align-items: center;margin-top:10px">
-                                <p  class="price">Price: <?= $order[0]['price'] ?> $</p>
-
+                                <p class="price">Price:
+                                    <?= $order[0]['price'] ?> $
+                                </p>
                             </div>
                         </div>
                     </div>
-            <?php
+                    <?php
                 endforeach;
             } else {
                 echo '<h1 style="text-align:center;">DO NOT HAVE ANY ORDER</h1>';
@@ -44,10 +61,17 @@ require "models/admin/products/product.model.php";
             ?>
         </div>
         <div class="total-prices">
-            <h1>Total Price</h1>
+            <h2 style="margin-top:30px;text-align:center;color:#E21B70">Your Price</h2>
+            <hr style="border:2px solid black;width:100%">
+            <h6 style="margin-bottom:30px">Item Price: <span class="totals">0.00</span> $</h6>
+            <h6 style="margin-bottom:30px">Total Discount: <span class="discount-amount">0.00</span> $</h6>
+            <h6 style="margin-bottom:30px">Delivery: <span class="discount-amount">0.00</span> $</h6>
+            <h6 style="margin-bottom:30px">Total Price: <span class="price-after-discount">0.00</span> $</h6>
+            <a href="/place_order"><button
+                    style="width: 100%;border:none;background:#E21B70;color:white;padding:10px 0">Check Out
+                    Now</button></a>
         </div>
     </div>
-
 
     <script>
         const products = document.querySelectorAll('.product');
@@ -55,9 +79,9 @@ require "models/admin/products/product.model.php";
         let totalDiscount = 0;
         let totalAfterDiscount = 0;
 
-        products.forEach(function(product) {
+        products.forEach(function (product) {
             const price = parseFloat(product.getAttribute('data-price'));
-            const discountPercentage = parseFloat(product.querySelector('.discount').textContent);
+            const discountPercentage = parseFloat(product.querySelector('.discount').textContent.split(':')[1]);
             const quantityInput = product.querySelector('.quantity-input');
             const priceElement = product.querySelector('.price');
 
@@ -66,7 +90,7 @@ require "models/admin/products/product.model.php";
 
             updateTotals(price, 0);
 
-            product.querySelector('.quantity-btn.minus').addEventListener('click', function() {
+            product.querySelector('.quantity-btn.minus').addEventListener('click', function () {
                 let quantity = parseInt(quantityInput.value);
                 if (quantity > 1) {
                     quantityInput.value = quantity - 1;
@@ -78,7 +102,7 @@ require "models/admin/products/product.model.php";
                 }
             });
 
-            product.querySelector('.quantity-btn.plus').addEventListener('click', function() {
+            product.querySelector('.quantity-btn.plus').addEventListener('click', function () {
                 let quantity = parseInt(quantityInput.value);
                 quantityInput.value = quantity + 1;
                 totalPricePerProduct += price;
@@ -87,16 +111,19 @@ require "models/admin/products/product.model.php";
                 const discountAmount = (discountPercentage / 100) * newTotalPrice;
                 updateTotals(price, discountAmount);
             });
-            quantityInput.addEventListener('input', function() {
+
+            quantityInput.addEventListener('input', function () {
                 let quantity = parseInt(quantityInput.value);
                 if (quantity < 1 || isNaN(quantity)) {
                     quantityInput.value = 1;
                     quantity = 1;
                 }
+                const quantityChange = quantity - parseInt(quantityInput.getAttribute('data-quantity'));
                 totalPricePerProduct = quantity * price;
                 priceElement.textContent = 'Price: ' + totalPricePerProduct.toFixed(2) + ' $';
                 const discountAmount = (discountPercentage / 100) * totalPricePerProduct;
-                updateTotals(totalPricePerProduct - totalPrice, discountAmount - totalDiscount);
+                updateTotals(price * quantityChange, discountAmount);
+                quantityInput.setAttribute('data-quantity', quantity);
             });
         });
 
@@ -104,11 +131,12 @@ require "models/admin/products/product.model.php";
             totalPrice += amount;
             totalDiscount = discountAmount;
             totalAfterDiscount = totalPrice - totalDiscount;
-            document.querySelector('.totles').textContent = totalPrice.toFixed(2);
+            document.querySelector('.totals').textContent = totalPrice.toFixed(2);
             document.querySelector('.discount-amount').textContent = totalDiscount.toFixed(2);
             document.querySelector('.price-after-discount').textContent = totalAfterDiscount.toFixed(2);
         }
     </script>
+
 
 
     <div class="row">
@@ -117,12 +145,13 @@ require "models/admin/products/product.model.php";
                 <?php
                 $products = get_product();
                 foreach ($products as $product) {
-                ?>
+                    ?>
                     <div class="osahan-slider-item w-300">
                         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div class="list-card-image">
                                 <a href="#">
-                                    <img alt="#" src="../../assets/images/products/<?= $product['product_img'] ?>" class="img-fluid item-img w-100" style="height:200px" />
+                                    <img alt="#" src="../../assets/images/products/<?= $product['product_img'] ?>"
+                                        class="img-fluid item-img w-100" style="height:200px" />
                                 </a>
                             </div>
                             <div class="p-3 position-relative">
@@ -135,8 +164,10 @@ require "models/admin/products/product.model.php";
                                     </p>
                                     <p class="text-gray m-0" style="display:flex; justify-content:space-between">
                                         <span class="text-black-50"> $350 FOR TWO</span>
-                                        <a href="controllers/orders/add_to_cart.controller.php?id=<?= $product['id'] ?>&num=1" style="width:40px; display:flex; justify-content:center; text-align:center">
-                                            <i class="feather-shopping-cart" style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
+                                        <a href="controllers/orders/add_to_cart.controller.php?id=<?= $product['id'] ?>&num=1"
+                                            style="width:40px; display:flex; justify-content:center; text-align:center">
+                                            <i class="feather-shopping-cart"
+                                                style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
                                         </a>
                                     </p>
                                 </div>
@@ -176,6 +207,7 @@ require "models/admin/products/product.model.php";
         overflow-y: scroll;
         margin-bottom: 30px;
     }
+
     .check {
         width: 50%;
         height: 50px;
