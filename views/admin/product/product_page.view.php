@@ -45,12 +45,10 @@ require "models/admin/products/product.model.php";
     <div class="modal-content">
       <span class="close">&times;</span>
       <?php
-      require "database/database.php";
-      require "models/admin/products/product.model.php";
       $restaurants = get_restaurant();
       $categories = get_category();
       ?>
-      <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data">
+      <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data" class="form_add_product">
         <div class="mb-3">
           <div class="form-group">
             <label for="product_image_url">Image URL</label>
@@ -75,7 +73,7 @@ require "models/admin/products/product.model.php";
         </div>
         <div class="form-group">
           <label for="category_name">Category Type</label>
-          <select class="form-control" id="category_name" name="cagegory_name" required>
+          <select class="form-control" id="category_name" name="category_name" required>
             <?php
             foreach ($categories as $category) {
             ?>
@@ -105,6 +103,13 @@ require "models/admin/products/product.model.php";
 </div>
 
 <style>
+  .form_add_product {
+    margin-left: 40px;
+    height: 80%;
+  }
+  .modal-content{
+    margin-top: 50px;
+  }
   .edit {
     color: blue;
     margin-right: 15px;
@@ -270,9 +275,10 @@ require "models/admin/products/product.model.php";
 
 
   }
-  .card:hover{
+
+  .card:hover {
     width: 20.5%;
-    height:41vh ;
+    height: 41vh;
   }
 
   .card-header {

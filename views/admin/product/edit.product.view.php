@@ -4,6 +4,25 @@ require "../../../models/admin/products/product.model.php";
 ?>
 
 <style>
+    .form-container {
+        display: flex;
+        margin-left: 10px;
+        width: 100%;
+    }
+    .product_info {
+        display: flex;
+        width: 100%;
+    }
+    .product_info .form-group,
+    .product_price .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .product_price{
+        display: flex;
+        width: 100%;
+    }
     #video-background {
         position: fixed;
         top: 0;
@@ -13,19 +32,19 @@ require "../../../models/admin/products/product.model.php";
         z-index: -1;
         object-fit: cover;
     }
-
     #restar {
         position: relative;
-        /* margin: auto; */
+        margin: 100px 0px 100px 0px;
+        padding: 20px;
         display: flex;
         align-items: center;
-        height: 100%;
     }
 
     .restar-content {
         position: absolute;
-        top: 50%;
         left: 50%;
+        margin-top: 74%;
+        width: 50%;
         transform: translate(-50%, -50%);
         padding: 30px;
         border: 1px solid #ddd;
@@ -33,14 +52,11 @@ require "../../../models/admin/products/product.model.php";
         background-color: rgba(255, 255, 255, 0.8);
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         text-align: center;
-        /* Center align the content */
     }
 
     .form-container {
         display: inline-block;
-        /* Allow the container to take the width of its content */
         text-align: left;
-        /* Reset text alignment */
     }
 
     .form-group {
@@ -58,7 +74,6 @@ require "../../../models/admin/products/product.model.php";
     input[type="number"],
     input[type="file"] {
         width: calc(100% - 24px);
-        /* Take 100% width minus padding */
         padding: 12px;
         border: 1px solid #ccc;
         border-radius: 6px;
@@ -136,34 +151,52 @@ require "../../../models/admin/products/product.model.php";
             $id = $_GET['id'];
             $products = get_product_one($id);
             ?>
-            <form action="../../../controllers/admin/products/product.upate.controller.php?image=<?= $products['product_img'] ?>" method="post" enctype="multipart/form-data">
+            <form action="../../../controllers/admin/products/product.upate.controller.php?image=<?= $products['product_img'] ?>" method="post" enctype="multipart/form-data" class="form_update">
 
                 <input type="hidden" name="product_id" value="<?= $products['id'] ?>">
+                <div class="product_info">
 
-                <div class="form-group">
-                    <label for="names">Name:</label>
-                    <input type="text" class="form-control" id="names" name="product_name" value="<?= $products['product_name'] ?>" placeholder="Enter category name">
+                    <div class="form-group">
+                        <label for="names">Name:</label>
+                        <input type="text" class="form-control" id="names" name="product_name" value="<?= $products['product_name'] ?>" placeholder="Enter category name">
+                    </div>
+                    <div class="form-group">
+                        <label for="product_name">Restaurant Name</label>
+                        <select class="form-control" id="product_name" name="restaurant_name" required>
+                            <option value="">Select a restaurant</option>
+                            <?php
+                            $restuarant = get_restaurant();
+                            foreach ($restuarant as $res) {
+                                
+                                ?>
+                                <option value="<?= $res['res_name'] ?>" <?php echo ($products['restaurant_name'] == $res['res_name']) ? 'selected' : ''; ?>><?= $res['res_name'] ?>
+                            </option> <?php } ?>
+                        </select>
+                    </div>
+                </div>
+                <div class="product_price">
+
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" class="border form-control" id="price" name="price" placeholder="enter price" value="<?= $products['price'] ?>" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="discount">Discount</label>
+                        <input type="number" class="border form-control" id="discount" name="discount" placeholder="enter discount" value="<?= $products['discount'] ?>" required>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="product_name">Restaurant Name</label>
-                    <select class="form-control" id="product_name" name="restaurant_name" required>
-                        <option value="">Select a restaurant</option>
+                    <label for="category_name">Category Type</label>
+                    <select class="form-control" id="category_name" name="category_name" required>
                         <?php
-                        $restuarant = get_restaurant();
-                        foreach ($restuarant as $res) {
-
+                        $categories = get_category();
+                        foreach ($categories as $category) {
                         ?>
-                        <option value="<?= $res['res_name'] ?>" <?php echo ($products['restaurant_name'] == $res['res_name']) ? 'selected' : ''; ?>><?= $res['res_name'] ?>
-                        </option> <?php } ?>
+                            <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?> </option>
+                        <?php
+                        }
+                        ?>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="number" class="border form-control" id="price" name="price" placeholder="enter price" value="<?= $products['price'] ?>" required>
-                </div>
-                <div class="form-group">
-                    <label for="discount">Discount</label>
-                    <input type="number" class="border form-control" id="discount" name="discount" placeholder="enter discount" value="<?= $products['discount'] ?>" required>
                 </div>
                 <div class="form-group">
                     <label for="product_image_url">Choose Image:</label>

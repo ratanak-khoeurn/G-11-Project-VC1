@@ -6,7 +6,7 @@ global $connection;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $product_image = $_FILES['product_img'];
     $product_name = $_POST['product_name'];
-    $category_name= $_POST['cagegory_name'];
+    $category_name= $_POST['category_name'];
     $restaurant_name = $_POST['restaurant_name'];
     $price = $_POST['price'];
     $discount = $_POST['discount'];
