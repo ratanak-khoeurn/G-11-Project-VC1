@@ -106,7 +106,7 @@ ob_start()
             <picture>
 
               <source srcset="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" type="image/webp">
-              <img src="../../../assets/images/user/<?= $_SESSION['user']['admin'] ?>" alt="User Picture">
+              <img src="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" alt="User Picture">
             </picture>
           </span>
         </button>

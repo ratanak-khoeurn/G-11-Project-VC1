@@ -149,18 +149,6 @@
                 <span>Offers</span>
               </div>
             </a>
-            <!-- <script>
-              let signin = document.querySelector('.a');
-              console.log(signin);
-              let span = document.querySelector('.user-name');
-              console.log(span);
-              if (span.textContent == '') {
-                signin.style.display = 'block';
-              } else {
-                signin.style.display = 'none';
-              }
-            </script> -->
-
             <a href="/signin" class="widget-header mr-4 text-white m-none <?= isset($_SESSION['user']['first_name']) ? 'd-none' : '' ?>">
               <div class="icon d-flex align-items-center">
                 <i class="feather-user h6 mr-2 mb-0"></i>
@@ -170,62 +158,64 @@
             <span class="user-name" style="color:white;text-align:center;margin-right:10px">
               <?= isset($_SESSION['user']['first_name']) ? $_SESSION['user']['first_name'] : '' ?>
             </span>
+            <?php
+            if (isset($_SESSION['user'])) {
+            ?>
+              <div class="dropdown mr-4 m-none">
+                <a href="#" class="dropdown-toggle text-white py-3 d-block" style="width: 43px;height:75px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php
+                  $picture_path = isset($_SESSION['user']['picture']) && $_SESSION['user']['picture'] != '' ? $_SESSION['user']['picture'] : '../../../assets/images/avatar/no-profile-pic-icon-11.jpg';
+                  ?>
+                  <img style="width: 100%;height:100%" alt="#" src="../../../assets/images/user/<?php echo $picture_path; ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
+                </a>
 
-
-            <div class="dropdown mr-4 m-none">
-              <a href="#" class="dropdown-toggle text-white py-3 d-block" style="width: 43px;height:75px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?php
-                $picture_path = isset($_SESSION['user']['picture']) && $_SESSION['user']['picture'] != '' ? $_SESSION['user']['picture'] : '../../../assets/images/avatar/no-profile-pic-icon-11.jpg';
-                ?>
-                <img style="width: 100%;height:100%" alt="#" src="../../../assets/images/user/<?php echo $picture_path; ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
-              </a>
-
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/profile">My account</a>
-                <a class="dropdown-item" href="faq.html">Delivery support</a>
-                <a class="dropdown-item" href="contact-us.html">Contant us</a>
-                <a class="dropdown-item" href="terms.html">Term of use</a>
-                <a class="dropdown-item" href="privacy.html">Privacy policy</a>
-                <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/profile">My account</a>
+                  <a class="dropdown-item" href="faq.html">Delivery support</a>
+                  <a class="dropdown-item" href="contact-us.html">Contact us</a>
+                  <a class="dropdown-item" href="terms.html">Term of use</a>
+                  <a class="dropdown-item" href="privacy.html">Privacy policy</a>
+                  <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
+                </div>
               </div>
-            </div>
+            <?php
+            }
+            ?>
+
 
             <a href="/checkout" class="widget-header mr-4 text-white">
-    <div class="icon d-flex align-items-center">
-        <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-        <span>Cart</span>
-        <?php
-        // Check if the $_SESSION['order'] is set
-        if(isset($_SESSION['order'])) {
-            // Count the number of items in the order
-            $orderCount = count($_SESSION['order']);
-            // Display the count within the span
-            echo '<span id="cart-count">(' . $orderCount . ')</span>';
-        }
-        ?>
-    </div>
-</a>
+              <div class="icon d-flex align-items-center">
+                <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+                <span>Cart</span>
+                <?php
+                if (isset($_SESSION['order'])) {
+                  $orderCount = count($_SESSION['order']);
+                  echo '<span id="cart-count">(' . $orderCount . ')</span>';
+                }
+                ?>
+              </div>
+            </a>
 
             <style>
               #cart-count {
-            background-color: red;
-            color: white;
-            padding: 2px 2px;
-            border-radius: 50%;
-            font-size: 10px;
-            position: relative;
-            top: -8px;
-            left: -px;
-        }
+                background-color: red;
+                color: white;
+                padding: 2px 2px;
+                border-radius: 50%;
+                font-size: 10px;
+                position: relative;
+                top: -8px;
+                left: -px;
+              }
             </style>
-              </div>
-            </a>
-            <a class="toggle" href="#">
-              <span></span>
-            </a>
           </div>
+          </a>
+          <a class="toggle d-flex align-items-center" href="#" style="margin-bottom:20px">
+            <span></span>
+          </a>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </header>
