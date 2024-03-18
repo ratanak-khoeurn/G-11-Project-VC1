@@ -66,9 +66,17 @@ if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
                                                 </a>
                                             </div>
                                             <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                            <a href="/restaurant?id=<?= $res['res_id'] ?>">
+                                            <a href="<?php
+                                                        if (isset($_SESSION['user'])) {
+                                                            echo "/restaurant?id=" . $res['res_id'];
+                                                        }else{
+                                                            echo 'all_restaurants';
+                                                        }
+                                                        ?>">
+
                                                 <img alt="<?= $res['res_name'] ?>" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="img-fluid item-img w-100" style="height:200px">
                                             </a>
+                                            
                                         </div>
                                         <div class="p-3 position-relative">
                                             <div class="list-card-body">
