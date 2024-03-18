@@ -4,21 +4,18 @@ require("../../../database/database.php");
 // Check if the form was submitted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require "../../../models/admin/products/product.model.php";
-    if (!empty($_POST['product_name']) ) {
+    if (!empty($_POST['product_name'])) {
         $id = $_POST['product_id'];
         $name = $_POST['product_name'];
         $res_name = $_POST['restaurant_name'];
+        $category_name = $_POST['cagegory_name']; // Corrected variable name
         $price = $_POST['price'];
         $discount = $_POST['discount'];
         $new_product_image = $_FILES['product_image_url'];
         $final_image = '';
         $old_image = $_POST['image'];
-        echo $new_product_image['name'];
 
-    }
-        if (!empty($_FILES['product_image_url']['name'])) {
-            $new_image = $_FILES['product_image_url'];
-
+        if (!empty($new_product_image['name'])) {
             $uploadDir = '../../../assets/images/products/';
             $final_image = basename($new_product_image['name']);
             $uploadFile = $uploadDir . $final_image;
@@ -26,19 +23,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $maxFileSize = 5000000; // Adjust as needed
 
             // Validate the uploaded file
-            if ($new_image['error'] !== UPLOAD_ERR_OK) {
+            if ($new_product_image['error'] !== UPLOAD_ERR_OK) {
                 echo "Error uploading file.";
             } elseif (!in_array($fileType, array("png", "jpeg", "jpg"))) {
                 echo "Invalid file type. Only PNG, JPEG, and JPG files are allowed.";
-            } elseif ($new_image['size'] > $maxFileSize) {
+            } elseif ($new_product_image['size'] > $maxFileSize) {
                 echo "File size exceeds the limit.";
             } elseif (!move_uploaded_file($new_product_image['tmp_name'], $uploadFile)) {
                 echo "Failed to move uploaded file.";
             } else {
-                // Update the category with the new image
-                $is_updated = update_product($name, $final_image, $res_name,$price,$discount,$id);
+                // Update the product with the new image
+                $is_updated = update_product($name, $final_image, $res_name, $category_name, $price, $discount, $id); // Corrected variable name
                 if ($is_updated) {
-                    delete_image_product($image);
+                    // Delete old image if successfully updated
+                    delete_image_product($old_image);
                     header('Location: /product_admin');
                     exit;
                 } else {
@@ -46,8 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
         } else {
+            // If no new image provided, keep the old one
             $final_image = $old_image;
-            $is_updated = update_product($name, $final_image, $res_name,$price,$discount,$id);
+            $is_updated = update_product($name, $final_image, $res_name, $category_name, $price, $discount, $id); // Corrected variable name
             if ($is_updated) {
                 header('Location: /product_admin');
                 exit;
@@ -55,5 +54,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo "Failed to update product.";
             }
         }
+    }
 }
 ?>

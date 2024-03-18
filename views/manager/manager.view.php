@@ -1,4 +1,5 @@
 <?php
+// session_start();
 require "database/database.php";
 require "models/manager/manager.model.php";
 require "models/admin/products/product.model.php";
@@ -25,7 +26,6 @@ require_once "models/admin/restuarant/resturant.process.php";
                     <option value="restaurants">Choose Manager</option>
                     <?php
                     foreach ($unique_names as $restaurant_name) {
-                        
                     ?>
                         <option value="<?= $restaurant_name ?>"><?= $restaurant_name ?></option>
                     <?php
@@ -43,30 +43,7 @@ require_once "models/admin/restuarant/resturant.process.php";
         <div class="right">
             <main class="main">
                 <div class="main_left">
-                    <form action="#" class="form_add_product" style="height:100%">
-                        <h2>Add New Product</h2>
-                        <div class="group_label">
-                            <label for="">Name:</label>
-                            <input type="text" id="name" name="name" placeholder="Enter restaurant's name" />
-                        </div>
-                        <div class="group_label">
-                            <label for="">Price</label>
-                            <input type="number" id="price" name="price" placeholder="Enter the price" />
-                        </div>
-                        <div class="group_label">
-                            <label for="">Category:</label>
-                            <input type="text" id="cate" name="cate" placeholder="Enter product's category" />
-                        </div>
-                        <div class="group_label">
-                            <label for="">Discount:</label>
-                            <input type="number" id="discount" name="discount" placeholder="Enter product's discount" />
-                        </div>
-                        <div class="group_label">
-                            <label for="">Picture:</label>
-                            <input type="file" id="pic" name="pic" placeholder="choose your image product" />
-                        </div>
-                        <button class="submit">SUBMIT</button>
-                    </form>
+                    
                 </div>
                 <div class="main_right">
                     <div class="top">
@@ -80,7 +57,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                             $products_manager = get_products();
                             foreach ($products_manager as $product) {
 
-                            ?>
+                            ?>​
                                 <div class="card">
                                     <img src="../../assets/images/products/<?= $product['product_img'] ?>" alt="#" class="pro_img">
                                     <div class="card_footer">

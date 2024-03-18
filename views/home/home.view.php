@@ -31,8 +31,8 @@ require 'models/admin/category/category.process.php';
       foreach ($categories as $category) :
       ?>
         <div class="cat-item px-1 py-3">
-          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="trending.html">
-            <img alt="#" src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img-fluid mb-2" style="height: 60px; width: 100px;" />
+          <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="/categories?name=<?=$category['category_name']?>">
+            <img alt="#" src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img-fluid mb-2" style="height: 80px; width: 100px;" />
             <p class="m-0 small">
               <?= $category['category_name'] ?>
             </p>

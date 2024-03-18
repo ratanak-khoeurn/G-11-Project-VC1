@@ -191,9 +191,33 @@
             </div>
 
             <a href="/checkout" class="widget-header mr-4 text-white">
-              <div class="icon d-flex align-items-center">
-                <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-                <span>Cart</span>
+    <div class="icon d-flex align-items-center">
+        <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+        <span>Cart</span>
+        <?php
+        // Check if the $_SESSION['order'] is set
+        if(isset($_SESSION['order'])) {
+            // Count the number of items in the order
+            $orderCount = count($_SESSION['order']);
+            // Display the count within the span
+            echo '<span id="cart-count">(' . $orderCount . ')</span>';
+        }
+        ?>
+    </div>
+</a>
+
+            <style>
+              #cart-count {
+            background-color: red;
+            color: white;
+            padding: 2px 2px;
+            border-radius: 50%;
+            font-size: 10px;
+            position: relative;
+            top: -8px;
+            left: -px;
+        }
+            </style>
               </div>
             </a>
             <a class="toggle" href="#">

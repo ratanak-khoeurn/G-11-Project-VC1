@@ -156,10 +156,6 @@ require "models/admin/restuarant/resturant.process.php";
             cursor: pointer;
 
         }
-        .card:hover{
-            width: 25.5%;
-            height:51vh ;
-        }
 
         .card-header {
             width: 100%;
@@ -192,6 +188,17 @@ require "models/admin/restuarant/resturant.process.php";
             height: 70%;
         }
 
+        .card-body img {
+            transition: transform 0.3s ease;
+            /* Added transition for smoother hover effect */
+        }
+
+        .card-body img:hover {
+            transform: scale(1.1);
+            /* Scale up the image on hover */
+        }
+
+
         .card-footer {
             width: 100%;
             height: 15%;
@@ -211,29 +218,43 @@ require "models/admin/restuarant/resturant.process.php";
     <div class="manin-card" style="overflow: auto; max-height: 700px;">
         <?php
         $restaurants = get_restaurant();
-        foreach ($restaurants as $restaurant) :
-        ?>
+        foreach ($restaurants as $restaurant):
+            ?>
             <div class="card">
                 <div class="card-header">
-                    <h2><?= $restaurant['res_name'] ?></h2>
+                    <h2>
+                        <?= $restaurant['res_name'] ?>
+                    </h2>
                 </div>
                 <div class="card-content">
                     <div class="card-body" style="position: relative;">
-                        <img src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" alt="" style="width: 100%; height: 100%;">
-                        <div class="text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 35px; z-index: 1;padding-left:10px">
-                            <h4><?= $restaurant['region'] ?></h4>
-                            <p><?= $restaurant['res_address'] ?></p>
+                        <img src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" alt=""
+                            style="width: 100%; height: 100%;">
+                        <div class="text"
+                            style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 35px; z-index: 1;padding-left:10px">
+                            <h4>
+                                <?= $restaurant['region'] ?>
+                            </h4>
+                            <p>
+                                <?= $restaurant['res_address'] ?>
+                            </p>
                             <p>open</p>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="models/admin/restuarant/delete.restaurant.model.php?id=<?= $restaurant['res_id'] ?>&image=<?= urlencode($restaurant['restaurant_image_url']) ?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-                        <a href="controllers/admin/restaurant/edit.restaurant.controller.php?id=<?= $restaurant['res_id'] ?>"><img src="../../assets/images/icons/delete_admin.png" alt="" style=" width:40px;height:40px"></a>
-                        <a href="#"><img src="../../assets/images/FOOD.jpg" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+                        <a
+                            href="models/admin/restuarant/delete.restaurant.model.php?id=<?= $restaurant['res_id'] ?>&image=<?= urlencode($restaurant['restaurant_image_url']) ?>"><img
+                                src="../../assets/images/icons/delete.png" alt=""
+                                style="border-radius: 50%; width:40px;height:40px"></a>
+                        <a
+                            href="controllers/admin/restaurant/edit.restaurant.controller.php?id=<?= $restaurant['res_id'] ?>"><img
+                                src="../../assets/images/icons/delete_admin.png" alt="" style=" width:40px;height:40px"></a>
+                        <a href="#"><img src="../../assets/images/FOOD.jpg" alt=""
+                                style="border-radius: 50%; width:40px;height:40px"></a>
                     </div>
                 </div>
             </div>
-        <?php
+            <?php
         endforeach; ?>
     </div>
     <div id="restar" class="restar">
@@ -243,46 +264,69 @@ require "models/admin/restuarant/resturant.process.php";
             <form method="post" action="../models/admin/restuarant/restaurant.model.php" enctype="multipart/form-data">
                 <div class="group">
                     <label for="restaurant_name">Name:</label>
-                    <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
+                    <input type="text" id="restaurant_name" name="restaurant_name"
+                        placeholder="Enter your restaurant name" required><br>
                 </div>
                 <div class="group">
                     <label for="restaurant_address">Address:</label>
-                    <input type="text" id="restaurant_address" name="restaurant_address" placeholder="Enter your restaurant address" required><br>
+                    <input type="text" id="restaurant_address" name="restaurant_address"
+                        placeholder="Enter your restaurant address" required><br>
                 </div>
                 <div class="group">
                     <label for="restaurant_image_url">Image:</label>
-                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" accept="image/*" enctypart="multipart/form-data" required><br>
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" accept="image/*"
+                        enctypart="multipart/form-data" required><br>
                 </div>
                 <div class="group">
-                    <label for="province">Choose Region</label>
-                    <select class="form-control" id="region" name="region" required>
-                        <option value="">Select a regoin</option>
-                        <option value="Kandal">Kandal</option>
-                        <option value="Svayreang">Svayreang</option>
-                    </select>
+                    <label for="delivery" class="label">Delivery Option</label>
+                    <div class="delivery-options">
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="free" onclick="togglePriceInput(false)">
+                            <span>Free Delivery</span>
+                        </label>
+                        <label class="delivery-option">
+                            <input type="radio" name="delivery" value="paid" onclick="togglePriceInput(true)">
+                            <span>Paid Delivery</span>
+                        </label>
+                    </div>
+                    <div id="priceInputContainer" style="display: none;">
+                        <label for="deliveryPrice" class="label">Delivery Price</label>
+                        <input type="number" id="deliveryPrice" name="deliveryPrice" placeholder="Enter delivery price"
+                            class="delivery-price-input">
+                    </div>
                 </div>
+
+
+                <script>
+                    function togglePriceInput(show) {
+                        var priceInputContainer = document.getElementById("priceInputContainer");
+                        priceInputContainer.style.display = show ? "block" : "none";
+                    }
+                </script>
+
+
+        <?php
+        require "database/database.php";
+        require "models/admin/restuarant/resturant.process.php";
+        $managers = get_manager();
+        // var_dump($managers);
+        ?>
+        <div class="group">
+
+            <label for="manager">Manager</label>
+
+            <select class="form-control" id="manager" name="manager" required>
+                <option value="">Select a Manager</option>
                 <?php
-                require "database/database.php";
-                require "models/admin/restuarant/resturant.process.php";
-                $managers = get_manager();
-                // var_dump($managers);
+                foreach ($managers as $manager) {
+                    echo '<option value="' . $manager['first_name'] . ' ' . $manager['last_name'] . '">' . $manager['first_name'] . ' ' . $manager['last_name'] . '</option>';
+                }
                 ?>
-                <div class="group">
+            </select>
 
-                    <label for="manager">Manager</label>
-
-                    <select class="form-control" id="manager" name="manager" required>
-                        <option value="">Select a Manager</option>
-                        <?php
-                        foreach ($managers as $manager) {
-                            echo '<option value="' . $manager['first_name'].' '.$manager['last_name']. '">' . $manager['first_name'].' '.$manager['last_name'] . '</option>';
-                        }
-                        ?>
-                    </select>
-
-                </div>
-                <button type="submit" class="submit">Submit</button>
-            </form>
         </div>
+        <button type="submit" class="submit">Submit</button>
+        </form>
     </div>
+</div>
 </div>

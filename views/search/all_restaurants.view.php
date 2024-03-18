@@ -1,7 +1,26 @@
 <?php
 require_once "database/database.php";
 require_once "models/admin/restuarant/resturant.process.php";
+require_once "models/add.user/add.user.model.php";
+require_once "models/favorites/favorite.model.php";
+function add_favorites($user_id, $res_id): bool
+{
+    global $connection;
+    $statement = $connection->prepare("INSERT INTO favorites (user_id, res_id) VALUES (:user_id, :res_id)");
+    $statement->execute([
+        ':user_id' => $user_id,
+        ':res_id' => $res_id
+    ]);
+    return $statement->rowCount() > 0;
+}
+
+if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
+    $user_id = $_GET['user_id'];
+    $res_id = $_GET['res_id'];
+    add_favorites($user_id, $res_id);
+}
 ?>
+<script src="../../vendor/js/search_restaurant_homepage.js" defer></script>
 <div class="d-none">
     <div class="bg-primary p-3 d-flex align-items-center">
         <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -13,7 +32,7 @@ require_once "models/admin/restuarant/resturant.process.php";
     <div class="container">
         <div class="search py-5">
             <div class="input-group mb-4">
-                <input type="text" class="form-control form-control-lg input_search border-right-0" id="inlineFormInputGroup" placeholder="search restaurant here ...............">
+                <input type="text" class="search_btn form-control form-control-lg input_search border-right-0" id="inlineFormInputGroup" placeholder="search restaurant here ...............">
                 <div class="input-group-prepend">
                     <div class="btn input-group-text bg-white border_search border-left-0 text-primary"><i class="feather-search"></i></div>
                 </div>
@@ -33,43 +52,53 @@ require_once "models/admin/restuarant/resturant.process.php";
                     <div class="container mt-4 mb-4 p-0">
 
                         <div class="row">
-                        <?php
+                            <?php
                             $restuarant = get_restaurant();
-                            foreach ($restuarant as $res){
+                            foreach ($restuarant as $res) {
                             ?>
-                            <div class="col-md-3 pb-3">
-                                <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                    <div class="list-card-image">
-                                        <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></div>
-                                        <div class="favourite-heart text-danger position-absolute"><i class="feather-heart"></i></div>
-                                        <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                        <a href="/restaurant?id=<?= $res['res_id']?>">
-                                            <img alt="<?= $res['res_name'] ?>" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url']?>" class="img-fluid item-img w-100" style="height:200px">
-                                        </a>
-                                    </div>
-                                    <div class="p-3 position-relative">
-                                        <div class="list-card-body">
-                                            <h6 class="mb-1"><a href="/restaurant" class="text-black"><?= $res['res_name'] ?></a>
-                                            </h6>
-                                            <p class="text-gray mb-1 small"><?= $res['res_address'] ?></p>
-                                            <p class="text-gray mb-1 rating">
-                                            <ul class="rating-stars list-unstyled">
-                                                <li>
-                                                    <i class="feather-star star_active"></i>
-                                                    <i class="feather-star star_active"></i>
-                                                    <i class="feather-star star_active"></i>
-                                                    <i class="feather-star star_active"></i>
-                                                    <i class="feather-star"></i>
-                                                </li>
-                                            </ul>
-                                            </p>
+                                <div class="col-md-3 pb-3" id="card">
+                                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                                        <div class="list-card-image">
+                                            <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></div>
+                                            <div class="favourite-heart text-danger position-absolute">
+                                                <a href="controllers/favorites/add_favorite.controller.php?id= <?= $res['res_id'] ?>" class="add_favorite">
+                                                    <i class="feather-heart" style="cursor:pointer"></i>
+                                                </a>
+                                            </div>
+                                            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
+                                            <a href="/restaurant?id=<?= $res['res_id'] ?>">
+                                                <img alt="<?= $res['res_name'] ?>" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="img-fluid item-img w-100" style="height:200px">
+                                            </a>
                                         </div>
-                                        <div class="list-card-badge">
-                                            <span class="badge badge-danger">OFFER</span> <small><?= $res['res_name'] ?></small>
+                                        <div class="p-3 position-relative">
+                                            <div class="list-card-body">
+                                                <h6 class="mb-1"><a href="/restaurant" class="text-black">
+                                                        <?= $res['res_name'] ?>
+                                                    </a>
+                                                </h6>
+                                                <p class="text-gray mb-1 small">
+                                                    <?= $res['res_address'] ?>
+                                                </p>
+                                                <p class="text-gray mb-1 rating">
+                                                <ul class="rating-stars list-unstyled">
+                                                    <li>
+                                                        <i class="feather-star star_active"></i>
+                                                        <i class="feather-star star_active"></i>
+                                                        <i class="feather-star star_active"></i>
+                                                        <i class="feather-star star_active"></i>
+                                                        <i class="feather-star"></i>
+                                                    </li>
+                                                </ul>
+                                                </p>
+                                            </div>
+                                            <div class="list-card-badge">
+                                                <span class="badge badge-danger">OFFER</span> <small>
+                                                    <?= $res['res_name'] ?>
+                                                </small>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
                             <?php } ?>
                         </div>
                     </div>
@@ -92,7 +121,33 @@ require_once "models/admin/restuarant/resturant.process.php";
 
         </div>
     </div>
-
+    <script>
+        function toggleFavorite(element) {
+            element.classList.toggle('favorite');
+        }
+        document.querySelectorAll('.add_favorite').forEach(item => {
+            item.addEventListener('click', event => {
+                event.preventDefault();
+                toggleFavorite(item.querySelector('.feather-heart'));
+                fetch(item.getAttribute('href'), {
+                        method: 'POST'
+                    })
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error('Failed to add to favorites');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+            });
+        });
+    </script>
+    <style>
+        .favourite-heart .feather-heart.favorite {
+            background-color: pink;
+        }
+    </style>
     <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
         <div class="row">
             <div class="col">
@@ -115,7 +170,7 @@ require_once "models/admin/restuarant/resturant.process.php";
                 </div>
             </div>
             <div class="col">
-                <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
+                <a href="favorites.html" class="heart text-dark small font-weight-bold text-decoration-none" checked="false">
                     <p class="h4 m-0"><i class="feather-heart"></i></p>
                     Favorites
                 </a>
@@ -129,17 +184,4 @@ require_once "models/admin/restuarant/resturant.process.php";
         </div>
     </div>
 </div>
-<script>
-let hearts = document.querySelectorAll('.feather-heart');
-
-for (let heart of hearts) {
-    heart.addEventListener('click', function() {
-        if (heart.style.backgroundColor === 'rgb(226, 27, 112)') {
-            heart.style.backgroundColor = '';
-        } else {
-            heart.style.backgroundColor = '#E21B70';
-        }
-        let restaurant_image_url = this.getAttribute('data-restaurant-image');
-    });
-}
-</script>
+<!-- <script src="../../vendor/js/add_favorite.js"></script> -->

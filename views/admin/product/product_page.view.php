@@ -35,20 +35,20 @@ require "models/admin/products/product.model.php";
           <div class="card-footer">
             <a href="../../models/admin/products/product_delete.model.php?id=<?= $product['id'] ?>&image=<?= urlencode($product['product_img']) ?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:30px;height:30px"></a>
             <a href="../../controllers/admin/products/edit.controller.php?id=<?= $product['id'] ?>&image=<?= urlencode($product['product_img']) ?>"><img src="../../assets/images/icons/delete_admin.png" alt="" style="border-radius: 5%; width:30px;height:30px"></a>
-            <a href="#"><img src="../../assets/images/FOOD.jpg" alt="" style="border-radius: 50%; width:30px;height:30px"></a>
+            <a href="../../controllers/history/product.controller.php"><img src="assets/images/History_pic.png" alt="" style="border-radius: 50%; width:60px;height:35px"></a>
           </div>
         </div>
       </div>
     <?php } ?>
   </div>
   <div id="myModal" class="modal">
-
     <div class="modal-content">
       <span class="close">&times;</span>
       <?php
       require "database/database.php";
       require "models/admin/products/product.model.php";
       $restaurants = get_restaurant();
+      $categories = get_category();
       ?>
       <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data">
         <div class="mb-3">
@@ -68,6 +68,18 @@ require "models/admin/products/product.model.php";
             foreach ($restaurants as $restaurant) {
             ?>
               <option value="<?php echo $restaurant['res_name'] ?>"><?php echo $restaurant['res_name'] ?></option>
+            <?php
+            }
+            ?>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="category_name">Category Type</label>
+          <select class="form-control" id="category_name" name="cagegory_name" required>
+            <?php
+            foreach ($categories as $category) {
+            ?>
+              <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?> </option>
             <?php
             }
             ?>
