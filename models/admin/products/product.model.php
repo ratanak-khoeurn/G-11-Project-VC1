@@ -24,6 +24,17 @@ if (!function_exists('get_product')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('get_product_base_name')) {
+    function get_product_base_name(string $product_id ): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM products WHERE id=:product_id");
+        $statement->execute([
+                ':product_id' => $product_id
+        ]);
+        return $statement->fetchAll();
+    }
+}
 if (!function_exists('get_restaurant')) {
     function get_restaurant(): array
     {

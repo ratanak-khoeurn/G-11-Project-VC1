@@ -13,7 +13,12 @@ require "models/admin/products/product.model.php";
   <hr>
   <div class="manin-card" style="overflow: auto; max-height: 700px;">
     <?php
-    $products = get_product();
+    if(isset($_SESSION['admin'])){
+      $products = get_product();
+
+    }else{
+      $products = get_product_base_name($_SESSION['manager']['user_id']);
+    }
     foreach ($products as $product) {
 
     ?>
@@ -63,11 +68,18 @@ require "models/admin/products/product.model.php";
           <label for="restaurant_name">Restaurant Name</label>
           <select class="form-control" id="restaurant_name" name="restaurant_name" required>
             <?php
+            if(isset($_SESSION['admin'])){
             foreach ($restaurants as $restaurant) {
             ?>
               <option value="<?php echo $restaurant['res_name'] ?>"><?php echo $restaurant['res_name'] ?></option>
             <?php
             }
+          }else{
+            
+            ?>
+            <option value="<?php echo $_SESSION['manager']['first_name'] ?>"><?php echo $_SESSION['manager']['first_name'] ?></option>
+            <?php
+          }
             ?>
           </select>
         </div>

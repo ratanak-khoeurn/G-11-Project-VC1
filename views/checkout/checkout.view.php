@@ -39,11 +39,16 @@ require "models/admin/products/product.model.php";
                                 </p> <!-- Added discount -->
                             </div>
                             <div class="quantity" style="width:20%;display:flex;align-items: center;gap:10px">
-                            <div class="quantity-controls">
-    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn minus">-</button>
-    <input style="width: 40px; height: 30px; text-align: center; font-size: 16px;" class="quantity-input" type="number" value="1">
-    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn plus">+</button>
-</div>
+                                <div class="quantity-controls">
+                                    <button
+                                        style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;"
+                                        class="quantity-btn minus">-</button>
+                                    <input style="width: 40px; height: 30px; text-align: center; font-size: 16px;"
+                                        class="quantity-input" type="number" value="1">
+                                    <button
+                                        style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;"
+                                        class="quantity-btn plus">+</button>
+                                </div>
 
                             </div>
                             <div class="all" style="display:flex;align-items: center;margin-top:10px">
@@ -57,6 +62,7 @@ require "models/admin/products/product.model.php";
                 endforeach;
             } else {
                 echo '<h1 style="text-align:center;">DO NOT HAVE ANY ORDER</h1>';
+                echo '<img src="assets/images/nothing.jpg" alt="">';
             }
             ?>
         </div>
