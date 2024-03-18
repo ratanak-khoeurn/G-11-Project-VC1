@@ -186,8 +186,6 @@ require 'models/admin/category/category.process.php';
             }
             marker = L.marker(location).addTo(map);
         }
-
-        // Handle form submission
         document.getElementById("submitButton").addEventListener('click', function(event) {
             event.preventDefault(); // Prevent default button behavior
             var address = document.getElementById("address").value.trim();

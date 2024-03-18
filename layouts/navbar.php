@@ -143,7 +143,7 @@
               </div>
             </a>
 
-            <a href="/offers" class="golden-btn widget-header mr-4 text-dark btn m-none">
+            <a href="<?php echo isset($_SESSION['user']) ? '/offers' : 'javascript:void(0)'; ?>" id="offers" class="widget-header mr-4 text-white golden-btn widget-header mr-4 text-dark btn m-none">
               <div class="icon d-flex align-items-center">
                 <i class="feather-disc h6 mr-2 mb-0"></i>
                 <span>Offers</span>
@@ -158,32 +158,35 @@
             <span class="user-name" style="color:white;text-align:center;margin-right:10px">
               <?= isset($_SESSION['user']['first_name']) ? $_SESSION['user']['first_name'] : '' ?>
             </span>
-            <?php
-            if (isset($_SESSION['user'])) {
-            ?>
-              <div class="dropdown mr-4 m-none">
-                <a href="#" class="dropdown-toggle text-white py-3 d-block" style="width: 43px;height:75px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <?php
-                  $picture_path = isset($_SESSION['user']['picture']) && $_SESSION['user']['picture'] != '' ? $_SESSION['user']['picture'] : '../../../assets/images/avatar/no-profile-pic-icon-11.jpg';
-                  ?>
-                  <img style="width: 100%;height:100%" alt="#" src="../../../assets/images/user/<?php echo $picture_path; ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
-                </a>
 
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+            <?php
+
+            ?>
+            <div class="dropdown mr-4 m-none">
+              <a href="#" class="dropdown-toggle text-white py-3 d-block" style="width: 43px;height:75px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <?php
+                $picture_path = isset($_SESSION['user']['picture']) && $_SESSION['user']['picture'] != '' ? $_SESSION['user']['picture'] : '../../../assets/images/avatar/no-profile-pic-icon-11.jpg';
+                ?>
+                <img style="width: 100%;height:100%" alt="#" src="../../../assets/images/user/<?php echo $picture_path; ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
+              </a>
+
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <?php
+                if (isset($_SESSION['user'])) {
+                ?>
                   <a class="dropdown-item" href="/profile">My account</a>
                   <a class="dropdown-item" href="faq.html">Delivery support</a>
-                  <a class="dropdown-item" href="contact-us.html">Contact us</a>
+                  <a class="dropdown-item" href="contact-us.html">Contant us</a>
                   <a class="dropdown-item" href="terms.html">Term of use</a>
                   <a class="dropdown-item" href="privacy.html">Privacy policy</a>
                   <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
-                </div>
+                <?php
+                }
+                ?>
               </div>
-            <?php
-            }
-            ?>
+            </div>
 
-
-            <a href="/checkout" class="widget-header mr-4 text-white">
+            <a href="<?php echo isset($_SESSION['user']) ? '/checkout' : 'javascript:void(0);'; ?>" id="cartLink" class="widget-header mr-4 text-white">
               <div class="icon d-flex align-items-center">
                 <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                 <span>Cart</span>
@@ -196,6 +199,30 @@
               </div>
             </a>
 
+            <?php if (!isset($_SESSION['user'])) : ?>
+              <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+              <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+              <script>
+                document.getElementById('cartLink').addEventListener('click', function(event) {
+                  event.preventDefault();
+
+                  swal({
+                    title: "You don't have account!",
+                    text: "you need to register first.",
+                    timer: 2000
+                  });
+                });
+                document.getElementById('offers').addEventListener('click', function(event) {
+                  event.preventDefault();
+
+                  swal({
+                    title: "You don't have account!",
+                    text: "you need to register first.",
+                    timer: 2000
+                  });
+                });
+              </script>
+            <?php endif; ?>
             <style>
               #cart-count {
                 background-color: red;
@@ -210,7 +237,7 @@
             </style>
           </div>
           </a>
-          <a class="toggle d-flex align-items-center" href="#" style="margin-bottom:20px">
+          <a class="toggle mt-2" href="#">
             <span></span>
           </a>
         </div>
