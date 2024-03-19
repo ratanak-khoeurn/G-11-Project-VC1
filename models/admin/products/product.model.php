@@ -25,16 +25,24 @@ if (!function_exists('get_product')) {
     }
 }
 if (!function_exists('get_product_base_name')) {
-    function get_product_base_name(string $product_id ): array
+    function get_product_base_name(string $name): array
     {
-        global $connection;
-        $statement = $connection->prepare("SELECT * FROM products WHERE id=:product_id");
+        global $connection; // Assuming $connection is your database connection
+
+        $statement = $connection->prepare("
+            SELECT p.*
+            FROM products p
+            INNER JOIN restaurants r ON p.restaurant_name = r.res_name
+            WHERE r.res_name = p.restaurant_name and r.restaurant_owner_name =:name ");
+
         $statement->execute([
-                ':product_id' => $product_id
+
+            ':name' => $name
         ]);
-        return $statement->fetchAll();
+        return $statement->fetchAll(PDO::FETCH_ASSOC); // Adjust fetch style as needed
     }
 }
+
 if (!function_exists('get_restaurant')) {
     function get_restaurant(): array
     {
@@ -97,7 +105,7 @@ if (!function_exists('update_product')) {
 if (!function_exists('delete_image_product')) {
     function delete_image_product($img)
     {
-        $path_file = "../../../assets/images/products/".$img;
+        $path_file = "../../../assets/images/products/" . $img;
         if (file_exists($path_file)) {
             unlink($path_file);
             echo $path_file;
