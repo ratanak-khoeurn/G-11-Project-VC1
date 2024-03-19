@@ -277,19 +277,20 @@ require "models/admin/products/product.model.php";
   }
 
   .card {
-    width: 20%;
+    width: 22%;
     background: white;
-    height: 40vh;
+    height: 42vh;
     margin-top: 20px;
     margin-right: 30px;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    border-radius: 10px;
 
 
   }
 
   .card:hover {
-    width: 20.5%;
+    width: 22%;
     height: 41vh;
   }
 
