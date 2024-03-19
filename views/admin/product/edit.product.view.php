@@ -206,7 +206,7 @@ require "../../../models/admin/products/product.model.php";
                 <div class="form-group">
                     <img id="old-image" src="../../../assets/images/products/<?= $products['product_img'] ?>" alt="Old Image">
                 </div>
-                <button type="submit">Update Product</button>
+                <button style="background-color: #E21B70;" type="submit">Update Product</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>
             </form>
         </div>

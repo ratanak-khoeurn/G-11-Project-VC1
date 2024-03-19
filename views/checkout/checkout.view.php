@@ -34,7 +34,7 @@ require "models/admin/products/product.model.php";
                                 </a>
                                 <p class="discount">Discount:
                                     <?= $order[0]['discount'] ?>%
-                                </p> <!-- Added discount -->
+                                </p> 
                             </div>
                             <div class="quantity" style="width:20%;display:flex;align-items: center;gap:10px">
                                 <div class="quantity-controls">
@@ -78,8 +78,9 @@ require "models/admin/products/product.model.php";
 
         products.forEach(function(product) {
             const price = parseFloat(product.getAttribute('data-price'));
-            const discountPercentage = parseFloat(product.querySelector('.discount').textContent.split(':')[1]);
+            const discountPercentage = parseFloat(product.querySelector('.discount').textContent.split(':')[1]).value;
             const quantityInput = product.querySelector('.quantity-input');
+            console.log(quantityInput)
             const priceElement = product.querySelector('.price');
 
             let totalPricePerProduct = price;
@@ -89,6 +90,7 @@ require "models/admin/products/product.model.php";
 
             product.querySelector('.quantity-btn.minus').addEventListener('click', function() {
                 let quantity = parseInt(quantityInput.value);
+                console.log(quantity);
                 if (quantity > 1) {
                     quantityInput.value = quantity - 1;
                     totalPricePerProduct -= price;
@@ -98,7 +100,6 @@ require "models/admin/products/product.model.php";
                     updateTotals(-price, -discountAmount);
                 }
             });
-
             product.querySelector('.quantity-btn.plus').addEventListener('click', function() {
                 let quantity = parseInt(quantityInput.value);
                 quantityInput.value = quantity + 1;

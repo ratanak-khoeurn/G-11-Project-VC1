@@ -163,7 +163,7 @@ require "models/admin/products/product.model.php";
   }
 
   input[type=file]::file-selector-button:hover {
-    background-color: #eee;
+    background-color: #E21B70;
     border: 0px;
     border-right: 1px solid #2e2a2a;
     color: black;

@@ -51,20 +51,20 @@
                     <li>
                         <a href="/category"><span class="icon edit" aria-hidden="true"></span>Category</a>
                     </li>
-
                 </ul>
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a href="
-                        <?php
-                        if (isset($_SESSION['admin'])) {
-                            echo '/add_admin';
-                        } else {
-                            echo '#';
-                        }
-                        ?>
-               "><span class="icon edit" aria-hidden="true"></span>Admins</a>
+                        <a href="<?php
+                                    if (isset($_SESSION['admin'])) {
+                                        echo '/add_admin';
+                                    } else {
+                                        echo '#';
+                                    }
+                                    ?>">
+                            <span class="icon edit" aria-hidden="true"></span>Admins
+                        </a>
                     </li>
+
                     <li>
                         <a href="
                         <?php
