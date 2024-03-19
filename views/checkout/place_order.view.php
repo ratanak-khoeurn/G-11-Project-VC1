@@ -127,7 +127,42 @@ require 'models/admin/category/category.process.php';
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button style="background-color: #E21B70;color:white" class="btn btn-lg btn-block">Payment</button>
+                                                    <button id="payNowButton" style="background-color: #E21B70; color: white" class="btn btn-lg btn-block">Pay Now</button>
+
+                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                                                    <script>
+                                                        document.addEventListener("DOMContentLoaded", function() {
+                                                            var payNowButton = document.getElementById('payNowButton');
+
+                                                            payNowButton.addEventListener('click', function(event) {
+                                                                event.preventDefault();
+
+                                                                Swal.fire({
+                                                                    title: "Auto close alert!",
+                                                                    html: "I will close in <b></b> milliseconds.",
+                                                                    timer: 2000,
+                                                                    timerProgressBar: true,
+                                                                    didOpen: () => {
+                                                                        Swal.showLoading();
+                                                                        const timer = Swal.getPopup().querySelector("b");
+                                                                        const timerInterval = setInterval(() => {
+                                                                            timer.textContent = `${Math.ceil(Swal.getTimerLeft() / 1000)}`;
+                                                                        }, 100);
+                                                                        Swal.resumeTimer();
+                                                                    },
+                                                                    willClose: () => {
+                                                                        clearInterval(timerInterval);
+                                                                    }
+                                                                }).then((result) => {
+                                                                    if (result.dismiss === Swal.DismissReason.timer) {
+                                                                        console.log("I was closed by the timer");
+                                                                    }
+                                                                });
+                                                            });
+                                                        });
+                                                    </script>
+
                                                 </div>
                                             </div>
                                         </div>

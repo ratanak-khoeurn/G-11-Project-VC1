@@ -17,11 +17,12 @@ require "models/admin/products/product.model.php";
       $products = get_product();
 
     }else{
-      $products = get_product_base_name($_SESSION['manager']['user_id']);
+      $products = get_product_base_name($_SESSION['manager']['first_name'].$_SESSION['manager']['last_name']);
     }
     foreach ($products as $product) {
-
-    ?>
+      $_SESSION['res_names'] = $product['restaurant_name'];
+      
+      ?>
       <div class="card">
         <div class="card-header">
           <h2>
@@ -75,9 +76,10 @@ require "models/admin/products/product.model.php";
             <?php
             }
           }else{
+            session_start();
             
             ?>
-            <option value="<?php echo $_SESSION['manager']['first_name'] ?>"><?php echo $_SESSION['manager']['first_name'] ?></option>
+            <option value="<?php echo $_SESSION['res_names'] ?>"><?php echo $_SESSION['res_names'] ?></option>
             <?php
           }
             ?>
