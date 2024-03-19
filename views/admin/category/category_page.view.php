@@ -1,13 +1,11 @@
-
 <?php
 require "database/database.php";
 require "models/admin/category/category.process.php";
-
 ?>
 <link rel="stylesheet" href="../../vendor/css/cate_form.css">
 <link rel="stylesheet" href="../../vendor/css/update_cate.css">
 <link rel="stylesheet" href="../../vendor/js/restaurant_page.js">
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <div class="main-wrapper">
     <!-- Main -->
     <main class="main users chart-page" id="skip-target">
@@ -20,8 +18,7 @@ require "models/admin/category/category.process.php";
                     <input type="text" class="form-control" placeholder="Name" id="" name="category" value="">
                 </div>
                 <div class="form-group">
-                    <input type="file" class="border form-control" id="product_image_url" value=""
-                        name="product_image_url" required>
+                    <input type="file" class="border form-control" id="product_image_url" value="" name="product_image_url" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Category</button>
             </form>
@@ -39,16 +36,16 @@ require "models/admin/category/category.process.php";
                 <tbody>
                     <?php
                     $categories = get_category();
-                    foreach ($categories as $Index =>$category):
+                    foreach ($categories as $Index => $category) :
                     ?>
                         <tr>
-                            <td><?= $Index+1 ?></td>
+                            <td><?= $Index + 1 ?></td>
                             <td><?= $category['category_name'] ?></td>
                             <td><img src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img" alt=""></td>
                             <td></td>
                             <td class="button">
-                            <a href="controllers/admin/category/edit_category.controller.php?id=<?= $category['category_id'] ?>&image=<?= urlencode($category['picture']) ?>" class="btn btn-primary">Edit</a>
-                                <a href="controllers/admin/category/delete_category.controller.php?id=<?= $category['category_id'] ?>&image=<?= urlencode($category['picture']) ?>" class="btn btn-danger">Delete</a>
+                                <a href="controllers/admin/category/edit_category.controller.php?id=<?= $category['category_id'] ?>&image=<?= urlencode($category['picture']) ?>" class="btn btn-primary">Edit</a>
+                                <a href="#" class="btn btn-danger" onclick="confirmDelete(<?= $category['category_id'] ?>, '<?= urlencode($category['picture']) ?>')">Delete</a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -57,23 +54,40 @@ require "models/admin/category/category.process.php";
         </div>
     </main>
     <script>
-        var modal = document.getElementById("restar");
-        let edits = document.querySelectorAll('.button');
-        var span = document.getElementsByClassName("close")[0];
-        for (let edit of edits) {
-            edit.firstElementChild.onclick = function () {
-                modal.style.display = "block";
-            }
-            span.onclick = function () {
-                modal.style.display = "none";
-            }
+        function confirmDelete(categoryId, pictureUrl) {
+            swal({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                buttons: ["Cancel", "Yes, delete it!"],
+                dangerMode: true,
+            }).then((confirmed) => {
+                if (confirmed) {
+                    // Perform the deletion
+                    fetch(`controllers/admin/category/delete_category.controller.php?id=${categoryId}&image=${pictureUrl}`, {
+                            method: 'DELETE'
+                        })
+                        .then(response => {
+                            if (response.ok) {
 
-            // When the user clicks anywhere outside of the modal, close it
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
+                                swal("Deleted!", "Your file has been deleted.", "success")
+                                    .then(() => {
+
+                                        window.location.reload();
+                                    });
+
+                            } else {
+
+                                swal("Error!", "Failed to delete the file.", "error");
+                            }
+                        })
+                        .catch(error => {
+
+                            swal("Error!", "An error occurred while deleting the file.", "error");
+                            console.error('Error:', error);
+                        });
                 }
-            }
+            });
         }
     </script>
 </div>
