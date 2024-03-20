@@ -15,7 +15,7 @@ require_once "models/comments/comments.model.php";
     <div class="container position-relative">
         <?php
 
-        $res_id = isset ($_GET['id']) ? $_GET['id'] : null;
+        $res_id = isset($_GET['id']) ? $_GET['id'] : null;
         $_SESSION['id'] = $_GET['id'];
         function get_restaurant_by_id($id)
         {
@@ -30,10 +30,8 @@ require_once "models/comments/comments.model.php";
         $restaurant = get_restaurant_by_id($res_id);
         if ($restaurant) {
 
-            ?>
-            <img alt="<?= $restaurant['res_name'] ?>"
-                src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic"
-                style="margin-right:30px; width: 250px; border:1px solid white">
+        ?>
+            <img alt="<?= $restaurant['res_name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic" style="margin-right:30px; width: 250px; border:1px solid white">
             <h2 class="res_name" style="color:white; padding-top:0px; margin-left:10px">
                 <?= $restaurant['res_name'] ?>
             </h2>
@@ -78,23 +76,19 @@ require_once "models/comments/comments.model.php";
             <div class="left_side" style="width: 100%; margin-top:20px">
                 <p class="font-weight-bold pt-2 m-0">FOOD ITEMS</p>
                 <div class="card_product" style="overflow:scroll; height:450px; margin-top:10px">
-                    <div class="trending-scroll rounded"
-                        style="width: 100%; display:flex; flex-wrap: wrap;gap:25px; margin-bottom:15px">
+                    <div class="trending-scroll rounded" style="width: 100%; display:flex; flex-wrap: wrap;gap:25px; margin-bottom:15px">
                         <?php
                         $products = get_product();
                         foreach ($products as $product) {
                             $desired_restaurant_name = $restaurant['res_name'];
                             $product_restaurant_name = $product['restaurant_name'];
                             if ($desired_restaurant_name == $product_restaurant_name) {
-                                ?>
+                        ?>
                                 <div class="osahan-slider-item" style="width: 250px; margin-top: 0px; margin-bottom:10px">
                                     <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
                                         <div class="list-card-image">
                                             <a href="/checkout">
-                                                <img id="product_img<?= $product['id'] ?>" alt="#"
-                                                    src="../../../assets/images/products/<?= $product['product_img'] ?>"
-                                                    class="img-fluid item-img"
-                                                    style="background-color:teal; height:200px; width: 100%;">
+                                                <img id="product_img<?= $product['id'] ?>" alt="#" src="../../../assets/images/products/<?= $product['product_img'] ?>" class="img-fluid item-img" style="background-color:teal; height:200px; width: 100%;">
                                             </a>
                                         </div>
                                         <div class="p-3 position-relative">
@@ -107,24 +101,47 @@ require_once "models/comments/comments.model.php";
                                                 </p>
                                                 <p class="text-gray m-0" style="display:flex; justify-content:space-between">
                                                     <span class="text-black-50"> $350 FOR TWO</span>
-                                                    <a href="controllers/orders/add_to_cart.controller.php?id=<?= $product['id'] ?>&res=<?= $_GET['id'] ?>"
-                                                        style="width:40px; display:flex; justify-content:center; text-align:center">
-                                                        <i class="feather-shopping-cart"
-                                                            style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
+                                                    <a href="controllers/orders/add_to_cart.controller.php?id=<?= $product['id'] ?>&res=<?= $_GET['id'] ?>" style="width:40px; display:flex; justify-content:center; text-align:center" id="ccc">
+                                                        <i class="feather-shopping-cart" style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
                                                     </a>
+
+                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                                                    <script>
+                                                        // Wait for the document to be fully loaded
+                                                        document.addEventListener("DOMContentLoaded", function() {
+                                                            // Find the shopping cart link by its ID
+                                                            var cartLink = document.getElementById('ccc');
+
+                                                            // Add a click event listener to the shopping cart link
+                                                            cartLink.addEventListener('click', function(event) {
+                                                                // Prevent the default action of the link (e.g., navigating to another page)
+                                                                event.preventDefault();
+
+                                                                // Show the SweetAlert
+                                                                Swal.fire({
+                                                                    position: "top-end",
+                                                                    icon: "success",
+                                                                    title: "Your work has been saved",
+                                                                    showConfirmButton: false,
+                                                                    timer: 600
+                                                                });
+                                                            });
+                                                        });
+                                                    </script>
+
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            <?php }
+                        <?php }
                         } ?>
                     </div>
                 </div>
                 <div class="rating_side" style="width:100%">
                     <div class="mb-3">
-                        <div id="ratings-and-reviews"
-                            class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
+                        <div id="ratings-and-reviews" class="bg-white shadow-sm d-flex align-items-center rounded p-3 mb-3 clearfix restaurant-detailed-star-rating">
                             <h6 class="mt-0">Rate this Place</h6>
                             <div class="star-rating ml-auto">
                                 <div class="d-inline-block h6 m-0"><i class="feather-star text-warning"></i>
@@ -144,8 +161,7 @@ require_once "models/comments/comments.model.php";
                                     <div class="rating-list-left font-weight-bold small">5 Star</div>
                                     <div class="rating-list-center">
                                         <div class="progress">
-                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="56"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 56%;"></div>
+                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="56" aria-valuemin="0" aria-valuemax="100" style="width: 56%;"></div>
                                         </div>
                                     </div>
                                     <div class="rating-list-right font-weight-bold small">56 %</div>
@@ -154,8 +170,7 @@ require_once "models/comments/comments.model.php";
                                     <div class="rating-list-left font-weight-bold small">4 Star</div>
                                     <div class="rating-list-center">
                                         <div class="progress">
-                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="23"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 23%;"></div>
+                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="23" aria-valuemin="0" aria-valuemax="100" style="width: 23%;"></div>
                                         </div>
                                     </div>
                                     <div class="rating-list-right font-weight-bold small">23 %</div>
@@ -164,8 +179,7 @@ require_once "models/comments/comments.model.php";
                                     <div class="rating-list-left font-weight-bold small">3 Star</div>
                                     <div class="rating-list-center">
                                         <div class="progress">
-                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="11"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 11%;"></div>
+                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="11" aria-valuemin="0" aria-valuemax="100" style="width: 11%;"></div>
                                         </div>
                                     </div>
                                     <div class="rating-list-right font-weight-bold small">11 %</div>
@@ -174,8 +188,7 @@ require_once "models/comments/comments.model.php";
                                     <div class="rating-list-left font-weight-bold small">2 Star</div>
                                     <div class="rating-list-center">
                                         <div class="progress">
-                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="6"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 6%;"></div>
+                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="6" aria-valuemin="0" aria-valuemax="100" style="width: 6%;"></div>
                                         </div>
                                     </div>
                                     <div class="rating-list-right font-weight-bold small">6 %</div>
@@ -184,15 +197,13 @@ require_once "models/comments/comments.model.php";
                                     <div class="rating-list-left font-weight-bold small">1 Star</div>
                                     <div class="rating-list-center">
                                         <div class="progress">
-                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="4"
-                                                aria-valuemin="0" aria-valuemax="100" style="width: 4%;"></div>
+                                            <div role="progressbar" class="progress-bar bg-info" aria-valuenow="4" aria-valuemin="0" aria-valuemax="100" style="width: 4%;"></div>
                                         </div>
                                     </div>
                                     <div class="rating-list-right font-weight-bold small">4 %</div>
                                 </div>
                             </div>
-                            <div class="graph-star-rating-footer text-center mt-3"><button type="button"
-                                    class="btn btn-primary btn-block btn-sm">Rate and Review</button></div>
+                            <div class="graph-star-rating-footer text-center mt-3"><button type="button" class="btn btn-primary btn-block btn-sm">Rate and Review</button></div>
                         </div>
                         <div class="bg-white p-3 mb-3 restaurant-detailed-ratings-and-reviews shadow-sm rounded">
                             <a class="text-primary float-right" href="#">Top Rated</a>
@@ -200,20 +211,17 @@ require_once "models/comments/comments.model.php";
                             <h6 class="mb-1">Comment View</h6>
                             <?php
                             $comments = get_comment();
-                            foreach ($comments as $comment):
+                            foreach ($comments as $comment) :
 
-                                ?>
+                            ?>
 
                                 <div class="reviews-members py-3">
                                     <div class="media">
-                                        <a href="#"><img style="width:50px;height:50px" alt="#"
-                                                src="assets/images/user/<?= $comment['profile'] ?>"
-                                                class="mr-3 rounded-pill"></a>
+                                        <a href="#"><img style="width:50px;height:50px" alt="#" src="assets/images/user/<?= $comment['profile'] ?>" class="mr-3 rounded-pill"></a>
                                         <div class="media-body">
                                             <div class="reviews-members-header">
                                                 <div class="star-rating float-right">
-                                                    <div class="d-inline-block" style="font-size: 14px;"><i
-                                                            class="feather-star text-warning"></i>
+                                                    <div class="d-inline-block" style="font-size: 14px;"><i class="feather-star text-warning"></i>
                                                         <i class="feather-star text-warning"></i>
                                                         <i class="feather-star text-warning"></i>
                                                         <i class="feather-star text-warning"></i>
@@ -234,13 +242,12 @@ require_once "models/comments/comments.model.php";
                                     </div>
                                 </div>
                                 <hr>
-                                <?php
+                            <?php
                             endforeach
                             ?>
                         </div>
 
-                        <form action="controllers/comments/comment.user.controller.php?id=<?= $_SESSION['id'] ?>"
-                            method="POST">
+                        <form action="controllers/comments/comment.user.controller.php?id=<?= $_SESSION['id'] ?>" method="POST">
                             <div class="form-group">
                                 <label class="form-label small">Your Comment</label>
                                 <textarea class="form-control" name="comment"></textarea>
@@ -292,10 +299,10 @@ require_once "models/comments/comments.model.php";
 </div>
 <script>
     // Add event listener to shopping cart buttons
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const shoppingCartBtns = document.querySelectorAll('.shopping-cart-btn');
-        shoppingCartBtns.forEach(function (btn) {
-            btn.addEventListener('click', function (event) {
+        shoppingCartBtns.forEach(function(btn) {
+            btn.addEventListener('click', function(event) {
                 event.preventDefault();
                 const productId = btn.getAttribute('data-product-id');
                 const productImage = btn.getAttribute('data-product-image');

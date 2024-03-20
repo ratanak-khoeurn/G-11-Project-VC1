@@ -1,8 +1,11 @@
 <!-- ! Body -->
-<a class="skip-link sr-only" href="#skip-target" >Skip to content</a>
-<div class="page-flex" >
+<?php
+// session_start();
+?>
+<a class="skip-link sr-only" href="#skip-target">Skip to content</a>
+<div class="page-flex">
     <!-- ! Sidebar -->
-    <aside class="sidebar" >
+    <aside class="sidebar">
         <div class="sidebar-start">
             <div class="sidebar-head">
                 <a href="/" class="logo-wrapper" title="Home">
@@ -17,13 +20,30 @@
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a class="active" href="/admin_home"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                        <a class="active" href="/admin_admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
                     <li>
-                        <a href="/add_user"><span class="icon edit" aria-hidden="true"></span>Add User</a>
+                        <a href="
+                        <?php
+                        if (isset($_SESSION['admin'])) {
+                            echo '/add_user';
+                        } else {
+                            echo '#';
+                        }
+                        ?>
+                        "><span class="icon edit" aria-hidden="true"></span>Add User</a>
                     </li>
                     <li>
-                        <a href="/restaurant_admin"><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
+                        <a href="
+                        <?php
+                        if (isset($_SESSION['admin'])) {
+                            echo '/restaurant_admin';
+                        } else {
+                            echo '#';
+                        }
+                        ?>
+                        
+                        "><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
                     </li>
                     <li>
                         <a href="/product_admin"><span class="icon edit" aria-hidden="true"></span>Products</a>
@@ -35,10 +55,26 @@
                 </ul>
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a href="/add_admin"><span class="icon edit" aria-hidden="true"></span>Admins</a>
+                        <a href="
+                        <?php
+                        if (isset($_SESSION['admin'])) {
+                            echo '/add_admin';
+                        } else {
+                            echo '#';
+                        }
+                        ?>
+               "><span class="icon edit" aria-hidden="true"></span>Admins</a>
                     </li>
                     <li>
-                        <a href="/manager_admin"><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
+                        <a href="
+                        <?php
+                        if (isset($_SESSION['admin'])) {
+                            echo '/manager_admin';
+                        } else {
+                            echo '#';
+                        }
+                        ?>
+                        "><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
                     </li>
                     <li>
                         <a href="/deliverer_admin"><span class="icon edit" aria-hidden="true"></span>Deliverers</a>

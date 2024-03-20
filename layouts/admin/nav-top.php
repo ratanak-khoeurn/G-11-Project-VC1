@@ -3,7 +3,7 @@
 ob_start()
 
 
-  ?>
+?>
 <nav class="main-nav--bg">
   <div class="container main-nav">
     <div class="main-nav-start">
@@ -95,8 +95,23 @@ ob_start()
       </div>
       <div class="name">
         <h4 class="first">
-          <?= $_SESSION['admin']['first_name'] ?>
+          <?php
+          if (isset($_SESSION['admin']) && isset($_SESSION['admin']['first_name'])) {
+            echo $_SESSION['admin']['first_name'];
+          } elseif (isset($_SESSION['manager']) && isset($_SESSION['manager']['first_name'])) {
+            echo $_SESSION['manager']['first_name'];
+          }
+          ?>
         </h4>
+        <span style="font-size: 10px;">
+          <?php
+              if (isset($_SESSION['admin'])){
+                echo 'admin';
+              }else{
+                echo 'manager';
+              }
+          ?>
+        </span>
       </div>
 
       <div class="nav-user-wrapper">
@@ -104,9 +119,39 @@ ob_start()
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
             <picture>
+              <?php
+              if (isset($_SESSION['admin'])) {
+                if (!empty($_SESSION['admin']['picture'])) {
+              ?>
 
-              <source srcset="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" type="image/webp">
-              <img src="../../../assets/images/user/<?= $_SESSION['user']['admin'] ?>" alt="User Picture">
+                  <source srcset="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" type="image/webp">
+                  <img src="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" alt="User Picture">
+                <?php
+                } else {
+                ?>
+                  <source srcset="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp">
+                  <img src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" alt="User Picture">
+                  <?php
+                }
+                ?>
+                <?php
+
+} elseif (isset($_SESSION['manager'])) {
+  if (!empty($_SESSION['manager']['picture'])) {
+    
+    ?>
+                  <source srcset="../../../assets/images/user/<?= $_SESSION['manager']['picture'] ?>" type="image/webp">
+                  <img src="../../../assets/images/user/<?= $_SESSION['manager']['picture'] ?>" alt="User Picture">
+                  <?php
+                }else{
+                  
+                  ?>
+                  <source srcset="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp">
+                  <img src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" alt="User Picture">
+                  <?php
+                };
+              };
+                  ?>
             </picture>
           </span>
         </button>

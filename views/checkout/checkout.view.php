@@ -4,28 +4,26 @@ require "models/admin/products/product.model.php";
 ?>
 <div class="checkout">
     <div class="head" style="display: flex; align-items: center;width:50%;justify-content:space-between">
-        <?php if (isset ($_SESSION['id'])): ?>
+        <?php if (isset($_SESSION['id']) && !empty($_SESSION['id'])) : ?>
             <a href="/restaurant?id=<?= $_SESSION['id'] ?>">
-            <?php else: ?>
+            <?php else : ?>
                 <a href="#">
                 <?php endif; ?>
-                <button
-                    style="margin-left: 30px; margin-top:30px; padding:0 10px; height:40px; border:none; background:#E21B70; color:white">Back</button>
-            </a>
-            <h3 class="mt-4">YOUR ORDER LIST</h3>
+                <button style="margin-left: 30px; margin-top:30px; padding:0 10px; height:40px; border:none; background:#E21B70; color:white">Back</button>
+                </a>
+                <h3 class="mt-5">YOUR ORDER LIST</h3>
     </div>
     <div class="checkout-left" style="width: 90.5%; margin-left:52px;gap:10px">
         <div class="checout-card">
             <?php
-            $orders = isset ($_SESSION['order']) ? $_SESSION['order'] : null;
-            if (!empty ($orders)) {
-                foreach ($orders as $order):
-                    ?>
+            $orders = isset($_SESSION['order']) ? $_SESSION['order'] : null;
+            if (!empty($orders)) {
+                foreach ($orders as $order) :
+            ?>
                     <div class="card" style="display: flex; align-items: center;">
                         <div style="height: 100%;gap:20px" class="row product" data-price="<?= $order[0]['price'] ?>">
                             <div style="width: 20%;background:black;height:100%">
-                                <a href=""><img style="width: 100%;height:100%"
-                                        src="assets/images/products/<?= $order[0]['product_img'] ?>" alt=""></a>
+                                <a href=""><img style="width: 100%;height:100%" src="assets/images/products/<?= $order[0]['product_img'] ?>" alt=""></a>
                             </div>
                             <div class="brand" style="width: 30%;display: flex;flex-direction:column;">
                                 <h5>
@@ -39,11 +37,11 @@ require "models/admin/products/product.model.php";
                                 </p> <!-- Added discount -->
                             </div>
                             <div class="quantity" style="width:20%;display:flex;align-items: center;gap:10px">
-                            <div class="quantity-controls">
-    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn minus">-</button>
-    <input style="width: 40px; height: 30px; text-align: center; font-size: 16px;" class="quantity-input" type="number" value="1">
-    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn plus">+</button>
-</div>
+                                <div class="quantity-controls">
+                                    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn minus">-</button>
+                                    <input style="width: 40px; height: 30px; text-align: center; font-size: 16px;" class="quantity-input" type="number" value="1">
+                                    <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn plus">+</button>
+                                </div>
 
                             </div>
                             <div class="all" style="display:flex;align-items: center;margin-top:10px">
@@ -53,10 +51,10 @@ require "models/admin/products/product.model.php";
                             </div>
                         </div>
                     </div>
-                    <?php
+            <?php
                 endforeach;
             } else {
-                echo '<h1 style="text-align:center;">DO NOT HAVE ANY ORDER</h1>';
+                echo '<img style="width:300px;height:300px;display:block;margin:auto;margin-top:20px" src="assets/images/error.png" alt="">';
             }
             ?>
         </div>
@@ -67,8 +65,7 @@ require "models/admin/products/product.model.php";
             <h6 style="margin-bottom:30px">Total Discount: <span class="discount-amount">0.00</span> $</h6>
             <h6 style="margin-bottom:30px">Delivery: <span class="discount-amount">0.00</span> $</h6>
             <h6 style="margin-bottom:30px">Total Price: <span class="price-after-discount">0.00</span> $</h6>
-            <a href="/place_order"><button
-                    style="width: 100%;border:none;background:#E21B70;color:white;padding:10px 0">Check Out
+            <a href="/place_order"><button style="width: 100%;border:none;background:#E21B70;color:white;padding:10px 0">Check Out
                     Now</button></a>
         </div>
     </div>
@@ -79,7 +76,7 @@ require "models/admin/products/product.model.php";
         let totalDiscount = 0;
         let totalAfterDiscount = 0;
 
-        products.forEach(function (product) {
+        products.forEach(function(product) {
             const price = parseFloat(product.getAttribute('data-price'));
             const discountPercentage = parseFloat(product.querySelector('.discount').textContent.split(':')[1]);
             const quantityInput = product.querySelector('.quantity-input');
@@ -90,7 +87,7 @@ require "models/admin/products/product.model.php";
 
             updateTotals(price, 0);
 
-            product.querySelector('.quantity-btn.minus').addEventListener('click', function () {
+            product.querySelector('.quantity-btn.minus').addEventListener('click', function() {
                 let quantity = parseInt(quantityInput.value);
                 if (quantity > 1) {
                     quantityInput.value = quantity - 1;
@@ -102,7 +99,7 @@ require "models/admin/products/product.model.php";
                 }
             });
 
-            product.querySelector('.quantity-btn.plus').addEventListener('click', function () {
+            product.querySelector('.quantity-btn.plus').addEventListener('click', function() {
                 let quantity = parseInt(quantityInput.value);
                 quantityInput.value = quantity + 1;
                 totalPricePerProduct += price;
@@ -112,7 +109,7 @@ require "models/admin/products/product.model.php";
                 updateTotals(price, discountAmount);
             });
 
-            quantityInput.addEventListener('input', function () {
+            quantityInput.addEventListener('input', function() {
                 let quantity = parseInt(quantityInput.value);
                 if (quantity < 1 || isNaN(quantity)) {
                     quantityInput.value = 1;
@@ -145,13 +142,12 @@ require "models/admin/products/product.model.php";
                 <?php
                 $products = get_product();
                 foreach ($products as $product) {
-                    ?>
+                ?>
                     <div class="osahan-slider-item w-300">
                         <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                             <div class="list-card-image">
                                 <a href="#">
-                                    <img alt="#" src="../../assets/images/products/<?= $product['product_img'] ?>"
-                                        class="img-fluid item-img w-100" style="height:200px" />
+                                    <img alt="#" src="../../assets/images/products/<?= $product['product_img'] ?>" class="img-fluid item-img w-100" style="height:200px" />
                                 </a>
                             </div>
                             <div class="p-3 position-relative">
@@ -164,10 +160,8 @@ require "models/admin/products/product.model.php";
                                     </p>
                                     <p class="text-gray m-0" style="display:flex; justify-content:space-between">
                                         <span class="text-black-50"> $350 FOR TWO</span>
-                                        <a href="controllers/orders/add_to_cart.controller.php?id=<?= $product['id'] ?>&num=1"
-                                            style="width:40px; display:flex; justify-content:center; text-align:center">
-                                            <i class="feather-shopping-cart"
-                                                style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
+                                        <a href="controllers/orders/add_to_cart.controller.php?id=<?= $product['id'] ?>&num=1" style="width:40px; display:flex; justify-content:center; text-align:center">
+                                            <i class="feather-shopping-cart" style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
                                         </a>
                                     </p>
                                 </div>

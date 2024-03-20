@@ -13,10 +13,16 @@ require "models/admin/products/product.model.php";
   <hr>
   <div class="manin-card" style="overflow: auto; max-height: 700px;">
     <?php
-    $products = get_product();
-    foreach ($products as $product) {
+    if(isset($_SESSION['admin'])){
+      $products = get_product();
 
-    ?>
+    }else{
+      $products = get_product_base_name($_SESSION['manager']['first_name'].$_SESSION['manager']['last_name']);
+    }
+    foreach ($products as $product) {
+      $_SESSION['res_names'] = $product['restaurant_name'];
+      
+      ?>
       <div class="card">
         <div class="card-header">
           <h2>
@@ -45,12 +51,10 @@ require "models/admin/products/product.model.php";
     <div class="modal-content">
       <span class="close">&times;</span>
       <?php
-      require "database/database.php";
-      require "models/admin/products/product.model.php";
       $restaurants = get_restaurant();
       $categories = get_category();
       ?>
-      <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data">
+      <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data" class="form_add_product">
         <div class="mb-3">
           <div class="form-group">
             <label for="product_image_url">Image URL</label>
@@ -65,17 +69,25 @@ require "models/admin/products/product.model.php";
           <label for="restaurant_name">Restaurant Name</label>
           <select class="form-control" id="restaurant_name" name="restaurant_name" required>
             <?php
+            if(isset($_SESSION['admin'])){
             foreach ($restaurants as $restaurant) {
             ?>
               <option value="<?php echo $restaurant['res_name'] ?>"><?php echo $restaurant['res_name'] ?></option>
             <?php
             }
+          }else{
+            session_start();
+            
+            ?>
+            <option value="<?php echo $_SESSION['res_names'] ?>"><?php echo $_SESSION['res_names'] ?></option>
+            <?php
+          }
             ?>
           </select>
         </div>
         <div class="form-group">
           <label for="category_name">Category Type</label>
-          <select class="form-control" id="category_name" name="cagegory_name" required>
+          <select class="form-control" id="category_name" name="category_name" required>
             <?php
             foreach ($categories as $category) {
             ?>
@@ -105,6 +117,13 @@ require "models/admin/products/product.model.php";
 </div>
 
 <style>
+  .form_add_product {
+    margin-left: 40px;
+    height: 80%;
+  }
+  .modal-content{
+    margin-top: 50px;
+  }
   .edit {
     color: blue;
     margin-right: 15px;
@@ -260,19 +279,21 @@ require "models/admin/products/product.model.php";
   }
 
   .card {
-    width: 20%;
+    width: 22%;
     background: white;
-    height: 40vh;
+    height: 42vh;
     margin-top: 20px;
     margin-right: 30px;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    border-radius: 10px;
 
 
   }
-  .card:hover{
-    width: 20.5%;
-    height:41vh ;
+
+  .card:hover {
+    width: 22%;
+    height: 41vh;
   }
 
   .card-header {
