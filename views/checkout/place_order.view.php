@@ -43,7 +43,7 @@ require 'models/admin/category/category.process.php';
 </style>
 
 
-<div class="container">
+<div class="container mt-5">
     <div id="checkout" class="osahan-cart-item mb-3 rounded shadow-sm bg-white overflow-hidden">
         <div class="osahan-cart-item-profile bg-white p-3">
             <h6 class="mb-3 font-weight-bold">Your Address</h6>
@@ -127,9 +127,9 @@ require 'models/admin/category/category.process.php';
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button id="payNowButton" style="background-color: #E21B70; color: white" class="btn btn-lg btn-block">Pay Now</button>
+                                                    <a href="controllers/checkout/checkout.order.controller.php"><button id="payNowButton" style="background-color: #E21B70; color: white" class="btn btn-lg btn-block">Pay Now</button></a>
 
-                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                                                    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
                                                     <script>
                                                         document.addEventListener("DOMContentLoaded", function() {
@@ -161,7 +161,7 @@ require 'models/admin/category/category.process.php';
                                                                 });
                                                             });
                                                         });
-                                                    </script>
+                                                    </script> -->
 
                                                 </div>
                                             </div>
