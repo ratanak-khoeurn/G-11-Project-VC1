@@ -1,5 +1,4 @@
 <?php
-// require "database/database.php";
 
 function store_comment(string $content, string $user, $profile): bool
 {
@@ -20,3 +19,5 @@ function get_comment():array
     $statement->execute();
     return $statement->fetchAll();
 }
+
+

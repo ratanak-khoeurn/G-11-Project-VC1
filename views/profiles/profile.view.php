@@ -17,10 +17,10 @@
                                 <img style="width: 80px; height: 80px; border-radius: 20px;border:2px solid #E21B70" alt="#" src="../../assets/images/user/<?=$_SESSION['user']['picture']?>" class="rounded-circle">
                                 </div>
                                 <div class="right">
-                                    <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i
+                                    <h6 class="mb-1 font-weight-bold"><?=$_SESSION['user']['first_name']?> <?=$_SESSION['user']['last_name']?><i
                                             class="feather-check-circle text-success"></i></h6>
                                     <p class="text-muted m-0 small"><span class="__cf_email__"
-                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[email&#160;protected]</span>
+                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290"><?=$_SESSION['user']['email']?></span>
                                     </p>
                                 </div>
                             </div>
@@ -111,22 +111,22 @@
                             <div>
                                 <form action="my_account.html">
                                     <div class="form-group">
-                                        <label for="exampleInputName1"><?=$_SESSION['user']['first_name']?></label>
-                                        <input type="text" class="form-control" id="exampleInputName1d" value="Gurdeep">
+                                        <label for="exampleInputName1">First Name</label>
+                                        <input type="text" class="form-control" id="exampleInputName1d" value="<?=$_SESSION['user']['first_name']?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputName1"><?=$_SESSION['user']['last_name']?></label>
-                                        <input type="text" class="form-control" id="exampleInputName1" value="Singh">
+                                        <label for="exampleInputName1">Last Name</label>
+                                        <input type="text" class="form-control" id="exampleInputName1" value="<?=$_SESSION['user']['last_name']?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputNumber1"><?=$_SESSION['user']['phone']?></label>
+                                        <label for="exampleInputNumber1">Phone Number</label>
                                         <input type="number" class="form-control" id="exampleInputNumber1"
-                                            value="1234567890">
+                                            value="<?=$_SESSION['user']['phone']?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1"><?=$_SESSION['user']['email']?></label>
+                                        <label for="exampleInputEmail1">Email</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
-                                            value="iamosahan@gmail.com">
+                                            value="<?=$_SESSION['user']['email']?>">
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
