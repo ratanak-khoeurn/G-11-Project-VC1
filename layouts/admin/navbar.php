@@ -48,7 +48,7 @@
                     </li>
 
                     <li>
-                        <a href="comments.html">
+                        <a href="/comment">
                             <span class="icon message" aria-hidden="true"></span>
                             Comments
                         </a>

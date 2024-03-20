@@ -12,6 +12,7 @@ $routes = [
     '/deliverer_admin' => 'controllers/admin/delivery/deliverer.controller.php',
     '/admin' => 'controllers/admin/admin.controller.php',
     '/add_user'=> 'controllers/admin/add.user.controller.php',
+    '/comment'=> 'controllers/admin/comment.controller.php',
 
 
 ];  
