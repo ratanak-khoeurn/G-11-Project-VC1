@@ -108,17 +108,10 @@ require_once "models/comments/comments.model.php";
                                                     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
                                                     <script>
-                                                        // Wait for the document to be fully loaded
                                                         document.addEventListener("DOMContentLoaded", function() {
-                                                            // Find the shopping cart link by its ID
                                                             var cartLink = document.getElementById('ccc');
-
-                                                            // Add a click event listener to the shopping cart link
                                                             cartLink.addEventListener('click', function(event) {
-                                                                // Prevent the default action of the link (e.g., navigating to another page)
                                                                 event.preventDefault();
-
-                                                                // Show the SweetAlert
                                                                 Swal.fire({
                                                                     position: "top-end",
                                                                     icon: "success",

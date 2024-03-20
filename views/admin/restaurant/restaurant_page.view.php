@@ -238,25 +238,25 @@ require "models/admin/restuarant/resturant.process.php";
             <div class="card">
                 <div class="card-header">
                     <h2>
-                        <?= $restaurant['res_name'] ?>
+                        <?= $restaurant['name'] ?>
                     </h2>
                 </div>
                 <div class="card-content">
                     <div class="card-body" style="position: relative;">
-                        <img src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" alt="" style="width: 100%; height: 100%;">
+                        <img src="../../../assets/images/restaurant/<?= $restaurant['image'] ?>" alt="" style="width: 100%; height: 100%;">
                         <div class="text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 35px; z-index: 1;padding-left:10px">
-                            <h4>
-                                <?= $restaurant['region'] ?>
+                            <h4> Delivery :
+                                <?= $restaurant['delivery'] ?>
                             </h4>
                             <p>
-                                <?= $restaurant['res_address'] ?>
+                                <?= $restaurant['location'] ?>
                             </p>
                             <p>open</p>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a href="models/admin/restuarant/delete.restaurant.model.php?id=<?= $restaurant['res_id'] ?>&image=<?= urlencode($restaurant['restaurant_image_url']) ?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
-                        <a href="controllers/admin/restaurant/edit.restaurant.controller.php?id=<?= $restaurant['res_id'] ?>"><img src="../../assets/images/icons/delete_admin.png" alt="" style=" width:40px;height:40px"></a>
+                        <a href="models/admin/restuarant/delete.restaurant.model.php?id=<?= $restaurant['id'] ?>&image=<?= urlencode($restaurant['image']) ?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+                        <a href="controllers/admin/restaurant/edit.restaurant.controller.php?id=<?= $restaurant['id'] ?>"><img src="../../assets/images/icons/delete_admin.png" alt="" style=" width:40px;height:40px"></a>
                         <a href="#"><img src="../../assets/images/FOOD.jpg" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
                     </div>
                 </div>
@@ -283,7 +283,6 @@ require "models/admin/restuarant/resturant.process.php";
                 </div>
                 <div class="group">
                     <div class="delivery_conatiner">
-
                         <label for="delivery" class="label">Delivery Option</label>
                         <div class="delivery-options">
                             <label class="delivery-option">
@@ -332,7 +331,7 @@ require "models/admin/restuarant/resturant.process.php";
                         <option value="">Select a Manager</option>
                         <?php
                         foreach ($managers as $manager) {
-                            echo '<option value="' . $manager['first_name'] . ' ' . $manager['last_name'] . '">' . $manager['first_name'] . ' ' . $manager['last_name'] . '</option>';
+                            echo '<option value="' . $manager['user_id'] . '">' . $manager['first_name'] . ' ' . $manager['last_name'] . '</option>';
                         }
                         ?>
                     </select>

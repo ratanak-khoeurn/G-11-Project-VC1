@@ -9,3 +9,9 @@ function get_order(int $id):array
     ]);
     return $statement->fetchAll();
 }
+
+// function add_order(int $){
+//     global $connection;
+//     $statement = $connection->prepare("insert into orders (")
+
+// }

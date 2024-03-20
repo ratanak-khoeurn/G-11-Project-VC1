@@ -134,9 +134,6 @@ require "models/admin/products/product.model.php";
             document.querySelector('.price-after-discount').textContent = totalAfterDiscount.toFixed(2);
         }
     </script>
-
-
-
     <div class="row">
         <div class="container">
             <div class="trending-slider">

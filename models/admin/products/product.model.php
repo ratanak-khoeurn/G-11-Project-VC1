@@ -1,13 +1,13 @@
 <?php
-if (!function_exists('get_product_one')) {
-    function get_product_data(string $product_img, string $product_name, string $restaurant_name, string $category_name, int $price, int $discount): bool
+if (!function_exists('get_product_data')) {
+    function get_product_data(string $product_img, string $product_name, int $res_id, string $category_name, float $price, int $discount): bool
     {
         global $connection;
-        $statement = $connection->prepare("INSERT INTO products(product_img, product_name, restaurant_name, category_name, price, discount) VALUES (:product_img, :product_name, :restaurant_name, :category_name, :price, :discount)");
+        $statement = $connection->prepare("INSERT INTO products (product_img, product_name, res_id, category_name, price, discount) VALUES (:product_img, :product_name, :res_id, :category_name, :price, :discount)");
         $statement->execute([
             ":product_img" => $product_img,
             ":product_name" => $product_name,
-            ":restaurant_name" => $restaurant_name,
+            ":res_id" => $res_id,
             ":category_name" => $category_name,
             ":price" => $price,
             ":discount" => $discount
@@ -15,6 +15,7 @@ if (!function_exists('get_product_one')) {
         return $statement->rowCount() > 0;
     }
 }
+
 if (!function_exists('get_product')) {
     function get_product(): array
     {
@@ -47,7 +48,7 @@ if (!function_exists('get_restaurant')) {
     function get_restaurant(): array
     {
         global $connection;
-        $statement = $connection->prepare("SELECT res_name FROM restaurants");
+        $statement = $connection->prepare("SELECT id ,name FROM restaurants");
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -56,7 +57,7 @@ if (!function_exists('get_category')) {
     function get_category(): array
     {
         global $connection;
-        $statement = $connection->prepare("SELECT category_name FROM categories");
+        $statement = $connection->prepare("SELECT id, name FROM category");
         $statement->execute();
         return $statement->fetchAll();
     }

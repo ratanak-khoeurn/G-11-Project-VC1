@@ -127,9 +127,9 @@ require 'models/admin/category/category.process.php';
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button id="payNowButton" style="background-color: #E21B70; color: white" class="btn btn-lg btn-block">Pay Now</button>
+                                                    <a href="controllers/checkout/checkout.order.controller.php"><button id="payNowButton" style="background-color: #E21B70; color: white" class="btn btn-lg btn-block">Pay Now</button></a>
 
-                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                                                    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
                                                     <script>
                                                         document.addEventListener("DOMContentLoaded", function() {
@@ -161,7 +161,7 @@ require 'models/admin/category/category.process.php';
                                                                 });
                                                             });
                                                         });
-                                                    </script>
+                                                    </script> -->
 
                                                 </div>
                                             </div>

@@ -19,7 +19,7 @@ if (!function_exists('get_category')) {
     function get_category(): array
     {
         global $connection;
-        $categories = $connection->prepare("SELECT * FROM categories ");
+        $categories = $connection->prepare("SELECT * FROM category ");
         $categories->execute();
         return $categories->fetchAll();
     }

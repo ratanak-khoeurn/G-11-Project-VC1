@@ -18,84 +18,60 @@
 
             </div>
             <div class="sidebar-body">
-                <ul class="sidebar-body-menu">
-                    <li>
-                        <a class="active" href="/admin_admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="
-                        <?php
-                        if (isset($_SESSION['admin'])) {
-                            echo '/add_user';
-                        } else {
-                            echo '#';
-                        }
-                        ?>
-                        "><span class="icon edit" aria-hidden="true"></span>Add User</a>
-                    </li>
-                    <li>
-                        <a href="
-                        <?php
-                        if (isset($_SESSION['admin'])) {
-                            echo '/restaurant_admin';
-                        } else {
-                            echo '#';
-                        }
-                        ?>
-                        
-                        "><span class="icon edit" aria-hidden="true"></span>Restaurants</a>
-                    </li>
-                    <li>
-                        <a href="/product_admin"><span class="icon edit" aria-hidden="true"></span>Products</a>
-                    </li>
-                    <li>
-                        <a href="/category"><span class="icon edit" aria-hidden="true"></span>Category</a>
-                    </li>
-                </ul>
-                <ul class="sidebar-body-menu">
-                    <li>
-                        <a href="<?php
-                                    if (isset($_SESSION['admin'])) {
-                                        echo '/add_admin';
-                                    } else {
-                                        echo '#';
-                                    }
-                                    ?>">
-                            <span class="icon edit" aria-hidden="true"></span>Admins
-                        </a>
-                    </li>
+    <ul class="sidebar-body-menu">
+        <li>
+            <a class="active" href="/admin_admin"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+        </li>
+        <?php if (!isset($_SESSION['manager'])): ?>
+            <li>
+                <a href="<?php echo isset($_SESSION['admin']) ? '/add_user' : '#'; ?>">
+                    <span class="icon edit" aria-hidden="true"></span>Add User
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo isset($_SESSION['admin']) ? '/restaurant_admin' : '#'; ?>">
+                    <span class="icon edit" aria-hidden="true"></span>Restaurants
+                </a>
+            </li>
+        <?php endif; ?>
+        <li>
+            <a href="/product_admin"><span class="icon edit" aria-hidden="true"></span>Products</a>
+        </li>
+        <li>
+            <a href="/category"><span class="icon edit" aria-hidden="true"></span>Category</a>
+        </li>
+    </ul>
+    <ul class="sidebar-body-menu">
+        <?php if (!isset($_SESSION['manager'])): ?>
+            <li>
+                <a href="<?php echo isset($_SESSION['admin']) ? '/add_admin' : '#'; ?>">
+                    <span class="icon edit" aria-hidden="true"></span>Admins
+                </a>
+            </li>
+            <li>
+                <a href="<?php echo isset($_SESSION['admin']) ? '/manager_admin' : '#'; ?>">
+                    <span class="icon edit" aria-hidden="true"></span>Restaurant's manager
+                </a>
+            </li>
+        <?php endif; ?>
+        <li>
+            <a href="/deliverer_admin"><span class="icon edit" aria-hidden="true"></span>Deliverers</a>
+        </li>
+        <li>
+            <a href="/customer_admin"><span class="icon edit" aria-hidden="true"></span>Customers</a>
+        </li>
+        <li>
+            <a href="comments.html">
+                <span class="icon message" aria-hidden="true"></span>Comments
+            </a>
+            <span class="msg-counter">7</span>
+        </li>
+        <li>
+            <a href="#"><span class="icon setting" aria-hidden="true"></span>Settings</a>
+        </li>
+    </ul>
+</div>
 
-                    <li>
-                        <a href="
-                        <?php
-                        if (isset($_SESSION['admin'])) {
-                            echo '/manager_admin';
-                        } else {
-                            echo '#';
-                        }
-                        ?>
-                        "><span class="icon edit" aria-hidden="true"></span>Restaurant's manager</a>
-                    </li>
-                    <li>
-                        <a href="/deliverer_admin"><span class="icon edit" aria-hidden="true"></span>Deliverers</a>
-                    </li>
-                    <li>
-                        <a href="/customer_admin"><span class="icon edit" aria-hidden="true"></span>Customers</a>
-                    </li>
-
-                    <li>
-                        <a href="comments.html">
-                            <span class="icon message" aria-hidden="true"></span>
-                            Comments
-                        </a>
-                        <span class="msg-counter">7</span>
-                    </li>
-                    <li>
-                        <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="sidebar-footer">
             <a href="##" class="sidebar-user">
                 <span class="sidebar-user-img">
