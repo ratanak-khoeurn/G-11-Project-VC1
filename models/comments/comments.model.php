@@ -1,5 +1,4 @@
 <?php
-require "database/database.php";
 
 function store_comment(string $content, string $user, $profile): bool
 {
