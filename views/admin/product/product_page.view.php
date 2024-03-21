@@ -31,12 +31,11 @@ global $connection;
     if (isset($_SESSION['admin'])) {
       $products = get_product();
     } else {
-      $products = get_product_base_name($_SESSION['manager']['first_name'] . $_SESSION['manager']['last_name']);
+      $products = get_product_base_name($_SESSION['manager']['user_id']);
     }
     foreach ($products as $product) {
-      $_SESSION['res_names'] = $product['product_name'];
-
-    ?>
+      $_SESSION['res_names'] = $product['res_id'];      
+      ?>
       <div class="card">
         <div class="card-header">
           <h2>
@@ -90,7 +89,7 @@ global $connection;
         </div>
         <div class="form-group">
           <label for="category_name">Category Type</label>
-          <select class="form-control" id="category_name" name="category_name" required>
+          <select class="form-control" id="name" name="category_name" required>
           <option value="" selected disabled>Select Category</option>
             <?php
             foreach ($categories as $category) {

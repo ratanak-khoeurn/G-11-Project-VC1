@@ -1,7 +1,9 @@
 <?php
 // session_start();
-
+require "./database/database.php";
+require "models/order/add.cart.model.php"
 ?>
+
 <header class="section-header">
   <section class="header-main shadow-sm bg-primary-style2" style="background-color: #E21B70;">
     <div class="container">
@@ -191,8 +193,8 @@
                 <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                 <span>Cart</span>
                 <?php
-                if (isset($_SESSION['order'])) {
-                  $orderCount = count($_SESSION['order']);
+                if (isset($_SESSION['user'])) {
+                  $orderCount = count_order();
                   echo '<span id="cart-count">(' . $orderCount . ')</span>';
                 }
                 ?>
