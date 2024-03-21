@@ -14,6 +14,7 @@ $routes = [
     '/add_user'=> 'controllers/admin/add.user.controller.php',
     '/comment'=> 'controllers/admin/comment.controller.php',
     '/admin' => 'controllers/admin/admin_home.controller.php',
+    '/order' => 'controllers/admin/orders.controller.php',
 
 
 
