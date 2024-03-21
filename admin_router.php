@@ -13,6 +13,7 @@ $routes = [
     '/admin_admin' => 'controllers/admin/admin.controller.php',
     '/add_user'=> 'controllers/admin/add.user.controller.php',
     '/admin' => 'controllers/admin/admin_home.controller.php',
+    '/order' => 'controllers/admin/orders.controller.php',
 
 
 

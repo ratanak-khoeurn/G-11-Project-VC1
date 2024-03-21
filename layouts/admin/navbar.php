@@ -84,6 +84,12 @@
                     </li>
 
                     <li>
+                        <a href="/order">
+                            <span class="icon message" aria-hidden="true"></span>
+                            Order
+                        </a>
+                    </li>
+                    <li>
                         <a href="comments.html">
                             <span class="icon message" aria-hidden="true"></span>
                             Comments
