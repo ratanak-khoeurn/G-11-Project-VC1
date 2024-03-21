@@ -1,6 +1,7 @@
 <?php
 require "database/database.php";
 require "models/admin/products/product.model.php";
+require "./models/order/add.cart.model.php";
 ?>
 <div class="checkout">
     <div class="head" style="display: flex; align-items: center;width:50%;justify-content:space-between">
@@ -16,38 +17,32 @@ require "models/admin/products/product.model.php";
     <div class="checkout-left" style="width: 90.5%; margin-left:52px;gap:10px">
         <div class="checout-card">
             <?php
-            $orders = isset($_SESSION['order']) ? $_SESSION['order'] : null;
+            // Fetch orders from the database
+            $orders = get_order();
             if (!empty($orders)) {
                 foreach ($orders as $order) :
             ?>
                     <div class="card" style="display: flex; align-items: center;">
-                        <div style="height: 100%;gap:20px" class="row product" data-price="<?= $order[0]['price'] ?>">
-                            <div style="width: 20%;background:black;height:100%">
-                                <a href=""><img style="width: 100%;height:100%" src="assets/images/products/<?= $order[0]['product_img'] ?>" alt=""></a>
+                        <div style="height: 100%; gap: 20px" class="row product" data-price="<?= $order['product_price'] ?>">
+                            <div style="width: 20%; background: black; height: 100%">
+                                <a href=""><img style="width: 100%; height: 100%" src="assets/images/products/<?= $order['product_image'] ?>" alt=""></a>
                             </div>
-                            <div class="brand" style="width: 30%;display: flex;flex-direction:column;">
-                                <h5>
-                                    <?= $order[0]['product_name'] ?>
-                                </h5>
-                                <a href="controllers/orders/remove.cart.controller.php?action=remove&id=<?= $order[0]['id'] ?>">
+                            <div class="brand" style="width: 30%; display: flex; flex-direction: column;">
+                                <h5><?= $order['product_name'] ?></h5>
+                                <a href="controllers/orders/remove.cart.controller.php?action=remove&id=<?= $order['order_id'] ?>">
                                     <button class="btn btn-sm btn-outline-dark">Remove</button>
                                 </a>
-                                <p class="discount">Discount:
-                                    <?= $order[0]['discount'] ?>%
-                                </p> 
+                                <p class="discount">Discount: <?= $order['product_discount'] ?>%</p>
                             </div>
-                            <div class="quantity" style="width:20%;display:flex;align-items: center;gap:10px">
+                            <div class="quantity" style="width: 20%; display: flex; align-items: center; gap: 10px">
                                 <div class="quantity-controls">
                                     <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn minus">-</button>
-                                    <input style="width: 40px; height: 30px; text-align: center; font-size: 16px;" class="quantity-input" type="number" value="1">
+                                    <input style="width: 40px; height: 30px; text-align: center; font-size: 16px;" class="quantity-input" type="number" value="1" data-quantity="1">
                                     <button style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;" class="quantity-btn plus">+</button>
                                 </div>
-
                             </div>
-                            <div class="all" style="display:flex;align-items: center;margin-top:10px">
-                                <p class="price">Price:
-                                    <?= $order[0]['price'] ?> $
-                                </p>
+                            <div class="all" style="display: flex; align-items: center; margin-top: 10px">
+                                <p class="price">Price: <?= $order['product_price'] ?> $</p>
                             </div>
                         </div>
                     </div>
@@ -58,82 +53,52 @@ require "models/admin/products/product.model.php";
             }
             ?>
         </div>
+
+        <!-- Display total prices -->
         <div class="total-prices">
-            <h2 style="margin-top:30px;text-align:center;color:#E21B70">Your Price</h2>
-            <hr style="border:2px solid black;width:100%">
+            <h2 style="margin-top:30px; text-align:center; color:#E21B70">Your Price</h2>
+            <hr style="border:2px solid black; width:100%">
             <h6 style="margin-bottom:30px">Item Price: <span class="totals">0.00</span> $</h6>
             <h6 style="margin-bottom:30px">Total Discount: <span class="discount-amount">0.00</span> $</h6>
-            <h6 style="margin-bottom:30px">Delivery: <span class="discount-amount">0.00</span> $</h6>
+            <h6 style="margin-bottom:30px">Delivery: <span class="delivery-charge">0.00</span> $</h6>
             <h6 style="margin-bottom:30px">Total Price: <span class="price-after-discount">0.00</span> $</h6>
-            <a href="/place_order"><button style="width: 100%;border:none;background:#E21B70;color:white;padding:10px 0">Check Out
-                    Now</button></a>
+            <a href="/place_order"><button style="width: 100%; border:none; background:#E21B70; color:white; padding:10px 0">Check Out Now</button></a>
         </div>
     </div>
 
     <script>
+        const priceItem = document.querySelector('.totals');
+        const price = document.querySelector('.price');
         const products = document.querySelectorAll('.product');
+        const minusBtn = document.querySelector('.minus');
+        const plusBtn = document.querySelector('.plus');
+        const priceInput = document.querySelector('.quantity-input');
+
         let totalPrice = 0;
         let totalDiscount = 0;
-        let totalAfterDiscount = 0;
+        let deliveryCharge = 0;
 
         products.forEach(function(product) {
-            const price = parseFloat(product.getAttribute('data-price'));
-            const discountPercentage = parseFloat(product.querySelector('.discount').textContent.split(':')[1]).value;
-            const quantityInput = product.querySelector('.quantity-input');
-            console.log(quantityInput)
-            const priceElement = product.querySelector('.price');
+            plusBtn.addEventListener('click', function() {
+                let currentValue = parseInt(priceInput.value);
+                if (currentValue >= 1) {
 
-            let totalPricePerProduct = price;
-            priceElement.textContent = 'Price: ' + totalPricePerProduct.toFixed(2) + ' $';
-
-            updateTotals(price, 0);
-
-            product.querySelector('.quantity-btn.minus').addEventListener('click', function() {
-                let quantity = parseInt(quantityInput.value);
-                console.log(quantity);
-                if (quantity > 1) {
-                    quantityInput.value = quantity - 1;
-                    totalPricePerProduct -= price;
-                    priceElement.textContent = 'Price: ' + totalPricePerProduct.toFixed(2) + ' $';
-                    const newTotalPrice = totalPrice - price;
-                    const discountAmount = (discountPercentage / 100) * newTotalPrice;
-                    updateTotals(-price, -discountAmount);
+                    currentValue++;
+                    priceInput.value = currentValue;
                 }
             });
-            product.querySelector('.quantity-btn.plus').addEventListener('click', function() {
-                let quantity = parseInt(quantityInput.value);
-                quantityInput.value = quantity + 1;
-                totalPricePerProduct += price;
-                priceElement.textContent = 'Price: ' + totalPricePerProduct.toFixed(2) + ' $';
-                const newTotalPrice = totalPrice + price;
-                const discountAmount = (discountPercentage / 100) * newTotalPrice;
-                updateTotals(price, discountAmount);
-            });
 
-            quantityInput.addEventListener('input', function() {
-                let quantity = parseInt(quantityInput.value);
-                if (quantity < 1 || isNaN(quantity)) {
-                    quantityInput.value = 1;
-                    quantity = 1;
+            minusBtn.addEventListener('click', function() {
+                let currentValue = parseInt(priceInput.value);
+                if (currentValue > 1) {
+
+                    currentValue--;
+                    priceInput.value = currentValue;
                 }
-                const quantityChange = quantity - parseInt(quantityInput.getAttribute('data-quantity'));
-                totalPricePerProduct = quantity * price;
-                priceElement.textContent = 'Price: ' + totalPricePerProduct.toFixed(2) + ' $';
-                const discountAmount = (discountPercentage / 100) * totalPricePerProduct;
-                updateTotals(price * quantityChange, discountAmount);
-                quantityInput.setAttribute('data-quantity', quantity);
             });
         });
-
-        function updateTotals(amount, discountAmount) {
-            totalPrice += amount;
-            totalDiscount = discountAmount;
-            totalAfterDiscount = totalPrice - totalDiscount;
-            document.querySelector('.totals').textContent = totalPrice.toFixed(2);
-            document.querySelector('.discount-amount').textContent = totalDiscount.toFixed(2);
-            document.querySelector('.price-after-discount').textContent = totalAfterDiscount.toFixed(2);
-        }
     </script>
+
     <div class="row">
         <div class="container">
             <div class="trending-slider">

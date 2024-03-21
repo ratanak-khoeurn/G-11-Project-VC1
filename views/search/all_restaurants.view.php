@@ -69,14 +69,14 @@ if (isset ($_GET['user_id']) && isset ($_GET['res_id'])) {
                                             <div class="star position-absolute"><span class="badge badge-success"><i
                                                         class="feather-star"></i> 3.1 (300+)</span></div>
                                             <div class="favourite-heart text-danger position-absolute">
-                                                <a href="controllers/favorites/add_favorite.controller.php?id= <?= $res['res_id'] ?>"
+                                                <a href="controllers/favorites/add_favorite.controller.php?id= <?= $res['id'] ?>"
                                                     class="add_favorite">
                                                     <i class="feather-heart" style="cursor:pointer"></i>
                                                 </a>
                                             </div>
                                             <div class="member-plan position-absolute"><span
                                                     class="badge badge-dark">Promoted</span></div>
-                                            <a href="<?php echo isset ($_SESSION['user']) ? "/restaurant?id=" . $res['res_id'] : "javascript:void(0);"; ?>"
+                                            <a href="<?php echo isset ($_SESSION['user']) ? "/restaurant?id=" . $res['id'] : "javascript:void(0);"; ?>"
                                                 id="restaurant" class="widget-header mr-4 text-white">
                                                 <?php if (!isset ($_SESSION['user'])): ?>
                                                     <script
@@ -105,8 +105,8 @@ if (isset ($_GET['user_id']) && isset ($_GET['res_id'])) {
                                                     </script>
                                                 <?php endif; ?>
 
-                                                <img alt="<?= $res['res_name'] ?>"
-                                                    src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>"
+                                                <img alt="<?= $res['name'] ?>"
+                                                    src="../../../assets/images/restaurant/<?= $res['image'] ?>"
                                                     class="img-fluid item-img w-100" style="height:200px">
                                             </a>
 
@@ -114,11 +114,11 @@ if (isset ($_GET['user_id']) && isset ($_GET['res_id'])) {
                                         <div class="p-3 position-relative">
                                             <div class="list-card-body">
                                                 <h6 class="mb-1"><a href="#" class="text-black">
-                                                        <?= $res['res_name'] ?>
+                                                        <?= $res['name'] ?>
                                                     </a>
                                                 </h6>
                                                 <p class="text-gray mb-1 small">
-                                                    <?= $res['res_address'] ?>
+                                                    <?= $res['location'] ?>
                                                 </p>
                                                 <p class="text-gray mb-1 rating">
                                                 <ul class="rating-stars list-unstyled">
@@ -134,7 +134,7 @@ if (isset ($_GET['user_id']) && isset ($_GET['res_id'])) {
                                             </div>
                                             <div class="list-card-badge">
                                                 <span class="badge badge-danger">OFFER</span> <small>
-                                                    <?= $res['res_name'] ?>
+                                                    <?= $res['name'] ?>
                                                 </small>
                                             </div>
                                         </div>
