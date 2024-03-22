@@ -1,6 +1,21 @@
 <?php
 require "database/database.php";
 require "models/admin/products/product.model.php";
+global $connection; 
+
+// Assuming $_SESSION['admin'] determines if the user is an admin or not
+// if (isset($_SESSION['admin'])) {
+//     $sql = "SELECT products.res_id, restaurants.res_name FROM products
+//             INNER JOIN restaurants ON products.res_id = restaurants.res_id";
+//     $statement = $connection->prepare($sql);
+//     $statement->execute();
+//     $restaurants = $statement->fetchAll(PDO::FETCH_ASSOC);
+// } else {
+//     session_start();
+//     $res_id = $_SESSION['res_id'];  
+//     $res_name = $_SESSION['res_names'];
+//     $restaurants = array(array('res_id' => $res_id, 'res_name' => $res_name));
+// }
 ?>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="../../vendor/css/product_form.css">
@@ -13,10 +28,14 @@ require "models/admin/products/product.model.php";
   <hr>
   <div class="manin-card" style="overflow: auto; max-height: 700px;">
     <?php
-    $products = get_product();
+    if (isset($_SESSION['admin'])) {
+      $products = get_product();
+    } else {
+      $products = get_product_base_name($_SESSION['manager']['user_id']);
+    }
     foreach ($products as $product) {
-
-    ?>
+      $_SESSION['res_names'] = $product['res_id'];      
+      ?>
       <div class="card">
         <div class="card-header">
           <h2>
@@ -27,7 +46,7 @@ require "models/admin/products/product.model.php";
           <div class="card-body" style="position: relative;">
             <img src=" ../../../assets/images/products/<?= $product['product_img'] ?>" alt="" style="width: 100%; height: 100%;">
             <div class="text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 28px; z-index: 1;padding-left:10px">
-              <h4> <?= $product['restaurant_name'] ?></h4>
+              <h4> <?= $product['product_name'] ?></h4>
               <p> Price : <?= $product['price'] ?> $</p>
               <p> Discount: <?= $product['discount'] ?>%</p>
             </div>
@@ -45,12 +64,10 @@ require "models/admin/products/product.model.php";
     <div class="modal-content">
       <span class="close">&times;</span>
       <?php
-      require "database/database.php";
-      require "models/admin/products/product.model.php";
       $restaurants = get_restaurant();
       $categories = get_category();
       ?>
-      <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data">
+      <form action="models/admin/products/product_process.model.php" method="post" enctype="multipart/form-data" class="form_add_product">
         <div class="mb-3">
           <div class="form-group">
             <label for="product_image_url">Image URL</label>
@@ -64,22 +81,20 @@ require "models/admin/products/product.model.php";
         <div class="form-group">
           <label for="restaurant_name">Restaurant Name</label>
           <select class="form-control" id="restaurant_name" name="restaurant_name" required>
-            <?php
-            foreach ($restaurants as $restaurant) {
-            ?>
-              <option value="<?php echo $restaurant['res_name'] ?>"><?php echo $restaurant['res_name'] ?></option>
-            <?php
-            }
-            ?>
+          <option value="" selected disabled>Select Restaurant</option>
+            <?php foreach ($restaurants as $restaurant) { ?>
+              <option value="<?php echo $restaurant['id'] ?>"><?php echo $restaurant['name'] ?></option>
+            <?php } ?>
           </select>
         </div>
         <div class="form-group">
           <label for="category_name">Category Type</label>
-          <select class="form-control" id="category_name" name="cagegory_name" required>
+          <select class="form-control" id="name" name="category_name" required>
+          <option value="" selected disabled>Select Category</option>
             <?php
             foreach ($categories as $category) {
             ?>
-              <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?> </option>
+              <option value="<?php echo $category['id'] ?>"><?php echo $category['name'] ?> </option>
             <?php
             }
             ?>
@@ -105,6 +120,15 @@ require "models/admin/products/product.model.php";
 </div>
 
 <style>
+  .form_add_product {
+    margin-left: 40px;
+    height: 80%;
+  }
+
+  .modal-content {
+    margin-top: 50px;
+  }
+
   .edit {
     color: blue;
     margin-right: 15px;
@@ -144,7 +168,7 @@ require "models/admin/products/product.model.php";
   }
 
   input[type=file]::file-selector-button:hover {
-    background-color: #eee;
+    background-color: #E21B70;
     border: 0px;
     border-right: 1px solid #2e2a2a;
     color: black;
@@ -260,19 +284,21 @@ require "models/admin/products/product.model.php";
   }
 
   .card {
-    width: 20%;
+    width: 22%;
     background: white;
-    height: 40vh;
+    height: 42vh;
     margin-top: 20px;
     margin-right: 30px;
     box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    border-radius: 10px;
 
 
   }
-  .card:hover{
-    width: 20.5%;
-    height:41vh ;
+
+  .card:hover {
+    width: 22%;
+    height: 41vh;
   }
 
   .card-header {

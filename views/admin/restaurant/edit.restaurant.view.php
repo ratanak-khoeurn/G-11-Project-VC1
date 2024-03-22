@@ -8,6 +8,7 @@ require "../../../models/admin/restuarant/resturant.process.php";
 <?php
 $id = $_GET['id'];
 $restaurant = get_restaurant_one($id);
+$managers = get_manager();
 if (!empty($restaurant)) {
 
 ?>
@@ -16,36 +17,24 @@ if (!empty($restaurant)) {
             <form method="post" action="../../../controllers/admin/restaurant/update.restaurant.controller.php?image=<?= $restaurant['restaurant_image_url'] ?>" enctype="multipart/form-data" class="restaurant-form">
                 <h1>UPDATE RESTAURANT</h1>
                 <div class="group_form">
-                    <input type="hidden" name="restaurant_id" value="<?= $restaurant['res_id'] ?>">
+                    <input type="hidden" name="restaurant_id" value="<?= $restaurant['id'] ?>">
                 </div>
                 <div class="group_form">
                     <label for="restaurant_name">Name:</label>
-                    <input type="text" id="restaurant_name" value="<?= $restaurant['res_name'] ?>" name="restaurant_name" placeholder="Enter your restaurant name" required>
+                    <input type="text" id="restaurant_name" value="<?= $restaurant['name'] ?>" name="restaurant_name" placeholder="Enter your restaurant name" required>
                 </div>
                 <div class="group_form">
                     <label for="restaurant_address">Address:</label>
-                    <input type="text" id="restaurant_address" value="<?= $restaurant['res_address'] ?>" name="restaurant_address" placeholder="Enter your restaurant address" required>
+                    <input type="text" id="restaurant_address" value="<?= $restaurant['location'] ?>" name="restaurant_address" placeholder="Enter your restaurant address" required>
                 </div>
                 <div class="group_form">
                     <label for="restaurant_image_url">Image:</label>
-                    <input type="file" id="restaurant_image_url" name="restaurant_image_url">
+                    <input type="file" id="restaurant_image_url" name="image">
                 </div>
 
                 <div class="group_form">
                     <label for="old_image">Old Image:</label>
-                    <input type="text" id="old_image" value="<?= $restaurant['restaurant_image_url'] ?>" name="old_image">
-                </div>
-                <div class="group_form">
-                    <label for="region">Choose Region:</label>
-                    <select class="form-control" id="restaurant" name="region">
-                        <option value="">Select Province</option>
-                        <option value="Kandal" <?php echo ($restaurant['region'] == 'Kandal') ? 'selected' : ''; ?>>Kandal</option>
-                        <option value="Svayreang" <?php echo ($restaurant['region'] == 'Svayreang') ? 'selected' : ''; ?>>Svay Reang</option>
-                        <option value="Siem Reap" <?php echo ($restaurant['region'] == 'Siem Reap') ? 'selected' : ''; ?>> Siem Reap</option>
-                        <option value="Battambang" <?php echo ($restaurant['region'] == 'Battambang') ? 'selected' : ''; ?>> Battambang</option>
-                        <option value="Pursat" <?php echo ($restaurant['region'] == 'Pursat') ? 'selected' : ''; ?>> Pursat</option>
-                        <option value="Banteay Meanchey" <?php echo ($restaurant['region'] == 'Banteay Meanchey') ? 'selected' : ''; ?>> Banteay Meanchey</option>
-                    </select>
+                    <input type="text" id="old_image" value="<?= $restaurant['image'] ?>" name="old_image">
                 </div>
                 <div class="group_form">
                     <label for="restaurant_owner_name">Manager:</label>
@@ -59,6 +48,40 @@ if (!empty($restaurant)) {
                         <!-- Add more options as needed -->
                     </select>
                 </div>
+                <div class="group">
+                    <div class="delivery_conatiner">
+                        <label for="delivery" class="label">Delivery Option</label>
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="free" <?php if ($restaurant['delivery'] == "free") echo "checked"; ?> onclick="togglePriceInput(false)">
+                                <span>Free Delivery</span>
+                            </label>
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="paid" <?php if ($restaurant['delivery'] == "paid") echo "checked"; ?> onclick="togglePriceInput(true)">
+                                <span>Paid Delivery</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div id="price_input_container" style="display: <?= ($restaurant['delivery'] == "paid") ? "block" : "none" ?>; width: auto;">
+                    <label for="deliveryPrice" class="label">Delivery Price</label>
+                    <input type="number" id="deliveryPrice" name="deliveryPrice" placeholder="Enter delivery price" value="<?= $restaurant['delivery_price'] ?>" class="delivery-price-input">
+                </div>
+
+                <script>
+                    function togglePriceInput(show) {
+                        var price_input_container = document.getElementById("price_input_container");
+                        var deliveryPrice = document.getElementById("deliveryPrice");
+
+                        price_input_container.style.display = show ? "block" : "none";
+
+                        price_input_container.style.width = "auto";
+
+                        if (show) {
+                            price_input_container.style.width = deliveryPrice.offsetWidth + "px";
+                        }
+                    }
+                </script>
                 <button type="submit" class="update-button">Update</button>
                 <a href="/restaurant_admin"><button type="button" class="cancel-button">Cancel</button></a>
 
@@ -69,15 +92,17 @@ if (!empty($restaurant)) {
 
 ?>
 <style>
-    body{
+    body {
         margin: 0px;
     }
-    #edit_form{
-        
+
+    #edit_form {
+
         height: 100%;
         width: 100%;
         display: flex;
     }
+
     .edit-form-container {
         position: relative;
         max-width: 45%;
@@ -86,8 +111,7 @@ if (!empty($restaurant)) {
         padding: 0px 15px 0px 15px;
         box-shadow: 0 0 10px rgba(0, 3, 0, 1);
         color: white;
-        left:53%
-        
+        left: 53%
     }
 
     #video-background {
@@ -99,7 +123,8 @@ if (!empty($restaurant)) {
         z-index: -1;
         object-fit: cover;
     }
-    h1{
+
+    h1 {
         color: #E21B70;
         text-align: center;
     }
@@ -112,6 +137,7 @@ if (!empty($restaurant)) {
         height: 100%;
         flex-wrap: wrap;
     }
+
     .edit_form_content {
         position: relative;
         width: 100%;
@@ -131,9 +157,10 @@ if (!empty($restaurant)) {
         margin-bottom: 10px;
         color: black;
     }
-    .group_form{
+
+    .group_form {
         display: flex;
-        flex-wrap: wrap ;
+        flex-wrap: wrap;
         width: 80%;
     }
 
@@ -147,22 +174,23 @@ if (!empty($restaurant)) {
         font-size: 16px;
         box-sizing: border-box;
     }
+
     input[type=file]::file-selector-button {
-    background-color: #E21B70;
-    color: white;
-    border: 0px;
-    border-right: 1px solid #050505;
-    padding: 10px 5px;
-    margin-right: 20px;
-    transition: .5s;
-  }
-  
-  input[type=file]::file-selector-button:hover {
-    background-color: #eee;
-    border: 0px;
-    border-right: 1px solid #2e2a2a;
-    color: black;
-  }
+        background-color: #E21B70;
+        color: white;
+        border: 0px;
+        border-right: 1px solid #050505;
+        padding: 10px 5px;
+        margin-right: 20px;
+        transition: .5s;
+    }
+
+    input[type=file]::file-selector-button:hover {
+        background-color: #eee;
+        border: 0px;
+        border-right: 1px solid #2e2a2a;
+        color: black;
+    }
 
 
     .cancel-button {
@@ -200,7 +228,8 @@ if (!empty($restaurant)) {
         background-color: pink;
         color: black;
     }
-    .restaurant-form{
+
+    .restaurant-form {
         margin-left: 16%;
         margin-top: 10%;
     }

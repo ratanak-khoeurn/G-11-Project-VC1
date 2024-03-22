@@ -10,8 +10,12 @@ $routes = [
     '/manager_admin' => 'controllers/admin/manager.controller.php',
     '/customer_admin' => 'controllers/admin/customer.controller.php',
     '/deliverer_admin' => 'controllers/admin/delivery/deliverer.controller.php',
-    '/admin' => 'controllers/admin/admin.controller.php',
+    '/admin_admin' => 'controllers/admin/admin.controller.php',
     '/add_user'=> 'controllers/admin/add.user.controller.php',
+    '/comment'=> 'controllers/admin/comment.controller.php',
+    '/admin' => 'controllers/admin/admin_home.controller.php',
+    '/order' => 'controllers/admin/orders.controller.php',
+
 
 
 ];  

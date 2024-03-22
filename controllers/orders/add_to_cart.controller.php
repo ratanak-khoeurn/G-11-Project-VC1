@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "../../database/database.php";
 require "../../models/order/add.cart.model.php";
 if (isset($_GET['id']) && isset($_SESSION['user'])) {
 
@@ -21,7 +22,7 @@ if (isset($_GET['id']) && isset($_SESSION['user'])) {
         echo "<script>alert('Item already exists in the cart');</script>";
     }
     if (isset($_GET['num']) & $_GET['num'] == 1) {
-       
+        header('location: /checkout');
         exit;
     } else {
         header('Location: /restaurant?id=' . $_GET["res"]);
@@ -36,6 +37,3 @@ if (isset($_GET['id']) && isset($_SESSION['user'])) {
         // Stop further execution
         exit;
     }
-    
-
-

@@ -14,7 +14,7 @@ function add_favorites($user_id, $res_id): bool
     return $statement->rowCount() > 0;
 }
 
-if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
+if (isset ($_GET['user_id']) && isset ($_GET['res_id'])) {
     $user_id = $_GET['user_id'];
     $res_id = $_GET['res_id'];
     add_favorites($user_id, $res_id);
@@ -32,18 +32,24 @@ if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
     <div class="container">
         <div class="search py-5">
             <div class="input-group mb-4">
-                <input type="text" class="search_btn form-control form-control-lg input_search border-right-0" id="inlineFormInputGroup" placeholder="search restaurant here ...............">
+                <input type="text" class="search_btn form-control form-control-lg input_search border-right-0"
+                    id="inlineFormInputGroup" placeholder="search restaurant here ...............">
                 <div class="input-group-prepend">
-                    <div class="btn input-group-text bg-white border_search border-left-0 text-primary"><i class="feather-search"></i></div>
+                    <div class="btn input-group-text bg-white border_search border-left-0 text-primary"><i
+                            class="feather-search"></i></div>
                 </div>
             </div>
 
             <ul class="nav nav-tabs border-0" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link active border-0 bg-light text-dark rounded" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="feather-home mr-2"></i>Restaurants</a>
+                    <a class="nav-link active border-0 bg-light text-dark rounded" id="home-tab" data-toggle="tab"
+                        href="#home" role="tab" aria-controls="home" aria-selected="true"><i
+                            class="feather-home mr-2"></i>Restaurants</a>
                 </li>
                 <li class="nav-item" role="presentation">
-                    <a class="nav-link border-0 bg-light text-dark rounded ml-3" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="feather-disc mr-2"></i>Dishes</a>
+                    <a class="nav-link border-0 bg-light text-dark rounded ml-3" id="profile-tab" data-toggle="tab"
+                        href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i
+                            class="feather-disc mr-2"></i>Dishes</a>
                 </li>
             </ul>
             <div class="tab-content" id="myTabContent">
@@ -55,29 +61,64 @@ if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
                             <?php
                             $restuarant = get_restaurant();
                             foreach ($restuarant as $res) {
-                            ?>
+                                ?>
                                 <div class="col-md-3 pb-3" id="card">
-                                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+                                    <div
+                                        class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                         <div class="list-card-image">
-                                            <div class="star position-absolute"><span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span></div>
+                                            <div class="star position-absolute"><span class="badge badge-success"><i
+                                                        class="feather-star"></i> 3.1 (300+)</span></div>
                                             <div class="favourite-heart text-danger position-absolute">
-                                                <a href="controllers/favorites/add_favorite.controller.php?id= <?= $res['res_id'] ?>" class="add_favorite">
+                                                <a href="controllers/favorites/add_favorite.controller.php?id= <?= $res['id'] ?>"
+                                                    class="add_favorite">
                                                     <i class="feather-heart" style="cursor:pointer"></i>
                                                 </a>
                                             </div>
-                                            <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span></div>
-                                            <a href="/restaurant?id=<?= $res['res_id'] ?>">
-                                                <img alt="<?= $res['res_name'] ?>" src="../../../assets/images/restaurant/<?= $res['restaurant_image_url'] ?>" class="img-fluid item-img w-100" style="height:200px">
+                                            <div class="member-plan position-absolute"><span
+                                                    class="badge badge-dark">Promoted</span></div>
+                                            <a href="<?php echo isset ($_SESSION['user']) ? "/restaurant?id=" . $res['id'] : "javascript:void(0);"; ?>"
+                                                id="restaurant" class="widget-header mr-4 text-white">
+                                                <?php if (!isset ($_SESSION['user'])): ?>
+                                                    <script
+                                                        src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+                                                    <link rel="stylesheet" type="text/css"
+                                                        href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+                                                    <script>
+                                                        document.getElementById('restaurant').addEventListener('click', function (event) {
+                                                            event.preventDefault();
+
+                                                            swal({
+                                                                title: "You don't have account!",
+                                                                text: "you need to register first.",
+                                                                timer: 2000
+                                                            });
+                                                        });
+                                                        document.getElementById('offers').addEventListener('click', function (event) {
+                                                            event.preventDefault();
+
+                                                            swal({
+                                                                title: "You don't have account!",
+                                                                text: "you need to register first.",
+                                                                timer: 2000
+                                                            });
+                                                        });
+                                                    </script>
+                                                <?php endif; ?>
+
+                                                <img alt="<?= $res['name'] ?>"
+                                                    src="../../../assets/images/restaurant/<?= $res['image'] ?>"
+                                                    class="img-fluid item-img w-100" style="height:200px">
                                             </a>
+
                                         </div>
                                         <div class="p-3 position-relative">
                                             <div class="list-card-body">
-                                                <h6 class="mb-1"><a href="/restaurant" class="text-black">
-                                                        <?= $res['res_name'] ?>
+                                                <h6 class="mb-1"><a href="#" class="text-black">
+                                                        <?= $res['name'] ?>
                                                     </a>
                                                 </h6>
                                                 <p class="text-gray mb-1 small">
-                                                    <?= $res['res_address'] ?>
+                                                    <?= $res['location'] ?>
                                                 </p>
                                                 <p class="text-gray mb-1 rating">
                                                 <ul class="rating-stars list-unstyled">
@@ -93,7 +134,7 @@ if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
                                             </div>
                                             <div class="list-card-badge">
                                                 <span class="badge badge-danger">OFFER</span> <small>
-                                                    <?= $res['res_name'] ?>
+                                                    <?= $res['name'] ?>
                                                 </small>
                                             </div>
                                         </div>
@@ -130,8 +171,8 @@ if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
                 event.preventDefault();
                 toggleFavorite(item.querySelector('.feather-heart'));
                 fetch(item.getAttribute('href'), {
-                        method: 'POST'
-                    })
+                    method: 'POST'
+                })
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Failed to add to favorites');
@@ -170,7 +211,8 @@ if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
                 </div>
             </div>
             <div class="col">
-                <a href="favorites.html" class="heart text-dark small font-weight-bold text-decoration-none" checked="false">
+                <a href="favorites.html" class="heart text-dark small font-weight-bold text-decoration-none"
+                    checked="false">
                     <p class="h4 m-0"><i class="feather-heart"></i></p>
                     Favorites
                 </a>

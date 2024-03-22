@@ -8,7 +8,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['product_id'];
         $name = $_POST['product_name'];
         $res_name = $_POST['restaurant_name'];
-        $category_name = $_POST['cagegory_name']; // Corrected variable name
+        $category_name = $_POST['category_name'];
         $price = $_POST['price'];
         $discount = $_POST['discount'];
         $new_product_image = $_FILES['product_image_url'];
@@ -20,9 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $final_image = basename($new_product_image['name']);
             $uploadFile = $uploadDir . $final_image;
             $fileType = strtolower(pathinfo($uploadFile, PATHINFO_EXTENSION));
-            $maxFileSize = 5000000; // Adjust as needed
-
-            // Validate the uploaded file
+            $maxFileSize = 5000000;             
             if ($new_product_image['error'] !== UPLOAD_ERR_OK) {
                 echo "Error uploading file.";
             } elseif (!in_array($fileType, array("png", "jpeg", "jpg"))) {
@@ -32,10 +30,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } elseif (!move_uploaded_file($new_product_image['tmp_name'], $uploadFile)) {
                 echo "Failed to move uploaded file.";
             } else {
-                // Update the product with the new image
                 $is_updated = update_product($name, $final_image, $res_name, $category_name, $price, $discount, $id); // Corrected variable name
                 if ($is_updated) {
-                    // Delete old image if successfully updated
                     delete_image_product($old_image);
                     header('Location: /product_admin');
                     exit;
@@ -44,7 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
             }
         } else {
-            // If no new image provided, keep the old one
             $final_image = $old_image;
             $is_updated = update_product($name, $final_image, $res_name, $category_name, $price, $discount, $id); // Corrected variable name
             if ($is_updated) {

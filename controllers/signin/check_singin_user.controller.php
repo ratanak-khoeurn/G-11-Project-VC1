@@ -57,7 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             if ($user['role'] == 'admin') {
                 $_SESSION['admin'] = $user;
-                header('Location: /admin');
+                $_SESSION['role'] == 'admin';
+                header('Location: /admin_admin');
                 $_SESSION['login_admin'] = 'login';
                 exit();
             } elseif ($user['role'] == 'user') {
@@ -66,14 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 exit();
             }elseif($user['role'] == 'restaurant_owner'){
                 $_SESSION['manager'] = $user;
-                echo $user['role'] ;
-                // var_dump($_SESSION['manager']);
-                header('location: /manager');                
-            }
-            elseif ($user['role'] == 'restaurant_owner') {
-                $_SESSION['manager'] = $user;
-                header('Location: /manager');
-                exit();
+                $_SESSION['role'] == 'manager';
+                header('location: /admin_admin');                
             }
         } else {
             header('Location: /signin');

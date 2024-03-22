@@ -1,7 +1,9 @@
 <?php
 // session_start();
-
+require "./database/database.php";
+require "models/order/add.cart.model.php"
 ?>
+
 <header class="section-header">
   <section class="header-main shadow-sm bg-primary-style2" style="background-color: #E21B70;">
     <div class="container">
@@ -143,24 +145,12 @@
               </div>
             </a>
 
-            <a href="/offers" class="golden-btn widget-header mr-4 text-dark btn m-none">
+            <a href="<?php echo isset($_SESSION['user']) ? '/offers' : 'javascript:void(0)'; ?>" id="offers" class="widget-header mr-4 text-white golden-btn widget-header mr-4 text-dark btn m-none">
               <div class="icon d-flex align-items-center">
                 <i class="feather-disc h6 mr-2 mb-0"></i>
                 <span>Offers</span>
               </div>
             </a>
-            <!-- <script>
-              let signin = document.querySelector('.a');
-              console.log(signin);
-              let span = document.querySelector('.user-name');
-              console.log(span);
-              if (span.textContent == '') {
-                signin.style.display = 'block';
-              } else {
-                signin.style.display = 'none';
-              }
-            </script> -->
-
             <a href="/signin" class="widget-header mr-4 text-white m-none <?= isset($_SESSION['user']['first_name']) ? 'd-none' : '' ?>">
               <div class="icon d-flex align-items-center">
                 <i class="feather-user h6 mr-2 mb-0"></i>
@@ -171,7 +161,9 @@
               <?= isset($_SESSION['user']['first_name']) ? $_SESSION['user']['first_name'] : '' ?>
             </span>
 
+            <?php
 
+            ?>
             <div class="dropdown mr-4 m-none">
               <a href="#" class="dropdown-toggle text-white py-3 d-block" style="width: 43px;height:75px;" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <?php
@@ -181,51 +173,78 @@
               </a>
 
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="/profile">My account</a>
-                <a class="dropdown-item" href="faq.html">Delivery support</a>
-                <a class="dropdown-item" href="contact-us.html">Contant us</a>
-                <a class="dropdown-item" href="terms.html">Term of use</a>
-                <a class="dropdown-item" href="privacy.html">Privacy policy</a>
-                <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
+                <?php
+                if (isset($_SESSION['user'])) {
+                ?>
+                  <a class="dropdown-item" href="/profile">My account</a>
+                  <a class="dropdown-item" href="faq.html">Delivery support</a>
+                  <a class="dropdown-item" href="contact-us.html">Contant us</a>
+                  <a class="dropdown-item" href="terms.html">Term of use</a>
+                  <a class="dropdown-item" href="privacy.html">Privacy policy</a>
+                  <a class="dropdown-item" href="controllers/logout/logout.controller.php">Logout</a>
+                <?php
+                }
+                ?>
               </div>
             </div>
 
-            <a href="/checkout" class="widget-header mr-4 text-white">
-    <div class="icon d-flex align-items-center">
-        <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-        <span>Cart</span>
-        <?php
-        // Check if the $_SESSION['order'] is set
-        if(isset($_SESSION['order'])) {
-            // Count the number of items in the order
-            $orderCount = count($_SESSION['order']);
-            // Display the count within the span
-            echo '<span id="cart-count">(' . $orderCount . ')</span>';
-        }
-        ?>
-    </div>
-</a>
-
-            <style>
-              #cart-count {
-            background-color: red;
-            color: white;
-            padding: 2px 2px;
-            border-radius: 50%;
-            font-size: 10px;
-            position: relative;
-            top: -8px;
-            left: -px;
-        }
-            </style>
+            <a href="<?php echo isset($_SESSION['user']) ? '/checkout' : 'javascript:void(0);'; ?>" id="cartLink" class="widget-header mr-4 text-white">
+              <div class="icon d-flex align-items-center">
+              <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+                <span>Cart</span>
+                <?php
+                if (isset($_SESSION['order'])) {
+                  $orderCount = count($_SESSION['order']);
+                  echo '<span id="cart-count">(' . $orderCount . ')</span>';
+                }
+                ?>
               </div>
             </a>
-            <a class="toggle" href="#">
-              <span></span>
-            </a>
+
+            <?php if (!isset($_SESSION['user'])) : ?>
+              <script src="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.min.js"></script>
+              <link rel="stylesheet" type="text/css" href="https://common.olemiss.edu/_js/sweet-alert/sweet-alert.css">
+              <script>
+                document.getElementById('cartLink').addEventListener('click', function(event) {
+                  event.preventDefault();
+
+                  swal({
+                    title: "You don't have account!",
+                    text: "you need to register first.",
+                    timer: 2000
+                  });
+                });
+                document.getElementById('offers').addEventListener('click', function(event) {
+                  event.preventDefault();
+
+                  swal({
+                    title: "You don't have account!",
+                    text: "you need to register first.",
+                    timer: 2000
+                  });
+                });
+              </script>
+            <?php endif; ?>
+            <style>
+              #cart-count {
+                background-color: red;
+                color: white;
+                padding: 2px 2px;
+                border-radius: 50%;
+                font-size: 10px;
+                position: relative;
+                top: -8px;
+                left: -px;
+              }
+            </style>
           </div>
+          </a>
+          <a class="toggle mt-2" href="#">
+            <span></span>
+          </a>
         </div>
       </div>
+    </div>
     </div>
   </section>
 </header>

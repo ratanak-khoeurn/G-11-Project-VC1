@@ -19,6 +19,28 @@ require "models/admin/restuarant/resturant.process.php";
     </div>
     <hr>
     <style>
+        .restar-content{
+            margin-top: 20px;
+            width: 40%;
+        }
+        .delivery_conatiner{
+            width: auto;
+            display: flex;
+            flex-direction: column;
+            margin-left: -32%;
+        }
+        .delivery-options{
+            display: flex;
+            gap: 20px;
+            width: auto;
+
+        }
+        .delivery-option{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
         .popup {
             display: none;
             position: fixed;
@@ -68,20 +90,6 @@ require "models/admin/restuarant/resturant.process.php";
             color: red;
             cursor: pointer;
         }
-
-        .edit_form_content {
-            background-color: #fefefe;
-            margin: auto;
-            margin-top: 10%;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 100%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            animation-name: modalopen;
-            animation-duration: 0.4s;
-            border-radius: 10px;
-        }
-
         hr {
             border: 4px solid #000;
         }
@@ -99,9 +107,15 @@ require "models/admin/restuarant/resturant.process.php";
         }
 
         /* Close button */
+        .close{
+            color: #E21B70;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
         .closed {
             color: #aaa;
-            float: right;
+            margin-left: 95%;
+            margin-top: 50px;
             font-size: 28px;
             font-weight: bold;
         }
@@ -120,11 +134,12 @@ require "models/admin/restuarant/resturant.process.php";
             align-items: center;
             justify-content: space-between;
             width: 90%;
-            height: 570px;
+            height: 650px;
             background: transparent;
             border: 2px solid #fff;
+            border-radius: 10px;
             color: white;
-            padding: 15px 10px;
+            padding-left: 70px;
         }
 
         .group {
@@ -147,7 +162,7 @@ require "models/admin/restuarant/resturant.process.php";
         }
 
         .card {
-            width: 25%;
+            width: 22.2%;
             background: white;
             height: 50vh;
             margin-top: 20px;
@@ -218,43 +233,35 @@ require "models/admin/restuarant/resturant.process.php";
     <div class="manin-card" style="overflow: auto; max-height: 700px;">
         <?php
         $restaurants = get_restaurant();
-        foreach ($restaurants as $restaurant):
-            ?>
+        foreach ($restaurants as $restaurant) :
+        ?>
             <div class="card">
                 <div class="card-header">
                     <h2>
-                        <?= $restaurant['res_name'] ?>
+                        <?= $restaurant['name'] ?>
                     </h2>
                 </div>
                 <div class="card-content">
                     <div class="card-body" style="position: relative;">
-                        <img src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" alt=""
-                            style="width: 100%; height: 100%;">
-                        <div class="text"
-                            style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 35px; z-index: 1;padding-left:10px">
-                            <h4>
-                                <?= $restaurant['region'] ?>
+                        <img src="../../../assets/images/restaurant/<?= $restaurant['image'] ?>" alt="" style="width: 100%; height: 100%;">
+                        <div class="text" style="position: absolute; top: 60%; left: 50%; transform: translate(-50%, -50%); color: white; height: 50%; width: 100%; background-color: rgba(0, 0, 100, 0.4); opacity: 1; margin-top: 35px; z-index: 1;padding-left:10px">
+                            <h4> Delivery :
+                                <?= $restaurant['delivery'] ?>
                             </h4>
                             <p>
-                                <?= $restaurant['res_address'] ?>
+                                <?= $restaurant['location'] ?>
                             </p>
                             <p>open</p>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <a
-                            href="models/admin/restuarant/delete.restaurant.model.php?id=<?= $restaurant['res_id'] ?>&image=<?= urlencode($restaurant['restaurant_image_url']) ?>"><img
-                                src="../../assets/images/icons/delete.png" alt=""
-                                style="border-radius: 50%; width:40px;height:40px"></a>
-                        <a
-                            href="controllers/admin/restaurant/edit.restaurant.controller.php?id=<?= $restaurant['res_id'] ?>"><img
-                                src="../../assets/images/icons/delete_admin.png" alt="" style=" width:40px;height:40px"></a>
-                        <a href="#"><img src="../../assets/images/FOOD.jpg" alt=""
-                                style="border-radius: 50%; width:40px;height:40px"></a>
+                        <a href="models/admin/restuarant/delete.restaurant.model.php?id=<?= $restaurant['id'] ?>&image=<?= urlencode($restaurant['image']) ?>"><img src="../../assets/images/icons/delete.png" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
+                        <a href="controllers/admin/restaurant/edit.restaurant.controller.php?id=<?= $restaurant['id'] ?>"><img src="../../assets/images/icons/delete_admin.png" alt="" style=" width:40px;height:40px"></a>
+                        <a href="#"><img src="../../assets/images/FOOD.jpg" alt="" style="border-radius: 50%; width:40px;height:40px"></a>
                     </div>
                 </div>
             </div>
-            <?php
+        <?php
         endforeach; ?>
     </div>
     <div id="restar" class="restar">
@@ -264,69 +271,74 @@ require "models/admin/restuarant/resturant.process.php";
             <form method="post" action="../models/admin/restuarant/restaurant.model.php" enctype="multipart/form-data">
                 <div class="group">
                     <label for="restaurant_name">Name:</label>
-                    <input type="text" id="restaurant_name" name="restaurant_name"
-                        placeholder="Enter your restaurant name" required><br>
+                    <input type="text" id="restaurant_name" name="restaurant_name" placeholder="Enter your restaurant name" required><br>
                 </div>
                 <div class="group">
                     <label for="restaurant_address">Address:</label>
-                    <input type="text" id="restaurant_address" name="restaurant_address"
-                        placeholder="Enter your restaurant address" required><br>
+                    <input type="text" id="restaurant_address" name="restaurant_address" placeholder="Enter your restaurant address" required><br>
                 </div>
                 <div class="group">
                     <label for="restaurant_image_url">Image:</label>
-                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" accept="image/*"
-                        enctypart="multipart/form-data" required><br>
+                    <input type="file" id="restaurant_image_url" name="restaurant_image_url" accept="image/*" enctypart="multipart/form-data" required><br>
                 </div>
                 <div class="group">
-                    <label for="delivery" class="label">Delivery Option</label>
-                    <div class="delivery-options">
-                        <label class="delivery-option">
-                            <input type="radio" name="delivery" value="free" onclick="togglePriceInput(false)">
-                            <span>Free Delivery</span>
-                        </label>
-                        <label class="delivery-option">
-                            <input type="radio" name="delivery" value="paid" onclick="togglePriceInput(true)">
-                            <span>Paid Delivery</span>
-                        </label>
-                    </div>
-                    <div id="priceInputContainer" style="display: none;">
-                        <label for="deliveryPrice" class="label">Delivery Price</label>
-                        <input type="number" id="deliveryPrice" name="deliveryPrice" placeholder="Enter delivery price"
-                            class="delivery-price-input">
+                    <div class="delivery_conatiner">
+                        <label for="delivery" class="label">Delivery Option</label>
+                        <div class="delivery-options">
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="free" onclick="togglePriceInput(false)">
+                                <span>Free Delivery</span>
+                            </label>
+                            <label class="delivery-option">
+                                <input type="radio" name="delivery" value="paid" onclick="togglePriceInput(true)">
+                                <span>Paid Delivery</span>
+                            </label>
+                        </div>
                     </div>
                 </div>
-
+                <div id="price_input_container" style="display: none; width: auto;">
+                    <label for="deliveryPrice" class="label">Delivery Price</label>
+                    <input type="number" id="deliveryPrice" name="deliveryPrice" placeholder="Enter delivery price" class="delivery-price-input">
+                </div>
 
                 <script>
                     function togglePriceInput(show) {
-                        var priceInputContainer = document.getElementById("priceInputContainer");
-                        priceInputContainer.style.display = show ? "block" : "none";
+                        var price_input_container = document.getElementById("price_input_container");
+                        var deliveryPrice = document.getElementById("deliveryPrice");
+
+                        price_input_container.style.display = show ? "block" : "none";
+
+                        price_input_container.style.width = "auto";
+
+                        if (show) {
+                            price_input_container.style.width = deliveryPrice.offsetWidth + "px";
+                        }
                     }
                 </script>
 
 
-        <?php
-        require "database/database.php";
-        require "models/admin/restuarant/resturant.process.php";
-        $managers = get_manager();
-        // var_dump($managers);
-        ?>
-        <div class="group">
-
-            <label for="manager">Manager</label>
-
-            <select class="form-control" id="manager" name="manager" required>
-                <option value="">Select a Manager</option>
                 <?php
-                foreach ($managers as $manager) {
-                    echo '<option value="' . $manager['first_name'] . ' ' . $manager['last_name'] . '">' . $manager['first_name'] . ' ' . $manager['last_name'] . '</option>';
-                }
+                require "database/database.php";
+                require "models/admin/restuarant/resturant.process.php";
+                $managers = get_manager();
+                // var_dump($managers);
                 ?>
-            </select>
+                <div class="group">
 
+                    <label for="manager">Manager</label>
+
+                    <select class="form-control" id="manager" name="manager" required>
+                        <option value="">Select a Manager</option>
+                        <?php
+                        foreach ($managers as $manager) {
+                            echo '<option value="' . $manager['user_id'] . '">' . $manager['first_name'] . ' ' . $manager['last_name'] . '</option>';
+                        }
+                        ?>
+                    </select>
+
+                </div>
+                <button type="submit" class="submit">Submit</button>
+            </form>
         </div>
-        <button type="submit" class="submit">Submit</button>
-        </form>
     </div>
-</div>
 </div>
