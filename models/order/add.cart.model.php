@@ -1,4 +1,4 @@
-<?php
+<!-- 
 if (!function_exists('get_order')) {
     function get_order(): array
     {
@@ -52,5 +52,31 @@ if (!function_exists('count_order')) {
 
         // Fetch the result (count) directly from the statement and return it
         return (int) $statement->fetchColumn();
+    }
+} -->
+
+<?php
+if (!function_exists('get_order')) {
+
+    function get_order(int $id): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM products WHERE id = :id");
+        $statement->execute([
+            ':id' => $id
+        ]);
+        return $statement->fetchAll();
+    }
+}
+if (!function_exists('get_delivery')) {
+    function get_delivery(int $id): int
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT delivery FROM restaurants WHERE id = :id");
+        $statement->execute([
+            ':id' => $id
+        ]);
+        $result = $statement->fetch(PDO::FETCH_ASSOC); // Fetch as associative array
+        return $result['delivery']; // Return the delivery fee
     }
 }

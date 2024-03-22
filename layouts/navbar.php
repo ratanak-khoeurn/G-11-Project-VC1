@@ -190,11 +190,11 @@ require "models/order/add.cart.model.php"
 
             <a href="<?php echo isset($_SESSION['user']) ? '/checkout' : 'javascript:void(0);'; ?>" id="cartLink" class="widget-header mr-4 text-white">
               <div class="icon d-flex align-items-center">
-                <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+              <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                 <span>Cart</span>
                 <?php
-                if (isset($_SESSION['user'])) {
-                  $orderCount = count_order();
+                if (isset($_SESSION['order'])) {
+                  $orderCount = count($_SESSION['order']);
                   echo '<span id="cart-count">(' . $orderCount . ')</span>';
                 }
                 ?>
