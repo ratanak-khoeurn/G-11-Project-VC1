@@ -6,7 +6,7 @@ if (!function_exists('create_category')) {
     {
         global $connection;
         $statement = $connection->prepare("INSERT INTO category ( name, image) 
-        VALUES (:category_name, :picture)");
+        VALUES (:name, :image)");
         $statement->execute([
             ':name' => $name,
             ':image' => $picture
@@ -63,7 +63,7 @@ if (!function_exists('delete_category')) {
     function delete_category(int $id): bool
     {
         global $connection;
-        $statement = $connection->prepare(" delete from categories WHERE category_id = :id");
+        $statement = $connection->prepare(" delete from category WHERE id = :id");
         $statement->execute([
             ':id' => $id
         ]);
