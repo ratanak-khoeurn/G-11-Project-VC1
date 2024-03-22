@@ -57,23 +57,6 @@ if (!function_exists('get_restaurant_one')) {
     }
 }
 
-if (!function_exists('update_restaurant')) {
-    function update_restaurant(string $name, string $address, string $image, string $region, string $owner, int $id): bool
-    {
-        global $connection;
-        $statement = $connection->prepare("UPDATE restaurants SET res_name = :name,res_address = :address, restaurant_image_url = :image ,region = :region ,restaurant_owner_name = :owner WHERE res_id = :id");
-        $statement->execute([
-            ':name' => $name,
-            ':address' => $address,
-            ':image' => $image,
-            ':region' => $region,
-            ':owner' => $owner,
-            ':id' => $id
-        ]);
-
-        return $statement->rowCount() > 0;
-    }
-}
 if (!function_exists('delete_image_restaurant')) {
     function delete_image_restaurant($img)
     {
