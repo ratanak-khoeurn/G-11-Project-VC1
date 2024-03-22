@@ -1,6 +1,7 @@
 <?php
 require "../../../database/database.php";
 require "../../../models/admin/restuarant/resturant.process.php";
+require "../../../models/admin/restuarant/update.restaurant.php";
 ?>
 <video id="video-background" autoplay loop muted>
     <source src="../../../assets/images/udate_restaurat.mp4" type="video/mp4">
@@ -14,7 +15,7 @@ if (!empty($restaurant)) {
 ?>
     <div id="edit_form" class="edit-form-container">
         <div class="edit_form_content">
-            <form method="post" action="../../../controllers/admin/restaurant/update.restaurant.controller.php?image=<?= $restaurant['restaurant_image_url'] ?>" enctype="multipart/form-data" class="restaurant-form">
+            <form method="post" action="../../../controllers/admin/restaurant/update.restaurant.controller.php?image=<?= $restaurant['image'] ?>" enctype="multipart/form-data" class="restaurant-form">
                 <h1>UPDATE RESTAURANT</h1>
                 <div class="group_form">
                     <input type="hidden" name="restaurant_id" value="<?= $restaurant['id'] ?>">
@@ -34,18 +35,19 @@ if (!empty($restaurant)) {
 
                 <div class="group_form">
                     <label for="old_image">Old Image:</label>
-                    <input type="text" id="old_image" value="<?= $restaurant['image'] ?>" name="old_image">
+                    <input type="text" id="old_image"  name="old_image" value="<?= $restaurant['image'] ?>">
                 </div>
                 <div class="group_form">
                     <label for="restaurant_owner_name">Manager:</label>
                     <select class="form-control" id="manager" name="restaurant_owner_name" required>
-                        <option value="">Select a Manager</option>
-                        <option value="Siem" <?php echo ($restaurant['restaurant_owner_name'] = 'Siem') ? 'selected' : ''; ?>>Siem</option>
-                        <option value="Nak" <?php echo ($restaurant['restaurant_owner_name'] = 'Nak') ? 'selected' : ''; ?>>Nak</option>
-                        <option value="Luch" <?php echo ($restaurant['restaurant_owner_name'] = 'Luch') ? 'selected' : ''; ?>>Luch</option>
-                        <option value="Sok Heang" <?php echo ($restaurant['restaurant_owner_name'] = 'Sok Heang') ? 'selected' : ''; ?>>Sok Heang</option>
-                        <option value="Makara" <?php echo ($restaurant['restaurant_owner_name'] = 'Makara') ? 'selected' : ''; ?>>Makara</option>
+                        <option value="names">Select a Manager</option>
+                <?php
+                    $managers = get_manager();
+                    foreach ($managers as $manager){
+                    ?>
+<option value="<?= $manager["user_id"] ?>" <?php echo ($restaurant['manager_id'] == $manager["user_id"]) ? 'selected' : ''; ?>><?= $manager['first_name']?></option>
                         <!-- Add more options as needed -->
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="group">
@@ -65,7 +67,7 @@ if (!empty($restaurant)) {
                 </div>
                 <div id="price_input_container" style="display: <?= ($restaurant['delivery'] == "paid") ? "block" : "none" ?>; width: auto;">
                     <label for="deliveryPrice" class="label">Delivery Price</label>
-                    <input type="number" id="deliveryPrice" name="deliveryPrice" placeholder="Enter delivery price" value="<?= $restaurant['delivery_price'] ?>" class="delivery-price-input">
+                    <input type="number" id="deliveryPrice" name="deliveryPrice" placeholder="Enter delivery price" value="<?= $restaurant['delivery'] ?>" class="delivery-price-input">
                 </div>
 
                 <script>
@@ -105,13 +107,13 @@ if (!empty($restaurant)) {
 
     .edit-form-container {
         position: relative;
-        max-width: 45%;
+        max-width: 40%;
         height: 100%;
         background-color: white;
         padding: 0px 15px 0px 15px;
         box-shadow: 0 0 10px rgba(0, 3, 0, 1);
         color: white;
-        left: 53%
+        left: 58%
     }
 
     #video-background {
