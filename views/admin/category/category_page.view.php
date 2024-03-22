@@ -20,7 +20,7 @@ require "models/admin/category/category.process.php";
                 <div class="form-group">
                     <input type="file" class="border form-control" id="product_image_url" value="" name="product_image_url" required>
                 </div>
-                <button type="submit" class="btn btn-primary">Add Category</button>
+                <button type="submit" class="btn btn-primary" onclick="mySuccess()">Add Category </button>
             </form>
             <hr>
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -54,6 +54,21 @@ require "models/admin/category/category.process.php";
         </div>
     </main>
     <script>
+        function mySuccess() {
+        swal({
+            title: "Success",
+            text: "You are successful",
+            icon: "success",
+            buttons: false,
+            timer: 5000, // Adjust the duration as needed
+            showConfirmButton: false,
+            animation: "pop",
+            customClass: {
+                popup: 'animated tada'
+            }
+        });
+    }
+
         function confirmDelete(categoryId, pictureUrl) {
             swal({
                 title: 'Are you sure?',

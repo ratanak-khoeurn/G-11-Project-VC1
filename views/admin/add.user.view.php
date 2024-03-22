@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../../vendor/css/add_user.css">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <div class="main">
     <h1>User Management System</h1>
     <form action="../../controllers/admin/users/add.user.controller.php" method="POST" enctype="multipart/form-data">
@@ -43,7 +44,7 @@
 
         <div class="group_input">
 
-            <button type="submit">Create User</button>
+            <button onclick="mySuccess()" type="submit">Create User</button>
         </div>
     </form>
 </div>
@@ -58,5 +59,20 @@
         };
 
         reader.readAsDataURL(selectedFile);
+    }
+
+    function mySuccess() {
+        swal({
+            title: "Success",
+            text: "You are successful",
+            icon: "success",
+            buttons: false,
+            timer: 5000, // Adjust the duration as needed
+            showConfirmButton: false,
+            animation: "pop",
+            customClass: {
+                popup: 'animated tada'
+            }
+        });
     }
 </script>
