@@ -80,3 +80,21 @@ if (!function_exists('get_delivery')) {
         return $result['delivery']; // Return the delivery fee
     }
 }
+
+if (!function_exists('add_orders')) {
+    function add_orders(int $res_id,int $user_id,int $productId,int $quantity,string $totalPrice,string $action, string $total): bool
+    {
+        global $connection;
+        $statement = $connection->prepare("INSERT INTO orders (res_id, product_id, user_id, quantity,total_price,action,alls) VALUES (:res_id, :product_id, :user_id, :quantity, :total_price,:action,:alls)");
+        $statement->execute([
+            ':res_id' => $res_id,
+            ':product_id' => $productId,
+            ':user_id' => $user_id,
+            ':quantity' => $quantity,
+            ':total_price' => $totalPrice,
+            ':action' => $action,
+            ':alls' => $total
+        ]);
+        return $statement->rowCount() > 0;
+    }
+}
