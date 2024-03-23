@@ -19,6 +19,8 @@ require "./models/order/add.cart.model.php";
     <div class="checkout-left" style="width: 90.5%; margin-left:52px;gap:10px">
         <div class="checout-card">
             <?php
+            // if (isset($_SESSION['order']))
+
             // Fetch orders from the database
             $orders = ($_SESSION['order']);
             if (!empty ($orders)) {
@@ -62,15 +64,17 @@ require "./models/order/add.cart.model.php";
                                         <p style="background-color: #E21B70; color: white; border: none; padding: 2px 10px; font-size: 16px; cursor: pointer;"
                                             class="quantity-btn minus">-</p>
                                         <input style="width: 40px; height: 33px; text-align: center; font-size: 16px;"
-                                            class="quantity-input" type="number" value="1" data-quantity="1" name="quantity">
-                                            <input type="hidden" value="<?=$order[0]['id']?>" class="quantities" name="id">
+                                            class="quantity-input" type="number" value="1" data-quantity="1" name="quantity[]">
+                                        <?php foreach ($orders as $index => $order): ?>
+                                            <input type="hidden" value="<?= $order[0]['id'] ?>" class="quantities" name="id[]">
+                                        <?php endforeach; ?>
                                         <p style="background-color: #E21B70; color: white; border: none; padding: 5px 10px; font-size: 16px; cursor: pointer;"
                                             class="quantity-btn plus">+</p>
                                     </div>
                                 </div>
                                 <div class="all"
                                     style="display: flex; justify-content: center; margin-top: 10px;flex-direction:column">
-                                    <p class="price">Price: <span>
+                                    <p class="price">Price: <span name="to_price">
                                             <?= $order[0]['product_price'] ?>
                                         </span> $</p>
                                     <p class="discount_1">0.00 </p>
@@ -82,7 +86,11 @@ require "./models/order/add.cart.model.php";
             } else {
                 echo '<img style="width:300px;height:300px;display:block;margin:auto;margin-top:20px" src="assets/images/error.png" alt="">';
             }
+          
             ?>
+    <?php
+        
+    ?>
         </div>
 
         <!-- Display total prices -->
@@ -92,7 +100,8 @@ require "./models/order/add.cart.model.php";
             <h6 style="margin-bottom:30px">Item Price: <span class="totals">0.00</span> $</h6>
             <h6 style="margin-bottom:30px">Total Discount: <span class="discount-amount">0.00</span> $</h6>
             <h6 style="margin-bottom:30px">Delivery: <span class="delivery-charge">0.00</span> $</h6>
-            <h6 style="margin-bottom:30px">Total Price: <input style="border: none;width:70px" type="text" name="total_prices" id="total-price" class="price-after-discount" >
+            <h6 style="margin-bottom:30px">Total Price: <input style="border: none;width:70px" type="text"
+                    name="total_prices" id="total-price" class="price-after-discount">
                 $</h6>
             <button type="submit"
                 style="width: 100%; border:none; background:#E21B70; color:white; padding:10px 0">Check Out
