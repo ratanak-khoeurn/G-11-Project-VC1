@@ -30,8 +30,6 @@
     </div>
     <main>
 
-<<<<<<< HEAD
-=======
         <h2>Get request from customer</h2>
 
         <table>
@@ -54,7 +52,6 @@
             </tbody>
         </table>
 
->>>>>>> f568baf4e8a6ccfde8dc5a3c7900bdcc649d7046
     </main>
 </div>
 

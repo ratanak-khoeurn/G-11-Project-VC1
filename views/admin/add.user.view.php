@@ -44,7 +44,7 @@
 
         <div class="group_input">
 
-            <button onclick="mySuccess()" type="submit">Create User</button>
+            <button onclick="validateForm()" type="submit">Create User</button>
         </div>
     </form>
 </div>
@@ -60,7 +60,29 @@
 
         reader.readAsDataURL(selectedFile);
     }
-
+    function validateForm() {
+        // Check if all form fields are filled
+        var first_name = document.getElementById("first_name").value;
+        var last_name = document.getElementById("last_name").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var role = document.getElementById("role").value;
+        var profile = document.getElementById("profile").value;
+        if (first_name === "" || last_name === "" || email === "" || password === "" || role === "" || profile === "") {
+            swal({
+                title: "Error",
+                text: "Please fill in all fields.",
+                icon: "error",
+                buttons: false,
+                timer: 2000, // Adjust the duration as needed
+                showConfirmButton: false,
+            });
+            return false;
+        }else{
+            mySuccess();
+            return true;
+        }
+    }
     function mySuccess() {
         swal({
             title: "Success",

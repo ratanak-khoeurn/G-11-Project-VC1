@@ -39,15 +39,6 @@ require "models/admin/category/category.process.php";
                     foreach ($categories as $Index => $category) :
                     ?>
                         <tr>
-<<<<<<< HEAD
-                            <td><?= $Index + 1 ?></td>
-                            <td><?= $category['category_name'] ?></td>
-                            <td><img src="../../../assets/images/categories/<?= $category['picture'] ?>" class="img" alt=""></td>
-                            <td></td>
-                            <td class="button">
-                                <a href="controllers/admin/category/edit_category.controller.php?id=<?= $category['category_id'] ?>&image=<?= urlencode($category['picture']) ?>" class="btn btn-primary">Edit</a>
-                                <a href="#" class="btn btn-danger" onclick="confirmDelete(<?= $category['category_id'] ?>, '<?= urlencode($category['picture']) ?>')">Delete</a>
-=======
                             <td><?= $Index+1 ?></td>
                             <td><?= $category['name'] ?></td>
                             <td><img src="../../../assets/images/categories/<?= $category['image'] ?>" class="img" alt=""></td>
@@ -55,7 +46,6 @@ require "models/admin/category/category.process.php";
                             <td class="button">
                             <a href="controllers/admin/category/edit_category.controller.php?id=<?= $category['id'] ?>&image=<?= urlencode($category['image']) ?>" class="btn btn-primary">Edit</a>
                                 <a href="controllers/admin/category/delete_category.controller.php?id=<?= $category['id'] ?>&image=<?= urlencode($category['image']) ?>" class="btn btn-danger">Delete</a>
->>>>>>> 63f21736c37ddd6d5355864b78f1d29267113345
                             </td>
                         </tr>
                     <?php endforeach; ?>
