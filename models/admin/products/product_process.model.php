@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $product_name = $_POST['product_name'];
     $category_name = $_POST['category_name'];
     $restaurant_name = $_POST['restaurant_name'];
-    echo $restaurant_name;
+    // echo $restaurant_name;
     $price = $_POST['price'];
     $discount = $_POST['discount'];
     $uploadDir = '../../../assets/images/products/';
@@ -22,6 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if ($is_created) {
                 // Use JavaScript to trigger SweetAlert for success message and redirect
                 echo "<script>Swal.fire('Success', 'Product created successfully', 'success').then(() => window.location.href = '/product_admin');</script>";
+                header("location:/product_admin");
             } else {
                 // Use JavaScript to trigger SweetAlert for error message
                 echo "<script>Swal.fire('Error', 'Failed to create product', 'error');</script>";
