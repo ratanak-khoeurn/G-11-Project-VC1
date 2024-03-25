@@ -1,6 +1,7 @@
 <!-- ! Body -->
 <?php
-// session_start();
+require "./database/database.php";
+require "./models/admin/restuarant/resturant.process.php";
 ?>
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
@@ -8,16 +9,21 @@
     <aside class="sidebar">
         <div class="sidebar-start">
             <div class="sidebar-head">
-                <a href="/" class="logo-wrapper" title="Home">
+                <a href="#" class="logo-wrapper" title="Home">
                     <span class="sr-only">Home</span>
+                    <?php
+                    $names = get_logo_restaurant($_SESSION['manager']['user_id']);
+
+                    ?>
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
                         <?php if (isset($_SESSION['admin'])) : ?>
-                            <img src="../../assets/images/logo_admin.png" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
+                            <img src="../../assets/images/logo_web.png" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
                         <?php elseif (isset($_SESSION['manager'])) : ?>
-                            <img src="../../assets/images/logo_manager.png" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
+                            <img src="../../assets/images/restaurant/<?=$names['image']?>" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
+                            <span style="margin-top: 15px;"><?=$names['name'] ?></span>
                         <?php else : ?>
-                            <img src="../../assets/images/logo_delivery.png" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
+                            <img src="../../assets/images/logo_web.png" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
                         <?php endif; ?>
                     </div>
 

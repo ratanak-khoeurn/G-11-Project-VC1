@@ -47,14 +47,14 @@ $_SESSION['order']= null;
     <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
       <source src="assets/images/Delivery03.mp4" type="video/mp4">
     </video>
-    <div class="container" style="display:flex;flex-direction:column; left: 54%;top:10%; width: 500px; z-index: 1; color: white; position: absolute; background: wheate; backdrop-filter: blur(10px); height: 75%;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); ">
-      <span style="color:black;font-size:40px;padding-top:10%">WELCOME EVERYONE</span>
-      <p>You can order a lot of foods at this website with <span style="color:#E21B70">TRUST SAFE AND FASTLY with
-          QUALITY 100%</span></p>
-      <p>Enjoy our fast delivery service with guaranteed freshness and quality.</p>
-      <h3 style="color:black">The best delivery for you is <br><span style="color:#E21B70;font-weight:bold;font-size:50px">GO-FOOD</span>.</h3>
-    </div>
-  </div>
+    <div class="container" style="display: flex; flex-direction: column; right: 12%; top: 10%; width: 500px; z-index: 1; color: #333; position: absolute; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; text-align: left; font-family: 'Arial', sans-serif;">
+    <span style="font-size: 48px; font-weight: bold; color: #E21B70; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Welcome Everyone</span>
+    <p style="font-size: 20px; margin-top: 20px;">Order a variety of delicious foods from our website with trust, safety, and speed - guaranteed quality!</p>
+    <h3 style="font-size: 36px; color: #E21B70; margin-top: 20px;">Order Now with <br><span style="font-weight: bold;font-size:50px">Gofood</span></h3>
+</div>
+
+</div>
+
   <style>
     .bg-theme-black {
 

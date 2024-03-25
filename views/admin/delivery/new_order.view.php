@@ -69,7 +69,7 @@ require 'models/order/add.cart.model.php';
 }
 
 .accept-btn {
-    background-color: #4CAF50; /* Green background for accept button */
+    background-color: #E21B70; /* Green background for accept button */
     color: white;
     text-align: center;
 }

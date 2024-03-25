@@ -95,7 +95,7 @@ require 'models/order/add.cart.model.php';
           <?= $orders[0]['location'] ?>
         </h4>
         <?php 
-          if($orders[0]['delivery_action']==null):
+          if($orders[0]['delivery_action']!= 'done'):
         ?>
         <div class="action">
             <a href="controllers/deliverer/done_deliver.controller.php" class="yes"
@@ -104,13 +104,13 @@ require 'models/order/add.cart.model.php';
         <?php
         endif;
         ?>
-
+      <?php
+        endif
+      ?>
 
       </div>
     </div>
-    <?php
-        endif;
-    ?>
+  
   </div>
 </div>
 <script>

@@ -87,9 +87,9 @@ global $connection;
             <?php } ?>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="width:80%">
           <label for="category_name">Category Type</label>
-          <select class="form-control" id="name" name="category_name" required>
+          <select style="width:100%;height:40px" class="form-control" id="name" name="category_name" required>
           <option value="" selected disabled>Select Category</option>
             <?php
             foreach ($categories as $category) {
@@ -173,6 +173,23 @@ global $connection;
     border-right: 1px solid #2e2a2a;
     color: black;
   }
+  input[type="file"]::-webkit-file-upload-button {
+  background-color: #E21B70;
+  color: white;
+  border: 0px;
+  border-right: 1px solid #050505;
+  padding: 10px 5px;
+  margin-right: 20px;
+  transition: .5s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #E21B70;
+  border: 0px;
+  border-right: 1px solid #2e2a2a;
+  color: black;
+}
+
 
   .popup {
 

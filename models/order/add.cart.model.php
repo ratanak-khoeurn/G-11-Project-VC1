@@ -125,6 +125,15 @@ if (!function_exists('accept_order')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('accept_order')) {
+    function accept_order_admin(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM orders WHERE  to_pay = 'true' and action ='0'");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
 
 if (!function_exists('get_accept')) {
     function get_accept(int $manager_id): array
