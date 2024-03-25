@@ -3,7 +3,7 @@
 require "../../../database/database.php";
 require "../../../models/admin/category/category.process.php";
 ?>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
     #video-background {
         position: fixed;
@@ -140,9 +140,25 @@ require "../../../models/admin/category/category.process.php";
                 <div class="form-group">
                     <img id="old-image" src="../../../assets/images/categories/<?= $category['image'] ?>" alt="Old Image">
                 </div>
-                <button type="submit">Update Category</button>
+                <button type="submit"onclick="mySuccess()" >Update Category</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>
             </form>
         </div>
     </div>
 </div>
+<script>
+    function mySuccess() {
+        swal({
+            title: "Success",
+            text: "You are successful",
+            icon: "success",
+            buttons: false,
+            timer: 5000, // Adjust the duration as needed
+            showConfirmButton: false,
+            animation: "pop",
+            customClass: {
+                popup: 'animated tada'
+            }
+        });
+    }
+</script>
