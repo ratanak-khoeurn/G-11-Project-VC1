@@ -45,7 +45,8 @@ require "models/admin/category/category.process.php";
                             <td></td>
                             <td class="button">
                             <a href="controllers/admin/category/edit_category.controller.php?id=<?= $category['id'] ?>&image=<?= urlencode($category['image']) ?>" class="btn btn-primary">Edit</a>
-                                <a href="controllers/admin/category/delete_category.controller.php?id=<?= $category['id'] ?>&image=<?= urlencode($category['image']) ?>" class="btn btn-danger">Delete</a>
+                                <a href="#" onclick="confirmDelete(<?= $category['id'] ?>, '<?= urlencode($category['image']) ?>')" class="btn btn-danger">Delete</a>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
