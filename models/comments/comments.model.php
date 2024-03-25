@@ -20,3 +20,4 @@ function get_comment(): array
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
+

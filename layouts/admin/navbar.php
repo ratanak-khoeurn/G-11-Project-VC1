@@ -113,7 +113,7 @@ require "./models/admin/restuarant/resturant.process.php";
                                         </li>
                                     </ul>
                                 <li>
-                                    <a href="comments.html">
+                                    <a href="/comment">
                                         <span class="icon message" aria-hidden="true"></span>Comments
                                     </a>
                                     <span class="msg-counter">7</span>
