@@ -1,7 +1,8 @@
 <?php
 require 'database/database.php';
 require 'models/admin/category/category.process.php';
-
+// session_start();
+$_SESSION['order']= null;
 ?>
 <div class="osahan-home-page">
   <div class="bg-primary p-3 d-none">
