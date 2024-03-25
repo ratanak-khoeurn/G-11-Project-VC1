@@ -24,7 +24,7 @@ require 'models/order/add.cart.model.php';
     /* border: 1px solid black; */
     box-shadow: 5px 5px 5px rgba(10, 10, 0.4, 0.6);
     width: 25%;
-    height: 60%;
+    height: 250px;
     border-radius: 5px;
     padding: 10px;
   }
@@ -60,54 +60,31 @@ require 'models/order/add.cart.model.php';
 </style>
 <div class="container">
 
-  <h1 class="title">ORDERS LISTS</h1>
+  <h1 class="title">INPROGRESS LISTS</h1>
   <hr>
   <div class="card_container">
     <?php
-    $orders = accept_order($_SESSION['manager']['user_id']);
-    if (!empty($orders)) :
-
+    $orders = inprogress($_SESSION['manager']['user_id']);
     ?>
-    <div class="card_order">
-      <div class="image" style="width:100%;height:150px;display:flex ;flex-direction:column;overflow-y: scroll;">
-        <?php
-        foreach ($orders as $order):
-          ?>
-          <div class="image"
-            style="width:100%;height:70px;display:flex;align-items:center;justify-content:space-between;">
-            <img src="assets/images/user/1702283567614s6x4l2lu.png" alt="" class="user_img">
-            <p>quantity <span>
-                <?= $order['quantity'] ?>
-              </span></p>
-            <p></p>
-
-          </div>
-        <?php endforeach ?>
-      </div>
-      <hr>
-      <div class="card_footer" style="width:100%;height:10%;">
-        <h4>price:
-          <?= $orders[0]['total_price'] ?> $
-        </h4>
-        <h4>Phone:
-          <?= $orders[0]['phone'] ?>
-        </h4>
-        </h4>
-        <h4>Phone:
-          <?= $orders[0]['location'] ?>
-        </h4>
-        <div class="action">
-            <a href="controllers/orders/booking.controller.php?action=1" class="yes"><button>Accept</button></a>
-            <a href=""><button class="delete-icon">Cancel</button></a>
+    <?php foreach ($orders as $order): ?>
+        <div class="card_order">
+            <div class="image" style="width:100%;height:70px;display:flex;align-items:center;justify-content:space-between;">
+                <img src="assets/images/user/1702283567614s6x4l2lu.png" alt="" class="user_img">
+                <p>quantity <span><?= $order['quantity'] ?></span></p>
+            </div>
+            <hr>
+            <div class="card_footer" style="width:100%;height:10%;">
+                <h4>price: <?= $order['total_price'] ?> $</h4>
+                <h4>Phone: <?= $order['phone'] ?></h4>
+                <h4>Location: <?= $order['location'] ?></h4>
+                <div class="action">
+                    <a href="#" class="yes" style="display: inline-block; padding: 8px 12px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;width:100%">In Progress.....</a>
+                </div>
+            </div>
         </div>
-
-      </div>
-    </div>
-  </div>
-  <?php else : ?>
-    <h1>Don't have new order</h1>
-    <?php endif ?>
+    <?php endforeach; ?>
 </div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const deleteIcons = document.querySelectorAll('.delete-icon');

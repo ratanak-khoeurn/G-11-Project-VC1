@@ -22,7 +22,11 @@ require "./models/order/add.cart.model.php";
             // if (isset($_SESSION['order']))
 
             // Fetch orders from the database
-            $orders = ($_SESSION['order']);
+            $order = null;
+            if (isset($_SESSION['user'])) {
+                
+                $orders = ($_SESSION['order']);
+            }
             if (!empty ($orders)) {
                 foreach ($orders as $order):
                     ?>
@@ -188,7 +192,7 @@ require "./models/order/add.cart.model.php";
 
             document.querySelector('.totals').textContent = totalPrice.toFixed(2);
             document.querySelector('.discount-amount').textContent = totalDiscount.toFixed(2);
-            document.querySelector('.price-after-discount').value = finallyTotal.toFixed(2);
+            document.querySelector('.price-after-discount').value = finallyTotal.toFixed(2) - totalDiscount.toFixed(2);
         }
 
 

@@ -60,14 +60,12 @@ require 'models/order/add.cart.model.php';
 </style>
 <div class="container">
 
-  <h1 class="title">ORDERS LISTS</h1>
+  <h1 class="title">HISTORY LISTS</h1>
   <hr>
   <div class="card_container">
     <?php
-    $orders = accept_order($_SESSION['manager']['user_id']);
-    if (!empty($orders)) :
-
-    ?>
+    $orders = get_done_delivery($_SESSION['delivery']['user_id']);
+    if (!empty($orders)) : ?>
     <div class="card_order">
       <div class="image" style="width:100%;height:150px;display:flex ;flex-direction:column;overflow-y: scroll;">
         <?php
@@ -96,17 +94,24 @@ require 'models/order/add.cart.model.php';
         <h4>Phone:
           <?= $orders[0]['location'] ?>
         </h4>
+        <?php 
+          if($orders[0]['delivery_action']==null):
+        ?>
         <div class="action">
-            <a href="controllers/orders/booking.controller.php?action=1" class="yes"><button>Accept</button></a>
-            <a href=""><button class="delete-icon">Cancel</button></a>
+            <a href="controllers/deliverer/done_deliver.controller.php" class="yes"
+            style="display: inline-block; padding: 8px 12px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;width:100%">Done</a>
         </div>
+        <?php
+        endif;
+        ?>
+
 
       </div>
     </div>
+    <?php
+        endif;
+    ?>
   </div>
-  <?php else : ?>
-    <h1>Don't have new order</h1>
-    <?php endif ?>
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function () {

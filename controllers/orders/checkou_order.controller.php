@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         add_orders($res_id, $user_id, $productId, $quantity, $totalPrice,$action,$total);
     }
     $_SESSION['order'] = null;
+    header("location: /place_order");
 }
 ?>
 

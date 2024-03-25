@@ -3,7 +3,7 @@
 ob_start()
 
 
-?>
+  ?>
 <nav class="main-nav--bg">
   <div class="container main-nav">
     <div class="main-nav-start">
@@ -96,20 +96,24 @@ ob_start()
       <div class="name">
         <h4 class="first">
           <?php
-          if (isset($_SESSION['admin']) && isset($_SESSION['admin']['first_name'])) {
+          if (isset ($_SESSION['admin']) && isset ($_SESSION['admin']['first_name'])) {
             echo $_SESSION['admin']['first_name'];
-          } elseif (isset($_SESSION['manager']) && isset($_SESSION['manager']['first_name'])) {
+          } elseif (isset ($_SESSION['manager']) && isset ($_SESSION['manager']['first_name'])) {
             echo $_SESSION['manager']['first_name'];
+          } else {
+            echo $_SESSION['delivery']['first_name'];
           }
           ?>
         </h4>
         <span style="font-size: 10px;">
           <?php
-              if (isset($_SESSION['admin'])){
-                echo 'admin';
-              }else{
-                echo 'manager';
-              }
+          if (isset ($_SESSION['admin'])) {
+            echo 'admin';
+          } elseif (isset ($_SESSION['manager'])) {
+            echo 'manager';
+          } else {
+            echo 'delivery';
+          }
           ?>
         </span>
       </div>
@@ -120,15 +124,15 @@ ob_start()
           <span class="nav-user-img">
             <picture>
               <?php
-              if (isset($_SESSION['admin'])) {
-                if (!empty($_SESSION['admin']['picture'])) {
-              ?>
+              if (isset ($_SESSION['admin'])) {
+                if (!empty ($_SESSION['admin']['picture'])) {
+                  ?>
 
                   <source srcset="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" type="image/webp">
                   <img src="../../../assets/images/user/<?= $_SESSION['admin']['picture'] ?>" alt="User Picture">
-                <?php
+                  <?php
                 } else {
-                ?>
+                  ?>
                   <source srcset="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp">
                   <img src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" alt="User Picture">
                   <?php
@@ -136,22 +140,37 @@ ob_start()
                 ?>
                 <?php
 
-} elseif (isset($_SESSION['manager'])) {
-  if (!empty($_SESSION['manager']['picture'])) {
-    
-    ?>
+              } elseif (isset ($_SESSION['manager'])) {
+                if (!empty ($_SESSION['manager']['picture'])) {
+
+                  ?>
                   <source srcset="../../../assets/images/user/<?= $_SESSION['manager']['picture'] ?>" type="image/webp">
                   <img src="../../../assets/images/user/<?= $_SESSION['manager']['picture'] ?>" alt="User Picture">
                   <?php
-                }else{
-                  
+                } else {
+
                   ?>
                   <source srcset="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp">
                   <img src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" alt="User Picture">
                   <?php
-                };
-              };
+                }
+                ;
+              }else{
+                if (!empty ($_SESSION['delivery']['picture'])) {
                   ?>
+                  <source srcset="../../../assets/images/user/<?= $_SESSION['delivery']['picture'] ?>" type="image/webp">
+                  <img src="../../../assets/images/user/<?= $_SESSION['delivery']['picture'] ?>" alt="User Picture">
+                  <?php
+                } else {
+
+                  ?>
+                  <source srcset="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" type="image/webp">
+                  <img src="../../../assets/images/avatar/no-profile-pic-icon-11.jpg" alt="User Picture">
+                  <?php
+                }
+              }
+              ;
+              ?>
             </picture>
           </span>
         </button>
