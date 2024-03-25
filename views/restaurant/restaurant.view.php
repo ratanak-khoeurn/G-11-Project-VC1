@@ -21,7 +21,7 @@ require_once "models/comments/comments.model.php";
         {
             $restaurants = get_restaurant();
             foreach ($restaurants as $res) {
-                if ($res['res_id'] == $id) {
+                if ($res['id'] == $id) {
                     return $res;
                 }
             }
@@ -31,15 +31,14 @@ require_once "models/comments/comments.model.php";
         if ($restaurant) {
 
         ?>
-            <img alt="<?= $restaurant['res_name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['restaurant_image_url'] ?>" class="restaurant-pic" style="margin-right:30px; width: 250px; border:1px solid white">
+            <img alt="<?= $restaurant['name'] ?>" src="../../../assets/images/restaurant/<?= $restaurant['image'] ?>" class="restaurant-pic" style="margin-right:30px; width: 250px; border:1px solid white">
             <h2 class="res_name" style="color:white; padding-top:0px; margin-left:10px">
-                <?= $restaurant['res_name'] ?>
+                <?= $restaurant['name'] ?>
             </h2>
             <p class="res_address" style="color:white; margin-left:10px">
-                <?= $restaurant['res_address'] ?>
+                <?= $restaurant['location'] ?>
             </p>
 
-        <?php } ?>
 
         <div class="pt-3 text-white">
 
@@ -60,7 +59,7 @@ require_once "models/comments/comments.model.php";
             <div class="row" style="margin-left:5px">
                 <div class="col-6 col-md-2">
                     <p class="text-white-50 font-weight-bold m-0 small">Delivery</p>
-                    <p class="text-white m-0"><i class="feather-truck"></i> Free</p>
+                    <p class="text-white m-0"><i class="feather-truck"></i><?=" ".$restaurant['delivery']. " "?>$</p>
                 </div>
                 <div class="col-6 col-md-2" style="margin-left: -75px;">
                     <p class="text-white-50 font-weight-bold m-0 small">Open time</p>
@@ -70,6 +69,8 @@ require_once "models/comments/comments.model.php";
         </div>
     </div>
 </div>
+        <?php } ?>
+
 <div class="container position-relative" style="display: flex;flex-direction:column; width: 100%;">
     <div class="row" style="width: 100%; display:flex; flex-direction:column">
         <div class="container" style="width: 100%; justify-content:space-between;">
@@ -80,9 +81,10 @@ require_once "models/comments/comments.model.php";
                         <?php
                         $products = get_product();
                         foreach ($products as $product) {
-                            $desired_restaurant_name = $restaurant['res_name'];
-                            $product_restaurant_name = $product['restaurant_name'];
+                            $desired_restaurant_name = $restaurant['id'];
+                            $product_restaurant_name = $product['res_id'];
                             if ($desired_restaurant_name == $product_restaurant_name) {
+                             $names =  get_name($product['res_id']);
                         ?>
                                 <div class="osahan-slider-item" style="width: 250px; margin-top: 0px; margin-bottom:10px">
                                     <div class="list-card bg-white rounded overflow-hidden position-relative shadow-sm">
@@ -97,7 +99,7 @@ require_once "models/comments/comments.model.php";
                                                         <?= $product['product_name'] ?>
                                                     </a></h6>
                                                 <p class="text-gray mb-3">
-                                                    <?= $product['restaurant_name'] ?>
+                                                    <?= $names?>
                                                 </p>
                                                 <p class="text-gray m-0" style="display:flex; justify-content:space-between">
                                                     <span class="text-black-50"> $350 FOR TWO</span>
@@ -105,20 +107,13 @@ require_once "models/comments/comments.model.php";
                                                         <i class="feather-shopping-cart" style="background-color:#E21B70; color:white; padding:5px; width:100px;border-radius:5px"></i>
                                                     </a>
 
-                                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                                                    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
                                                     <script>
-                                                        // Wait for the document to be fully loaded
                                                         document.addEventListener("DOMContentLoaded", function() {
-                                                            // Find the shopping cart link by its ID
                                                             var cartLink = document.getElementById('ccc');
-
-                                                            // Add a click event listener to the shopping cart link
                                                             cartLink.addEventListener('click', function(event) {
-                                                                // Prevent the default action of the link (e.g., navigating to another page)
                                                                 event.preventDefault();
-
-                                                                // Show the SweetAlert
                                                                 Swal.fire({
                                                                     position: "top-end",
                                                                     icon: "success",
@@ -128,7 +123,7 @@ require_once "models/comments/comments.model.php";
                                                                 });
                                                             });
                                                         });
-                                                    </script>
+                                                    </script> -->
 
                                                 </p>
                                             </div>
@@ -217,7 +212,7 @@ require_once "models/comments/comments.model.php";
 
                                 <div class="reviews-members py-3">
                                     <div class="media">
-                                        <a href="#"><img style="width:50px;height:50px" alt="#" src="assets/images/user/<?= $comment['profile'] ?>" class="mr-3 rounded-pill"></a>
+                                        <a href="#"><img style="width:50px;height:50px" alt="#" src="assets/images/user/<?= $comment['picture'] ?>" class="mr-3 rounded-pill"></a>
                                         <div class="media-body">
                                             <div class="reviews-members-header">
                                                 <div class="star-rating float-right">
@@ -228,7 +223,7 @@ require_once "models/comments/comments.model.php";
                                                         <i class="feather-star"></i>
                                                     </div>
                                                 </div>
-                                                <h6 class="mb-0"><a class="text-dark" href="#">Trump</a></h6>
+                                                <h6 class="mb-0"><a class="text-dark" href="#"><?= $comment['first_name']. ' '.$comment['last_name']?></a></h6>
                                                 <p class="text-muted small">
                                                     <?= $comment['date'] ?>
                                                 </p>
@@ -250,7 +245,7 @@ require_once "models/comments/comments.model.php";
                         <form action="controllers/comments/comment.user.controller.php?id=<?= $_SESSION['id'] ?>" method="POST">
                             <div class="form-group">
                                 <label class="form-label small">Your Comment</label>
-                                <textarea class="form-control" name="comment"></textarea>
+                                <textarea class="form-control" name="comment" required></textarea>
                             </div>
                             <div class="form-group mb-0">
                                 <button type="submit" class="btn btn-primary btn-block">Submit Comment</button>
@@ -297,7 +292,7 @@ require_once "models/comments/comments.model.php";
 </div>
 </div>
 </div>
-<script>
+<!-- <script>
     // Add event listener to shopping cart buttons
     document.addEventListener('DOMContentLoaded', function() {
         const shoppingCartBtns = document.querySelectorAll('.shopping-cart-btn');
@@ -328,4 +323,4 @@ require_once "models/comments/comments.model.php";
             checkoutImageContainer.appendChild(img);
         }
     });
-</script>
+</script> -->

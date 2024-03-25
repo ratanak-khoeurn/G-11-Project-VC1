@@ -166,10 +166,11 @@ require "../../../models/admin/products/product.model.php";
                             <option value="">Select a restaurant</option>
                             <?php
                             $restuarant = get_restaurant();
+                            var_dump($restuarant);
                             foreach ($restuarant as $res) {
                                 
                                 ?>
-                                <option value="<?= $res['res_name'] ?>" <?php echo ($products['restaurant_name'] == $res['res_name']) ? 'selected' : ''; ?>><?= $res['res_name'] ?>
+                                <option value="<?= $res['id'] ?>" <?php echo ($products['res_id'] == $res['id']) ? 'selected' : ''; ?>><?= $res['name'] ?>
                             </option> <?php } ?>
                         </select>
                     </div>
@@ -192,7 +193,7 @@ require "../../../models/admin/products/product.model.php";
                         $categories = get_category();
                         foreach ($categories as $category) {
                         ?>
-                            <option value="<?php echo $category['category_name'] ?>"><?php echo $category['category_name'] ?> </option>
+                            <option value="<?php echo $category['name'] ?>"><?php echo $category['name'] ?> </option>
                         <?php
                         }
                         ?>
@@ -206,7 +207,7 @@ require "../../../models/admin/products/product.model.php";
                 <div class="form-group">
                     <img id="old-image" src="../../../assets/images/products/<?= $products['product_img'] ?>" alt="Old Image">
                 </div>
-                <button type="submit">Update Product</button>
+                <button style="background-color: #E21B70;" type="submit">Update Product</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>
             </form>
         </div>
