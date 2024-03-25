@@ -1,7 +1,9 @@
 <?php
 // session_start();
-
+require "./database/database.php";
+require "models/order/add.cart.model.php"
 ?>
+
 <header class="section-header">
   <section class="header-main shadow-sm bg-primary-style2" style="background-color: #E21B70;">
     <div class="container">
@@ -188,7 +190,7 @@
 
             <a href="<?php echo isset($_SESSION['user']) ? '/checkout' : 'javascript:void(0);'; ?>" id="cartLink" class="widget-header mr-4 text-white">
               <div class="icon d-flex align-items-center">
-                <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+              <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                 <span>Cart</span>
                 <?php
                 if (isset($_SESSION['order'])) {

@@ -1,21 +1,22 @@
 <?php
 if (!function_exists('create_restaurant')) {
-    function create_restaurant(string $res_name, string $res_address, string $res_image, string $region, string  $owner_name): bool
-    {
+    function create_restaurant(string $name, string $image, int $manager_id, string $delivery, string $location): bool {
         global $connection;
-        $statement = $connection->prepare("insert into restaurants (res_name,res_address,restaurant_image_url,region,restaurant_owner_name) 
-    values(:res_name,:restaurant_address,:restaurant_image_url,:region,:restaurant_owner_name)");
-        $statement->execute([
-            ':res_name' => $res_name,
-            ':restaurant_address' => $res_address,
-            ':restaurant_image_url' => $res_image,
-            ':region' => $region,
-            ':restaurant_owner_name' => $owner_name,
 
+        $statement = $connection->prepare("INSERT INTO restaurants (name, image, manager_id, delivery, location) VALUES (:name, :image, :manager_id, :delivery, :location)");
+
+        $result = $statement->execute([
+            ":name" => $name,
+            ":image" => $image,
+            ":manager_id" => $manager_id,
+            ":delivery" => $delivery,
+            ":location" => $location,
         ]);
-        return $statement->rowCount() > 0;
+
+        return $result;
     }
 }
+
 if (!function_exists('get_restaurant')) {
     function get_restaurant(): array
     {
@@ -29,7 +30,7 @@ if (!function_exists('get_manager')) {
     function get_manager(): array
     {
         global $connection;
-        $statement = $connection->prepare("SELECT first_name , last_name FROM users WHERE role = 'restaurant_owner'"); // Fixed typo in table name
+        $statement = $connection->prepare("SELECT user_id,first_name , last_name FROM users WHERE role = 'restaurant_owner'"); // Fixed typo in table name
         $statement->execute();
         return $statement->fetchAll();
     }
@@ -38,7 +39,7 @@ if (!function_exists('delete_restaurant')) {
     function delete_restaurant(int $id): bool
     {
         global $connection;
-        $statement = $connection->prepare(" delete from restaurants WHERE res_id = :id");
+        $statement = $connection->prepare(" delete from restaurants WHERE id = :id");
         $statement->execute([
             ':id' => $id
         ]);
@@ -50,29 +51,12 @@ if (!function_exists('get_restaurant_one')) {
     function get_restaurant_one(int $id): array
     {
         global $connection;
-        $statement = $connection->prepare("select * from restaurants where res_id = :id");
+        $statement = $connection->prepare("select * from restaurants where id = :id");
         $statement->execute([':id' => $id]);
         return $statement->fetch();
     }
 }
 
-if (!function_exists('update_restaurant')) {
-    function update_restaurant(string $name, string $address, string $image, string $region, string $owner, int $id): bool
-    {
-        global $connection;
-        $statement = $connection->prepare("UPDATE restaurants SET res_name = :name,res_address = :address, restaurant_image_url = :image ,region = :region ,restaurant_owner_name = :owner WHERE res_id = :id");
-        $statement->execute([
-            ':name' => $name,
-            ':address' => $address,
-            ':image' => $image,
-            ':region' => $region,
-            ':owner' => $owner,
-            ':id' => $id
-        ]);
-
-        return $statement->rowCount() > 0;
-    }
-}
 if (!function_exists('delete_image_restaurant')) {
     function delete_image_restaurant($img)
     {

@@ -3,7 +3,7 @@
 require "../../../database/database.php";
 require "../../../models/admin/category/category.process.php";
 ?>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style>
     #video-background {
         position: fixed;
@@ -125,24 +125,40 @@ require "../../../models/admin/category/category.process.php";
 <div id="restar">
     <div class="restar-content">
         <div class="form-container">
-        <form action="../../../controllers/admin/category/update_category.controller.php?image=<?= $category['picture'] ?>" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="category_id" value="<?= $category['category_id'] ?>"> 
+        <form action="../../../controllers/admin/category/update_category.controller.php?image=<?= $category['image'] ?>" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="category_id" value="<?= $category['id'] ?>"> 
 
                 <div class="form-group">
                     <label for="names">Name:</label>
-                    <input type="text" class="form-control" id="names" name="category" value="<?= $category['category_name'] ?>" placeholder="Enter category name">
+                    <input type="text" class="form-control" id="names" name="category" value="<?= $category['name'] ?>" placeholder="Enter category name">
                 </div>
                 <div class="form-group">
                     <label >Choose Image:</label>
-                    <input type="text" class="border form-control" name="image_input" id="file-name" value="<?=$category['picture'] ?>">
+                    <input type="text" class="border form-control" name="image_input" id="file-name" value="<?=$category['image'] ?>">
                     <input type="file" class="border form-control" id="product_image_url" name="product_image_url">
                 </div>
                 <div class="form-group">
-                    <img id="old-image" src="../../../assets/images/categories/<?= $category['picture'] ?>" alt="Old Image">
+                    <img id="old-image" src="../../../assets/images/categories/<?= $category['image'] ?>" alt="Old Image">
                 </div>
-                <button type="submit">Update Category</button>
+                <button type="submit"onclick="mySuccess()" >Update Category</button>
                 <button type="button" onclick="window.history.back()">Cancel</button>
             </form>
         </div>
     </div>
 </div>
+<script>
+    function mySuccess() {
+        swal({
+            title: "Success",
+            text: "You are successful",
+            icon: "success",
+            buttons: false,
+            timer: 5000, // Adjust the duration as needed
+            showConfirmButton: false,
+            animation: "pop",
+            customClass: {
+                popup: 'animated tada'
+            }
+        });
+    }
+</script>

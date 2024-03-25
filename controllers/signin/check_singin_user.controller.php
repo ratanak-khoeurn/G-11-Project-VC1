@@ -69,6 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['manager'] = $user;
                 $_SESSION['role'] == 'manager';
                 header('location: /admin_admin');                
+            }elseif($user['role'] == 'delivery'){
+                $_SESSION['delivery'] = $user;
+                $_SESSION['role'] == 'delivery';
+                header('location: /admin_admin');                
             }
         } else {
             header('Location: /signin');

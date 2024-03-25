@@ -1,5 +1,6 @@
 <?php
 session_start();
+require "../../database/database.php";
 require "../../models/order/add.cart.model.php";
 if (isset($_GET['id']) && isset($_SESSION['user'])) {
 
@@ -36,6 +37,3 @@ if (isset($_GET['id']) && isset($_SESSION['user'])) {
         // Stop further execution
         exit;
     }
-    
-
-

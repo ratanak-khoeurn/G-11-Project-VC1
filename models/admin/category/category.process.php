@@ -5,11 +5,11 @@ if (!function_exists('create_category')) {
     function create_category(string $name, string $picture): bool
     {
         global $connection;
-        $statement = $connection->prepare("INSERT INTO categories ( category_name, picture) 
-        VALUES (:category_name, :picture)");
+        $statement = $connection->prepare("INSERT INTO category ( name, image) 
+        VALUES (:name, :image)");
         $statement->execute([
-            ':category_name' => $name,
-            ':picture' => $picture
+            ':name' => $name,
+            ':image' => $picture
         ]);
         return $statement->rowCount() > 0;
     }
@@ -19,7 +19,16 @@ if (!function_exists('get_category')) {
     function get_category(): array
     {
         global $connection;
-        $categories = $connection->prepare("SELECT * FROM categories ");
+        $categories = $connection->prepare("SELECT * FROM category ");
+        $categories->execute();
+        return $categories->fetchAll();
+    }
+}
+if (!function_exists('count_product')) {
+    function count_product(): array
+    {
+        global $connection;
+        $categories = $connection->prepare("SELECT * FROM category ");
         $categories->execute();
         return $categories->fetchAll();
     }
@@ -29,7 +38,7 @@ if (!function_exists('get_cate')) {
     function get_cate(int $id): array
     {
         global $connection;
-        $statement = $connection->prepare("select * from categories where category_id = :id");
+        $statement = $connection->prepare("select * from category where id = :id");
         $statement->execute([':id' => $id]);
         return $statement->fetch(); 
     }
@@ -39,7 +48,7 @@ if (!function_exists('update_category')) {
     function update_category(string $name, string $picture, int $id): bool
     {
         global $connection;
-        $statement = $connection->prepare("UPDATE categories SET category_name = :name, picture = :image WHERE category_id = :id");
+        $statement = $connection->prepare("UPDATE category SET name = :name, image = :image WHERE id = :id");
         $statement->execute([
             ':name' => $name,
             ':image' => $picture,
@@ -54,7 +63,7 @@ if (!function_exists('delete_category')) {
     function delete_category(int $id): bool
     {
         global $connection;
-        $statement = $connection->prepare(" delete from categories WHERE category_id = :id");
+        $statement = $connection->prepare(" delete from category WHERE id = :id");
         $statement->execute([
             ':id' => $id
         ]);

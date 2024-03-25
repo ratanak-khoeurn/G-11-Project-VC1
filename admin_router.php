@@ -14,8 +14,12 @@ $routes = [
     '/add_user'=> 'controllers/admin/add.user.controller.php',
     '/comment'=> 'controllers/admin/comment.controller.php',
     '/admin' => 'controllers/admin/admin_home.controller.php',
-
-
+    '/order' => 'controllers/admin/orders.controller.php',
+    '/done' => 'controllers/orders/done.controller.php',
+    '/inprogress'=> 'controllers/orders/inprogress.controller.php',
+    '/deliver_new_order'=>'controllers/deliverer/new_order.php',
+    '/history_deliver' => 'controllers/deliverer/history_order.controller.php',
+    '/direction' => 'controllers/deliverer/direction.controller.php',
 
 ];  
 

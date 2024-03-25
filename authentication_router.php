@@ -14,9 +14,6 @@ $routes = [
     // '/recover_passwrd'=> 'controllers/recoverpassword/recover_password.controller.php',
     // '/trainer-review' => 'controllers/reviews/review.controller.php',
     // '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
-
-
-
 ];
 
 if (array_key_exists($uri, $routes)) {
