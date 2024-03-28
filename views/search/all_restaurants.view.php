@@ -116,11 +116,7 @@ if (isset($_GET['user_id']) && isset($_GET['res_id'])) {
                                                 </ul>
                                                 </p>
                                             </div>
-                                            <div class="list-card-badge">
-                                                <span class="badge badge-danger">OFFER</span> <small>
-                                                    <?= $res['name'] ?>
-                                                </small>
-                                            </div>
+    
                                         </div>
                                     </div>
                                 </div>
