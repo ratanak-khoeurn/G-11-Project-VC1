@@ -63,9 +63,16 @@ require 'models/order/add.cart.model.php';
   <h1 class="title">HISTORY LISTS</h1>
   <hr>
   <div class="card_container">
-    <?php
-    $orders = manager_done($_SESSION['manager']['user_id']);
-    ?>
+  <?php
+    // Check if $_SESSION['manager']['user_id'] is set and not null
+    if(isset($_SESSION['manager']['user_id'])) {
+        $orders = manager_done($_SESSION['manager']['user_id']);
+    } else {
+        $orders = done_admin();
+    }
+    if(!empty($orders)) :
+?>
+  
     <div class="card_order">
       <div class="image" style="width:100%;height:150px;display:flex ;flex-direction:column;overflow-y: scroll;">
         <?php
@@ -96,6 +103,9 @@ require 'models/order/add.cart.model.php';
         </h4>
       </div>
     </div>
+    <?php
+      endif;
+    ?>
   </div>
 </div>
 <script>

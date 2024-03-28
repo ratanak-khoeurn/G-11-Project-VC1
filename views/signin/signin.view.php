@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,18 +36,17 @@
                     <form class="mt-5 mb-4" action="controllers/signin/check_singin_user.controller.php?sigin=2" method="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control" Name="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required />
-                            <span class="text-red-600" style="color: red;"><?=isset($_SESSION['worng_email'])? $_SESSION['worng_email'] : ""; ?></span>
-
+                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" required />
+                            <span class="text-red-600" style="color: red;"><?= isset($_SESSION['wrong_email']) ? $_SESSION['wrong_email'] : ""; ?></span>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="text-dark">Password</label>
                             <input type="password" placeholder="Enter Password" class="form-control" id="exampleInputPassword1" name="password" required />
-                            <span class="text-red-600" style="color: red;"><?=isset($_SESSION['wrong_password'])? $_SESSION['wrong_password'] : ""; ?></span>
-
+                            <span class="text-red-600" style="color: red;"><?= isset($_SESSION['wrong_password']) ? $_SESSION['wrong_password'] : ""; ?></span>
                         </div>
                         <button class="btn btn-lg btn-block" style="background-color:#E21B70;color:white">SIGN IN</button>
                     </form>
+
                     <a href="views/recoverpassword/forgot_password.php" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>
                     </a>

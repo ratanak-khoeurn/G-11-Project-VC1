@@ -1,59 +1,3 @@
-<!-- 
-if (!function_exists('get_order')) {
-    function get_order(): array
-    {
-        global $connection;
-        $statement = $connection->prepare("
-    SELECT 
-        orders.order_id, 
-        products.product_img AS product_image, 
-        products.product_name AS product_name, 
-        products.price AS product_price, 
-        products.discount AS product_discount, 
-        restaurants.delivery AS restaurant_delivery 
-    FROM 
-        orders 
-    INNER JOIN 
-        products ON orders.product_id = products.id 
-    INNER JOIN 
-        restaurants ON orders.res_id = restaurants.id
-");
-
-        $statement->execute();
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
-    }
-}
-
-
-if (!function_exists('add_to_cart')) {
-    function add_to_cart(int $user_id, int $res_id, int $product_id): bool
-    {
-        global $connection;
-        $statement = $connection->prepare("INSERT INTO orders (res_id,product_id,user_id) VALUES (:user_id, :res_id, :product_id)");
-
-        return $statement->execute([
-            ":user_id" => $user_id,
-            ":res_id" => $res_id,
-            ":product_id" => $product_id,
-        ]);
-    }
-}
-
-if (!function_exists('count_order')) {
-    function count_order(): int
-    {
-        global $connection;
-
-        // Prepare the SQL statement to count the number of rows in the orders table
-        $statement = $connection->prepare("SELECT COUNT(*) AS order_count FROM orders");
-
-        // Execute the SQL statement
-        $statement->execute();
-
-        // Fetch the result (count) directly from the statement and return it
-        return (int) $statement->fetchColumn();
-    }
-} -->
 
 <?php
 if (!function_exists('get_order')) {
@@ -76,10 +20,11 @@ if (!function_exists('get_delivery')) {
         $statement->execute([
             ':id' => $id
         ]);
-        $result = $statement->fetch(PDO::FETCH_ASSOC); // Fetch as associative array
-        return $result['delivery']; // Return the delivery fee
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return (int)$result['delivery'];
     }
 }
+
 
 if (!function_exists('add_orders')) {
     function add_orders(int $res_id,int $user_id,int $productId,int $quantity,string $totalPrice,string $action, string $total): bool
@@ -125,6 +70,15 @@ if (!function_exists('accept_order')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('accept_order_admin')) {
+    function accept_order_admin(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM orders WHERE  to_pay = 'true' and action ='0'");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
 
 if (!function_exists('get_accept')) {
     function get_accept(int $manager_id): array
@@ -150,6 +104,35 @@ if (!function_exists('inprogress')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('inprogress_admin')) {
+    function inprogress_admin(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM orders WHERE  to_pay = 'true' and action ='1'");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
+if (!function_exists('inprogress_customer')) {
+    function inprogress_customer(int $id): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM orders WHERE  action ='0' or action = '1' and  user_id= :id");
+        $statement->execute([
+            ':id'=> $id
+        ]);
+        return $statement->fetchAll();
+    }
+}
+if (!function_exists('accept_order_admin')) {
+    function accept_order_admin(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM orders WHERE res_id where to_pay = 'true' and action ='1'");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
 if (!function_exists('done')) {
     function done(): array
     {
@@ -159,9 +142,18 @@ if (!function_exists('done')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('done_admin')) {
+    function done_admin(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * FROM orders where action = '1' ");
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+}
 
-if (!function_exists('get_delivery')) {
-    function get_delivery(): array
+if (!function_exists('get_deliveries')) {
+    function get_deliveries(): array
     {
         global $connection;
         $statement = $connection->prepare("SELECT * FROM orders WHERE res_id IN (SELECT id FROM restaurants WHERE manager_id = :manager_id) AND to_pay = 'true' and action ='2'");
@@ -169,6 +161,16 @@ if (!function_exists('get_delivery')) {
         return $statement->fetchAll();
     }
 }
+if (!function_exists('count_delivery_order')) {
+    function count_delivery_order(): int
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT COUNT(*) FROM orders WHERE to_pay = 'true' AND action = '1'");
+        $statement->execute();
+        return $statement->fetchColumn();
+    }
+}
+
 
 if (!function_exists('inprogress_delivery')) {
     function inprogress_delivery(int $deliver_id,int $id): array
@@ -230,6 +232,92 @@ if (!function_exists('manager_done')) {
         return $statement->fetchAll();
     }
 }
+
+if (!function_exists('count_restaurants')) {
+    function count_restaurants(): int
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT COUNT(DISTINCT id) FROM restaurants");
+        $statement->execute();
+        return (int) $statement->fetchColumn();
+    }
+}
+if (!function_exists('count_category')) {
+    function count_category(): int
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT COUNT(DISTINCT id) FROM category");
+        $statement->execute();
+        return (int) $statement->fetchColumn();
+    }
+}
+
+if (!function_exists('count_product')) {
+    function count_product(): int
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT COUNT(DISTINCT id) FROM products");
+        $statement->execute();
+        return (int) $statement->fetchColumn();
+    }
+}
+
+if (!function_exists('count_order')) {
+    function count_order(): int
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT COUNT(DISTINCT order_id) FROM orders");
+        $statement->execute();
+        return (int) $statement->fetchColumn();
+    }
+}
+if (!function_exists('restaurant')) {
+    function restaurant(): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT * from restaurants");
+        $statement->execute();
+        return  $statement->fetchAll();
+    }
+}
+if (!function_exists('product_name')) {
+    function product_name(int $id): array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT products.product_name
+                                           FROM products 
+                                           INNER JOIN orders 
+                                           ON products.id = orders.product_id 
+                                           WHERE orders.user_id = :id");
+        $statement->bindParam(':id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+}
+if (!function_exists('product_name')) {
+    function product_name($user_id): string
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT restaurants.name AS restaurant_name
+                                           FROM products 
+                                           INNER JOIN orders 
+                                           ON products.id = orders.product_id 
+                                           INNER JOIN restaurants 
+                                           ON orders.res_id = restaurants.id
+                                           WHERE orders.user_id = :id");
+        $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
+        $statement->execute();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        return $result && isset($result['restaurant_name']) ? $result['restaurant_name'] : '';
+    }
+}
+
+
+
+
+
+
 
 
 

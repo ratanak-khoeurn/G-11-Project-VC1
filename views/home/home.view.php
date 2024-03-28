@@ -1,7 +1,7 @@
 <?php
 require 'database/database.php';
 require 'models/admin/category/category.process.php';
-// session_start();
+require 'models/order/add.cart.model.php';
 $_SESSION['order']= null;
 ?>
 <div class="osahan-home-page">
@@ -47,14 +47,14 @@ $_SESSION['order']= null;
     <video autoplay muted loop style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
       <source src="assets/images/Delivery03.mp4" type="video/mp4">
     </video>
-    <div class="container" style="display:flex;flex-direction:column; left: 54%;top:10%; width: 500px; z-index: 1; color: white; position: absolute; background: wheate; backdrop-filter: blur(10px); height: 75%;box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3); ">
-      <span style="color:black;font-size:40px;padding-top:10%">WELCOME EVERYONE</span>
-      <p>You can order a lot of foods at this website with <span style="color:#E21B70">TRUST SAFE AND FASTLY with
-          QUALITY 100%</span></p>
-      <p>Enjoy our fast delivery service with guaranteed freshness and quality.</p>
-      <h3 style="color:black">The best delivery for you is <br><span style="color:#E21B70;font-weight:bold;font-size:50px">GO-FOOD</span>.</h3>
-    </div>
-  </div>
+    <div class="container" style="display: flex; flex-direction: column; right: 12%; top: 10%; width: 500px; z-index: 1; color: #333; position: absolute; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); border-radius: 10px; padding: 20px; text-align: left; font-family: 'Arial', sans-serif;">
+    <span style="font-size: 48px; font-weight: bold; color: #E21B70; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Welcome Everyone</span>
+    <p style="font-size: 20px; margin-top: 20px;">Order a variety of delicious foods from our website with trust, safety, and speed - guaranteed quality!</p>
+    <h3 style="font-size: 36px; color: #E21B70; margin-top: 20px;">Order Now with <br><span style="font-weight: bold;font-size:50px">Gofood</span></h3>
+</div>
+
+</div>
+
   <style>
     .bg-theme-black {
 
@@ -107,10 +107,7 @@ $_SESSION['order']= null;
   </style>
 </div>
 <div class="container">
-  <div class="pt-4 pb-2 title d-flex align-items-center">
-    <h5 class="m-0">Trending this week</h5>
-    <a class="font-weight-bold ml-auto" href="trending.html">View all <i class="feather-chevrons-right"></i></a>
-  </div>
+  
   <div class="trending-slider">
     <div class="osahan-slider-item">
       <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -124,14 +121,14 @@ $_SESSION['order']= null;
           <div class="member-plan position-absolute">
             <span class="badge badge-dark">Promoted</span>
           </div>
-          <a href="/restaurant">
+          <a href="/all_restaurants">
             <img alt="#" src="assets/images/trending1.png" class="img-fluid item-img w-100" />
           </a>
         </div>
         <div class="p-3 position-relative">
           <div class="list-card-body">
             <h6 class="mb-1">
-              <a href="/restaurant" class="text-black">Famous Dave's Bar-B-Que
+              <a href="/all_restaurants" class="text-black">Famous Dave's Bar-B-Que
               </a>
             </h6>
             <p class="text-gray mb-3">Vegetarian • Indian • Pure veg</p>
@@ -160,14 +157,14 @@ $_SESSION['order']= null;
           <div class="member-plan position-absolute">
             <span class="badge badge-dark">Promoted</span>
           </div>
-          <a href="/restaurant">
+          <a href="/all_restaurants">
             <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100" />
           </a>
         </div>
         <div class="p-3 position-relative">
           <div class="list-card-body">
             <h6 class="mb-1">
-              <a href="/restaurant" class="text-black">Thai Famous Cuisine</a>
+              <a href="/all_restaurants" class="text-black">Thai Famous Cuisine</a>
             </h6>
             <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
             <p class="text-gray mb-3 time">
@@ -195,13 +192,13 @@ $_SESSION['order']= null;
           <div class="member-plan position-absolute">
             <span class="badge badge-dark">Promoted</span>
           </div>
-          <a href="/restaurant"><img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100" />
+          <a href="/all_restaurants"><img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100" />
           </a>
         </div>
         <div class="p-3 position-relative">
           <div class="list-card-body">
             <h6 class="mb-1">
-              <a href="/restaurant" class="text-black">The osahan Restaurant
+              <a href="/all_restaurants" class="text-black">The osahan Restaurant
               </a>
             </h6>
             <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
@@ -230,14 +227,14 @@ $_SESSION['order']= null;
           <div class="member-plan position-absolute">
             <span class="badge badge-dark">Promoted</span>
           </div>
-          <a href="/restaurant">
+          <a href="/all_restaurants">
             <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100" />
           </a>
         </div>
         <div class="p-3 position-relative">
           <div class="list-card-body">
             <h6 class="mb-1">
-              <a href="/restaurant" class="text-black">Thai Famous Cuisine</a>
+              <a href="/all_restaurants" class="text-black">Thai Famous Cuisine</a>
             </h6>
             <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
             <p class="text-gray mb-3 time">
@@ -272,14 +269,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">The osahan Restaurant
+                <a href="/all_restaurants" class="text-black">The osahan Restaurant
                 </a>
               </h6>
               <p class="text-gray mb-1 small">• North • Hamburgers</p>
@@ -314,14 +311,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/popular2.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">Thai Famous Indian Cuisine</a>
+                <a href="/all_restaurants" class="text-black">Thai Famous Indian Cuisine</a>
               </h6>
               <p class="text-gray mb-1 small">• Indian • Pure veg</p>
               <p class="text-gray mb-1 rating"></p>
@@ -354,14 +351,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/popular3.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">The osahan Restaurant
+                <a href="/all_restaurants" class="text-black">The osahan Restaurant
                 </a>
               </h6>
               <p class="text-gray mb-1 small">• Hamburgers • Pure veg</p>
@@ -396,14 +393,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/popular4.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">Bite Me Now Sandwiches</a>
+                <a href="/all_restaurants" class="text-black">Bite Me Now Sandwiches</a>
               </h6>
               <p class="text-gray mb-1 small">American • Pure veg</p>
               <p class="text-gray mb-1 rating"></p>
@@ -439,13 +436,13 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant"><img alt="#" src="assets/images/popular5.png" class="img-fluid item-img w-100" />
+            <a href="/all_restaurants"><img alt="#" src="assets/images/popular5.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">The osahan Restaurant
+                <a href="/all_restaurants" class="text-black">The osahan Restaurant
                 </a>
               </h6>
               <p class="text-gray mb-1 small">• North • Hamburgers</p>
@@ -480,14 +477,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/popular6.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">Thai Famous Indian Cuisine</a>
+                <a href="/all_restaurants" class="text-black">Thai Famous Indian Cuisine</a>
               </h6>
               <p class="text-gray mb-1 small">• Indian • Pure veg</p>
               <p class="text-gray mb-1 rating"></p>
@@ -521,14 +518,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/popular7.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">The osahan Restaurant
+                <a href="/all_restaurants" class="text-black">The osahan Restaurant
                 </a>
               </h6>
               <p class="text-gray mb-1 small">• Hamburgers • Pure veg</p>
@@ -563,14 +560,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/popular8.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">Bite Me Now Sandwiches</a>
+                <a href="/all_restaurants" class="text-black">Bite Me Now Sandwiches</a>
               </h6>
               <p class="text-gray mb-1 small">American • Pure veg</p>
               <p class="text-gray mb-1 rating"></p>
@@ -612,14 +609,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/sales1.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">The osahan Restaurant
+                <a href="/all_restaurants" class="text-black">The osahan Restaurant
                 </a>
               </h6>
               <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
@@ -649,14 +646,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/sales2.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">Thai Famous Cuisine</a>
+                <a href="/all_restaurants" class="text-black">Thai Famous Cuisine</a>
               </h6>
               <p class="text-gray mb-3">
                 North Indian • Indian • Pure veg
@@ -686,14 +683,14 @@ $_SESSION['order']= null;
             <div class="member-plan position-absolute">
               <span class="badge badge-dark">Promoted</span>
             </div>
-            <a href="/restaurant">
+            <a href="/all_restaurants">
               <img alt="#" src="assets/images/sales3.png" class="img-fluid item-img w-100" />
             </a>
           </div>
           <div class="p-3 position-relative">
             <div class="list-card-body">
               <h6 class="mb-1">
-                <a href="/restaurant" class="text-black">The osahan Restaurant
+                <a href="/all_restaurants" class="text-black">The osahan Restaurant
                 </a>
               </h6>
               <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>

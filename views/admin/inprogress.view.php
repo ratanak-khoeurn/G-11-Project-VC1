@@ -63,9 +63,14 @@ require 'models/order/add.cart.model.php';
   <h1 class="title">INPROGRESS LISTS</h1>
   <hr>
   <div class="card_container">
-    <?php
-    $orders = inprogress($_SESSION['manager']['user_id']);
-    ?>
+  <?php
+    if(isset($_SESSION['manager']['user_id'])) {
+        $orders = inprogress($_SESSION['manager']['user_id']);
+    } else {
+        $orders = inprogress_admin();
+    }
+?>
+
     <?php foreach ($orders as $order): ?>
         <div class="card_order">
             <div class="image" style="width:100%;height:70px;display:flex;align-items:center;justify-content:space-between;">
@@ -78,7 +83,7 @@ require 'models/order/add.cart.model.php';
                 <h4>Phone: <?= $order['phone'] ?></h4>
                 <h4>Location: <?= $order['location'] ?></h4>
                 <div class="action">
-                    <a href="#" class="yes" style="display: inline-block; padding: 8px 12px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;width:100%">In Progress.....</a>
+                    <a href="#" class="yes" style="display: inline-block; padding: 8px 12px; background-color: #E21B70; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;width:100%">In Progress.....</a>
                 </div>
             </div>
         </div>

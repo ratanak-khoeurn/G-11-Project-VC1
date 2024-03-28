@@ -138,12 +138,29 @@ require "models/order/add.cart.model.php"
         </div>
         <div class="col-8">
           <div class="d-flex align-items-center justify-content-end pr-5">
-            <a href="/all_restaurants" class="widget-header mr-4 text-white">
+            <a href="/all_restaurants" class="widget-header mr-4 text-white" style="color: #E21B70; text-decoration: none; padding: 7px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); transition: background-color 0.3s ease;">
               <div class="icon d-flex align-items-center">
                 <i class="feather-search h6 mr-2 mb-0"></i>
-                <span>Restaurants</span>
+                <span style="font-weight: bold;">Restaurants</span>
               </div>
             </a>
+            <!-- <style>
+  /* .widget-header:hover {
+    background-color: #fadbd8;
+  } */
+
+  /* .widget-header i:hover {
+    color: #e21b70;
+  } */
+
+  /* .widget-header span:hover {
+    color: #e21b70;
+  } */
+</style> -->
+
+
+
+
 
             <a href="<?php echo isset($_SESSION['user']) ? '/offers' : 'javascript:void(0)'; ?>" id="offers" class="widget-header mr-4 text-white golden-btn widget-header mr-4 text-dark btn m-none">
               <div class="icon d-flex align-items-center">
@@ -190,7 +207,7 @@ require "models/order/add.cart.model.php"
 
             <a href="<?php echo isset($_SESSION['user']) ? '/checkout' : 'javascript:void(0);'; ?>" id="cartLink" class="widget-header mr-4 text-white">
               <div class="icon d-flex align-items-center">
-              <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+                <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
                 <span>Cart</span>
                 <?php
                 if (isset($_SESSION['order'])) {

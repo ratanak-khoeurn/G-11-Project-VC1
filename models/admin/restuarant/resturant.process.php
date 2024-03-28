@@ -67,3 +67,17 @@ if (!function_exists('delete_image_restaurant')) {
         }
     }
 }
+if (!function_exists('get_logo_restaurant')) {
+    function get_logo_restaurant(int $id):array
+    {
+        global $connection;
+        $statement = $connection->prepare("SELECT r.name, r.image
+        FROM restaurants AS r
+        JOIN users AS u ON r.manager_id = u.user_id
+        WHERE u.user_id = :id");
+        $statement->execute([':id' => $id]);
+        return $statement->fetch();
+        
+        }
+    }
+

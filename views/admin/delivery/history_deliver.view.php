@@ -95,22 +95,22 @@ require 'models/order/add.cart.model.php';
           <?= $orders[0]['location'] ?>
         </h4>
         <?php 
-          if($orders[0]['delivery_action']==null):
+          if($orders[0]['delivery_action']!= 'done'):
         ?>
         <div class="action">
             <a href="controllers/deliverer/done_deliver.controller.php" class="yes"
-            style="display: inline-block; padding: 8px 12px; background-color: #4CAF50; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;width:100%">Done</a>
+            style="display: inline-block; padding: 8px 12px; background-color: #E21B70; color: white; text-align: center; text-decoration: none; display: inline-block; border-radius: 4px; border: none; cursor: pointer;width:100%">Done</a>
         </div>
         <?php
         endif;
         ?>
-
+      <?php
+        endif
+      ?>
 
       </div>
     </div>
-    <?php
-        endif;
-    ?>
+  
   </div>
 </div>
 <script>

@@ -50,8 +50,11 @@ require 'models/order/add.cart.model.php';
     margin-top: 5px;
   }
 
-  .yes {
-    background: blue;
+  .yes button{
+    background: #E21B70;
+    color: white;
+    padding: 5px 5px  ;
+    border-radius: 4px;
   }
 
   .delete-icon {
@@ -64,9 +67,18 @@ require 'models/order/add.cart.model.php';
   <hr>
   <div class="card_container">
     <?php
-    $orders = accept_order($_SESSION['manager']['user_id']);
-    if (!empty($orders)) :
+    if(isset($_SESSION['manager']) && $_SESSION['manager']) {
+      $orders = accept_order($_SESSION['manager']['user_id']);
+    } elseif(isset($_SESSION['admin']) && $_SESSION['admin']) {
+      // Make sure accept_order_admin() function exists before calling it
+      if(function_exists('accept_order_admin')) {
+        $orders = accept_order_admin();
+      } else {
+        $orders = array(); 
+      }
+    }
 
+    if (!empty($orders)) :
     ?>
     <div class="card_order">
       <div class="image" style="width:100%;height:150px;display:flex ;flex-direction:column;overflow-y: scroll;">
@@ -121,10 +133,9 @@ require 'models/order/add.cart.model.php';
             method: 'DELETE'
           })
             .then(response => {
-              if (confirm) {
+              if (response.ok) {
                 console.log(1);
                 this.closest('.card_container').remove();
-
               } else {
                 console.error('Failed to delete customer.');
               }

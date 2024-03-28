@@ -25,6 +25,7 @@
 
         .main {
             display: flex;
+            height: 5px;
             width: 90%;
             justify-content: space-between;
             padding-left: 30px;

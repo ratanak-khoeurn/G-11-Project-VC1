@@ -3,19 +3,6 @@ require "database/database.php";
 require "models/admin/products/product.model.php";
 global $connection; 
 
-// Assuming $_SESSION['admin'] determines if the user is an admin or not
-// if (isset($_SESSION['admin'])) {
-//     $sql = "SELECT products.res_id, restaurants.res_name FROM products
-//             INNER JOIN restaurants ON products.res_id = restaurants.res_id";
-//     $statement = $connection->prepare($sql);
-//     $statement->execute();
-//     $restaurants = $statement->fetchAll(PDO::FETCH_ASSOC);
-// } else {
-//     session_start();
-//     $res_id = $_SESSION['res_id'];  
-//     $res_name = $_SESSION['res_names'];
-//     $restaurants = array(array('res_id' => $res_id, 'res_name' => $res_name));
-// }
 ?>
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <link rel="stylesheet" href="../../vendor/css/product_form.css">
@@ -23,8 +10,10 @@ global $connection;
 <script src="../../../vendor/js/search_product.js" defer></script>
 
 <div class="container">
-  <button class="btn-add" style="background:#E21B70;margin-top:20px;">Add Product +</button>
-  <input type="text" class="search_btn" name="search_box" placeholder="Search products here.............">
+  <div class="nav" style="display:flex;justify-content:space-between">
+    <button class="btn-add" style="background:#E21B70;margin-top:20px;">Add Product +</button>
+    <input style="margin-top: 20px;" type="text" class="search_btn" name="search_box" placeholder="Search products here.............">
+  </div>
   <hr>
   <div class="manin-card" style="overflow: auto; max-height: 700px;">
     <?php
@@ -87,9 +76,9 @@ global $connection;
             <?php } ?>
           </select>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="width:80%">
           <label for="category_name">Category Type</label>
-          <select class="form-control" id="name" name="category_name" required>
+          <select style="width:100%;height:40px" class="form-control" id="name" name="category_name" required>
           <option value="" selected disabled>Select Category</option>
             <?php
             foreach ($categories as $category) {
@@ -146,10 +135,9 @@ global $connection;
   .search_btn {
     background-color: #E21B70;
     color: white;
-    margin-left: 49%;
     width: 30%;
-    padding: 12px;
-    border-radius: 20px;
+    padding: 14px;
+    border-radius: 5px;
   }
 
   .btn-add {
@@ -173,6 +161,23 @@ global $connection;
     border-right: 1px solid #2e2a2a;
     color: black;
   }
+  input[type="file"]::-webkit-file-upload-button {
+  background-color: #E21B70;
+  color: white;
+  border: 0px;
+  border-right: 1px solid #050505;
+  padding: 10px 5px;
+  margin-right: 20px;
+  transition: .5s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #E21B70;
+  border: 0px;
+  border-right: 1px solid #2e2a2a;
+  color: black;
+}
+
 
   .popup {
 
