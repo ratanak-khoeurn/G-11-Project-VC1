@@ -74,10 +74,8 @@ require 'models/order/add.cart.model.php';
     text-align: center;
 }
 
-
-/* Hover styles */
 .action a:hover {
-    opacity: 0.8; /* Reduce opacity on hover */
+    opacity: 0.8; 
 }
 
 </style>

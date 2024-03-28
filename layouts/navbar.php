@@ -144,18 +144,20 @@ require "models/order/add.cart.model.php"
                 <span style="font-weight: bold;">Restaurants</span>
               </div>
             </a>
-            <style>
-              .widget-header:hover {
-                background-color: #FADBD8;
-              }
-              .widget-header i :hover{
-                color: #E21B70;
-              }
-              .widget-header span:hover{
-                color: #E21B70;
+            <!-- <style>
+  /* .widget-header:hover {
+    background-color: #fadbd8;
+  } */
 
-              }
-            </style>
+  /* .widget-header i:hover {
+    color: #e21b70;
+  } */
+
+  /* .widget-header span:hover {
+    color: #e21b70;
+  } */
+</style> -->
+
 
 
 

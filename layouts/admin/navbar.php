@@ -2,6 +2,9 @@
 <?php
 require "./database/database.php";
 require "./models/admin/restuarant/resturant.process.php";
+require "./models/comments/comments.model.php";
+require './models/order/add.cart.model.php';
+
 ?>
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
@@ -12,16 +15,17 @@ require "./models/admin/restuarant/resturant.process.php";
                 <a href="#" class="logo-wrapper" title="Home">
                     <span class="sr-only">Home</span>
                     <?php
-                    $names = get_logo_restaurant($_SESSION['manager']['user_id']);
-
+                    if (isset($_SESSION['manager']['user_id'])) {
+                        $names = get_logo_restaurant($_SESSION['manager']['user_id']);
+                    }
                     ?>
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
                         <?php if (isset($_SESSION['admin'])) : ?>
                             <img src="../../assets/images/logo_web.png" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
                         <?php elseif (isset($_SESSION['manager'])) : ?>
-                            <img src="../../assets/images/restaurant/<?=$names['image']?>" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
-                            <span style="margin-top: 15px;"><?=$names['name'] ?></span>
+                            <img src="../../assets/images/restaurant/<?= $names['image'] ?>" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
+                            <span style="margin-top: 15px;"><?= $names['name'] ?></span>
                         <?php else : ?>
                             <img src="../../assets/images/logo_web.png" alt="" style="width: 80px; height: 80px; border-radius: 50%; margin-right: 10px">
                         <?php endif; ?>
@@ -41,6 +45,7 @@ require "./models/admin/restuarant/resturant.process.php";
                         </li>
                         <li>
                             <a class="active" href="/deliver_new_order"><span class="icon home" aria-hidden="true"></span>New order</a>
+                            <span class="msg-counter"><?=count_delivery_order() ?></span>
                         </li>
                         <li>
                             <a class="active" href="/history_deliver"><span class="icon home" aria-hidden="true"></span>History</a>
@@ -96,17 +101,53 @@ require "./models/admin/restuarant/resturant.process.php";
                                 <li>
                                     <a class="show-cat-btn" href="##">
                                         <span class="icon paper" aria-hidden="true"></span>Orders
-                                        <span class="category__btn transparent-btn" title="Open list">
-                                            <span class="sr-only">Open list</span>
-                                            <span class="icon arrow-down" aria-hidden="true"></span>
+                                        <span class="msg-counter">
+                                            <?php
+                                            if (isset($_SESSION['user']['role'])) {
+                                                if ($_SESSION['user']['role'] == 'admin') {
+                                                    echo count(accept_order_admin());
+                                                } else {
+                                                    if (isset($_SESSION['manager']['user_id'])) {
+                                                        $inprogressCount = count(inprogress($_SESSION['manager']['user_id']));
+                                                    } else {
+                                                        $inprogressCount = 0; 
+                                                    }
+                                                    echo count(accept_order_admin()) + $inprogressCount;
+                                                }
+                                            } else {
+                                                echo 'Error: User role not set';
+                                            }
+                                            ?>
+                                        </span>
+
                                         </span>
                                     </a>
                                     <ul class="cat-sub-menu">
                                         <li>
                                             <a href="/order">New Order</a>
+                                            <span class="msg-counter"><?= count(accept_order_admin()) ?></span>
+
                                         </li>
                                         <li>
                                             <a href="/inprogress">In Progress</a>
+                                            <span class="msg-counter">
+                                                <?php
+                                                if (isset($_SESSION['user']['role'])) {
+                                                    if ($_SESSION['user']['role'] == 'admin') {
+                                                        echo count(accept_order_admin());
+                                                    } else {
+                                                        if (isset($_SESSION['manager']['user_id'])) {
+                                                            $inprogressCount = count(inprogress($_SESSION['manager']['user_id']));
+                                                        } else {
+                                                            $inprogressCount = 0; // Set a default value if $_SESSION['manager']['user_id'] is null
+                                                        }
+                                                        echo $inprogressCount;
+                                                    }
+                                                } else {
+                                                    echo 'Error: User role not set';
+                                                }
+                                                ?>
+                                            </span>
                                         </li>
                                         <li>
                                             <a href="/done">Order Done</a>
@@ -116,11 +157,9 @@ require "./models/admin/restuarant/resturant.process.php";
                                     <a href="/comment">
                                         <span class="icon message" aria-hidden="true"></span>Comments
                                     </a>
-                                    <span class="msg-counter">7</span>
+                                    <span class="msg-counter"><?= count(get_comment()) ?></span>
                                 </li>
                                 <li>
-                                    <a href="#"><span class="icon setting" aria-hidden="true"></span>Settings</a>
-                                </li>
                             </ul>
                         </div>
                     <?php

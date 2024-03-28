@@ -18,6 +18,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $password = htmlspecialchars($_POST['password']); // Simple password
         $profile = $_FILES['profile'];
 
+        // Basic form validation
+        if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($profile['name'])) {
+            echo "Please fill in all fields.";
+            exit();
+        }
+
         // Validate file upload
         if ($profile['size'] > 0 && in_array(pathinfo($profile['name'], PATHINFO_EXTENSION), array("png", "jpeg", "jpg"))) {
             $uploadDir = '../../assets/images/user/';
@@ -49,38 +55,65 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } elseif (isset($_GET['sigin'])) {
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
-        $user = getUser($email);
-        // var_dump($user);
 
-        if ($user) { 
-            // $_SESSION['user'] = $user;
+        // Basic form validation
+        if (empty($email) || empty($password)) {
+            echo "Please fill in all fields.";
+            exit();
+        }
+
+        $user = getUser($email);
+        var_dump($user);
+        if ($user) {
+            $_SESSION['user'] = $user;
 
             if ($user['role'] == 'admin') {
-                $_SESSION['admin'] = $user;
-                $_SESSION['role'] == 'admin';
-                header('Location: /admin_admin');
-                $_SESSION['login_admin'] = 'login';
-                exit();
+                if ($user['password'] == $password) {
+                    $_SESSION['admin'] = $user;
+                    $_SESSION['role'] = 'admin';
+                    header('Location: /admin_admin');
+                    $_SESSION['login_admin'] = 'login';
+                    exit();
+                } else {
+                    $_SESSION['wrong_password'] = ($user && $user['password'] == $password) ? '' : 'wrong password';
+                    header('Location: /signin');
+                }
             } elseif ($user['role'] == 'user') {
-                $_SESSION['user'] = $user;
-                header('Location: /');
-                exit();
-            }elseif($user['role'] == 'restaurant_owner'){
-                $_SESSION['manager'] = $user;
-                $_SESSION['role'] == 'manager';
-                header('location: /admin_admin');                
-            }elseif($user['role'] == 'delivery'){
-                $_SESSION['delivery'] = $user;
-                $_SESSION['role'] == 'delivery';
-                header('location: /admin_admin');                
+                if ($user['password'] == $password) {
+
+                    $_SESSION['user'] = $user;
+                    header('Location: /');
+                    exit();
+                } else {
+                    $_SESSION['wrong_password'] = ($user && $user['password'] == $password) ? '' : 'wrong password';
+                    header('Location: /signin');
+                }
+            } elseif ($user['role'] == 'restaurant_owner') {
+                if ($user['password'] == $password) {
+
+                    $_SESSION['manager'] = $user;
+                    $_SESSION['role'] = 'manager'; // Fixed typo (changed '==' to '=')
+                    header('Location: /admin_admin');
+                } else {
+                    $_SESSION['wrong_password'] = ($user && $user['password'] == $password) ? '' : 'wrong password';
+                    header('Location: /signin');
+                }
+            } elseif ($user['role'] == 'delivery') {
+                if ($user['password'] == $password) {
+
+                    $_SESSION['delivery'] = $user;
+                    $_SESSION['role'] = 'delivery'; // Fixed typo (changed '==' to '=')
+                    header('Location: /admin_admin');
+                } else {
+                    $_SESSION['wrong_password'] = ($user && $user['password'] == $password) ? '' : 'wrong password';
+                    header('Location: /signin');
+                }
             }
         } else {
             header('Location: /signin');
-            $_SESSION['wrong_email'] = $user ? '' : 'wrong email';
-            $_SESSION['wrong_password'] = $user ? 'wrong password' : '';
+            $_SESSION['wrong_email'] = ($user ? '' : 'wrong email');
             $_SESSION['login_admin'] = '';
             exit();
         }
     }
 }
-?>

@@ -1,4 +1,5 @@
 <?php
+if (!function_exists('store_comment')) {
 
 function store_comment(int $user_id, string $content): bool
 {
@@ -11,6 +12,9 @@ function store_comment(int $user_id, string $content): bool
     return $statement->rowCount() > 0;
 }
 
+}
+if (!function_exists('get_comment')) {
+
 function get_comment(): array
 {
     global $connection;
@@ -20,4 +24,4 @@ function get_comment(): array
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
-
+}

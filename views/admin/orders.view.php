@@ -74,7 +74,7 @@ require 'models/order/add.cart.model.php';
       if(function_exists('accept_order_admin')) {
         $orders = accept_order_admin();
       } else {
-        $orders = array(); // Set orders to an empty array if accept_order_admin() doesn't exist
+        $orders = array(); 
       }
     }
 

@@ -13,6 +13,7 @@ require_once "models/comments/comments.model.php";
                         style="width: 100%; display:flex; flex-wrap: wrap;gap:25px; margin-bottom:15px">
                         <?php
                         $categories = select_product($_GET['name']);
+                        if(!empty($categories)):
                         foreach ($categories as $category) {
                                 ?>
                                 <div class="osahan-slider-item" style="width: 250px; margin-top: 0px; margin-bottom:10px">
@@ -45,7 +46,13 @@ require_once "models/comments/comments.model.php";
                                         </div>
                                     </div>
                                 </div>
-                            <?php }?>
+                            <?php };else:
+
+                            ?>
+<img src="assets/images/error.png" alt="" style="width:30%;height:30%;margin:auto;margin-bottom: 10px;">
+                            <?php
+                                endif;
+                            ?>
                     </div>
                 
     </div>

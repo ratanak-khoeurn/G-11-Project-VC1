@@ -43,7 +43,7 @@ require "models/comments/comments.model.php";
                                 <?= $comment['content'] ?>
                             </td>
                             <td>
-                                <?= $comment['user'] ?>
+                                <?= $comment['first_name'].' '.$comment['last_name'] ?>
                             </td>
                             <td>
                                 <?= $comment['date'] ?>
