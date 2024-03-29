@@ -31,55 +31,55 @@ $inprogress = inprogress_customer($_SESSION['user']['user_id']);
             </div>
             <div class="tab-content col-md-9" id="myTabContent">
                 <div class="tab-pane fade show active" id="completed" role="tabpanel" aria-labelledby="completed-tab">
-                    
+
                     <div class="tab-pane fade" id="progress" role="tabpanel" aria-labelledby="progress-tab">
                         <?php
-                            foreach($inprogress as $item) :
+                        foreach ($inprogress as $item) :
                         ?>
-                        <div class="pb-3">
-                            <div class="p-3 rounded shadow-sm bg-white">
-                                <div class="d-flex border-bottom pb-3">
-                                    <div class="text-muted mr-3">
-                                        <img alt="#" src="assets/images/popular2.png" class="img-fluid order_img rounded">
+                            <div class="pb-3">
+                                <div class="p-3 rounded shadow-sm bg-white">
+                                    <div class="d-flex border-bottom pb-3">
+                                        <div class="text-muted mr-3">
+                                            <img alt="#" src="assets/images/popular2.png" class="img-fluid order_img rounded">
+                                        </div>
+                                        <div>
+                                            <p class="mb-0">Punjab, India</p>
+                                            <p>ORDER #321DERS</p>
+                                            <?php
+                                            ?>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <p class="bg-warning text-white py-1 px-2 rounded small mb-1">On Process</p>
+                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i>
+                                                <?= $item['date'] ?></p>
+                                        </div>
                                     </div>
-                                    <div>
-                                        <p class="mb-0">Punjab, India</p>
-                                        <p>ORDER #321DERS</p>
-                                        <?php
-                                        ?>
-                                    </div>
-                                    <div class="ml-auto">
-                                        <p class="bg-warning text-white py-1 px-2 rounded small mb-1">On Process</p>
-                                        <p class="small font-weight-bold text-center"><i class="feather-clock"></i>
-                                            <?=$item['date'] ?></p>
-                                    </div>
-                                </div>
-                                <div class="d-flex pt-3">
-                                    <div class="small">
-                                    <?php
-                                                $names = product_name($_SESSION['user']['user_id']);
-                                                foreach($names as $name) :
-                                        ?>
-                                        <p class="text- font-weight-bold mb-0">Gulab Jamun x <?=$name['product_name']?></p>
-                                        <?php
+                                    <div class="d-flex pt-3">
+                                        <div class="small">
+                                            <?php
+                                            $names = product_name($_SESSION['user']['user_id']);
+                                            foreach ($names as $name) :
+                                            ?>
+                                                <p class="text- font-weight-bold mb-0"><?= $name['product_name'] ?> </p>
+                                            <?php
                                             endforeach;
-                                        ?>
-                                    </div>
-                                    <div class="text-muted m-0 ml-auto mr-3 small">Total Payment<br>
-                                        <span class="text-dark font-weight-bold">$<?=$item['alls']?></span>
-                                        
-                                    </div>
-                                    <div class="text-right">
-                                        <a href="status_onprocess.html" class="btn btn-primary px-3">Track</a>
-                                        <a href="contact-us.html" class="btn btn-outline-primary px-3">Help</a>
+                                            ?>
+                                        </div>
+                                        <div class="text-muted m-0 ml-auto mr-3 small">Total Payment<br>
+                                            <span class="text-dark font-weight-bold">$<?= $item['alls'] ?></span>
+
+                                        </div>
+                                        <div class="text-right">
+                                            <a href="status_onprocess.html" class="btn btn-primary px-3">Track</a>
+                                            <a href="contact-us.html" class="btn btn-outline-primary px-3">Help</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
                         <?php
-                            endforeach;
+                        endforeach;
                         ?>
-                        
+
                     </div>
                 </div>
                 <div class="tab-pane fade" id="canceled" role="tabpanel" aria-labelledby="canceled-tab">

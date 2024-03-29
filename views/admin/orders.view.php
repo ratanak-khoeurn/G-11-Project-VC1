@@ -99,7 +99,7 @@ require 'models/order/add.cart.model.php';
       <hr>
       <div class="card_footer" style="width:100%;height:10%;">
         <h4>price:
-          <?= $orders[0]['total_price'] ?> $
+          <?= $orders[0]['alls'] ?> $
         </h4>
         <h4>Phone:
           <?= $orders[0]['phone'] ?>

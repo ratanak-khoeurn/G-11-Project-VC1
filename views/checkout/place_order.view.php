@@ -87,24 +87,24 @@ require 'models/admin/category/category.process.php';
                                                 <div class="form-group">
                                                     <label for="cc-number" class="control-label">CARD NUMBER</label>
 
-                                                    <input id="cc-number" type="tel" name="card_number" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;" required>
+                                                    <input id="cc-number" type="tel" name="card_number" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;">
                                                     <small id="cc-number-error" class="text-danger"><?php echo isset($_SESSION['errors']['card_number']) ? $_SESSION['errors']['card_number'] : ''; ?></small>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <label for="cc-exp" class="control-label">CARD
-                                                                EXPIRY</label>
-                                                            <input name="date_number" id="cc-exp" type="tel" class="input-lg form-control cc-exp" autocomplete="cc-exp" placeholder="&bull;&bull; / &bull;&bull;" required>
-                                                            <small id="cc-number-error" class="text-danger"><?php echo isset($_SESSION['errors']['expiry']) ? $_SESSION['errors']['expiry'] : ''; ?></small>
-
+                                                            <label for="cc-number" class="control-label">CARD NUMBER</label>
+                                                            <input id="cc-number" type="tel" name="card_number" class="input-lg form-control cc-number" autocomplete="cc-number" placeholder="&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;">
+                                                            <small class="text-danger">
+                                                                <?php echo isset($_SESSION['errors']['card_number']) ? $_SESSION['errors']['card_number'] : ''; ?>
+                                                            </small>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label for="cc-cvc" class="control-label">CARD
                                                                 CVC</label>
-                                                            <input name="cvc_number" id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="&bull;&bull;&bull;&bull;" required>
+                                                            <input name="cvc_number" id="cc-cvc" type="tel" class="input-lg form-control cc-cvc" autocomplete="off" placeholder="&bull;&bull;&bull;&bull;">
                                                             <small id="cc-number-error" class="text-danger"><?php echo isset($_SESSION['errors']['cvc']) ? $_SESSION['errors']['cvc'] : ''; ?></small>
                                                         </div>
                                                     </div>
@@ -116,7 +116,7 @@ require 'models/admin/category/category.process.php';
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <button type="submit" style="background-color: #E21B70; color: white" class="btn btn-lg btn-block">Pay Now</button>
+                                                    <button type="submit" style="background-color: #E21B70; color: white" class="btn btn-lg btn-block" name="card" value="cards">Pay Now</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,16 +129,16 @@ require 'models/admin/category/category.process.php';
             </div>
         </div>
         <script>
-    // JavaScript validation functions (as provided earlier)
+            // JavaScript validation functions (as provided earlier)
 
-    function validateForm() {
-        var isValid = true;
-        isValid &= validateCardNumber();
-        isValid &= validateExpiry();
-        isValid &= validateCVV();
-        return isValid;
-    }
-</script>
+            function validateForm() {
+                var isValid = true;
+                isValid &= validateCardNumber();
+                isValid &= validateExpiry();
+                isValid &= validateCVV();
+                return isValid;
+            }
+        </script>
         <div class="osahan-card bg-white overflow-hidden">
             <div class="osahan-card-header" id="headingThree">
                 <h2 class="mb-0">
@@ -153,10 +153,11 @@ require 'models/admin/category/category.process.php';
                     <h6 class="mb-3 mt-0 mb-3 font-weight-bold">Cash</h6>
                     <p class="m-0">Please keep exact change handy to help us serve you better</p>
                     <div class="footer" style="display: flex; justify-content: end; gap:15px ">
-                        <button type="button" class="btn btn-primary" style="background:#E21B70;">Pay on delivery</button>
+                        <button type="submit" class="btn btn-primary" style="background:#E21B70;" name="payment_method" value="cash_on_delivery">Pay on delivery</button>
                     </div>
                 </div>
             </div>
+
         </div>
     </form>
 </div>

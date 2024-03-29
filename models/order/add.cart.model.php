@@ -296,22 +296,22 @@ if (!function_exists('product_name')) {
     }
 }
 if (!function_exists('product_name')) {
-    function product_name($user_id): string
+    function product_name($user_id): array
     {
         global $connection;
-        $statement = $connection->prepare("SELECT restaurants.name AS restaurant_name
-                                           FROM products 
-                                           INNER JOIN orders 
-                                           ON products.id = orders.product_id 
-                                           INNER JOIN restaurants 
-                                           ON orders.res_id = restaurants.id
+        $statement = $connection->prepare("SELECT products.name AS product_name,
+                                                    orders.quantity
+                                           FROM orders
+                                           INNER JOIN products
+                                           ON orders.product_id = products.id
                                            WHERE orders.user_id = :id");
         $statement->bindParam(':id', $user_id, PDO::PARAM_INT);
         $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
-        return $result && isset($result['restaurant_name']) ? $result['restaurant_name'] : '';
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 }
+
 
 
 
